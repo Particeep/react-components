@@ -32,6 +32,7 @@ class Menu extends React.Component<MenuProps, {}> {
             <MenuItem path="/panel">Panel</MenuItem>
             <MenuItem path="/btn">Btn</MenuItem>
             <MenuItem path="/alert">Alert</MenuItem>
+            <MenuItem path="/icons">Icons</MenuItem>
           </List>
         </div>
       </Drawer>

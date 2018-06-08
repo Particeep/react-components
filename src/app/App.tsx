@@ -15,6 +15,7 @@ import PanelDemo from './Panel/PanelDemo';
 import BtnDemo from './Btn/BtnDemo';
 import {BrowserRouter, Link, Route} from 'react-router-dom'
 import AlertDemo from './Alert/AlertDemo';
+import IconsDemo from './Icons/IconsDemo';
 
 const styles = (t: Theme) => createStyles({
   root: {
@@ -73,6 +74,7 @@ class App extends React.Component<AppProps, {}> {
               <Route path="/panel" component={PanelDemo}/>
               <Route path="/btn" component={BtnDemo}/>
               <Route path="/alert" component={AlertDemo}/>
+              <Route path="/icons" component={IconsDemo}/>
             </main>
           </div>
         </div>

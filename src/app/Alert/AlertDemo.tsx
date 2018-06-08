@@ -1,10 +1,6 @@
 import * as React from 'react';
-import Btn from '../../lib/Btn/Btn';
-import Alert from '../../lib/Alert/Alert';
-import Panel from '../../lib/Panel/Panel';
-import {PanelBody, PanelHead} from '../../lib/Panel';
-import AlertAction from '../../lib/Alert/AlertAction';
-import {Button, Icon, IconButton} from '@material-ui/core';
+import {Alert, Panel, PanelBody, PanelHead} from '../../lib';
+import {Button} from '@material-ui/core';
 import Page from '../Page';
 
 class AlertDemo extends React.Component<{}, any> {

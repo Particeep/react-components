@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Panel, PanelBody, PanelFoot, PanelHead} from '../../lib/Panel';
+import {Panel, PanelBody, PanelFoot, PanelHead} from '../../lib';
 import {Button, Icon, IconButton} from '@material-ui/core';
 import Page from '../Page';
 
