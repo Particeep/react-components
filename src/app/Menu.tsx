@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {createStyles, Drawer, List, ListItem, ListItemText, Theme, WithStyles, withStyles} from '@material-ui/core';
 import {Link, Route} from 'react-router-dom'
+import {ReactNode} from 'react';
 
 const styles = (t: Theme) => createStyles({
   drawerPaper: {
@@ -28,18 +29,28 @@ class Menu extends React.Component<MenuProps, {}> {
       >
         <div>
           <List>
-            <ListItem button>
-              <ListItemText>
-                <Link to="/panel">
-                  Panel
-                </Link>
-              </ListItemText>
-            </ListItem>
+            <MenuItem path="/panel">Panel</MenuItem>
+            <MenuItem path="/btn">Btn</MenuItem>
           </List>
         </div>
       </Drawer>
     );
   }
 }
+
+interface MenuItemProps {
+  children: ReactNode;
+  path: string;
+}
+
+const MenuItem = ({children, path}: MenuItemProps) =>
+  <ListItem button>
+    <ListItemText>
+      <Link to={path} style={{display: 'block', height: '100%'}}>
+        {children}
+      </Link>
+    </ListItemText>
+  </ListItem>
+;
 
 export default withStyles(styles)(Menu);

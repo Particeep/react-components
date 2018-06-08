@@ -12,6 +12,7 @@ import {
 } from '@material-ui/core';
 import Menu from './Menu';
 import PanelDemo from './Panel/PanelDemo';
+import BtnDemo from './Btn/BtnDemo';
 import {BrowserRouter, Link, Route} from 'react-router-dom'
 
 const styles = (t: Theme) => createStyles({
@@ -68,7 +69,8 @@ class App extends React.Component<AppProps, {}> {
           <div className={classes.body}>
             <Menu open={this.state.mobileOpen} toggle={this.handleDrawerToggle}/>
             <main className={classes.content}>
-              <Route path="/panel" component={PanelDemo}></Route>
+              <Route path="/panel" component={PanelDemo}/>
+              <Route path="/btn" component={BtnDemo}/>
             </main>
           </div>
         </div>

@@ -10,7 +10,7 @@ class PanelDemo extends React.Component<{}, {}> {
 
   render() {
     return (
-      <Panel isLoading={this.state.isLoading}>
+      <Panel loading={this.state.isLoading}>
         <PanelHead icon="person" action={this.renderPanelActions()}>
           Lizards
         </PanelHead>
@@ -38,3 +38,4 @@ class PanelDemo extends React.Component<{}, {}> {
 }
 
 export default PanelDemo;
+
