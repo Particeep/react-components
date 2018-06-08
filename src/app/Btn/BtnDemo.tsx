@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Btn from '../../lib/Btn/Btn';
+import {Btn} from '../../lib';
 import Page from '../Page';
 
 class BtnDemo extends React.Component<{}, any> {

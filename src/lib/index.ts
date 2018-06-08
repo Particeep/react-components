@@ -1,3 +1,5 @@
-export {Panel} from './Panel';
-export {Btn} from './Btn';
+export * from './Panel';
+export * from './Btn';
+export * from './Alert';
+export * from './icon';
 
