@@ -58,8 +58,6 @@ const styles = (t: Theme) => createStyles({
     textAlign: 'right',
     margin: `${t.spacing.unit} ${t.spacing.unit / 2} ${t.spacing.unit / 2} 0`,
     marginRight: - t.spacing.unit * 2,
-    paddingBottom: t.spacing.unit,
-    alignSelf: 'flex-end',
   }
 });
 
