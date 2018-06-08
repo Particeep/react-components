@@ -8,11 +8,13 @@ const styles = (t: Theme) => createStyles({
   root: {
     display: 'flex',
     flexDirection: 'column',
+    marginBottom: t.spacing.unit * 2,
   },
 
   loader: {
     marginBottom: -5,
-  }
+  },
+
 });
 
 interface PanelProps extends WithStyles<typeof styles> {

@@ -14,7 +14,7 @@ const styles = (t: Theme) => createStyles({
     height: 48,
   }),
   icon: {
-    marginRight: t.spacing.unit
+    marginRight: t.spacing.unit * 2,
   },
   content: {
     flex: 1,
