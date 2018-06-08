@@ -16,7 +16,7 @@ const styles = (t: Theme) => createStyles({
 });
 
 interface PanelProps extends WithStyles<typeof styles> {
-  isLoading?: boolean;
+  loading?: boolean;
   children?: ReactNode;
   className?: string;
 }
@@ -27,7 +27,7 @@ class Panel extends React.Component<PanelProps, {}> {
     const {classes} = this.props;
     return (
       <Card className={`${classes.root} ${this.props.className || ''}`}>
-        {this.props.isLoading && <LinearProgress className={classes.loader}/>}
+        {this.props.loading && <LinearProgress className={classes.loader}/>}
         {this.props.children}
       </Card>
     )
