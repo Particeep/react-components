@@ -1,11 +1,14 @@
 import * as React from 'react';
 import Page from '../Page';
 import {IconSkype} from '../../lib';
-import {createStyles, FormControl, MenuItem, Select, Theme, withStyles} from '@material-ui/core';
+import {createStyles, FormControl, MenuItem, Select, TextField, Theme, withStyles} from '@material-ui/core';
 
 const styles = (t: Theme) => createStyles({
   config: {
-    marginBottom: t.spacing.unit * 2,
+    marginBottom: t.spacing.unit * 4,
+    '& > * ': {
+      marginRight: t.spacing.unit,
+    }
   },
 
   icons: {
@@ -24,10 +27,18 @@ const colors = [
   'Silver',
 ];
 
+const icons = [
+  <IconSkype/>,
+  <IconSkype/>,
+  <IconSkype/>,
+  <IconSkype/>,
+];
+
 class IconsDemo extends React.Component<any, any> {
 
   state = {
     color: colors[0],
+    size: 24,
   };
 
   render() {
@@ -35,18 +46,32 @@ class IconsDemo extends React.Component<any, any> {
     return (
       <Page>
         <div className={classes.config}>
-          <FormControl>
-            <Select value={this.state.color} onChange={e => this.setState({color: e.target.value})}>
-              {colors.map(c => <MenuItem key={c} value={c}>{c}</MenuItem>)}
-            </Select>
-          </FormControl>
+          <TextField
+            select
+            label="Couleur"
+            value={this.state.color}
+            onChange={e => this.setState({color: e.target.value})}
+            SelectProps={{
+              native: true,
+              MenuProps: {
+                className: classes.menu,
+              },
+            }}
+          >
+            {colors.map(c => <option key={c} value={c}>{c}</option>)}
+          </TextField>
+          <TextField
+            label="Taille"
+            type="number"
+            value={this.state.size}
+            onChange={e => this.setState({size: e.target.value})}
+          />
         </div>
 
         <div className={classes.icons} style={{color: this.state.color}}>
-          <IconSkype/>
-          <IconSkype/>
-          <IconSkype/>
-          <IconSkype/>
+          {icons.map((i, index) =>
+            React.cloneElement(i, {key: index, style: {height: this.state.size, width: this.state.size}})
+          )}
         </div>
       </Page>
     )

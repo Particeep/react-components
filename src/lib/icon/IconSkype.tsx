@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {SvgIcon} from '@material-ui/core';
 
-const SkypeIcon = () =>
-  <SvgIcon className="material-icons">
+const SkypeIcon = ({className, ...props}: any) =>
+  <SvgIcon className={'material-icons ' + className || ''} {...props}>
     <svg x="0px" y="0px" width="100%" height="100%" viewBox="0 0 430.123 430.123">
       <g>
         <path id="Skype"
