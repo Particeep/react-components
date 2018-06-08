@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Btn from '../../lib/Btn/Btn';
+import Page from '../Page';
 
 class BtnDemo extends React.Component<{}, any> {
 
@@ -9,7 +10,7 @@ class BtnDemo extends React.Component<{}, any> {
 
   render() {
     return (
-      <div>
+      <Page>
         <Btn loading={this.state.isLoading} onClick={this.upload} color="primary">
           Envoyer
         </Btn>
@@ -25,7 +26,7 @@ class BtnDemo extends React.Component<{}, any> {
           Envoyer
         </Btn>
 
-      </div>
+      </Page>
     )
   }
 
