@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Page from '../Page';
-import {IconSkype} from '../../lib';
-import {createStyles, FormControl, MenuItem, Select, TextField, Theme, withStyles} from '@material-ui/core';
+import {FacebookIcon, IconSkype, LinkedinIcon, TwitterIcon} from '../../lib';
+import {createStyles, TextField, Theme, withStyles} from '@material-ui/core';
 
 const styles = (t: Theme) => createStyles({
   config: {
@@ -13,8 +13,8 @@ const styles = (t: Theme) => createStyles({
 
   icons: {
     '& > * ': {
-      marginRight: t.spacing.unit * 2,
-      marginBottom: t.spacing.unit * 2,
+      marginRight: t.spacing.unit * 4,
+      marginBottom: t.spacing.unit * 4,
     }
   }
 });
@@ -29,13 +29,16 @@ const colors = [
 
 const icons = [
   <IconSkype/>,
+  <FacebookIcon/>,
+  <TwitterIcon/>,
+  <LinkedinIcon/>,
 ];
 
 class IconsDemo extends React.Component<any, any> {
 
   state = {
     color: colors[0],
-    size: 24,
+    size: 42,
   };
 
   render() {
