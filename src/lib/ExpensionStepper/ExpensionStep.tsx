@@ -12,7 +12,7 @@ const styles = (t: Theme) => createStyles({
     }
   },
   header: {
-    padding: `0 ${t.spacing.unit * 3}`,
+    padding: `0 ${t.spacing.unit * 3}px`,
     height: 68,
     display: 'flex',
     alignItems: 'center',
@@ -30,7 +30,7 @@ const styles = (t: Theme) => createStyles({
     overflow: 'hidden',
   },
   content: {
-    padding: `0 ${t.spacing.unit * 3} ${t.spacing.unit * 3} ${t.spacing.unit * 3}`
+    padding: `0 ${t.spacing.unit * 3}px ${t.spacing.unit * 3}px ${t.spacing.unit * 3}px`
   }
 });
 
