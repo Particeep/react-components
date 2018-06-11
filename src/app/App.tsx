@@ -18,6 +18,9 @@ import AlertDemo from './Alert/AlertDemo';
 import IconsDemo from './Icons/IconsDemo';
 import ExpensionStepperDemo from './ExpensionStepper/ExpensionStepperDemo';
 import FenderDemo from './Fender/FenderDemo';
+import InputDateDemo from './InputDate/InputDateDemo';
+import ChipsUploader from '../lib/ChipUploader/ChipsUploader';
+import ChipUploaderDemo from './ChipUploader/ChipsUploaderDemo';
 
 const styles = (t: Theme) => createStyles({
   root: {
@@ -75,10 +78,12 @@ class App extends React.Component<AppProps, {}> {
             <main className={classes.content}>
               <Route path="/panel" component={PanelDemo}/>
               <Route path="/btn" component={BtnDemo}/>
+              <Route path="/chips-uploader" component={ChipUploaderDemo}/>
               <Route path="/alert" component={AlertDemo}/>
               <Route path="/icons" component={IconsDemo}/>
               <Route path="/stepper" component={ExpensionStepperDemo}/>
               <Route path="/fender" component={FenderDemo}/>
+              <Route path="/input-date" component={InputDateDemo}/>
             </main>
           </div>
         </div>
