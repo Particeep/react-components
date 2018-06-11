@@ -17,6 +17,7 @@ import {BrowserRouter, Link, Route} from 'react-router-dom'
 import AlertDemo from './Alert/AlertDemo';
 import IconsDemo from './Icons/IconsDemo';
 import ExpensionStepperDemo from './ExpensionStepper/ExpensionStepperDemo';
+import FenderDemo from './Fender/FenderDemo';
 
 const styles = (t: Theme) => createStyles({
   root: {
@@ -77,6 +78,7 @@ class App extends React.Component<AppProps, {}> {
               <Route path="/alert" component={AlertDemo}/>
               <Route path="/icons" component={IconsDemo}/>
               <Route path="/stepper" component={ExpensionStepperDemo}/>
+              <Route path="/fender" component={FenderDemo}/>
             </main>
           </div>
         </div>

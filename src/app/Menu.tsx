@@ -34,6 +34,7 @@ class Menu extends React.Component<MenuProps, {}> {
             <MenuItem path="/alert">Alert</MenuItem>
             <MenuItem path="/icons">Icons</MenuItem>
             <MenuItem path="/stepper">ExpensionStepper</MenuItem>
+            <MenuItem path="/fender">Fender</MenuItem>
           </List>
         </div>
       </Drawer>
