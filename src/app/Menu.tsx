@@ -31,10 +31,12 @@ class Menu extends React.Component<MenuProps, {}> {
           <List>
             <MenuItem path="/panel">Panel</MenuItem>
             <MenuItem path="/btn">Btn</MenuItem>
+            <MenuItem path="/chips-uploader">ChipsUploader</MenuItem>
             <MenuItem path="/alert">Alert</MenuItem>
             <MenuItem path="/icons">Icons</MenuItem>
             <MenuItem path="/stepper">ExpensionStepper</MenuItem>
             <MenuItem path="/fender">Fender</MenuItem>
+            <MenuItem path="/input-date">InputDate</MenuItem>
           </List>
         </div>
       </Drawer>
