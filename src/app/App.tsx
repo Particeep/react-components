@@ -16,6 +16,7 @@ import BtnDemo from './Btn/BtnDemo';
 import {BrowserRouter, Link, Route} from 'react-router-dom'
 import AlertDemo from './Alert/AlertDemo';
 import IconsDemo from './Icons/IconsDemo';
+import ExpensionStepperDemo from './ExpensionStepper/ExpensionStepperDemo';
 
 const styles = (t: Theme) => createStyles({
   root: {
@@ -75,6 +76,7 @@ class App extends React.Component<AppProps, {}> {
               <Route path="/btn" component={BtnDemo}/>
               <Route path="/alert" component={AlertDemo}/>
               <Route path="/icons" component={IconsDemo}/>
+              <Route path="/stepper" component={ExpensionStepperDemo}/>
             </main>
           </div>
         </div>

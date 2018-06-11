@@ -29,9 +29,6 @@ const colors = [
 
 const icons = [
   <IconSkype/>,
-  <IconSkype/>,
-  <IconSkype/>,
-  <IconSkype/>,
 ];
 
 class IconsDemo extends React.Component<any, any> {
