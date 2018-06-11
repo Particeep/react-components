@@ -23,7 +23,7 @@ class ExpensionStepper extends React.Component<Props, State> {
 
   render() {
     return (
-      <main>
+      <div>
         {React.Children.map(this.props.children, (step: ReactElement<any>, i: number) =>
           React.cloneElement(step, {
             prev: this.prev,
@@ -36,7 +36,7 @@ class ExpensionStepper extends React.Component<Props, State> {
             isLast: i == React.Children.count(this.props.children) - 1
           })
         )}
-      </main>
+      </div>
     );
   }
 

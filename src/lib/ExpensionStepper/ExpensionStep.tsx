@@ -2,6 +2,7 @@ import * as React from 'react';
 import {ReactElement} from 'react';
 import {Collapse, createStyles, Icon, Theme, WithStyles, withStyles} from '@material-ui/core';
 import {colorSuccess} from '../style/color';
+import classNames from 'classnames';
 
 const animationDuration = 300;
 
@@ -16,8 +17,11 @@ const styles = (t: Theme) => createStyles({
     height: 68,
     display: 'flex',
     alignItems: 'center',
-    fontSize: t.typography.title.fontSize,
+    fontSize: t.typography.subheading.fontSize,
     cursor: 'pointer',
+  },
+  headerCurrent: {
+    fontSize: t.typography.title.fontSize,
   },
   i: {
     fontWeight: t.typography.fontWeightMedium,
@@ -30,7 +34,7 @@ const styles = (t: Theme) => createStyles({
     overflow: 'hidden',
   },
   content: {
-    padding: `0 ${t.spacing.unit * 3}px ${t.spacing.unit * 3}px ${t.spacing.unit * 3}px`
+    padding: `0 ${t.spacing.unit * 2}px ${t.spacing.unit * 3}px ${t.spacing.unit * 2}px`
   }
 });
 
@@ -56,8 +60,8 @@ class ExpensionStep extends React.Component<Props, {}> {
   render() {
     const {disabled, free, isCurrent, index, label, component, goTo, classes} = this.props;
     return (
-      <main className={classes.root} ref={node => this.$root = node}>
-        <header className={classes.header} onClick={() => goTo(index)}>
+      <div className={classes.root} ref={node => this.$root = node}>
+        <header className={classNames(classes.header, isCurrent && classes.headerCurrent)} onClick={() => goTo(index)}>
           {!free && !disabled && !isCurrent && <Icon className={classes.i}>check</Icon>}
           {index + 1}. {label}
         </header>
@@ -66,7 +70,7 @@ class ExpensionStep extends React.Component<Props, {}> {
             {React.cloneElement(component, {...this.props})}
           </div>
         </Collapse>
-      </main>
+      </div>
     );
   }
 

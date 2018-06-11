@@ -45,7 +45,7 @@ class IconsDemo extends React.Component<any, any> {
         <div className={classes.config}>
           <TextField
             select
-            label="Couleur"
+            label="Color"
             value={this.state.color}
             onChange={e => this.setState({color: e.target.value})}
             SelectProps={{
@@ -58,7 +58,7 @@ class IconsDemo extends React.Component<any, any> {
             {colors.map(c => <option key={c} value={c}>{c}</option>)}
           </TextField>
           <TextField
-            label="Taille"
+            label="Size"
             type="number"
             value={this.state.size}
             onChange={e => this.setState({size: e.target.value})}

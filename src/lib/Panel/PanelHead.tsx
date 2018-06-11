@@ -33,7 +33,7 @@ class PanelHead extends React.Component<PanelHeadProps, {}> {
   render() {
     const {className, icon, children, action, classes} = this.props;
     return (
-      <main className={`${classes.root} ${className || ''}`}>
+      <div className={`${classes.root} ${className || ''}`}>
         {icon &&
         <Icon className={classes.icon}>{icon}</Icon>
         }
@@ -41,7 +41,7 @@ class PanelHead extends React.Component<PanelHeadProps, {}> {
         <div>
           {action}
         </div>
-      </main>
+      </div>
     )
   }
 }
