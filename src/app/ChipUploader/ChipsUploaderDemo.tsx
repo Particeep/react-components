@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Page from '../Page';
+import {Page} from '../../lib';
 import {ChipsUploader} from '../../lib/ChipUploader';
 import {Panel, PanelBody} from '../../lib/Panel';
 

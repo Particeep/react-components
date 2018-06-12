@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Pick, PickItem} from '../../lib';
-import Page from '../Page';
+import {Page} from '../../lib';
 import {FormControl, InputLabel} from '@material-ui/core';
 
 class PickDemo extends React.Component<{}, {}> {

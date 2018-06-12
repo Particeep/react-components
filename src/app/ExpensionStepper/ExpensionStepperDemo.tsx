@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Page from '../Page';
+import {Page} from '../../lib';
 import {Button, FormControl, TextField} from '@material-ui/core';
 import {Panel} from '../../lib/Panel';
 import {ExpensionStep, ExpensionStepper} from '../../lib/ExpensionStepper';
