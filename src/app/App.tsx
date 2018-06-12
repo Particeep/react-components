@@ -21,6 +21,7 @@ import FenderDemo from './Fender/FenderDemo';
 import InputDateDemo from './InputDate/InputDateDemo';
 import ChipsUploader from '../lib/ChipUploader/ChipsUploader';
 import ChipUploaderDemo from './ChipUploader/ChipsUploaderDemo';
+import PickDemo from './PickDemo/PickDemo';
 
 const styles = (t: Theme) => createStyles({
   root: {
@@ -84,6 +85,7 @@ class App extends React.Component<AppProps, {}> {
               <Route path="/stepper" component={ExpensionStepperDemo}/>
               <Route path="/fender" component={FenderDemo}/>
               <Route path="/input-date" component={InputDateDemo}/>
+              <Route path="/pick" component={PickDemo}/>
             </main>
           </div>
         </div>

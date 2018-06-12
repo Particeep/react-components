@@ -42,7 +42,7 @@ interface Props extends WithStyles<typeof styles> {
   readonly label: string;
   readonly component: ReactElement<any>;
 
-  // Props from ExpensionStepper
+  // AutocompleteItemProps from ExpensionStepper
   readonly prev?: () => void;
   readonly next?: () => void;
   readonly goTo?: (i: number) => void;

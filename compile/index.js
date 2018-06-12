@@ -7427,7 +7427,7 @@ function toComment(sourceMap) {
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  *
- * 
+ *
  */
 
 function makeEmptyFunction(arg) {
@@ -7687,7 +7687,7 @@ keyCode.isEventKey = function isEventKey(event, nameOrCode) {
       // check codes
       var foundNamedKey = codes[nameOrCode.toLowerCase()]
       if (foundNamedKey) { return foundNamedKey === keyCode; }
-    
+
       // check aliases
       var foundNamedKey = aliases[nameOrCode.toLowerCase()]
       if (foundNamedKey) { return foundNamedKey === keyCode; }
@@ -9858,7 +9858,7 @@ module.exports = invariant;
  * LICENSE file in the root directory of this source tree.
  *
  * @typechecks
- * 
+ *
  */
 
 /*eslint-disable no-self-compare */
@@ -10632,7 +10632,7 @@ module.exports = warning;
     (global.hoistNonReactStatics = factory());
 }(this, (function () {
     'use strict';
-    
+
     var REACT_STATICS = {
         childContextTypes: true,
         contextTypes: true,
@@ -10644,7 +10644,7 @@ module.exports = warning;
         propTypes: true,
         type: true
     };
-    
+
     var KNOWN_STATICS = {
         name: true,
         length: true,
@@ -10654,30 +10654,30 @@ module.exports = warning;
         arguments: true,
         arity: true
     };
-    
+
     var defineProperty = Object.defineProperty;
     var getOwnPropertyNames = Object.getOwnPropertyNames;
     var getOwnPropertySymbols = Object.getOwnPropertySymbols;
     var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
     var getPrototypeOf = Object.getPrototypeOf;
     var objectPrototype = getPrototypeOf && getPrototypeOf(Object);
-    
+
     return function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
         if (typeof sourceComponent !== 'string') { // don't hoist over string (html) components
-            
+
             if (objectPrototype) {
                 var inheritedComponent = getPrototypeOf(sourceComponent);
                 if (inheritedComponent && inheritedComponent !== objectPrototype) {
                     hoistNonReactStatics(targetComponent, inheritedComponent, blacklist);
                 }
             }
-            
+
             var keys = getOwnPropertyNames(sourceComponent);
-            
+
             if (getOwnPropertySymbols) {
                 keys = keys.concat(getOwnPropertySymbols(sourceComponent));
             }
-            
+
             for (var i = 0; i < keys.length; ++i) {
                 var key = keys[i];
                 if (!REACT_STATICS[key] && !KNOWN_STATICS[key] && (!blacklist || !blacklist[key])) {
@@ -10687,10 +10687,10 @@ module.exports = warning;
                     } catch (e) {}
                 }
             }
-            
+
             return targetComponent;
         }
-        
+
         return targetComponent;
     };
 })));
@@ -13906,7 +13906,7 @@ module.exports = ExecutionEnvironment;
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  *
- * 
+ *
  */
 
 var isTextNode = __webpack_require__(417);
@@ -30796,7 +30796,7 @@ function wrapMapToPropsConstant(getConstant) {
 // dependsOnOwnProps is used by createMapToPropsProxy to determine whether to pass props as args
 // to the mapToProps function being wrapped. It is also used by makePurePropsSelector to determine
 // whether mapToProps needs to be invoked when props have changed.
-// 
+//
 // A length of one signals that mapToProps does not depend on props from the parent component.
 // A length of zero is assumed to mean mapToProps is getting args via arguments or ...args and
 // therefore not reporting its length accurately..
@@ -30806,16 +30806,16 @@ function getDependsOnOwnProps(mapToProps) {
 
 // Used by whenMapStateToPropsIsFunction and whenMapDispatchToPropsIsFunction,
 // this function wraps mapToProps in a proxy function which does several things:
-// 
+//
 //  * Detects whether the mapToProps function being called depends on props, which
 //    is used by selectorFactory to decide if it should reinvoke on props changes.
-//    
+//
 //  * On first call, handles mapToProps if returns another function, and treats that
 //    new function as the true mapToProps for subsequent calls.
-//    
+//
 //  * On first call, verifies the first result is a plain object, in order to warn
 //    the developer that their mapToProps function is not returning a valid result.
-//    
+//
 function wrapMapToPropsFunc(mapToProps, methodName) {
   return function initProxySelector(dispatch, _ref) {
     var displayName = _ref.displayName;
@@ -59734,17 +59734,17 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
    * Collection of methods that allow declaration and validation of props that are
    * supplied to React components. Example usage:
    *
-   *   var Props = require('ReactPropTypes');
+   *   var AutocompleteItemProps = require('ReactPropTypes');
    *   var MyArticle = React.createClass({
    *     propTypes: {
    *       // An optional string prop named "description".
-   *       description: Props.string,
+   *       description: AutocompleteItemProps.string,
    *
    *       // A required enum prop named "category".
-   *       category: Props.oneOf(['News','Photos']).isRequired,
+   *       category: AutocompleteItemProps.oneOf(['News','Photos']).isRequired,
    *
    *       // A prop named "dialog" that requires an instance of Dialog.
-   *       dialog: Props.instanceOf(Dialog).isRequired
+   *       dialog: AutocompleteItemProps.instanceOf(Dialog).isRequired
    *     },
    *     render: function() { ... }
    *   });
@@ -65856,7 +65856,7 @@ var AsyncUpdates = 1;
   try {
     var nonExtensibleObject = Object.preventExtensions({});
     /* eslint-disable no-new */
-    
+
     /* eslint-enable no-new */
   } catch (e) {
     // TODO: Consider warning about bad polyfills
@@ -71986,7 +71986,7 @@ function setValueForProperty(node, name, value) {
   }
 
   {
-    
+
   }
 }
 
@@ -72001,7 +72001,7 @@ function setValueForAttribute(node, name, value) {
   }
 
   {
-    
+
   }
 }
 
@@ -76651,7 +76651,7 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
   selectorFactory, which has the signature:
 
     (dispatch, options) => (nextState, nextOwnProps) => nextFinalProps
-  
+
   connect passes its args to connectAdvanced as options, which will in turn pass them to
   selectorFactory each time a Connect component instance is instantiated or hot reloaded.
 
@@ -78926,7 +78926,7 @@ var QuestionAutocomplete = /** @class */ (function (_super) {
         };
         _this.handleChange = function (value) {
             var newValue;
-            if (_this.props.multiSelect) {
+            if (_this.props.multiple) {
                 if (_this.props.value.indexOf(value) === -1)
                     newValue = _this.props.value.concat(value);
                 else
@@ -78949,21 +78949,21 @@ var QuestionAutocomplete = /** @class */ (function (_super) {
     }
     QuestionAutocomplete.prototype.render = function () {
         var _this = this;
-        var _a = this.props, value = _a.value, question = _a.question, multiSelect = _a.multiSelect, messages = _a.messages, readonly = _a.readonly;
+        var _a = this.props, value = _a.value, question = _a.question, multiple = _a.multiple, messages = _a.messages, readonly = _a.readonly;
         var anchorEl = this.state.anchorEl;
         return (React.createElement("div", null,
             React.createElement(material_ui_1.FormControl, { onClick: this.open, fullWidth: true },
-                React.createElement(material_ui_1.Input, { value: multiSelect ? value.join(', ') : value, disabled: readonly, multiline: true, rows: "1", rowsMax: "10", endAdornment: React.createElement(material_ui_1.InputAdornment, { position: "end" },
+                React.createElement(material_ui_1.Input, { value: multiple ? value.join(', ') : value, disabled: readonly, multiline: true, rows: "1", rowsMax: "10", endAdornment: React.createElement(material_ui_1.InputAdornment, { position: "end" },
                         React.createElement(material_ui_1.Icon, { className: "Qac_adornment" }, "arrow_drop_down")) })),
             React.createElement(material_ui_1.Menu, { anchorEl: anchorEl, open: Boolean(anchorEl), onClose: this.close },
-                React.createElement("header", { className: 'Qac_Menu_head' + (multiSelect ? ' -withCb' : '') },
-                    multiSelect &&
+                React.createElement("header", { className: 'Qac_Menu_head' + (multiple ? ' -withCb' : '') },
+                    multiple &&
                         React.createElement(material_ui_1.Checkbox, { onChange: this.selectAll, indeterminate: value.length > 0 && value.length < question.possibilities.length, disabled: readonly }),
                     React.createElement("input", { className: "Qac_Menu_input", placeholder: messages.search, onChange: function (e) { return _this.setState({ filter: e.target.value }); } })),
                 React.createElement("div", { className: "Qac_Menu_items" }, this.getFilteredPossibilities().map(function (p) {
                     return React.createElement(Menu_1.MenuItem, { key: p.id, onClick: function () { return _this.handleChange(p.label); }, style: { paddingLeft: 0 }, disabled: readonly },
-                        multiSelect && React.createElement(material_ui_1.Checkbox, { disabled: readonly, checked: value.indexOf(p.label) !== -1 }),
-                        !multiSelect && React.createElement(material_ui_1.Radio, { disabled: readonly, checked: value.indexOf(p.label) !== -1 }),
+                        multiple && React.createElement(material_ui_1.Checkbox, { disabled: readonly, checked: value.indexOf(p.label) !== -1 }),
+                        !multiple && React.createElement(material_ui_1.Radio, { disabled: readonly, checked: value.indexOf(p.label) !== -1 }),
                         p.label);
                 })))));
     };
@@ -79392,7 +79392,7 @@ var Question = /** @class */ (function (_super) {
             case Question_1.QuestionType.CHECKBOX:
                 if (q.possibilities.length < maxPossibilitiesBeforeAutocomplete)
                     return React.createElement(QuestionCheckbox_1.default, __assign({}, props, { validator: this.isCheckboxValid }));
-                return React.createElement(QuestionAutocomplete_1.default, __assign({ multiSelect: true }, props, { validator: this.isCheckboxValid }));
+                return React.createElement(QuestionAutocomplete_1.default, __assign({ multiple: true }, props, { validator: this.isCheckboxValid }));
             case Question_1.QuestionType.DATE:
                 if (this.props.dateFormat)
                     return React.createElement(QuestionDate_1.default, __assign({}, props, { dateFormat: this.props.dateFormat, validator: this.isDateValid }));

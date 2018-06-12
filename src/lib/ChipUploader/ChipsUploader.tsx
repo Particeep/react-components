@@ -66,7 +66,7 @@ interface Props extends WithStyles<typeof styles> {
 }
 
 // TODO(Alex) Fix wierd typing issue (it works for <Btn>)
-// class ChipsUploader extends React.Component<Props & ButtonProps, any> {
+// class ChipsUploader extends React.Component<AutocompleteItemProps & ButtonProps, any> {
 class ChipsUploader extends React.Component<any, any> {
 
   public static defaultProps: Partial<Props> = {
