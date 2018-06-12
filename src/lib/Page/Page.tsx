@@ -7,11 +7,11 @@ const styles = (t: Theme) => createStyles({
     transition: t.transitions.create('all'),
     margin: 'auto',
     opacity: 0,
-    transform: 'translate3d(0, 60px, 0)'
+    transform: 'scale(.94)'
   },
   root_appeared: {
     opacity: 1,
-    transform: 'translate3d(0, 0, 0)',
+    transform: 'scale(1)',
   }
 });
 
