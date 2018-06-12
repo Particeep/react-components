@@ -2,6 +2,7 @@ export * from './Panel';
 export * from './Btn';
 export * from './ChipUploader';
 export * from './Pick';
+export * from './Page';
 export * from './InputDate';
 export * from './Alert';
 export * from './Fender';
