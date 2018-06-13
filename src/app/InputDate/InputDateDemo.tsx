@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Page from '../Page';
+import {Page} from '../../lib';
 import InputDate from '../../lib/InputDate/InputDate';
 
 class InputDateDemo extends React.Component<{}, {}> {
