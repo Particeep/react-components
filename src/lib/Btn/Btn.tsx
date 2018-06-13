@@ -23,7 +23,7 @@ interface Props extends WithStyles<typeof styles> {
   icon?: string;
 }
 
-class Panel extends React.Component<Props & ButtonProps, {}> {
+class Btn extends React.Component<Props & ButtonProps, {}> {
 
   render() {
     const {loading, classes, children, disabled, icon, ...props} = this.props;
@@ -41,4 +41,4 @@ class Panel extends React.Component<Props & ButtonProps, {}> {
   }
 }
 
-export default withStyles(styles)(Panel);
+export default withStyles(styles)(Btn);

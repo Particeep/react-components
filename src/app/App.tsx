@@ -22,6 +22,7 @@ import InputDateDemo from './InputDate/InputDateDemo';
 import ChipsUploader from '../lib/ChipUploader/ChipsUploader';
 import ChipUploaderDemo from './ChipUploader/ChipsUploaderDemo';
 import PickDemo from './PickDemo/PickDemo';
+import BtnConfirmDemo from './BtnConfirm/BtnConfirmDemo';
 
 const styles = (t: Theme) => createStyles({
   root: {
@@ -79,6 +80,7 @@ class App extends React.Component<AppProps, {}> {
             <main className={classes.content}>
               <Route path="/panel" component={PanelDemo}/>
               <Route path="/btn" component={BtnDemo}/>
+              <Route path="/btn-confirm" component={BtnConfirmDemo}/>
               <Route path="/chips-uploader" component={ChipUploaderDemo}/>
               <Route path="/alert" component={AlertDemo}/>
               <Route path="/icons" component={IconsDemo}/>
