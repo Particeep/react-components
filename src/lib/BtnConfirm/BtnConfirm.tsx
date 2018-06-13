@@ -53,7 +53,7 @@ class BtnConfirm extends React.Component<Props, any> {
     );
   }
 
-  confirm = () => {
+  private confirm = () => {
     this.props.onConfirm();
     this.setState({open: false});
   }
