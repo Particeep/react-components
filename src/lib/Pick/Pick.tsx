@@ -84,6 +84,7 @@ class Pick extends React.Component<Props, State> {
           <header className={classNames(classes.menu_head, multiple && classes.menu_headWithCb)}>
             {multiple &&
             <Checkbox
+              checked={value.length === optionsCount}
               onChange={this.selectAll}
               indeterminate={value.length > 0 && value.length < optionsCount}
               disabled={readonly}/>
