@@ -1,5 +1,5 @@
 {
-  "name": "react-component",
+  "name": "react-components",
   "version": "0.0.1",
   "description": "Bunch of components often used in Particeep applications",
   "main": "compile/index.js",
