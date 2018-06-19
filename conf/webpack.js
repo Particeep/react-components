@@ -16,13 +16,6 @@ module.exports = {
         rules: [
             { test: /\.tsx?$/, loader: "ts-loader" },
             {
-                test: /\.jsx?$/,
-                include: path.resolve('./src'),
-                exclude: /(node_modules|bower_components|build)/,
-                use: {
-                    loader: 'babel-loader',
-                },
-            }, {
                 test: /\.css$/,
                 loader: 'style-loader!css-loader?importLoaders=1'
             }, {
