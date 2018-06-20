@@ -4,7 +4,7 @@ const path = require('path');
 
 module.exports = {
   resolve: {
-    extensions: [".ts", ".tsx", ".json"]
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".json"]
   },
   plugins: [
     new HtmlWebpackPlugin({
