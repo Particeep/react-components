@@ -8,7 +8,7 @@ class InputDateDemo extends React.Component<{}, {}> {
     const style = {marginRight: 16};
     return (
       <Page>
-        <InputDate format="dd/mm/yyyy" style={style}/>
+        <InputDate format="dd/mm/yyyy" style={style} value="11/12/1991"/>
         <InputDate format="yyyy-mm-dd" style={style}/>
         <InputDate format="yyyy.mm.dd" style={style}/>
       </Page>
@@ -17,4 +17,3 @@ class InputDateDemo extends React.Component<{}, {}> {
 }
 
 export default InputDateDemo;
-
