@@ -13,13 +13,12 @@ import {
 import Menu from './Menu';
 import PanelDemo from './Panel/PanelDemo';
 import BtnDemo from './Btn/BtnDemo';
-import {BrowserRouter, Link, Route} from 'react-router-dom'
+import {BrowserRouter, Route} from 'react-router-dom'
 import AlertDemo from './Alert/AlertDemo';
 import IconsDemo from './Icons/IconsDemo';
 import ExpensionStepperDemo from './ExpensionStepper/ExpensionStepperDemo';
 import FenderDemo from './Fender/FenderDemo';
 import InputDateDemo from './InputDate/InputDateDemo';
-import ChipsUploader from '../lib/ChipUploader/ChipsUploader';
 import ChipUploaderDemo from './ChipUploader/ChipsUploaderDemo';
 import PickDemo from './PickDemo/PickDemo';
 import BtnConfirmDemo from './BtnConfirm/BtnConfirmDemo';
@@ -56,7 +55,7 @@ class App extends React.Component<AppProps, {}> {
   };
 
   render() {
-    const {classes, theme} = this.props;
+    const {classes} = this.props;
     return (
       <BrowserRouter>
         <div className={classes.root}>

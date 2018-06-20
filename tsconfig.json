@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
+    "allowJs": false,
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "suppressImplicitAnyIndexErrors": true,
     "sourceMap": true,
     "noImplicitAny": false,
     "skipLibCheck": true,
