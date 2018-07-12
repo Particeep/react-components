@@ -86707,7 +86707,8 @@ var styles = function (t) { return core_1.createStyles({
         transition: t.transitions.create('all'),
         margin: 'auto',
         opacity: 0,
-        transform: 'scale(.94)'
+        transform: 'scale(.94)',
+        maxWidth: 900,
     },
     root_appeared: {
         opacity: 1,
@@ -86724,8 +86725,8 @@ var Page = /** @class */ (function (_super) {
         return _this;
     }
     Page.prototype.render = function () {
-        var _a = this.props, classes = _a.classes, children = _a.children, width = _a.width;
-        return (React.createElement("div", { className: classnames_1.default(classes.root, this.state.appeared && classes.root_appeared), style: { maxWidth: width } }, children));
+        var _a = this.props, classes = _a.classes, children = _a.children, width = _a.width, animated = _a.animated, className = _a.className;
+        return (React.createElement("div", { className: classnames_1.default(classes.root, (!animated || this.state.appeared) && classes.root_appeared, className), style: width && { maxWidth: width } }, children));
     };
     Page.prototype.componentDidMount = function () {
         var _this = this;
@@ -86733,7 +86734,6 @@ var Page = /** @class */ (function (_super) {
             setTimeout(function () { return _this.setState({ appeared: true }); });
     };
     Page.defaultProps = {
-        width: 900,
         animated: true,
     };
     return Page;
