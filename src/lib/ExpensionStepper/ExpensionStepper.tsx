@@ -7,6 +7,7 @@ const styles = (t: Theme) => createStyles({});
 
 
 interface Props extends WithStyles<typeof styles> {
+  readonly className?: string;
   readonly free?: boolean;
   readonly onNext?: (index: number, data?: any) => void;
   readonly onEnd?: () => void;
@@ -21,8 +22,9 @@ interface State {
 class ExpensionStepper extends React.Component<Props, State> {
 
   render() {
+    const {className, ...other} = this.props;
     return (
-      <div>
+      <div className={className} {...other}>
         {React.Children.map(this.props.children, (step: ReactElement<ExpensionStepProps>, i: number) =>
           React.cloneElement(step, {
             prev: this.prev,
