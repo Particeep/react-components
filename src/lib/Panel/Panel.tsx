@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {LinearProgress} from '@material-ui/core';
 import {ReactNode} from 'react';
+import {LinearProgress} from '@material-ui/core/es/index';
 import {Card, createStyles, Theme, withStyles, WithStyles} from '@material-ui/core';
 
 

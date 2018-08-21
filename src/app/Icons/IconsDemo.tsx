@@ -1,6 +1,5 @@
 import * as React from 'react';
-import {Page} from '../../lib';
-import {FacebookIcon, IconSkype, LinkedinIcon, TwitterIcon} from '../../lib';
+import {FacebookIcon, IconSkype, LinkedinIcon, Page, TwitterIcon} from '../../lib';
 import {createStyles, TextField, Theme, withStyles} from '@material-ui/core';
 
 const styles = (t: Theme) => createStyles({

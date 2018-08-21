@@ -1,6 +1,5 @@
 import * as React from 'react';
-import {Btn, BtnConfirm} from '../../lib';
-import {Page} from '../../lib';
+import {Btn, BtnConfirm, Page} from '../../lib';
 import {Menu, MenuItem} from '@material-ui/core';
 
 class BtnConfirmDemo extends React.Component<{}, any> {
