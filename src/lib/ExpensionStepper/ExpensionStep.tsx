@@ -68,7 +68,7 @@ class ExpensionStep extends React.Component<Props, {}> {
         </header>
         <Collapse in={isCurrent} timeout={animationDuration} className={classes.body}>
           <div className={classes.content}>
-            {React.cloneElement(component, {...this.props})}
+            {React.cloneElement(component, {disabled, done, free, isCurrent, index, goTo})}
           </div>
         </Collapse>
       </div>
