@@ -61582,10 +61582,10 @@ var ExpensionStep = /** @class */ (function (_super) {
     }
     ExpensionStep.prototype.render = function () {
         var _this = this;
-        var _a = this.props, disabled = _a.disabled, free = _a.free, isCurrent = _a.isCurrent, index = _a.index, label = _a.label, component = _a.component, goTo = _a.goTo, classes = _a.classes;
+        var _a = this.props, disabled = _a.disabled, done = _a.done, free = _a.free, isCurrent = _a.isCurrent, index = _a.index, label = _a.label, component = _a.component, goTo = _a.goTo, classes = _a.classes;
         return (React.createElement("div", { className: classes.root, ref: function (node) { return _this.$root = node; } },
             React.createElement("header", { className: classnames_1.default(classes.header, isCurrent && classes.headerCurrent), onClick: function () { return goTo(index); } },
-                !free && !disabled && !isCurrent && React.createElement(core_1.Icon, { className: classes.i }, "check"),
+                done && !free && !isCurrent && React.createElement(core_1.Icon, { className: classes.i }, "check"),
                 index + 1,
                 ". ",
                 label),
@@ -61635,9 +61635,9 @@ var ExpensionStepper = /** @class */ (function (_super) {
                 _this.setState({ current: _this.state.current - 1 });
             }
         };
-        _this.next = function () {
+        _this.next = function (data) {
             if (_this.state.current < React.Children.count(_this.props.children) - 1) {
-                _this.props.onNext && _this.props.onNext(_this.state.current);
+                _this.props.onNext && _this.props.onNext(_this.state.current, data);
                 _this.setState({
                     current: _this.state.current + 1,
                     reached: Math.max(_this.state.reached, _this.state.current + 1)
@@ -61663,6 +61663,7 @@ var ExpensionStepper = /** @class */ (function (_super) {
                 free: _this.props.free,
                 index: i,
                 disabled: i > _this.state.reached,
+                done: i < _this.state.reached,
                 isCurrent: i == _this.state.current,
                 isLast: i == React.Children.count(_this.props.children) - 1
             });

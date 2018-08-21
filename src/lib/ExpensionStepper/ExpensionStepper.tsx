@@ -9,7 +9,7 @@ const styles = (t: Theme) => createStyles({
 
 interface Props extends WithStyles<typeof styles> {
   readonly free?: boolean;
-  readonly onNext?: (index: number) => void;
+  readonly onNext?: (index: number, data?: any) => void;
   readonly onEnd?: () => void;
   readonly children?: ReactNode;
 }
@@ -32,6 +32,7 @@ class ExpensionStepper extends React.Component<Props, State> {
             free: this.props.free,
             index: i,
             disabled: i > this.state.reached,
+            done: i < this.state.reached,
             isCurrent: i == this.state.current,
             isLast: i == React.Children.count(this.props.children) - 1
           })
@@ -58,9 +59,9 @@ class ExpensionStepper extends React.Component<Props, State> {
     }
   };
 
-  next = () => {
+  next = (data?: any) => {
     if (this.state.current < React.Children.count(this.props.children) - 1) {
-      this.props.onNext && this.props.onNext(this.state.current);
+      this.props.onNext && this.props.onNext(this.state.current, data);
       this.setState({
         current: this.state.current + 1,
         reached: Math.max(this.state.reached, this.state.current + 1)
