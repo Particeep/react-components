@@ -38,11 +38,8 @@ const styles = (t: Theme) => createStyles({
   }
 });
 
-interface Props extends WithStyles<typeof styles> {
-  readonly label: string;
-  readonly component: ReactElement<any>;
 
-  // AutocompleteItemProps from ExpensionStepper
+export interface ExpensionStepProps {
   readonly prev?: () => void;
   readonly next?: () => void;
   readonly goTo?: (i: number) => void;
@@ -54,12 +51,17 @@ interface Props extends WithStyles<typeof styles> {
   readonly isLast?: boolean;
 }
 
+interface Props extends ExpensionStepProps, WithStyles<typeof styles> {
+  readonly label: string;
+  readonly component: ReactElement<any>;
+}
+
 class ExpensionStep extends React.Component<Props, {}> {
 
   private $root: HTMLElement;
 
   render() {
-    const {disabled, done, free, isCurrent, index, label, component, goTo, classes} = this.props;
+    const {disabled, done, free, isCurrent, index, label, component, goTo, classes, prev, next, isLast} = this.props;
     return (
       <div className={classes.root} ref={node => this.$root = node}>
         <header className={classNames(classes.header, isCurrent && classes.headerCurrent)} onClick={() => goTo(index)}>
@@ -68,7 +70,7 @@ class ExpensionStep extends React.Component<Props, {}> {
         </header>
         <Collapse in={isCurrent} timeout={animationDuration} className={classes.body}>
           <div className={classes.content}>
-            {React.cloneElement(component, {disabled, done, free, isCurrent, index, goTo})}
+            {React.cloneElement(component, {prev, next, goTo, free, index, disabled, done, isCurrent, isLast})}
           </div>
         </Collapse>
       </div>
