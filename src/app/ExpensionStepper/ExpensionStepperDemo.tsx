@@ -3,6 +3,7 @@ import {Page} from '../../lib';
 import {Button, FormControl, TextField} from '@material-ui/core';
 import {Panel} from '../../lib/Panel';
 import {ExpensionStep, ExpensionStepper} from '../../lib/ExpensionStepper';
+import {ExpensionStepProps} from '../../lib/ExpensionStepper/ExpensionStep';
 
 class ExpensionStepperDemo extends React.Component<{}, {}> {
 
@@ -23,7 +24,7 @@ class ExpensionStepperDemo extends React.Component<{}, {}> {
   }
 }
 
-class Step1 extends React.Component<any, any> {
+class Step1 extends React.Component<ExpensionStepProps, any> {
 
   state = {
     firstName: '',
@@ -56,7 +57,7 @@ class Step1 extends React.Component<any, any> {
   }
 }
 
-class Step2 extends React.Component<any, any> {
+class Step2 extends React.Component<ExpensionStepProps, any> {
 
   state = {
     birthDate: '',
