@@ -10,7 +10,9 @@ class ExpensionStepperDemo extends React.Component<{}, {}> {
     return (
       <Page>
         <Panel>
-          <ExpensionStepper onEnd={() => alert('Gratz !')}>
+          <ExpensionStepper
+            onEnd={() => alert('Gratz !')}
+            onNext={(i: number, data: any) => console.log(`Step ${i} done and say:`, data)}>
             <ExpensionStep label="Step 1" component={<Step1/>}/>
             <ExpensionStep label="Step 2" component={<Step2/>}/>
           </ExpensionStepper>
@@ -80,7 +82,7 @@ class Step2 extends React.Component<any, any> {
 const Actions = (props: any) =>
   <div style={{marginTop: 24, textAlign: 'right'}}>
     {props.index > 0 && <Button color="primary" onClick={props.prev}>Previous</Button>}
-    <Button color="primary" onClick={props.next} disabled={!props.canNext}>Next</Button>
+    <Button color="primary" onClick={() => props.next('some data to pass to onNext() callback')} disabled={!props.canNext}>Next</Button>
   </div>
 ;
 
