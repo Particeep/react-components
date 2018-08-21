@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {ReactElement, ReactNode} from 'react';
 import {createStyles, Theme, withStyles, WithStyles} from '@material-ui/core';
+import {ExpensionStepProps} from './index';
 
 const styles = (t: Theme) => createStyles({
 
@@ -11,7 +12,7 @@ interface Props extends WithStyles<typeof styles> {
   readonly free?: boolean;
   readonly onNext?: (index: number, data?: any) => void;
   readonly onEnd?: () => void;
-  readonly children?: ReactNode;
+  readonly children?: ReactElement<ExpensionStepProps>[];
 }
 
 interface State {
@@ -24,7 +25,7 @@ class ExpensionStepper extends React.Component<Props, State> {
   render() {
     return (
       <div>
-        {React.Children.map(this.props.children, (step: ReactElement<any>, i: number) =>
+        {React.Children.map(this.props.children, (step: ReactElement<ExpensionStepProps>, i: number) =>
           React.cloneElement(step, {
             prev: this.prev,
             next: this.next,
