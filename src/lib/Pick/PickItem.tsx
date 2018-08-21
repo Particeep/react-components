@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {Checkbox, MenuItem, Radio} from '@material-ui/core';
 import {ReactNode} from 'react';
+import {Checkbox, MenuItem, Radio} from '@material-ui/core';
 
 export interface AutocompleteItemProps {
   multiple?: boolean

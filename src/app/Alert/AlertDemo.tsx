@@ -1,7 +1,6 @@
 import * as React from 'react';
-import {Alert, Panel, PanelBody, PanelHead} from '../../lib';
+import {Alert, Page, Panel, PanelBody, PanelHead} from '../../lib';
 import {Button} from '@material-ui/core';
-import {Page} from '../../lib';
 
 class AlertDemo extends React.Component<{}, any> {
 

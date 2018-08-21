@@ -1,7 +1,7 @@
 import * as React from 'react';
+import {ReactNode} from 'react';
 import withStyles from '@material-ui/core/es/styles/withStyles';
 import {createStyles, Theme, WithStyles} from '@material-ui/core';
-import {ReactNode} from 'react';
 
 const styles = (t: Theme) => createStyles({
   root: t.mixins.gutters({

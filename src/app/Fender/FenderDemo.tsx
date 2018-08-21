@@ -1,7 +1,6 @@
 import * as React from 'react';
-import {Fender, Panel, PanelBody} from '../../lib';
+import {Fender, Page, Panel, PanelBody} from '../../lib';
 import {Icon, IconButton} from '@material-ui/core';
-import {Page} from '../../lib';
 
 class FenderDemo extends React.Component<{}, {}> {
 

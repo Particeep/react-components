@@ -1,7 +1,7 @@
 import * as React from 'react';
+import {ReactNode} from 'react';
 import {createStyles, Drawer, List, ListItem, ListItemText, Theme, WithStyles, withStyles} from '@material-ui/core';
 import {Link, Route} from 'react-router-dom'
-import {ReactNode} from 'react';
 
 const styles = (t: Theme) => createStyles({
   drawerPaper: {
