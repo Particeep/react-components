@@ -1,11 +1,9 @@
 import * as React from 'react';
-import {ReactElement, ReactNode} from 'react';
+import {ReactElement} from 'react';
 import {createStyles, Theme, withStyles, WithStyles} from '@material-ui/core';
 import {ExpensionStepProps} from './index';
 
-const styles = (t: Theme) => createStyles({
-
-});
+const styles = (t: Theme) => createStyles({});
 
 
 interface Props extends WithStyles<typeof styles> {
