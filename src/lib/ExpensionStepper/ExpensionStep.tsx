@@ -49,6 +49,7 @@ interface Props extends WithStyles<typeof styles> {
   readonly free?: boolean;
   readonly index?: number;
   readonly disabled?: boolean;
+  readonly done?: boolean;
   readonly isCurrent?: boolean;
   readonly isLast?: boolean;
 }
@@ -58,11 +59,11 @@ class ExpensionStep extends React.Component<Props, {}> {
   private $root: HTMLElement;
 
   render() {
-    const {disabled, free, isCurrent, index, label, component, goTo, classes} = this.props;
+    const {disabled, done, free, isCurrent, index, label, component, goTo, classes} = this.props;
     return (
       <div className={classes.root} ref={node => this.$root = node}>
         <header className={classNames(classes.header, isCurrent && classes.headerCurrent)} onClick={() => goTo(index)}>
-          {!free && !disabled && !isCurrent && <Icon className={classes.i}>check</Icon>}
+          {done && !free && !isCurrent && <Icon className={classes.i}>check</Icon>}
           {index + 1}. {label}
         </header>
         <Collapse in={isCurrent} timeout={animationDuration} className={classes.body}>

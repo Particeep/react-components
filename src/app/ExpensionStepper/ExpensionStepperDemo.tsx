@@ -15,6 +15,7 @@ class ExpensionStepperDemo extends React.Component<{}, {}> {
             onNext={(i: number, data: any) => console.log(`Step ${i} done and say:`, data)}>
             <ExpensionStep label="Step 1" component={<Step1/>}/>
             <ExpensionStep label="Step 2" component={<Step2/>}/>
+            <ExpensionStep label="Step 2" component={<Step2/>}/>
           </ExpensionStepper>
         </Panel>
       </Page>
