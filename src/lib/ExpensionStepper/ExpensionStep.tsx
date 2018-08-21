@@ -52,6 +52,7 @@ export interface ExpensionStepProps {
 }
 
 interface Props extends ExpensionStepProps, WithStyles<typeof styles> {
+  readonly className?: string;
   readonly label: string;
   readonly component: ReactElement<any>;
 }
@@ -61,9 +62,11 @@ class ExpensionStep extends React.Component<Props, {}> {
   private $root: HTMLElement;
 
   render() {
-    const {disabled, done, free, isCurrent, index, label, component, goTo, classes, prev, next, isLast} = this.props;
+    const {
+      disabled, done, free, isCurrent, index, label, component, goTo, classes, prev, next, isLast, className, ...other
+    } = this.props;
     return (
-      <div className={classes.root} ref={node => this.$root = node}>
+      <div className={classNames(classes.root, className)} ref={node => this.$root = node} {...other}>
         <header className={classNames(classes.header, isCurrent && classes.headerCurrent)} onClick={() => goTo(index)}>
           {done && !free && !isCurrent && <Icon className={classes.i}>check</Icon>}
           {index + 1}. {label}
