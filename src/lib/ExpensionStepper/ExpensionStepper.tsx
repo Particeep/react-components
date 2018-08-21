@@ -32,6 +32,7 @@ class ExpensionStepper extends React.Component<Props, State> {
             free: this.props.free,
             index: i,
             disabled: i > this.state.reached,
+            done: i < this.state.reached,
             isCurrent: i == this.state.current,
             isLast: i == React.Children.count(this.props.children) - 1
           })
