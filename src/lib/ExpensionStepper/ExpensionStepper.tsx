@@ -22,7 +22,7 @@ interface State {
 class ExpensionStepper extends React.Component<Props, State> {
 
   render() {
-    const {className, ...other} = this.props;
+    const {className, free, onNext, onEnd, children, ...other} = this.props;
     return (
       <div className={className} {...other}>
         {React.Children.map(this.props.children, (step: ReactElement<ExpensionStepProps>, i: number) =>

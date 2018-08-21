@@ -61526,6 +61526,23 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) if (e.indexOf(p[i]) < 0)
+            t[p[i]] = s[p[i]];
+    return t;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(1);
 var core_1 = __webpack_require__(16);
@@ -61574,8 +61591,8 @@ var ExpensionStep = /** @class */ (function (_super) {
     }
     ExpensionStep.prototype.render = function () {
         var _this = this;
-        var _a = this.props, disabled = _a.disabled, done = _a.done, free = _a.free, isCurrent = _a.isCurrent, index = _a.index, label = _a.label, component = _a.component, goTo = _a.goTo, classes = _a.classes, prev = _a.prev, next = _a.next, isLast = _a.isLast;
-        return (React.createElement("div", { className: classes.root, ref: function (node) { return _this.$root = node; } },
+        var _a = this.props, disabled = _a.disabled, done = _a.done, free = _a.free, isCurrent = _a.isCurrent, index = _a.index, label = _a.label, component = _a.component, goTo = _a.goTo, classes = _a.classes, prev = _a.prev, next = _a.next, isLast = _a.isLast, className = _a.className, other = __rest(_a, ["disabled", "done", "free", "isCurrent", "index", "label", "component", "goTo", "classes", "prev", "next", "isLast", "className"]);
+        return (React.createElement("div", __assign({ className: classnames_1.default(classes.root, className), ref: function (node) { return _this.$root = node; } }, other),
             React.createElement("header", { className: classnames_1.default(classes.header, isCurrent && classes.headerCurrent), onClick: function () { return goTo(index); } },
                 done && !free && !isCurrent && React.createElement(core_1.Icon, { className: classes.i }, "check"),
                 index + 1,
@@ -61610,6 +61627,23 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) if (e.indexOf(p[i]) < 0)
+            t[p[i]] = s[p[i]];
+    return t;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(1);
 var core_1 = __webpack_require__(16);
@@ -61647,7 +61681,8 @@ var ExpensionStepper = /** @class */ (function (_super) {
     }
     ExpensionStepper.prototype.render = function () {
         var _this = this;
-        return (React.createElement("div", null, React.Children.map(this.props.children, function (step, i) {
+        var _a = this.props, className = _a.className, free = _a.free, onNext = _a.onNext, onEnd = _a.onEnd, children = _a.children, other = __rest(_a, ["className", "free", "onNext", "onEnd", "children"]);
+        return (React.createElement("div", __assign({ className: className }, other), React.Children.map(this.props.children, function (step, i) {
             return React.cloneElement(step, {
                 prev: _this.prev,
                 next: _this.next,
