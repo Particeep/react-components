@@ -12,7 +12,10 @@ class ExpensionStepperDemo extends React.Component<{}, {}> {
       <Page>
         <Panel>
           <ExpensionStepper
-            onEnd={() => alert('Gratz !')}
+            onEnd={(data) => {
+              console.log(`Final step done and say: ${data}`);
+              alert('Gratz !');
+            }}
             onNext={(i: number, data: any) => console.log(`Step ${i} done and say:`, data)}>
             <ExpensionStep label="Step 1" component={<Step1/>}/>
             <ExpensionStep label="Step 2" component={<Step2/>}/>
