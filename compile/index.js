@@ -61670,7 +61670,7 @@ var ExpensionStepper = /** @class */ (function (_super) {
                 });
             }
             else if (_this.props.onEnd) {
-                _this.props.onEnd();
+                _this.props.onEnd(data);
             }
         };
         _this.state = {
