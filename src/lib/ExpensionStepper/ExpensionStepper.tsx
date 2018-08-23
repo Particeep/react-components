@@ -10,7 +10,7 @@ interface Props extends WithStyles<typeof styles> {
   readonly className?: string;
   readonly free?: boolean;
   readonly onNext?: (index: number, data?: any) => void;
-  readonly onEnd?: () => void;
+  readonly onEnd?: (data?: any) => void;
   readonly children?: ReactElement<ExpensionStepProps>[];
 }
 
@@ -68,7 +68,7 @@ class ExpensionStepper extends React.Component<Props, State> {
         reached: Math.max(this.state.reached, this.state.current + 1)
       });
     } else if (this.props.onEnd) {
-      this.props.onEnd();
+      this.props.onEnd(data);
     }
   };
 }
