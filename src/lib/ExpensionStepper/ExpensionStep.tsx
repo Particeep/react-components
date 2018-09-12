@@ -34,7 +34,7 @@ const styles = (t: Theme) => createStyles({
     overflow: 'hidden',
   },
   content: {
-    padding: `0 ${t.spacing.unit * 2}px ${t.spacing.unit * 2}px ${t.spacing.unit * 2}px`
+    padding: `0 ${t.spacing.unit * 3}px ${t.spacing.unit * 3}px ${t.spacing.unit * 3}px`
   }
 });
 
