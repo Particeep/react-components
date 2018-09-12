@@ -13,15 +13,21 @@ const styles = (t: Theme) => createStyles({
     }
   },
   header: {
+    transition: t.transitions.create('all'),
     padding: `0 ${t.spacing.unit * 3}px`,
     height: 68,
     display: 'flex',
     alignItems: 'center',
     fontSize: t.typography.subheading.fontSize,
-    cursor: 'pointer',
   },
   headerCurrent: {
     fontSize: t.typography.title.fontSize,
+  },
+  headerClickable: {
+    cursor: 'pointer',
+    '&:hover': {
+      background: t.palette.background.default,
+    }
   },
   i: {
     fontWeight: t.typography.fontWeightMedium,
@@ -67,7 +73,9 @@ class ExpensionStep extends React.Component<Props, {}> {
     } = this.props;
     return (
       <div className={classNames(classes.root, className)} ref={node => this.$root = node} {...other}>
-        <header className={classNames(classes.header, isCurrent && classes.headerCurrent)} onClick={() => goTo(index)}>
+        <header
+          className={classNames(classes.header, isCurrent && classes.headerCurrent, this.isClickable() && classes.headerClickable)}
+          onClick={() => goTo(index)}>
           {done && !isCurrent && <Icon className={classes.i}>check</Icon>}
           {!free && <>{index + 1}. </>}{label}
         </header>
@@ -85,9 +93,14 @@ class ExpensionStep extends React.Component<Props, {}> {
       setTimeout(() => this.scrollTop(), animationDuration);
   }
 
+  private isClickable = () => {
+    const {isCurrent, disabled} = this.props;
+    return !isCurrent && !disabled;
+  };
+
   private scrollTop = () => {
     this.$root.scrollIntoView({behavior: 'smooth', block: 'start'});
-  }
+  };
 }
 
 export default withStyles(styles)(ExpensionStep);
