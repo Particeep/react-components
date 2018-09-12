@@ -69,7 +69,7 @@ class ExpensionStep extends React.Component<Props, {}> {
       <div className={classNames(classes.root, className)} ref={node => this.$root = node} {...other}>
         <header className={classNames(classes.header, isCurrent && classes.headerCurrent)} onClick={() => goTo(index)}>
           {done && !isCurrent && <Icon className={classes.i}>check</Icon>}
-          {index + 1}. {label}
+          {!free && <>{index + 1}. </>}{label}
         </header>
         <Collapse in={isCurrent} timeout={animationDuration} className={classes.body}>
           <div className={classes.content}>
