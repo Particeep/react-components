@@ -88556,15 +88556,21 @@ var styles = function (t) { return core_1.createStyles({
         }
     },
     header: {
+        transition: t.transitions.create('all'),
         padding: "0 " + t.spacing.unit * 3 + "px",
         height: 68,
         display: 'flex',
         alignItems: 'center',
         fontSize: t.typography.subheading.fontSize,
-        cursor: 'pointer',
     },
     headerCurrent: {
         fontSize: t.typography.title.fontSize,
+    },
+    headerClickable: {
+        cursor: 'pointer',
+        '&:hover': {
+            background: t.palette.background.default,
+        }
     },
     i: {
         fontWeight: t.typography.fontWeightMedium,
@@ -88584,6 +88590,10 @@ var ExpensionStep = /** @class */ (function (_super) {
     __extends(ExpensionStep, _super);
     function ExpensionStep() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.isClickable = function () {
+            var _a = _this.props, isCurrent = _a.isCurrent, disabled = _a.disabled;
+            return !isCurrent && !disabled;
+        };
         _this.scrollTop = function () {
             _this.$root.scrollIntoView({ behavior: 'smooth', block: 'start' });
         };
@@ -88593,7 +88603,7 @@ var ExpensionStep = /** @class */ (function (_super) {
         var _this = this;
         var _a = this.props, disabled = _a.disabled, done = _a.done, free = _a.free, isCurrent = _a.isCurrent, index = _a.index, label = _a.label, component = _a.component, goTo = _a.goTo, classes = _a.classes, prev = _a.prev, next = _a.next, isLast = _a.isLast, className = _a.className, other = __rest(_a, ["disabled", "done", "free", "isCurrent", "index", "label", "component", "goTo", "classes", "prev", "next", "isLast", "className"]);
         return (React.createElement("div", __assign({ className: classnames_1.default(classes.root, className), ref: function (node) { return _this.$root = node; } }, other),
-            React.createElement("header", { className: classnames_1.default(classes.header, isCurrent && classes.headerCurrent), onClick: function () { return goTo(index); } },
+            React.createElement("header", { className: classnames_1.default(classes.header, isCurrent && classes.headerCurrent, this.isClickable() && classes.headerClickable), onClick: function () { return goTo(index); } },
                 done && !isCurrent && React.createElement(core_1.Icon, { className: classes.i }, "check"),
                 !free && React.createElement(React.Fragment, null,
                     index + 1,
