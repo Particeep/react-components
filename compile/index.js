@@ -88595,8 +88595,9 @@ var ExpensionStep = /** @class */ (function (_super) {
         return (React.createElement("div", __assign({ className: classnames_1.default(classes.root, className), ref: function (node) { return _this.$root = node; } }, other),
             React.createElement("header", { className: classnames_1.default(classes.header, isCurrent && classes.headerCurrent), onClick: function () { return goTo(index); } },
                 done && !isCurrent && React.createElement(core_1.Icon, { className: classes.i }, "check"),
-                index + 1,
-                ". ",
+                !free && React.createElement(React.Fragment, null,
+                    index + 1,
+                    ". "),
                 label),
             React.createElement(core_1.Collapse, { in: isCurrent, timeout: animationDuration, className: classes.body },
                 React.createElement("div", { className: classes.content }, React.cloneElement(component, { prev: prev, next: next, goTo: goTo, free: free, index: index, disabled: disabled, done: done, isCurrent: isCurrent, isLast: isLast })))));
