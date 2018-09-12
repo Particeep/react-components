@@ -25,18 +25,20 @@ class ExpensionStepper extends React.Component<Props, State> {
     const {className, free, onNext, onEnd, children, ...other} = this.props;
     return (
       <div className={className} {...other}>
-        {React.Children.map(this.props.children, (step: ReactElement<ExpensionStepProps>, i: number) =>
-          React.cloneElement(step, {
+        {React.Children.map(this.props.children, (step: ReactElement<ExpensionStepProps>, i: number) => {
+            console.log(step);
+            return React.cloneElement(step, {
             prev: this.prev,
             next: this.next,
             goTo: this.goTo,
             free: this.props.free,
             index: i,
-            disabled: i > this.state.reached,
-            done: i < this.state.reached,
+            disabled: step.props.disabled || i > this.state.reached,
+            done: step.props.done ||  i < this.state.reached,
             isCurrent: i == this.state.current,
             isLast: i == React.Children.count(this.props.children) - 1
           })
+        }
         )}
       </div>
     );
