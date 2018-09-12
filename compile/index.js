@@ -88594,7 +88594,7 @@ var ExpensionStep = /** @class */ (function (_super) {
         var _a = this.props, disabled = _a.disabled, done = _a.done, free = _a.free, isCurrent = _a.isCurrent, index = _a.index, label = _a.label, component = _a.component, goTo = _a.goTo, classes = _a.classes, prev = _a.prev, next = _a.next, isLast = _a.isLast, className = _a.className, other = __rest(_a, ["disabled", "done", "free", "isCurrent", "index", "label", "component", "goTo", "classes", "prev", "next", "isLast", "className"]);
         return (React.createElement("div", __assign({ className: classnames_1.default(classes.root, className), ref: function (node) { return _this.$root = node; } }, other),
             React.createElement("header", { className: classnames_1.default(classes.header, isCurrent && classes.headerCurrent), onClick: function () { return goTo(index); } },
-                done && !free && !isCurrent && React.createElement(core_1.Icon, { className: classes.i }, "check"),
+                done && !isCurrent && React.createElement(core_1.Icon, { className: classes.i }, "check"),
                 index + 1,
                 ". ",
                 label),
@@ -88683,14 +88683,15 @@ var ExpensionStepper = /** @class */ (function (_super) {
         var _this = this;
         var _a = this.props, className = _a.className, free = _a.free, onNext = _a.onNext, onEnd = _a.onEnd, children = _a.children, other = __rest(_a, ["className", "free", "onNext", "onEnd", "children"]);
         return (React.createElement("div", __assign({ className: className }, other), React.Children.map(this.props.children, function (step, i) {
+            console.log(step);
             return React.cloneElement(step, {
                 prev: _this.prev,
                 next: _this.next,
                 goTo: _this.goTo,
                 free: _this.props.free,
                 index: i,
-                disabled: i > _this.state.reached,
-                done: i < _this.state.reached,
+                disabled: step.props.disabled || i > _this.state.reached,
+                done: step.props.done || i < _this.state.reached,
                 isCurrent: i == _this.state.current,
                 isLast: i == React.Children.count(_this.props.children) - 1
             });
