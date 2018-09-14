@@ -88693,7 +88693,6 @@ var ExpensionStepper = /** @class */ (function (_super) {
         var _this = this;
         var _a = this.props, className = _a.className, free = _a.free, onNext = _a.onNext, onEnd = _a.onEnd, children = _a.children, other = __rest(_a, ["className", "free", "onNext", "onEnd", "children"]);
         return (React.createElement("div", __assign({ className: className }, other), React.Children.map(this.props.children, function (step, i) {
-            console.log(step);
             return React.cloneElement(step, {
                 prev: _this.prev,
                 next: _this.next,
