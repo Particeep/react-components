@@ -26,7 +26,6 @@ class ExpensionStepper extends React.Component<Props, State> {
     return (
       <div className={className} {...other}>
         {React.Children.map(this.props.children, (step: ReactElement<ExpensionStepProps>, i: number) => {
-            console.log(step);
             return React.cloneElement(step, {
             prev: this.prev,
             next: this.next,
