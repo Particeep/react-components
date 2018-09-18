@@ -44,7 +44,6 @@ const styles = (t: Theme) => createStyles({
   }
 });
 
-
 export interface ExpensionStepProps {
   readonly prev?: () => void;
   readonly next?: () => void;
