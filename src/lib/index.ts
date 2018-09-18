@@ -1,5 +1,6 @@
 export * from './ExpensionStepper';
 export * from './Panel';
+export * from './IconBtn';
 export * from './Btn';
 export * from './BtnConfirm';
 export * from './ChipUploader';
