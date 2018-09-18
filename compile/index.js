@@ -88683,9 +88683,10 @@ var ExpensionStepper = /** @class */ (function (_super) {
                 _this.props.onEnd(data);
             }
         };
+        var stepsCount = React.Children.count(_this.props.children);
         _this.state = {
-            current: 0,
-            reached: props.free ? React.Children.count(_this.props.children) - 1 : 0,
+            current: props.position ? Math.min(props.position, stepsCount - 1) : 0,
+            reached: props.free ? stepsCount - 1 : 0,
         };
         return _this;
     }

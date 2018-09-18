@@ -5,8 +5,8 @@ import {ExpensionStepProps} from './index';
 
 const styles = (t: Theme) => createStyles({});
 
-
 interface Props extends WithStyles<typeof styles> {
+  readonly position?: number;
   readonly className?: string;
   readonly free?: boolean;
   readonly onNext?: (index: number, data?: any) => void;
@@ -27,17 +27,17 @@ class ExpensionStepper extends React.Component<Props, State> {
       <div className={className} {...other}>
         {React.Children.map(this.props.children, (step: ReactElement<ExpensionStepProps>, i: number) => {
             return React.cloneElement(step, {
-            prev: this.prev,
-            next: this.next,
-            goTo: this.goTo,
-            free: this.props.free,
-            index: i,
-            disabled: step.props.disabled || i > this.state.reached,
-            done: step.props.done ||  i < this.state.reached,
-            isCurrent: i == this.state.current,
-            isLast: i == React.Children.count(this.props.children) - 1
-          })
-        }
+              prev: this.prev,
+              next: this.next,
+              goTo: this.goTo,
+              free: this.props.free,
+              index: i,
+              disabled: step.props.disabled || i > this.state.reached,
+              done: step.props.done || i < this.state.reached,
+              isCurrent: i == this.state.current,
+              isLast: i == React.Children.count(this.props.children) - 1
+            })
+          }
         )}
       </div>
     );
@@ -45,9 +45,10 @@ class ExpensionStepper extends React.Component<Props, State> {
 
   constructor(props) {
     super(props);
+    const stepsCount = React.Children.count(this.props.children);
     this.state = {
-      current: 0,
-      reached: props.free ? React.Children.count(this.props.children) - 1 : 0,
+      current: props.position ? Math.min(props.position, stepsCount - 1) : 0,
+      reached: props.free ? stepsCount - 1 : 0,
     }
   }
 

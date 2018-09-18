@@ -12,6 +12,7 @@ class ExpensionStepperDemo extends React.Component<{}, {}> {
       <Page>
         <Panel>
           <ExpensionStepper
+            position={1}
             onEnd={(data) => {
               console.log(`Final step done and say: ${data}`);
               alert('Gratz !');
