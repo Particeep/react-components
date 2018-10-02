@@ -8,6 +8,7 @@ export * from './Pick';
 export * from './Page';
 export * from './InputDate';
 export * from './Alert';
+export * from './Toast';
 export * from './Fender';
 export * from './icon';
 
