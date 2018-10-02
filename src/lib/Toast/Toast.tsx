@@ -1,8 +1,18 @@
 import * as React from 'react';
-import {createStyles, Icon, IconButton, Snackbar, Theme, WithStyles, withStyles} from '@material-ui/core';
+import {
+  CircularProgress,
+  createStyles,
+  Icon,
+  IconButton,
+  Snackbar,
+  Theme,
+  WithStyles,
+  withStyles
+} from '@material-ui/core';
 import {colorInfo, colorSuccess, colorWarning} from '../style/color';
+import autobind from 'autobind-decorator';
 
-export const Toast = React.createContext({});
+const ToastContext = React.createContext({});
 
 const styles = (t: Theme) => createStyles({
   iError: {
@@ -22,7 +32,7 @@ const styles = (t: Theme) => createStyles({
   }
 });
 
-type ToastType = 'error' | 'warning' | 'success' | 'info' | undefined;
+type ToastType = 'error' | 'loading' | 'warning' | 'success' | 'info' | undefined;
 
 export interface IToastState {
   type?: ToastType;
@@ -30,18 +40,19 @@ export interface IToastState {
   open: boolean;
 }
 
-export interface IToastContext {
+export interface WithToast {
   toastError: (m: string) => void;
   toastSuccess: (m: string) => void;
   toastWarning: (m: string) => void;
   toastInfo: (m: string) => void;
+  toastLoading: (m: string) => void;
 }
 
 interface IProps extends WithStyles<typeof styles> {
 }
 
 export interface IState extends IToastState,
-  IToastContext {}
+  WithToast {}
 
 class ToastProvider extends React.Component<IProps, IState> {
 
@@ -53,13 +64,14 @@ class ToastProvider extends React.Component<IProps, IState> {
     toastSuccess: this.popSuccess,
     toastWarning: this.popWarning,
     toastInfo: this.popInfo,
+    toastLoading: this.popLoading,
   };
 
   render() {
     const {classes} = this.props;
     const {type, open, message} = this.state;
     return (
-      <Toast.Provider value={this.state}>
+      <ToastContext.Provider value={this.state}>
         {this.props.children}
         <Snackbar
           anchorOrigin={{vertical: 'bottom', horizontal: 'left'}}
@@ -72,13 +84,13 @@ class ToastProvider extends React.Component<IProps, IState> {
               <span className={classes.label}>{message}</span>
             </div>
           }
-          action={[
+          action={
             <IconButton onClick={this.close} color="inherit">
               <Icon>close</Icon>
-            </IconButton>,
-          ]}
+            </IconButton>
+          }
         />
-      </Toast.Provider>
+      </ToastContext.Provider>
     );
   }
 
@@ -93,6 +105,8 @@ class ToastProvider extends React.Component<IProps, IState> {
         return <Icon className={classes.iWarning}>warning</Icon>;
       case 'info':
         return <Icon className={classes.iInfo}>info</Icon>;
+      case 'loading':
+        return <CircularProgress size={24} thickness={5}/>;
       default:
         return <></>;
     }
@@ -102,21 +116,41 @@ class ToastProvider extends React.Component<IProps, IState> {
     this.setState({open: true, type, message});
   }
 
-  private popError = (message: string) => this.pop('error', message);
+  @autobind
+  private popError(message: string) {
+    this.pop('error', message);
+  };
 
-  private popSuccess = (message: string) => this.pop('success', message);
+  @autobind
+  private popSuccess(message: string) {
+    this.pop('success', message);
+  }
 
-  private popWarning = (message: string) => this.pop('warning', message);
+  @autobind
+  private popWarning(message: string) {
+    this.pop('warning', message);
+  }
 
-  private popInfo = (message: string) => this.pop('info', message);
+  @autobind
+  private popInfo(message: string) {
+    this.pop('info', message);
+  }
 
-  private close = () => this.setState({open: false});
+  @autobind
+  private popLoading(message: string) {
+    this.pop('loading', message);
+  }
+
+  @autobind
+  private close() {
+    this.setState({open: false});
+  }
 }
 
 export default withStyles(styles)(ToastProvider);
 
 export const withToast = (Component: any) => (props: any) => (
-  <Toast.Consumer>
-    {(other: IToastContext) => <Component {...props} {...other}/>}
-  </Toast.Consumer>
+  <ToastContext.Consumer>
+    {(other: WithToast) => <Component {...props} {...other}/>}
+  </ToastContext.Consumer>
 );
