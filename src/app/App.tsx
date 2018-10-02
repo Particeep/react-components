@@ -23,6 +23,7 @@ import ChipUploaderDemo from './ChipUploader/ChipsUploaderDemo';
 import PickDemo from './PickDemo/PickDemo';
 import BtnConfirmDemo from './BtnConfirm/BtnConfirmDemo';
 import ToastDemo from './Toast/ToastDemo';
+import GlobalProgressDemo from './GlobalProgress/GlobalProgressDemo';
 
 const styles = (t: Theme) => createStyles({
   root: {
@@ -87,6 +88,7 @@ class App extends React.Component<AppProps, {}> {
               <Route path="/stepper" component={ExpensionStepperDemo}/>
               <Route path="/fender" component={FenderDemo}/>
               <Route path="/toast" component={ToastDemo}/>
+              <Route path="/global-progress" component={GlobalProgressDemo}/>
               <Route path="/input-date" component={InputDateDemo}/>
               <Route path="/pick" component={PickDemo}/>
             </main>

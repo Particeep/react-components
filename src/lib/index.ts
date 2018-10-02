@@ -9,6 +9,7 @@ export * from './Page';
 export * from './InputDate';
 export * from './Alert';
 export * from './Toast';
+export * from './GlobalProgress';
 export * from './Fender';
 export * from './icon';
 
