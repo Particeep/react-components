@@ -24,6 +24,7 @@ import PickDemo from './PickDemo/PickDemo';
 import BtnConfirmDemo from './BtnConfirm/BtnConfirmDemo';
 import ToastDemo from './Toast/ToastDemo';
 import GlobalProgressDemo from './GlobalProgress/GlobalProgressDemo';
+import AnimateDemo from './Animate/AnimateDemo'
 
 const styles = (t: Theme) => createStyles({
   root: {
@@ -91,6 +92,7 @@ class App extends React.Component<AppProps, {}> {
               <Route path="/global-progress" component={GlobalProgressDemo}/>
               <Route path="/input-date" component={InputDateDemo}/>
               <Route path="/pick" component={PickDemo}/>
+              <Route path="/animate" component={AnimateDemo}/>
             </main>
           </div>
         </div>
