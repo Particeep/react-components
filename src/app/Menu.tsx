@@ -40,6 +40,7 @@ class Menu extends React.Component<MenuProps, {}> {
             <MenuItem path="/fender">Fender</MenuItem>
             <MenuItem path="/toast">Toast</MenuItem>
             <MenuItem path="/global-progress">GlobalProgress</MenuItem>
+            <MenuItem path="/animate">Animate</MenuItem>
             <MenuItem path="/input-date">InputDate</MenuItem>
           </List>
         </div>
