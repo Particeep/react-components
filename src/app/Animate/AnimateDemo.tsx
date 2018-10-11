@@ -28,6 +28,13 @@ class AnimateDemo extends React.Component<{}, any> {
 
         <Grid container spacing={16}>
           <AnimateList initialDelay={300} delay={delay}>
+            <Grid item md={3}>
+              <Card>
+                <CardContent>
+                  Coucou2
+                </CardContent>
+              </Card>
+            </Grid>
             {new Array(40).fill(1).map((x, i) =>
               <Grid item md={3} key={i}>
                 <Card>
