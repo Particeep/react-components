@@ -10,7 +10,8 @@ const styles = (t: Theme) => createStyles({})
 interface IProps extends WithProgress, WithStyles<typeof styles> {
 }
 
-export const movies$ = (delay) => new Promise((resolve, reject) => setTimeout(resolve, delay, {}))
+export const willSucceed = (delay) => new Promise((resolve, reject) => setTimeout(resolve, delay, {}))
+export const willFail = (delay) => new Promise((resolve, reject) => setTimeout(() => reject('oops'), delay, {}))
 
 
 class ToastDemo extends React.Component<IProps, {}> {
@@ -28,8 +29,8 @@ class ToastDemo extends React.Component<IProps, {}> {
   componentDidMount() {
     const {promisesWithProgress} = this.props
     promisesWithProgress(
-      movies$(1000).then(() => {console.log('ok')}),
-      movies$(3000).then(() => {console.log('ok2')})
+      willSucceed(1000).then(() => {console.log('ok')}),
+      willFail(3000).catch(e => {console.log(e)})
     )
   }
 
