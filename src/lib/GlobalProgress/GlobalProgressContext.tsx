@@ -1,39 +1,7 @@
 import * as React from 'react'
 import autobind from 'autobind-decorator'
-import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core'
-
-const ProgressBar = require('react-progress-bar-plus')
 
 export const GlobalProgressContext = React.createContext({})
-
-const progressbarColor = (t: Theme) => t.palette.secondary.main
-
-const styles = (t: Theme) => createStyles({
-  '@global': {
-    '.react-progress-bar-percent': {
-      background: progressbarColor(t),
-      boxShadow: `0 0 10px ${progressbarColor(t)}, 0 0 5px ${progressbarColor(t)}`,
-      height: 2,
-      transition: t.transitions.create('all', {duration: 400}),
-    },
-    '.react-progress-bar': {
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      width: '100%',
-      visibility: 'visible',
-      opacity: 1,
-      transition: 'all 400ms',
-      zIndex: 9999,
-    },
-    '.react-progress-bar-hide': {
-      opacity: 0,
-      visibility: 'hidden',
-      zIndex: -10,
-    }
-  }
-})
 
 export interface IProgressState {
   currentStep: number,
@@ -41,7 +9,7 @@ export interface IProgressState {
   started: boolean,
 }
 
-interface IProps extends WithStyles<typeof styles> {
+interface IProps {
 }
 
 export interface WithProgress {
@@ -71,22 +39,11 @@ class GlobalProgressProvider extends React.Component<IProps, IState> {
   }
 
   render() {
-    const {classes} = this.props
     return (
       <GlobalProgressContext.Provider value={this.state}>
         {this.props.children}
-        <ProgressBar
-          percent={this.getPercent()}
-          autoIncrement={this.state.started}
-          spinner={false}
-          intervalTime={400}/>
       </GlobalProgressContext.Provider>
     )
-  }
-
-  private getPercent() {
-    const {steps, currentStep} = this.state
-    return this.INITIAL_PERCENT + (100 - this.INITIAL_PERCENT) / steps * currentStep
   }
 
   @autobind
@@ -141,7 +98,7 @@ class GlobalProgressProvider extends React.Component<IProps, IState> {
   }
 }
 
-export default withStyles(styles)(GlobalProgressProvider)
+export default GlobalProgressProvider
 
 export const withGlobalProgress = (Component: any) => (props: any) => (
   <GlobalProgressContext.Consumer>
