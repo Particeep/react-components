@@ -1,12 +1,12 @@
-import * as React from 'react';
-import autobind from 'autobind-decorator';
-import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core';
+import * as React from 'react'
+import autobind from 'autobind-decorator'
+import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core'
 
-const ProgressBar = require('react-progress-bar-plus');
+const ProgressBar = require('react-progress-bar-plus')
 
-export const GlobalProgressContext = React.createContext({});
+export const GlobalProgressContext = React.createContext({})
 
-const progressbarColor = (t: Theme) => t.palette.secondary.main;
+const progressbarColor = (t: Theme) => t.palette.secondary.main
 
 const styles = (t: Theme) => createStyles({
   '@global': {
@@ -33,7 +33,7 @@ const styles = (t: Theme) => createStyles({
       zIndex: -10,
     }
   }
-});
+})
 
 export interface IProgressState {
   currentStep: number,
@@ -49,6 +49,7 @@ export interface WithProgress {
   readonly progressStop: () => void;
   readonly progressEnd: () => void;
   readonly progressNext: () => void;
+  readonly promisesWithProgress: (...promises: Promise<any>[]) => void;
 }
 
 export interface IState extends IProgressState,
@@ -56,7 +57,7 @@ export interface IState extends IProgressState,
 
 class GlobalProgressProvider extends React.Component<IProps, IState> {
 
-  readonly INITIAL_PERCENT = 0;
+  readonly INITIAL_PERCENT = 10
 
   state = {
     currentStep: 0,
@@ -66,10 +67,11 @@ class GlobalProgressProvider extends React.Component<IProps, IState> {
     progressStop: this.stop,
     progressEnd: this.end,
     progressNext: this.next,
-  };
+    promisesWithProgress: this.promisesWithProgress,
+  }
 
   render() {
-    const {classes} = this.props;
+    const {classes} = this.props
     return (
       <GlobalProgressContext.Provider value={this.state}>
         {this.props.children}
@@ -79,12 +81,12 @@ class GlobalProgressProvider extends React.Component<IProps, IState> {
           spinner={false}
           intervalTime={400}/>
       </GlobalProgressContext.Provider>
-    );
+    )
   }
 
   private getPercent() {
-    const {steps, currentStep} = this.state;
-    return this.INITIAL_PERCENT + (100 - this.INITIAL_PERCENT) / steps * currentStep;
+    const {steps, currentStep} = this.state
+    return this.INITIAL_PERCENT + (100 - this.INITIAL_PERCENT) / steps * currentStep
   }
 
   @autobind
@@ -93,6 +95,22 @@ class GlobalProgressProvider extends React.Component<IProps, IState> {
       started: true,
       currentStep: 0,
       steps,
+    })
+  }
+
+  @autobind
+  private promisesWithProgress(...promises: Promise<any>[]) {
+    this.start(promises.length)
+    promises.forEach(p => {
+      p
+        .then(x => {
+          this.next()
+          return x
+        })
+        .catch(x => {
+          this.stop()
+          return x
+        })
     })
   }
 
@@ -123,10 +141,10 @@ class GlobalProgressProvider extends React.Component<IProps, IState> {
   }
 }
 
-export default withStyles(styles)(GlobalProgressProvider);
+export default withStyles(styles)(GlobalProgressProvider)
 
 export const withGlobalProgress = (Component: any) => (props: any) => (
   <GlobalProgressContext.Consumer>
     {(other: WithProgress) => <Component {...props} {...other}/>}
   </GlobalProgressContext.Consumer>
-);
+)

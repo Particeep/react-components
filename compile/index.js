@@ -18202,7 +18202,7 @@ var GlobalProgressProvider = /** @class */ (function (_super) {
     __extends(GlobalProgressProvider, _super);
     function GlobalProgressProvider() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.INITIAL_PERCENT = 0;
+        _this.INITIAL_PERCENT = 10;
         _this.state = {
             currentStep: 0,
             steps: 1,
@@ -18211,6 +18211,7 @@ var GlobalProgressProvider = /** @class */ (function (_super) {
             progressStop: _this.stop,
             progressEnd: _this.end,
             progressNext: _this.next,
+            promisesWithProgress: _this.promisesWithProgress,
         };
         return _this;
     }
@@ -18230,6 +18231,25 @@ var GlobalProgressProvider = /** @class */ (function (_super) {
             started: true,
             currentStep: 0,
             steps: steps,
+        });
+    };
+    GlobalProgressProvider.prototype.promisesWithProgress = function () {
+        var _this = this;
+        var promises = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            promises[_i] = arguments[_i];
+        }
+        this.start(promises.length);
+        promises.forEach(function (p) {
+            p
+                .then(function (x) {
+                _this.next();
+                return x;
+            })
+                .catch(function (x) {
+                _this.stop();
+                return x;
+            });
         });
     };
     GlobalProgressProvider.prototype.stop = function () {
@@ -18255,6 +18275,9 @@ var GlobalProgressProvider = /** @class */ (function (_super) {
     __decorate([
         autobind_decorator_1.default
     ], GlobalProgressProvider.prototype, "start", null);
+    __decorate([
+        autobind_decorator_1.default
+    ], GlobalProgressProvider.prototype, "promisesWithProgress", null);
     __decorate([
         autobind_decorator_1.default
     ], GlobalProgressProvider.prototype, "stop", null);
