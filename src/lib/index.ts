@@ -12,5 +12,6 @@ export * from './Toast';
 export * from './GlobalProgress';
 export * from './Fender';
 export * from './Animate';
+export * from './TableSort';
 export * from './icon';
 

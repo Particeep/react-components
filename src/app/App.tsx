@@ -25,6 +25,7 @@ import BtnConfirmDemo from './BtnConfirm/BtnConfirmDemo';
 import ToastDemo from './Toast/ToastDemo';
 import GlobalProgressDemo from './GlobalProgress/GlobalProgressDemo';
 import AnimateDemo from './Animate/AnimateDemo'
+import TableSortDemo from './TableSort/TableSortDemo'
 
 const styles = (t: Theme) => createStyles({
   root: {
@@ -33,7 +34,6 @@ const styles = (t: Theme) => createStyles({
   },
   body: {
     display: 'flex',
-    marginTop: 64
   },
   navIconHide: {
     [t.breakpoints.up('md')]: {
@@ -42,7 +42,7 @@ const styles = (t: Theme) => createStyles({
   },
   content: {
     flexGrow: 1,
-    backgroundColor: t.palette.background.default,
+    backgroundColor: t.palette.background.paper,
     padding: t.spacing.unit * 3,
   },
 });
@@ -62,20 +62,20 @@ class App extends React.Component<AppProps, {}> {
     return (
       <BrowserRouter>
         <div className={classes.root}>
-          <AppBar style={{zIndex: 1300}}>
-            <Toolbar>
-              <IconButton
-                color="inherit"
-                onClick={this.handleDrawerToggle}
-                className={classes.navIconHide}
-              >
-                <Icon>menu</Icon>
-              </IconButton>
-              <Typography variant="title" color="inherit" noWrap>
-                React components
-              </Typography>
-            </Toolbar>
-          </AppBar>
+          {/*<AppBar style={{zIndex: 1300}}>*/}
+            {/*<Toolbar>*/}
+              {/*<IconButton*/}
+                {/*color="inherit"*/}
+                {/*onClick={this.handleDrawerToggle}*/}
+                {/*className={classes.navIconHide}*/}
+              {/*>*/}
+                {/*<Icon>menu</Icon>*/}
+              {/*</IconButton>*/}
+              {/*<Typography variant="title" color="inherit" noWrap>*/}
+                {/*React components*/}
+              {/*</Typography>*/}
+            {/*</Toolbar>*/}
+          {/*</AppBar>*/}
 
           <div className={classes.body}>
             <Menu open={this.state.mobileOpen} toggle={this.handleDrawerToggle}/>
@@ -92,6 +92,7 @@ class App extends React.Component<AppProps, {}> {
               <Route path="/global-progress" component={GlobalProgressDemo}/>
               <Route path="/input-date" component={InputDateDemo}/>
               <Route path="/pick" component={PickDemo}/>
+              <Route path="/table-sort" component={TableSortDemo}/>
               <Route path="/animate" component={AnimateDemo}/>
             </main>
           </div>

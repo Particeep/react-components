@@ -26,7 +26,7 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "webpack-dev-server --config conf/webpack.start.js --hot --port 3333",
+    "start": "webpack-dev-server --config conf/webpack.start.js --hot --port 3335",
     "build": "rimraf dist && webpack --config conf/webpack.build.js --progress --profile --bail",
     "compile": "webpack --config conf/webpack.compile.js"
   },
