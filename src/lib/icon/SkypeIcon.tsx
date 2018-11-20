@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {SvgIcon} from '@material-ui/core';
+import SvgIcon from '@material-ui/core/SvgIcon'
 
 const SkypeIcon = ({className, ...props}: any) =>
   <SvgIcon className={'material-icons ' + className || ''} {...props}>

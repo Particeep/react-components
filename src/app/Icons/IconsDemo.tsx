@@ -1,6 +1,8 @@
 import * as React from 'react';
 import {FacebookIcon, IconSkype, LinkedinIcon, Page, TwitterIcon} from '../../lib';
 import {createStyles, TextField, Theme, withStyles} from '@material-ui/core';
+import GitHub from '../../lib/icon/GitHub'
+import GitHubIcon from '../../lib/icon/GitHub'
 
 const styles = (t: Theme) => createStyles({
   config: {
@@ -31,6 +33,7 @@ const icons = [
   <FacebookIcon/>,
   <TwitterIcon/>,
   <LinkedinIcon/>,
+  <GitHubIcon/>,
 ];
 
 class IconsDemo extends React.Component<any, any> {
