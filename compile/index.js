@@ -90297,11 +90297,12 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+/* eslint-disable max-len */
 var React = __webpack_require__(0);
 var SvgIcon_1 = __webpack_require__(22);
 var FacebookIcon = function (_a) {
     var className = _a.className, props = __rest(_a, ["className"]);
-    return React.createElement(SvgIcon_1.default, __assign({ className: 'material-icons ' + className || '' }, props),
+    return React.createElement(SvgIcon_1.default, __assign({ className: className }, props),
         React.createElement("svg", { x: "0px", y: "0px", width: "100%", height: "100%", viewBox: "0 0 60.8 60.8" },
             React.createElement("g", null,
                 React.createElement("path", { d: "M57.378,0.001H3.352C1.502,0.001,0,1.5,0,3.353v54.026c0,1.853,1.502,3.354,3.352,3.354h29.086V37.214h-7.914v-9.167h7.914\r\n\t\tv-6.76c0-7.843,4.789-12.116,11.787-12.116c3.355,0,6.232,0.251,7.071,0.36v8.198l-4.854,0.002c-3.805,0-4.539,1.809-4.539,4.462\r\n\t\tv5.851h9.078l-1.187,9.166h-7.892v23.52h15.475c1.852,0,3.355-1.503,3.355-3.351V3.351C60.731,1.5,59.23,0.001,57.378,0.001z" }))));
@@ -90368,11 +90369,12 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+/* eslint-disable max-len */
 var React = __webpack_require__(0);
 var SvgIcon_1 = __webpack_require__(22);
 var LinkedinIcon = function (_a) {
     var className = _a.className, props = __rest(_a, ["className"]);
-    return React.createElement(SvgIcon_1.default, __assign({ className: 'material-icons ' + className || '' }, props),
+    return React.createElement(SvgIcon_1.default, __assign({ className: className }, props),
         React.createElement("svg", { x: "0px", y: "0px", width: "100%", height: "100%", viewBox: "0 0 430 430" },
             React.createElement("g", null,
                 React.createElement("path", { d: "M398.355,0H31.782C14.229,0,0.002,13.793,0.002,30.817v368.471\r\n\t\tc0,17.025,14.232,30.83,31.78,30.83h366.573c17.549,0,31.76-13.814,31.76-30.83V30.817C430.115,13.798,415.904,0,398.355,0z\r\n\t\t M130.4,360.038H65.413V165.845H130.4V360.038z M97.913,139.315h-0.437c-21.793,0-35.92-14.904-35.92-33.563\r\n\t\tc0-19.035,14.542-33.535,36.767-33.535c22.227,0,35.899,14.496,36.331,33.535C134.654,124.415,120.555,139.315,97.913,139.315z\r\n\t\t M364.659,360.038h-64.966V256.138c0-26.107-9.413-43.921-32.907-43.921c-17.973,0-28.642,12.018-33.327,23.621\r\n\t\tc-1.736,4.144-2.166,9.94-2.166,15.728v108.468h-64.954c0,0,0.85-175.979,0-194.192h64.964v27.531\r\n\t\tc8.624-13.229,24.035-32.1,58.534-32.1c42.76,0,74.822,27.739,74.822,87.414V360.038z M230.883,193.99\r\n\t\tc0.111-0.182,0.266-0.401,0.42-0.614v0.614H230.883z" }))));
@@ -90404,11 +90406,12 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+/* eslint-disable max-len */
 var React = __webpack_require__(0);
 var SvgIcon_1 = __webpack_require__(22);
 var SkypeIcon = function (_a) {
     var className = _a.className, props = __rest(_a, ["className"]);
-    return React.createElement(SvgIcon_1.default, __assign({ className: 'material-icons ' + className || '' }, props),
+    return React.createElement(SvgIcon_1.default, __assign({ className: className }, props),
         React.createElement("svg", { x: "0px", y: "0px", width: "100%", height: "100%", viewBox: "0 0 430.123 430.123" },
             React.createElement("g", null,
                 React.createElement("path", { d: "M412.164,246.198c1.605-10.155,2.45-20.544,2.45-31.148c0-110.215-89.342-199.555-199.56-199.555\r\n                c-10.576,0-20.995,0.871-31.141,2.458C165.534,6.581,143.842,0,120.595,0C53.996,0,0.005,53.984,0.005,120.59\r\n                c0,23.242,6.585,44.916,17.952,63.332c-1.573,10.172-2.439,20.528-2.439,31.132c0,110.223,89.34,199.536,199.532,199.536\r\n                c10.585,0,21.007-0.816,31.152-2.417c18.398,11.35,40.072,17.949,63.314,17.949c66.617,0,120.602-53.998,120.602-120.602\r\n                C430.123,286.269,423.542,264.6,412.164,246.198z M309.801,305.81c-8.442,12.153-20.843,21.65-37.047,28.479\r\n                c-16.237,6.847-35.428,10.254-57.59,10.254c-26.562,0-48.554-4.648-65.913-14.034c-12.305-6.721-22.313-15.737-30.007-26.98\r\n                c-7.71-11.252-11.619-22.271-11.619-33.015c0-6.338,2.417-11.85,7.122-16.344c4.754-4.527,10.877-6.796,18.104-6.796\r\n                c5.92,0,11.005,1.783,15.145,5.316c4.109,3.532,7.556,8.667,10.375,15.443c3.379,7.85,7.049,14.412,10.954,19.648\r\n                c3.881,5.171,9.343,9.488,16.417,12.867c6.996,3.388,16.307,5.082,27.958,5.082c15.945,0,28.831-3.449,38.693-10.253\r\n                c9.912-6.866,14.673-15.22,14.673-25.314c0-8.051-2.567-14.445-7.831-19.43c-5.312-5.05-12.172-8.896-20.685-11.579\r\n                c-8.546-2.711-20.02-5.586-34.399-8.615c-19.308-4.214-35.456-9.119-48.533-14.752c-13.094-5.654-23.522-13.383-31.251-23.146\r\n                c-7.745-9.859-11.607-22.113-11.607-36.627c0-13.84,4.077-26.217,12.239-36.989c8.158-10.802,19.961-19.07,35.351-24.829\r\n                c15.336-5.757,33.391-8.637,54.075-8.637c16.541,0,30.849,1.914,42.96,5.722c12.078,3.836,22.146,8.898,30.196,15.25\r\n                c7.999,6.338,13.885,13.023,17.613,20.038c3.725,7.036,5.601,13.908,5.601,20.614c0,6.235-2.417,11.89-7.127,16.846\r\n                c-4.709,4.963-10.733,7.493-17.768,7.47c-6.342,0-11.317-1.463-14.767-4.56c-3.36-2.996-6.889-7.766-10.706-14.414\r\n                c-4.825-9.276-10.604-16.503-17.324-21.672c-6.543-5.073-17.338-7.714-32.359-7.682c-13.898,0-25.018,2.84-33.411,8.394\r\n                c-8.445,5.643-12.482,12.19-12.501,19.861c0.014,4.807,1.396,8.86,4.177,12.326c2.824,3.498,6.753,6.529,11.803,9.084\r\n                c5.052,2.595,10.191,4.602,15.355,6.046c5.225,1.481,13.894,3.622,25.944,6.457c15.112,3.257,28.819,6.896,41.136,10.862\r\n                c12.293,3.986,22.784,8.793,31.451,14.52c8.736,5.71,15.564,12.99,20.438,21.783c4.909,8.807,7.354,19.564,7.354,32.222\r\n                C322.509,279.968,318.263,293.676,309.801,305.81z" }))));
@@ -90422,7 +90425,6 @@ exports.default = SkypeIcon;
 
 "use strict";
 
-/* eslint-disable max-len */
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
         s = arguments[i];
@@ -90441,6 +90443,7 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+/* eslint-disable max-len */
 var React = __webpack_require__(0);
 var SvgIcon_1 = __webpack_require__(22);
 var TwitterIcon = function (_a) {

@@ -1,8 +1,9 @@
+/* eslint-disable max-len */
 import * as React from 'react';
 import SvgIcon from '@material-ui/core/SvgIcon'
 
 const SkypeIcon = ({className, ...props}: any) =>
-  <SvgIcon className={'material-icons ' + className || ''} {...props}>
+  <SvgIcon className={className} {...props}>
     <svg x="0px" y="0px" width="100%" height="100%" viewBox="0 0 430.123 430.123">
       <g>
         <path d="M412.164,246.198c1.605-10.155,2.45-20.544,2.45-31.148c0-110.215-89.342-199.555-199.56-199.555

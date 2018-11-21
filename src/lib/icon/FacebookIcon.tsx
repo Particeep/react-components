@@ -1,8 +1,9 @@
+/* eslint-disable max-len */
 import * as React from 'react';
 import SvgIcon from '@material-ui/core/SvgIcon'
 
 const FacebookIcon = ({className, ...props}: any) =>
-  <SvgIcon className={'material-icons ' + className || ''} {...props}>
+  <SvgIcon className={className} {...props}>
     <svg x="0px" y="0px" width="100%" height="100%" viewBox="0 0 60.8 60.8">
       <g>
         <path d="M57.378,0.001H3.352C1.502,0.001,0,1.5,0,3.353v54.026c0,1.853,1.502,3.354,3.352,3.354h29.086V37.214h-7.914v-9.167h7.914
