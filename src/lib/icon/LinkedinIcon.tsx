@@ -1,8 +1,9 @@
+/* eslint-disable max-len */
 import * as React from 'react';
 import SvgIcon from '@material-ui/core/SvgIcon'
 
 const LinkedinIcon = ({className, ...props}: any) =>
-  <SvgIcon className={'material-icons ' + className || ''} {...props}>
+  <SvgIcon className={className} {...props}>
     <svg x="0px" y="0px" width="100%" height="100%" viewBox="0 0 430 430">
       <g>
         <path d="M398.355,0H31.782C14.229,0,0.002,13.793,0.002,30.817v368.471
