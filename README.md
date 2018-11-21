@@ -9,7 +9,7 @@ React-components depends on [Material icons](https://material.io/icons/). See in
 ### Usage
 
 ```
-import {Btn, Panel, PanelBody} from "react-components";
+import {Btn, Panel, PanelBody} from 'react-components'
 
 const AppComponent = () => 
   <Panel>
@@ -17,7 +17,6 @@ const AppComponent = () =>
       <Btn loading={false}>Button</Btn>
     </Panel>
   </PanelBody>
-;
 ```
 
 ### Class names conflict
@@ -27,13 +26,13 @@ You may need to define a class name generator to prevent conflict in production 
 ```npm i -s react-jss```
 
 ```
-import React, {Component} from "react";
-import {createGenerateClassName} from "@material-ui/core";
-import JssProvider from 'react-jss/lib/JssProvider';
+import React, {Component} from 'react'
+import {createGenerateClassName} from '@material-ui/core'
+import JssProvider from 'react-jss/lib/JssProvider'
 
 const generateClassName = createGenerateClassName({
   productionPrefix: 'my-prefix',
-});
+})
 
 class App extends Component {
 
