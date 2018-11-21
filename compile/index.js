@@ -64,7 +64,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 755);
+/******/ 	return __webpack_require__(__webpack_require__.s = 756);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -18567,14 +18567,16 @@ exports.withToast = Toast_2.withToast;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var SkypeIcon_1 = __webpack_require__(753);
+var SkypeIcon_1 = __webpack_require__(754);
 exports.IconSkype = SkypeIcon_1.default;
 var FacebookIcon_1 = __webpack_require__(751);
 exports.FacebookIcon = FacebookIcon_1.default;
-var TwitterIcon_1 = __webpack_require__(754);
+var TwitterIcon_1 = __webpack_require__(755);
 exports.TwitterIcon = TwitterIcon_1.default;
-var LinkedinIcon_1 = __webpack_require__(752);
+var LinkedinIcon_1 = __webpack_require__(753);
 exports.LinkedinIcon = LinkedinIcon_1.default;
+var GitHubIcon_1 = __webpack_require__(752);
+exports.GitHubIcon = GitHubIcon_1.default;
 
 
 /***/ }),
@@ -88724,7 +88726,7 @@ if (typeof self !== 'undefined') {
 var result = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__ponyfill_js__["a" /* default */])(root);
 /* harmony default export */ __webpack_exports__["default"] = (result);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(55), __webpack_require__(756)(module)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(55), __webpack_require__(757)(module)))
 
 /***/ }),
 /* 728 */
@@ -90331,6 +90333,41 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+/* eslint-disable max-len */
+var React = __webpack_require__(0);
+var SvgIcon_1 = __webpack_require__(22);
+var GitHubIcon = function (_a) {
+    var className = _a.className, props = __rest(_a, ["className"]);
+    return (React.createElement(SvgIcon_1.default, __assign({ className: className }, props),
+        React.createElement("path", { d: "M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3" })));
+};
+exports.default = GitHubIcon;
+
+
+/***/ }),
+/* 753 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) if (e.indexOf(p[i]) < 0)
+            t[p[i]] = s[p[i]];
+    return t;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(0);
 var SvgIcon_1 = __webpack_require__(22);
 var LinkedinIcon = function (_a) {
@@ -90344,7 +90381,7 @@ exports.default = LinkedinIcon;
 
 
 /***/ }),
-/* 753 */
+/* 754 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -90380,7 +90417,7 @@ exports.default = SkypeIcon;
 
 
 /***/ }),
-/* 754 */
+/* 755 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -90415,7 +90452,7 @@ exports.default = TwitterIcon;
 
 
 /***/ }),
-/* 755 */
+/* 756 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -90443,7 +90480,7 @@ __export(__webpack_require__(244));
 
 
 /***/ }),
-/* 756 */
+/* 757 */
 /***/ (function(module, exports) {
 
 module.exports = function(originalModule) {

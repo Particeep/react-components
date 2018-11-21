@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {FacebookIcon, IconSkype, LinkedinIcon, Page, TwitterIcon} from '../../lib';
 import {createStyles, TextField, Theme, withStyles} from '@material-ui/core';
-import GitHub from '../../lib/icon/GitHub'
-import GitHubIcon from '../../lib/icon/GitHub'
+import GitHub from '../../lib/icon/GitHubIcon'
+import GitHubIcon from '../../lib/icon/GitHubIcon'
 
 const styles = (t: Theme) => createStyles({
   config: {
