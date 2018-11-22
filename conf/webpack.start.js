@@ -8,7 +8,7 @@ module.exports = webpackMerge(commonConfig, {
     devtool: 'eval-source-map',
     target: 'web',
     entry: {
-        'app': [path.resolve('src/app/index.tsx')],
+        'demo': [path.resolve('src/demo/index.tsx')],
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),

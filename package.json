@@ -4,20 +4,20 @@
   "description": "Bunch of components often used in Particeep applications",
   "main": "compile/index.js",
   "peerDependencies": {
-    "@material-ui/core": "^1.2.1",
     "classnames": "^2.2.6",
     "moment": "^2.20.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-text-mask": "^5.1.0"
+    "react-text-mask": "^5.1.0",
+    "@material-ui/core": "3.5.1"
   },
   "dependencies": {
-    "@material-ui/core": "^1.2.1",
+    "@material-ui/core": "3.5.1",
     "autobind-decorator": "^2.1.0",
     "classnames": "^2.2.6",
     "moment": "^2.20.1",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
+    "react": "16.7.0-alpha.0",
+    "react-dom": "16.7.0-alpha.0",
     "react-progress-bar-plus": "^1.3.1",
     "react-redux": "5.0.5",
     "react-router": "^4.3.1",

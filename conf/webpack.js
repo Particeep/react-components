@@ -9,7 +9,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
-      template: path.resolve('src/app/index.html'),
+      template: path.resolve('src/demo/index.html'),
     }),
   ],
   module: {

@@ -10,7 +10,7 @@ module.exports = webpackMerge(commonConfig, {
     devtool: 'source-map',
     target: 'web',
     entry: {
-        'app': path.resolve('src/app/index.tsx'),
+        'demo': path.resolve('src/demo/index.tsx'),
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
@@ -25,7 +25,7 @@ module.exports = webpackMerge(commonConfig, {
             'process.env': {
                 'ENV': JSON.stringify(ENV),
                 'NODE_ENV': JSON.stringify(ENV),
-                'NODE_PATH': 'src/app'
+                'NODE_PATH': 'src/demo'
             }
         })
     ],
