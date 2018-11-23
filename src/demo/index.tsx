@@ -5,12 +5,15 @@ import {ToastProvider} from '../lib/Toast'
 import {GlobalProgressProvider} from '../lib/GlobalProgress'
 import {createMuiTheme, MuiThemeProvider} from '@material-ui/core'
 import {muiTheme} from './core/theme/mui-theme'
+import {HashRouter} from 'react-router-dom'
 
 ReactDOM.render(
   <MuiThemeProvider theme={createMuiTheme(muiTheme())}>
     <ToastProvider>
       <GlobalProgressProvider>
-        <App/>
+        <HashRouter basename="">
+          <App/>
+        </HashRouter>
       </GlobalProgressProvider>
     </ToastProvider>
   </MuiThemeProvider>,
