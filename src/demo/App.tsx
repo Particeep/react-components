@@ -2,7 +2,6 @@ import * as React from 'react'
 import {createStyles, Theme, withStyles, WithStyles} from '@material-ui/core'
 import PanelDemo from './examples/Panel/PanelDemo'
 import BtnDemo from './examples/Btn/BtnDemo'
-import {BrowserRouter, Route} from 'react-router-dom'
 import AlertDemo from './examples/Alert/AlertDemo'
 import IconsDemo from './examples/Icons/IconsDemo'
 import ExpensionStepperDemo from './examples/ExpensionStepper/ExpensionStepperDemo'
@@ -16,6 +15,7 @@ import GlobalProgressDemo from './examples/GlobalProgress/GlobalProgressDemo'
 import AnimateDemo from './examples/Animate/AnimateDemo'
 import TableSortDemo from './examples/TableSort/TableSortDemo'
 import Sidebar from './core/component/Sidebar/Sidebar'
+import {Route} from 'react-router-dom'
 
 const styles = (t: Theme) => createStyles({
   '@global': {
@@ -76,7 +76,6 @@ class App extends React.Component<AppProps, {}> {
   render() {
     const {classes} = this.props
     return (
-      <BrowserRouter>
         <div className={classes.root}>
           <Sidebar/>
           <div className={classes.body}>
@@ -98,7 +97,6 @@ class App extends React.Component<AppProps, {}> {
             </main>
           </div>
         </div>
-      </BrowserRouter>
     )
   }
 

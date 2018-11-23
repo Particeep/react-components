@@ -56,8 +56,10 @@ class Sidebar extends React.Component<IProps, {}> {
             <SidebarItem to={basePath + 'home'} icon="home">
               Home
             </SidebarItem>
-            <SidebarItem href="https://github.com/alexandreannic/react-components" before={<GitHubIcon/>}
-                         target="_blank">
+            <SidebarItem
+              href="https://github.com/alexandreannic/react-components"
+              before={<GitHubIcon/>}
+              target="_blank">
               GitHub
               <Icon className={classes.itemI}>
                 open_in_new

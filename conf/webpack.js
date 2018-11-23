@@ -15,9 +15,17 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        loader: "ts-loader"
-      }, {
+        test: /\.[jt]sx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        }
+      }
+      // {
+      //   test: /\.tsx?$/,
+      //   loader: "ts-loader"
+      // }
+      , {
         test: /\.css$/,
         loader: 'style-loader!css-loader?importLoaders=1'
       }, {
