@@ -12,8 +12,8 @@ class AnimateDemo extends React.Component<{}, any> {
     return (
       <Page>
         <Typography paragraph>
-          There is not intermediate element. Animations are directly added to the children.
-          So it can be used in a grid without breaking it.
+          There is not intermediate DOM element, transform promerty is directly added to the children.
+          Therefore it can be, for example, used in a grid without breaking it.
         </Typography>
 
         <Animate delay={(size + 1) * delay}>
