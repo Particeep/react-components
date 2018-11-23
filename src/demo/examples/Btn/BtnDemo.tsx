@@ -1,48 +1,34 @@
-import * as React from 'react';
-import {Btn, Page} from '../../../lib/index';
-import IconBtn from '../../../lib/IconBtn/IconBtn';
-import {Icon} from '@material-ui/core';
+import * as React from 'react'
+import {Page} from '../../../lib/index'
+import {Demo} from '../../shared/Demo'
+import {BtnDemoButton} from './BtnDemoButton'
+import preval from 'babel-plugin-preval/macro'
+import {BtnDemoIconButton} from './BtnDemoIconButton'
 
-class BtnDemo extends React.Component<{}, any> {
+const BtnDemo = () => {
+  return (
+    <Page>
+      <h1>Btn</h1>
+      <p>
+        <code>Btn</code> and <code>BtnIcon</code> are wrappers for the respectives <code>Button</code> and
+        <code>IconButton</code> components of Material-UI adding the props <code>loading</code>.
+      </p>
 
-  state = {
-    isLoading: false,
-  };
-
-  render() {
-    return (
-      <Page>
-        <Btn loading={this.state.isLoading} onClick={this.upload} color="primary">
-          Envoyer
-        </Btn>
-        &nbsp;
-        <Btn loading={this.state.isLoading} onClick={this.upload} color="primary"
-             variant="raised">
-          Envoyer
-        </Btn>
-        &nbsp;
-        <Btn loading={this.state.isLoading} onClick={this.upload} color="secondary"
-             variant="raised"
-             icon="send">
-          Envoyer
-        </Btn>
-
-        <div>
-          <IconBtn loading={this.state.isLoading} onClick={this.upload}>
-            <Icon>send</Icon>
-          </IconBtn>
-          <IconBtn loading={this.state.isLoading} onClick={this.upload} color="primary">
-            <Icon>send</Icon>
-          </IconBtn>
-        </div>
-      </Page>
-    )
-  }
-
-  upload = () => {
-    this.setState({isLoading: true});
-    setTimeout(() => this.setState({isLoading: false}), 1000);
-  }
+      <h2>{`<Button/>`} wrapper</h2>
+      <p>
+        <code>Btn</code> also add <code>icon</code> and <code>iconAfter</code> props so easily insert material icons.
+      </p>
+      <Demo
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./BtnDemoButton.tsx'), 'utf8')`}
+        component={BtnDemoButton}>
+      </Demo>
+      <h2>{`<IconButton/>`} wrapper</h2>
+      <Demo
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./BtnDemoIconButton.tsx'), 'utf8')`}
+        component={BtnDemoIconButton}>
+      </Demo>
+    </Page>
+  )
 }
 
-export default BtnDemo;
+export default BtnDemo

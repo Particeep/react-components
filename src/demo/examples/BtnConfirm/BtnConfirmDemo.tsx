@@ -18,7 +18,7 @@ class BtnConfirmDemo extends React.Component<{}, any> {
           title="Reset settings?"
           content="This will reset your device to its default factory settings."
           onConfirm={this.action}>
-          <Btn color="primary" variant="raised" loading={this.state.isLoading}>Reset</Btn>
+          <Btn color="primary" variant="contained" loading={this.state.isLoading}>Reset</Btn>
         </BtnConfirm>
 
         <Btn onClick={this.handleClick}>

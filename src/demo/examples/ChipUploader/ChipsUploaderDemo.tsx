@@ -28,7 +28,7 @@ class ChipUploaderDemo extends React.Component<any, any> {
               document={this.state.document}
               onUpload={this.onUpload}
               onDelete={this.onDelete}
-              variant="raised"
+              variant="contained"
               color="secondary"
               />
           </PanelBody>
