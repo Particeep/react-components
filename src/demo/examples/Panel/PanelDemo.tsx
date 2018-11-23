@@ -20,7 +20,7 @@ class PanelDemo extends React.Component<{}, {}> {
             except Antarctica
           </PanelBody>
           <PanelFoot>
-            <Button size="small" color="primary" variant="raised"
+            <Button size="small" color="primary" variant="contained"
                     onClick={() => this.setState({isLoading: !this.state.isLoading})}>
               Toggle Loading
             </Button>

@@ -1,55 +1,40 @@
 import * as React from 'react'
-import {Alert, Page, Panel, PanelBody, PanelHead} from '../../../lib/index'
-import {Button} from '@material-ui/core'
+import {Page} from '../../../lib/index'
 import {Demo} from '../../shared/Demo'
 import {AlertDemoSimple} from './AlertDemoSimple'
 import preval from 'babel-plugin-preval/macro'
 import {AlertDemoCustom} from './AlertDemoCustom'
 import {AlertDemoWithPanel} from './AlertDemoWithPanel'
 
-class AlertDemo extends React.Component<{}, any> {
+const AlertDemo = () => {
+  return (
+    <Page>
+      <h1>Alert</h1>
 
-  state = {
-    isLoading: false,
-  }
+      <h2>Simple alert</h2>
+      <p>
+        Provide contextual feedback messages for typical user actions with the handful of available and flexible alert
+        messages.
+      </p>
 
-  render() {
-    return (
-      <Page>
-        <h1>Alert</h1>
+      <Demo
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./AlertDemoSimple.tsx'), 'utf8')`}
+        component={AlertDemoSimple}>
+      </Demo>
 
-        <h2>Simple alert</h2>
-        <p>
-          Provide contextual feedback messages for typical user actions with the handful of available and flexible alert
-          messages.
-        </p>
+      <h2>Customized Alert</h2>
+      <Demo
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./AlertDemoCustom.tsx'), 'utf8')`}
+        component={AlertDemoCustom}>
+      </Demo>
 
-        <Demo
-          raw={preval`module.exports = require('fs').readFileSync(require.resolve('./AlertDemoSimple.tsx'), 'utf8')`}
-          component={AlertDemoSimple}>
-        </Demo>
-
-        <h2>Customized Alert</h2>
-        <Demo
-          raw={preval`module.exports = require('fs').readFileSync(require.resolve('./AlertDemoCustom.tsx'), 'utf8')`}
-          component={AlertDemoCustom}>
-        </Demo>
-
-        <h2>Alert associated with Panel</h2>
-        <Demo
-          raw={preval`module.exports = require('fs').readFileSync(require.resolve('./AlertDemoWithPanel.tsx'), 'utf8')`}
-          component={AlertDemoWithPanel}>
-        </Demo>
-
-
-      </Page>
-    )
-  }
-
-  upload = () => {
-    this.setState({isLoading: true})
-    setTimeout(() => this.setState({isLoading: false}), 1000)
-  }
+      <h2>Alert associated with Panel</h2>
+      <Demo
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./AlertDemoWithPanel.tsx'), 'utf8')`}
+        component={AlertDemoWithPanel}>
+      </Demo>
+    </Page>
+  )
 }
 
 export default AlertDemo
