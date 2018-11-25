@@ -1,96 +1,55 @@
-import * as React from 'react';
-import {Page} from '../../../lib/index';
-import {Button, FormControl, TextField} from '@material-ui/core';
-import {Panel} from '../../../lib/Panel/index';
-import {ExpensionStep, ExpensionStepper} from '../../../lib/ExpensionStepper/index';
-import {ExpensionStepProps} from '../../../lib/ExpensionStepper/ExpensionStep';
+import * as React from 'react'
+import {Page} from '../../../lib/index'
+import {Demo} from '../../shared/Demo'
+import preval from 'babel-plugin-preval/macro'
+import {Code} from '../../shared/Code/Code'
+import {ExpensionStepperDemoTunnel} from './ExpensionStepperDemoTunnel'
+import {ExpensionStepperDemoAccordion} from './ExpensionStepperDemoAccordion'
 
-class ExpensionStepperDemo extends React.Component<{}, {}> {
+const ExpensionStepperDemo = () => {
+  return (
+    <Page>
+      <h1>ExpensionStepper</h1>
+      <p>
+        <code>ExpensionStepper</code> is a container dividing content into logical steps. His advantages compared to
+        other solutions are that step are containing in their dedicated component. Therefore they are easy to reuse or
+        shift.
+      </p>
+      <p>
+        Each step is injected with props granting all the needed informations and actions to interact with the stepper.
+        Below the interface defining the injected props:
+      </p>
+      <Code raw={
+        `interface ExpensionStepProps {
+  prev: () => void
+  next: (data?: any) => void
+  goTo: (i: number) => void
+  free?: boolean
+  index: number
+  disabled: boolean
+  done: boolean
+  isCurrent: boolean
+  isLast: boolean
+}`}>
 
-  render() {
-    return (
-      <Page>
-        <Panel>
-          <ExpensionStepper
-            position={1}
-            onEnd={(data) => {
-              console.log(`Final step done and say: ${data}`);
-              alert('Gratz !');
-            }}
-            onNext={(i: number, data: any) => console.log(`Step ${i} done and say:`, data)}>
-            <ExpensionStep label="Step 1" component={<Step1/>}/>
-            <ExpensionStep label="Step 2" component={<Step2/>}/>
-            <ExpensionStep label="Step 2" component={<Step2/>}/>
-          </ExpensionStepper>
-        </Panel>
-      </Page>
-    )
-  }
+      </Code>
+
+      <h2>Tunnel</h2>
+      <Demo
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./ExpensionStepperDemoTunnel.tsx'), 'utf8')`}
+        component={ExpensionStepperDemoTunnel}>
+      </Demo>
+
+      <h2>Accordion</h2>
+      <p>
+        It can also be used as a simple accordion using the props <code>free</code>
+      </p>
+      <Demo
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./ExpensionStepperDemoAccordion.tsx'), 'utf8')`}
+        component={ExpensionStepperDemoAccordion}>
+      </Demo>
+    </Page>
+  )
 }
-
-class Step1 extends React.Component<ExpensionStepProps, any> {
-
-  state = {
-    firstName: '',
-    lastName: '',
-  };
-
-  render() {
-    const {firstName, lastName} = this.state;
-    return (
-      <div>
-        <FormControl style={{marginRight: 8}}>
-          <TextField
-            label="First name"
-            value={firstName}
-            onChange={e => this.setState({firstName: e.target.value})}
-            error={!firstName}
-          />
-        </FormControl>
-        <FormControl>
-          <TextField
-            label="Last name"
-            value={lastName}
-            onChange={e => this.setState({lastName: e.target.value})}
-            error={!lastName}
-          />
-        </FormControl>
-        <Actions {...this.props} canNext={lastName && firstName}/>
-      </div>
-    );
-  }
-}
-
-class Step2 extends React.Component<ExpensionStepProps, any> {
-
-  state = {
-    birthDate: '',
-  };
-
-  render() {
-    const {birthDate} = this.state;
-    return (
-      <div>
-        <FormControl style={{marginRight: 8}}>
-          <TextField
-            label="Birthday"
-            value={birthDate}
-            onChange={e => this.setState({birthDate: e.target.value})}
-            error={!birthDate}
-          />
-        </FormControl>
-        <Actions {...this.props} canNext={birthDate}/>
-      </div>
-    );
-  }
-}
-
-const Actions = (props: any) =>
-  <div style={{marginTop: 24, textAlign: 'right'}}>
-    {props.index > 0 && <Button color="primary" onClick={props.prev}>Previous</Button>}
-    <Button color="primary" onClick={() => props.next('some data to pass to onNext() callback')} disabled={!props.canNext}>Next</Button>
-  </div>
-;
-
-export default ExpensionStepperDemo;
+export default ExpensionStepperDemo
 
