@@ -15,6 +15,10 @@ const AutocompleteDemo = () => {
         component={AutocompleteDemoSimple}>
       </Demo>
       <h2>Multi-select Autocomplete</h2>
+      <p>
+        It behaves as an <code>{`<Input/>`}</code> component. So it can be wrapped in a <code>{`<FormControl/>`}</code>
+        and <code>{`<Input/>`}</code> props, as <code>multiline</code>, can be used.
+      </p>
       <Demo
         raw={preval`module.exports = require('fs').readFileSync(require.resolve('./AutocompleteDemoMultiple.tsx'), 'utf8')`}
         component={AutocompleteDemoMultiple}>

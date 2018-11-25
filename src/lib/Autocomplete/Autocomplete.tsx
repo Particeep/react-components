@@ -12,6 +12,7 @@ import {
   WithStyles,
   withStyles
 } from '@material-ui/core'
+import {InputProps} from '@material-ui/core/Input'
 
 const styles = (t: Theme) => createStyles({
   menu_head: {
@@ -66,12 +67,12 @@ class Autocomplete extends React.Component<Props, State> {
   private $input: any
 
   render() {
-    const {value, multiple, searchLabel, readonly, children, classes, ...other} = this.props
+    const {value, multiple, searchLabel, readonly, children, classes, onChange, ...other} = this.props
     const {anchorEl} = this.state
     const optionsCount = React.Children.count(children)
     return (
       <>
-        <Input  onClick={this.open} value={value && value.join(', ')} disabled={readonly}
+        <Input {...other} onClick={this.open} value={value && value.join(', ')} disabled={readonly}
                inputRef={(n: any) => this.$input = n}
                endAdornment={
                  <InputAdornment position="end">

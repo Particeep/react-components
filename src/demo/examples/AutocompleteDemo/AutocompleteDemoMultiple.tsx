@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {useState} from 'react'
-import {FormControl, FormHelperText, Input, InputLabel} from '@material-ui/core'
+import {FormControl, FormHelperText, InputLabel} from '@material-ui/core'
 import {Autocomplete, AutocompleteItem} from '../../../lib/Autocomplete'
 
 const cities = [
