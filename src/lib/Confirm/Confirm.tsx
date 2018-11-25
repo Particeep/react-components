@@ -24,7 +24,7 @@ interface Props extends WithStyles<typeof styles> {
   onConfirm?: () => void;
 }
 
-class BtnConfirm extends React.Component<Props, any> {
+class Confirm extends React.Component<Props, any> {
 
   state = {
     open: false,
@@ -59,4 +59,4 @@ class BtnConfirm extends React.Component<Props, any> {
   }
 }
 
-export default withStyles(styles)(BtnConfirm)
+export default withStyles(styles)(Confirm)
