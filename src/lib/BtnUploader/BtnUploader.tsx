@@ -3,7 +3,6 @@ import {Avatar, Chip, CircularProgress, createStyles, Icon, Theme, WithStyles, w
 import {Btn} from '../../lib/Btn'
 import {colorError} from '../style/color'
 import classNames from 'classnames'
-import {AutocompleteItemProps} from '../Autocomplete/AutocompleteItem'
 import {ButtonProps} from '@material-ui/core/Button'
 
 const styles = (t: Theme) => createStyles({
@@ -58,7 +57,7 @@ interface Messages {
   invalidSize: string;
 }
 
-interface Props extends WithStyles<typeof styles>, ButtonProps {
+interface Props extends WithStyles<typeof styles>, Pick<ButtonProps, Exclude<keyof ButtonProps, keyof { classes }>> {
   document?: Document
   msg?: Messages;
   uploading?: boolean;

@@ -36,9 +36,10 @@ const styles = (t: Theme) => createStyles({
 })
 
 interface Props extends WithStyles<typeof styles> {
-  type?: State;
-  icon?: string;
-  className?: string;
+  type?: State
+  icon?: string
+  className?: string
+  style?: object
 }
 
 class Fender extends React.Component<Props, {}> {
@@ -48,9 +49,9 @@ class Fender extends React.Component<Props, {}> {
   }
 
   render() {
-    const {type, classes, className} = this.props
+    const {type, classes, className, style} = this.props
     return (
-      <div className={classNames(classes.root, className)}>
+      <div className={classNames(classes.root, className)} style={style}>
         <div className={classes[type]}>
           <div>{this.getIcon()}</div>
           <div className={classes.p}>{this.props.children}</div>
