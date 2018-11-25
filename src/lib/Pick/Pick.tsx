@@ -13,14 +13,13 @@ import {
   withStyles
 } from '@material-ui/core'
 
-const sizeBeforeAutocomplete = 8
-
 const styles = (t: Theme) => createStyles({
   menu_head: {
     marginTop: -t.spacing.unit,
     borderBottom: `1px solid ${t.palette.divider}`,
     display: 'flex',
     alignItems: 'center',
+    minHeight: 48,
   },
   menu_headWithCb: {
     paddingLeft: 0,
@@ -44,11 +43,11 @@ const styles = (t: Theme) => createStyles({
 })
 
 interface Props extends WithStyles<typeof styles> {
-  multiple?: boolean;
-  value?: string[];
-  onChange: (value: string[]) => void;
-  searchLabel?: string;
-  readonly?: boolean;
+  multiple?: boolean
+  value?: string[]
+  onChange: (value: string[]) => void
+  searchLabel?: string
+  readonly?: boolean
 }
 
 interface State {
@@ -80,7 +79,6 @@ class Pick extends React.Component<Props, State> {
                }
         />
         <Menu anchorEl={anchorEl} open={!!anchorEl} onClose={this.close}>
-          {sizeBeforeAutocomplete < optionsCount &&
           <header className={classNames(classes.menu_head, multiple && classes.menu_headWithCb)}>
             {multiple &&
             <Checkbox
@@ -90,9 +88,9 @@ class Pick extends React.Component<Props, State> {
               disabled={readonly}/>
             }
             <input className={classes.menu_input} placeholder={searchLabel}
+                   style={!multiple ? {marginLeft: 12} : {}}
                    onChange={e => this.setState({filter: e.target.value})}/>
           </header>
-          }
           <div className={classes.menu_items} style={{width: this.$input && this.$input.clientWidth}}>
             {this.getFilteredChildren().map(x =>
               React.cloneElement(x, {
