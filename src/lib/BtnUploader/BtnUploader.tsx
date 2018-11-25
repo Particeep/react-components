@@ -3,6 +3,8 @@ import {Avatar, Chip, CircularProgress, createStyles, Icon, Theme, WithStyles, w
 import {Btn} from '../../lib/Btn'
 import {colorError} from '../style/color'
 import classNames from 'classnames'
+import {AutocompleteItemProps} from '../Autocomplete/AutocompleteItem'
+import {ButtonProps} from '@material-ui/core/Button'
 
 const styles = (t: Theme) => createStyles({
   root: {
@@ -17,9 +19,9 @@ const styles = (t: Theme) => createStyles({
   },
   doc_progress: {
     position: 'absolute',
-    top: -3,
+    top: 0,
     right: 0,
-    left: -3,
+    left: 0,
     bottom: 0,
   },
   docUploading: {
@@ -56,7 +58,7 @@ interface Messages {
   invalidSize: string;
 }
 
-interface Props extends WithStyles<typeof styles> {
+interface Props extends WithStyles<typeof styles>, ButtonProps {
   document?: Document
   msg?: Messages;
   uploading?: boolean;
@@ -66,8 +68,7 @@ interface Props extends WithStyles<typeof styles> {
 }
 
 // TODO(Alex) Fix wierd typing issue (it works for <Btn>)
-// class ChipsUploader extends React.Component<AutocompleteItemProps & ButtonProps, any> {
-class ChipsUploader extends React.Component<any, any> {
+class BtnUploader extends React.Component<Props, any> {
 
   public static defaultProps: Partial<Props> = {
     msg: {
@@ -106,7 +107,7 @@ class ChipsUploader extends React.Component<any, any> {
       return (
         <Chip className={classNames(classes.doc, classes.docUploading)} label={msg.loading} avatar={
           <Avatar>
-            <CircularProgress size={38} className={classes.doc_progress}/>
+            <CircularProgress size={32} className={classes.doc_progress}/>
             <Icon className={classes.doc_i}>insert_drive_file</Icon>
           </Avatar>
         }/>
@@ -154,4 +155,4 @@ class ChipsUploader extends React.Component<any, any> {
   }
 }
 
-export default withStyles(styles)(ChipsUploader)
+export default withStyles(styles)(BtnUploader)
