@@ -1,17 +1,6 @@
 import * as React from 'react'
-import {
-  createStyles,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-  Theme,
-  WithStyles,
-  withStyles
-} from '@material-ui/core'
+import {createStyles, Table, TableBody, TableCell, TableRow, Theme, WithStyles, withStyles} from '@material-ui/core'
 import {Page} from '../../../lib/Page/index'
-import {Btn} from '../../../lib/Btn/index'
 import {WithToast, withToast} from '../../../lib/Toast/Toast'
 import autobind from 'autobind-decorator'
 import {TableSort, TableSortCell} from '../../../lib/TableSort/index'

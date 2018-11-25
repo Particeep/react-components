@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import * as React from 'react';
+import * as React from 'react'
 import SvgIcon from '@material-ui/core/SvgIcon'
 
 const LinkedinIcon = ({className, ...props}: any) =>
@@ -17,6 +17,6 @@ const LinkedinIcon = ({className, ...props}: any) =>
       </g>
     </svg>
   </SvgIcon>
-;
 
-export default LinkedinIcon;
+
+export default LinkedinIcon

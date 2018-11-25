@@ -1,6 +1,6 @@
-import * as React from 'react';
-import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core';
-import {ReactNode} from 'react';
+import * as React from 'react'
+import {ReactNode} from 'react'
+import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core'
 
 const styles = (t: Theme) => createStyles({
   root: t.mixins.gutters({
@@ -10,7 +10,7 @@ const styles = (t: Theme) => createStyles({
       paddingBottom: t.spacing.unit * 3,
     },
   }),
-});
+})
 
 
 interface PanelBodyProps extends WithStyles<typeof styles> {
@@ -22,13 +22,13 @@ interface PanelBodyProps extends WithStyles<typeof styles> {
 class PanelBody extends React.Component<PanelBodyProps, {}> {
 
   render() {
-    const {children, classes, className} = this.props;
+    const {children, classes, className} = this.props
     return (
       <div className={`${classes.root} ${className || ''}`}>
         {children}
       </div>
-    );
+    )
   }
 }
 
-export default withStyles(styles)(PanelBody);
+export default withStyles(styles)(PanelBody)

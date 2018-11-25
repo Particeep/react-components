@@ -1,12 +1,12 @@
-import * as React from 'react';
-import {Fender, Page, Panel, PanelBody} from '../../../lib/index';
-import {Icon, IconButton} from '@material-ui/core';
+import * as React from 'react'
+import {Fender, Page, Panel, PanelBody} from '../../../lib/index'
+import {Icon, IconButton} from '@material-ui/core'
 
 class FenderDemo extends React.Component<{}, {}> {
 
   state = {
     isLoading: false,
-  };
+  }
 
   render() {
     return (
@@ -51,5 +51,5 @@ class FenderDemo extends React.Component<{}, {}> {
     </IconButton>
 }
 
-export default FenderDemo;
+export default FenderDemo
 

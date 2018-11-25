@@ -1,5 +1,5 @@
-import * as React from 'react';
-import {ReactNode} from 'react';
+import * as React from 'react'
+import {ReactNode} from 'react'
 import {
   Button,
   createStyles,
@@ -10,9 +10,9 @@ import {
   Theme,
   WithStyles,
   withStyles
-} from '@material-ui/core';
+} from '@material-ui/core'
 
-const styles = (t: Theme) => createStyles({});
+const styles = (t: Theme) => createStyles({})
 
 interface Props extends WithStyles<typeof styles> {
   disabled?: boolean;
@@ -28,10 +28,10 @@ class BtnConfirm extends React.Component<Props, any> {
 
   state = {
     open: false,
-  };
+  }
 
   render() {
-    const {children, title, content, confirmLabel, cancelLabel} = this.props;
+    const {children, title, content, confirmLabel, cancelLabel} = this.props
     return (
       <>
         {React.cloneElement(children as any, {
@@ -50,13 +50,13 @@ class BtnConfirm extends React.Component<Props, any> {
           </DialogActions>
         </Dialog>
       </>
-    );
+    )
   }
 
   private confirm = () => {
-    this.props.onConfirm();
-    this.setState({open: false});
+    this.props.onConfirm()
+    this.setState({open: false})
   }
 }
 
-export default withStyles(styles)(BtnConfirm);
+export default withStyles(styles)(BtnConfirm)

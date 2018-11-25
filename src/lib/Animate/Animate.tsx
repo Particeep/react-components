@@ -1,11 +1,6 @@
-import * as React from 'react';
-import {
-  createStyles,
-  Theme,
-  WithStyles,
-  withStyles
-} from '@material-ui/core';
-import classNames from 'classnames';
+import * as React from 'react'
+import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core'
+import classNames from 'classnames'
 
 const styles = (t: Theme) => createStyles({
   root: {
@@ -17,7 +12,7 @@ const styles = (t: Theme) => createStyles({
     opacity: 1,
     transform: 'translateY(0)',
   },
-});
+})
 
 interface IProps extends WithStyles<typeof styles> {
   delay?: number,
@@ -28,24 +23,24 @@ class Animate extends React.Component<IProps, any> {
 
   state = {
     appeared: false,
-  };
+  }
 
-  private timeout: any;
+  private timeout: any
 
   render() {
-    const {children, classes} = this.props;
+    const {children, classes} = this.props
     return React.cloneElement(children, {
       className: classNames(classes.root, this.state.appeared && classes.root_appeared)
     })
   }
 
   componentDidMount() {
-    this.timeout = setTimeout(() => this.setState({appeared: true}), this.props.delay || 0);
+    this.timeout = setTimeout(() => this.setState({appeared: true}), this.props.delay || 0)
   }
 
   componentWillUnmount() {
-    clearTimeout(this.timeout);
+    clearTimeout(this.timeout)
   }
 }
 
-export default withStyles(styles)(Animate);
+export default withStyles(styles)(Animate)

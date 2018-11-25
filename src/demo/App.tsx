@@ -75,27 +75,27 @@ class App extends React.Component<AppProps, {}> {
   render() {
     const {classes} = this.props
     return (
-        <div className={classes.root}>
-          <Sidebar/>
-          <div className={classes.body}>
-            <main className={classes.content}>
-              <Route path="/panel" component={PanelDemo}/>
-              <Route path="/btn" component={BtnDemo}/>
-              <Route path="/btn-confirm" component={BtnConfirmDemo}/>
-              <Route path="/chips-uploader" component={ChipUploaderDemo}/>
-              <Route path="/alert" component={AlertDemo}/>
-              <Route path="/icons" component={IconsDemo}/>
-              <Route path="/stepper" component={ExpensionStepperDemo}/>
-              <Route path="/fender" component={FenderDemo}/>
-              <Route path="/toast" component={ToastDemo}/>
-              <Route path="/global-progress" component={GlobalProgressDemo}/>
-              <Route path="/input-date" component={InputDateDemo}/>
-              <Route path="/pick" component={PickDemo}/>
-              <Route path="/table-sort" component={TableSortDemo}/>
-              <Route path="/animate" component={AnimateDemo}/>
-            </main>
-          </div>
+      <div className={classes.root}>
+        <Sidebar/>
+        <div className={classes.body}>
+          <main className={classes.content}>
+            <Route path="/panel" component={PanelDemo}/>
+            <Route path="/btn" component={BtnDemo}/>
+            <Route path="/btn-confirm" component={BtnConfirmDemo}/>
+            <Route path="/chips-uploader" component={ChipUploaderDemo}/>
+            <Route path="/alert" component={AlertDemo}/>
+            <Route path="/icons" component={IconsDemo}/>
+            <Route path="/stepper" component={ExpensionStepperDemo}/>
+            <Route path="/fender" component={FenderDemo}/>
+            <Route path="/toast" component={ToastDemo}/>
+            <Route path="/global-progress" component={GlobalProgressDemo}/>
+            <Route path="/input-date" component={InputDateDemo}/>
+            <Route path="/pick" component={PickDemo}/>
+            <Route path="/table-sort" component={TableSortDemo}/>
+            <Route path="/animate" component={AnimateDemo}/>
+          </main>
         </div>
+      </div>
     )
   }
 

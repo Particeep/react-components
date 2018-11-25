@@ -1,6 +1,6 @@
-import * as React from 'react';
-import {ReactElement} from 'react';
-import classNames from 'classnames';
+import * as React from 'react'
+import {ReactElement} from 'react'
+import classNames from 'classnames'
 import {
   Checkbox,
   createStyles,
@@ -11,9 +11,9 @@ import {
   Theme,
   WithStyles,
   withStyles
-} from '@material-ui/core';
+} from '@material-ui/core'
 
-const sizeBeforeAutocomplete = 8;
+const sizeBeforeAutocomplete = 8
 
 const styles = (t: Theme) => createStyles({
   menu_head: {
@@ -41,7 +41,7 @@ const styles = (t: Theme) => createStyles({
     color: t.palette.text.secondary,
     verticalAlign: 'top',
   }
-});
+})
 
 interface Props extends WithStyles<typeof styles> {
   multiple?: boolean;
@@ -61,14 +61,14 @@ class Pick extends React.Component<Props, State> {
   state: State = {
     anchorEl: null,
     filter: null
-  };
+  }
 
-  private $input: any;
+  private $input: any
 
   render() {
-    const {value, multiple, searchLabel, readonly, children, classes} = this.props;
-    const {anchorEl} = this.state;
-    const optionsCount = React.Children.count(children);
+    const {value, multiple, searchLabel, readonly, children, classes} = this.props
+    const {anchorEl} = this.state
+    const optionsCount = React.Children.count(children)
     return (
       <>
         <Input onClick={this.open} value={value && value.join(', ')} disabled={readonly} multiline rows="1" rowsMax="10"
@@ -105,50 +105,50 @@ class Pick extends React.Component<Props, State> {
           </div>
         </Menu>
       </>
-    );
+    )
   }
 
   private open = (event: any) => {
-    this.setState({anchorEl: event.currentTarget});
-  };
+    this.setState({anchorEl: event.currentTarget})
+  }
 
   private close = () => {
-    this.setState({anchorEl: null, filter: ''});
-  };
+    this.setState({anchorEl: null, filter: ''})
+  }
 
   private handleChange = (value: string) => {
-    let newValue;
+    let newValue
     if (this.props.multiple) {
-      if (this.props.value.indexOf(value) === -1) newValue = this.props.value.concat(value);
-      else newValue = this.props.value.filter(v => v !== value);
+      if (this.props.value.indexOf(value) === -1) newValue = this.props.value.concat(value)
+      else newValue = this.props.value.filter(v => v !== value)
     } else {
-      this.close();
-      if (this.props.value.indexOf(value) === -1) newValue = value;
-      else newValue = '';
+      this.close()
+      if (this.props.value.indexOf(value) === -1) newValue = value
+      else newValue = ''
     }
-    this.props.onChange(newValue);
-  };
+    this.props.onChange(newValue)
+  }
 
   private getFilteredChildren(): ReactElement<any>[] {
-    const {filter} = this.state;
-    const items = React.Children.map(this.props.children, (x: React.ReactElement<any>) => x);
+    const {filter} = this.state
+    const items = React.Children.map(this.props.children, (x: React.ReactElement<any>) => x)
     if (filter && filter !== '')
-      return items.filter(x => x.props.value.toLowerCase().indexOf(filter.toLowerCase()) !== -1);
-    return items;
+      return items.filter(x => x.props.value.toLowerCase().indexOf(filter.toLowerCase()) !== -1)
+    return items
   }
 
   private selectAll = (event: any, checked: boolean) => {
     const values: string[] = checked ? React.Children.map(
       this.props.children,
       (x: React.ReactElement<any>) => x.props.value
-    ) : [];
-    this.props.onChange(values);
-  };
+    ) : []
+    this.props.onChange(values)
+  }
 }
 
 const mapProps = (Component: any) => (props: any) => <Component
   {...props}
   value={!Array.isArray(props.value) ? [props.value] : props.value}
-/>;
+/>
 
-export default withStyles(styles)(mapProps(Pick));
+export default withStyles(styles)(mapProps(Pick))

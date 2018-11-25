@@ -1,1 +1,1 @@
-export {default as ChipsUploader} from './ChipsUploader';
+export {default as ChipsUploader} from './ChipsUploader'

@@ -1,9 +1,8 @@
-import * as React from 'react';
-import {CardActions, Theme, WithStyles, withStyles} from '@material-ui/core';
-import {ReactNode} from 'react';
+import * as React from 'react'
+import {ReactNode} from 'react'
+import {CardActions, Theme, WithStyles, withStyles} from '@material-ui/core'
 
-const styles = (t: Theme) => ({
-});
+const styles = (t: Theme) => ({})
 
 interface PanelFootProps extends WithStyles<typeof styles> {
   children?: ReactNode;
@@ -13,14 +12,14 @@ interface PanelFootProps extends WithStyles<typeof styles> {
 class PanelFoot extends React.Component<PanelFootProps, {}> {
 
   render() {
-    const {children, classes, className} = this.props;
+    const {children, classes, className} = this.props
     return (
       <CardActions className={`${className || ''}`}>
         {children}
       </CardActions>
-     );
+    )
   }
 }
 
 
-export default withStyles(styles)(PanelFoot);
+export default withStyles(styles)(PanelFoot)

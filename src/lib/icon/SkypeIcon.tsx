@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import * as React from 'react';
+import * as React from 'react'
 import SvgIcon from '@material-ui/core/SvgIcon'
 
 const SkypeIcon = ({className, ...props}: any) =>
@@ -29,6 +29,6 @@ const SkypeIcon = ({className, ...props}: any) =>
       </g>
     </svg>
   </SvgIcon>
-;
 
-export default SkypeIcon;
+
+export default SkypeIcon

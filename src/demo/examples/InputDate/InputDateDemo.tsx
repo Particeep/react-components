@@ -1,11 +1,11 @@
-import * as React from 'react';
-import {Page} from '../../../lib/index';
-import InputDate from '../../../lib/InputDate/InputDate';
+import * as React from 'react'
+import {Page} from '../../../lib/index'
+import InputDate from '../../../lib/InputDate/InputDate'
 
 class InputDateDemo extends React.Component<{}, {}> {
 
   render() {
-    const style = {marginRight: 16};
+    const style = {marginRight: 16}
     return (
       <Page>
         <InputDate format="dd/mm/yyyy" style={style} value="11/12/1991"/>
@@ -16,4 +16,4 @@ class InputDateDemo extends React.Component<{}, {}> {
   }
 }
 
-export default InputDateDemo;
+export default InputDateDemo

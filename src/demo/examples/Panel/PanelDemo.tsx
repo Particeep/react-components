@@ -1,12 +1,12 @@
-import * as React from 'react';
-import {Page, Panel, PanelBody, PanelFoot, PanelHead} from '../../../lib/index';
-import {Button, Icon, IconButton} from '@material-ui/core';
+import * as React from 'react'
+import {Page, Panel, PanelBody, PanelFoot, PanelHead} from '../../../lib/index'
+import {Button, Icon, IconButton} from '@material-ui/core'
 
 class PanelDemo extends React.Component<{}, {}> {
 
   state = {
     isLoading: false,
-  };
+  }
 
   render() {
     return (
@@ -39,5 +39,5 @@ class PanelDemo extends React.Component<{}, {}> {
     </IconButton>
 }
 
-export default PanelDemo;
+export default PanelDemo
 

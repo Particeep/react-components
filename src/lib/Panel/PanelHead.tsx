@@ -1,6 +1,6 @@
-import * as React from 'react';
-import {ReactNode} from 'react';
-import {createStyles, Icon, Theme, withStyles, WithStyles} from '@material-ui/core';
+import * as React from 'react'
+import {ReactNode} from 'react'
+import {createStyles, Icon, Theme, withStyles, WithStyles} from '@material-ui/core'
 
 const styles = (t: Theme) => createStyles({
   root: t.mixins.gutters({
@@ -19,7 +19,7 @@ const styles = (t: Theme) => createStyles({
   content: {
     flex: 1,
   },
-});
+})
 
 interface PanelHeadProps extends WithStyles<typeof styles> {
   icon?: string;
@@ -31,7 +31,7 @@ interface PanelHeadProps extends WithStyles<typeof styles> {
 class PanelHead extends React.Component<PanelHeadProps, {}> {
 
   render() {
-    const {className, icon, children, action, classes} = this.props;
+    const {className, icon, children, action, classes} = this.props
     return (
       <div className={`${classes.root} ${className || ''}`}>
         {icon &&
@@ -46,4 +46,4 @@ class PanelHead extends React.Component<PanelHeadProps, {}> {
   }
 }
 
-export default withStyles(styles)(PanelHead);
+export default withStyles(styles)(PanelHead)

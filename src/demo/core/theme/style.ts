@@ -13,4 +13,4 @@ export const css = {
     overflow: 'hidden',
     textOverflow: 'ellipsis',
   }
-};
+}

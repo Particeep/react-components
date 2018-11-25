@@ -1,7 +1,6 @@
-import * as React from 'react';
-import {FacebookIcon, IconSkype, LinkedinIcon, Page, TwitterIcon} from '../../../lib/index';
-import {createStyles, TextField, Theme, withStyles} from '@material-ui/core';
-import GitHub from '../../../lib/icon/GitHubIcon'
+import * as React from 'react'
+import {FacebookIcon, IconSkype, LinkedinIcon, Page, TwitterIcon} from '../../../lib/index'
+import {createStyles, TextField, Theme, withStyles} from '@material-ui/core'
 import GitHubIcon from '../../../lib/icon/GitHubIcon'
 
 const styles = (t: Theme) => createStyles({
@@ -18,7 +17,7 @@ const styles = (t: Theme) => createStyles({
       marginBottom: t.spacing.unit * 4,
     }
   }
-});
+})
 
 
 const colors = [
@@ -26,7 +25,7 @@ const colors = [
   'Red',
   'Blue',
   'Silver',
-];
+]
 
 const icons = [
   <IconSkype/>,
@@ -34,17 +33,17 @@ const icons = [
   <TwitterIcon/>,
   <LinkedinIcon/>,
   <GitHubIcon/>,
-];
+]
 
 class IconsDemo extends React.Component<any, any> {
 
   state = {
     color: colors[0],
     size: 42,
-  };
+  }
 
   render() {
-    const {classes} = this.props;
+    const {classes} = this.props
     return (
       <Page>
         <div className={classes.config}>
@@ -80,4 +79,4 @@ class IconsDemo extends React.Component<any, any> {
   }
 }
 
-export default withStyles(styles)(IconsDemo);
+export default withStyles(styles)(IconsDemo)

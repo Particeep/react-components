@@ -1,8 +1,8 @@
-import * as React from 'react';
-import {Avatar, Chip, CircularProgress, createStyles, Icon, Theme, WithStyles, withStyles} from '@material-ui/core';
-import {Btn} from '../../lib/Btn';
-import {colorError} from '../style/color';
-import classNames from 'classnames';
+import * as React from 'react'
+import {Avatar, Chip, CircularProgress, createStyles, Icon, Theme, WithStyles, withStyles} from '@material-ui/core'
+import {Btn} from '../../lib/Btn'
+import {colorError} from '../style/color'
+import classNames from 'classnames'
 
 const styles = (t: Theme) => createStyles({
   root: {
@@ -43,7 +43,7 @@ const styles = (t: Theme) => createStyles({
     marginLeft: t.spacing.unit,
     cursor: 'pointer',
   }
-});
+})
 
 interface Document {
   permalink: string;
@@ -75,16 +75,16 @@ class ChipsUploader extends React.Component<any, any> {
       upload: 'Upload',
       invalidSize: 'File is too big',
     },
-  };
+  }
 
   state = {
     errorMessage: null
-  };
+  }
 
-  private fileInput: any;
+  private fileInput: any
 
   render() {
-    const {classes} = this.props;
+    const {classes} = this.props
     return (
       <div className={classes.root}>
         {this.renderBody()}
@@ -101,7 +101,7 @@ class ChipsUploader extends React.Component<any, any> {
   }
 
   renderBody() {
-    const {document, uploading, classes, msg, onUpload, onDelete, ...other} = this.props;
+    const {document, uploading, classes, msg, onUpload, onDelete, ...other} = this.props
     if (uploading) {
       return (
         <Chip className={classNames(classes.doc, classes.docUploading)} label={msg.loading} avatar={
@@ -110,7 +110,7 @@ class ChipsUploader extends React.Component<any, any> {
             <Icon className={classes.doc_i}>insert_drive_file</Icon>
           </Avatar>
         }/>
-      );
+      )
     } else {
       if (document) {
         return (
@@ -123,7 +123,7 @@ class ChipsUploader extends React.Component<any, any> {
               </Avatar>
             }
           />
-        );
+        )
       } else {
         return (
           <Btn color="primary" onClick={this.openFileSelection} icon="file_upload" {...other}>
@@ -137,21 +137,21 @@ class ChipsUploader extends React.Component<any, any> {
   }
 
   private openFileSelection = () => {
-    this.fileInput.click();
-  };
+    this.fileInput.click()
+  }
 
   private handleChange = (file) => {
-    const {maxUploadFileSize, onUpload, msg} = this.props;
+    const {maxUploadFileSize, onUpload, msg} = this.props
     if (maxUploadFileSize && file.size > maxUploadFileSize * 1024 * 1024) {
-      this.setState({errorMessage: msg.invalidSize});
-      return;
+      this.setState({errorMessage: msg.invalidSize})
+      return
     }
-    onUpload(file);
-  };
+    onUpload(file)
+  }
 
   private clear = () => {
-    this.props.onDelete();
+    this.props.onDelete()
   }
 }
 
-export default withStyles(styles)(ChipsUploader);
+export default withStyles(styles)(ChipsUploader)

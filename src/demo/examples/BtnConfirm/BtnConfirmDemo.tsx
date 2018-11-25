@@ -1,16 +1,16 @@
-import * as React from 'react';
-import {Btn, BtnConfirm, Page} from '../../../lib/index';
-import {Menu, MenuItem} from '@material-ui/core';
+import * as React from 'react'
+import {Btn, BtnConfirm, Page} from '../../../lib/index'
+import {Menu, MenuItem} from '@material-ui/core'
 
 class BtnConfirmDemo extends React.Component<{}, any> {
 
   state = {
     isLoading: false,
     anchorEl: null,
-  };
+  }
 
   render() {
-    const {anchorEl} = this.state;
+    const {anchorEl} = this.state
 
     return (
       <Page>
@@ -37,17 +37,17 @@ class BtnConfirmDemo extends React.Component<{}, any> {
   }
 
   action = () => {
-    this.setState({isLoading: true});
-    setTimeout(() => this.setState({isLoading: false}), 1200);
-  };
+    this.setState({isLoading: true})
+    setTimeout(() => this.setState({isLoading: false}), 1200)
+  }
 
   handleClick = event => {
-    this.setState({anchorEl: event.currentTarget});
-  };
+    this.setState({anchorEl: event.currentTarget})
+  }
 
   handleClose = () => {
-    this.setState({anchorEl: null});
-  };
+    this.setState({anchorEl: null})
+  }
 }
 
-export default BtnConfirmDemo;
+export default BtnConfirmDemo

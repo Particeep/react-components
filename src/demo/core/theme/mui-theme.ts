@@ -1,4 +1,4 @@
-import {orange, blue, red} from '@material-ui/core/colors'
+import {blue, orange, red} from '@material-ui/core/colors'
 
 const Tab = {
   MuiTabs: {

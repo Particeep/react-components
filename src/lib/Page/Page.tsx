@@ -1,6 +1,6 @@
-import * as React from 'react';
-import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core';
-import classNames from 'classnames';
+import * as React from 'react'
+import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core'
+import classNames from 'classnames'
 
 const styles = (t: Theme) => createStyles({
   root: {
@@ -14,7 +14,7 @@ const styles = (t: Theme) => createStyles({
     opacity: 1,
     transform: 'scale(1)',
   }
-});
+})
 
 interface Props extends WithStyles<typeof styles> {
   width?: number,
@@ -26,14 +26,14 @@ class Page extends React.Component<Props, {}> {
 
   public static defaultProps: Partial<Props> = {
     animated: true,
-  };
+  }
 
   state = {
     appeared: false,
-  };
+  }
 
   render() {
-    const {classes, children, width, animated, className} = this.props;
+    const {classes, children, width, animated, className} = this.props
     return (
       <div className={classNames(classes.root, (!animated || this.state.appeared) && classes.root_appeared, className)}
            style={width && {maxWidth: width}}>
@@ -43,9 +43,9 @@ class Page extends React.Component<Props, {}> {
   }
 
   componentDidMount() {
-    if (this.props.animated) setTimeout(() => this.setState({appeared: true}));
+    if (this.props.animated) setTimeout(() => this.setState({appeared: true}))
   }
 }
 
-export default withStyles(styles)(Page);
+export default withStyles(styles)(Page)
 

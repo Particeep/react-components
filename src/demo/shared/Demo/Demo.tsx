@@ -1,6 +1,6 @@
 // @ts-ignore
-import {useState} from 'react'
 import * as React from 'react'
+import {useState} from 'react'
 import {Collapse, createStyles, Icon, IconButton, Theme, withStyles, WithStyles} from '@material-ui/core'
 import {Code} from '../Code/Code'
 
@@ -21,6 +21,7 @@ const styles = (t: Theme) => createStyles({
   },
   wrapper: {
     margin: t.spacing.unit * 2,
+    padding: t.spacing.unit * 2,
     background: 'white',
   }
 })

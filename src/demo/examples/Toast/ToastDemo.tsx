@@ -1,11 +1,11 @@
-import * as React from 'react';
-import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core';
-import {Page} from '../../../lib/Page/index';
-import {Btn} from '../../../lib/Btn/index';
-import {WithToast, withToast} from '../../../lib/Toast/Toast';
-import autobind from 'autobind-decorator';
+import * as React from 'react'
+import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core'
+import {Page} from '../../../lib/Page/index'
+import {Btn} from '../../../lib/Btn/index'
+import {WithToast, withToast} from '../../../lib/Toast/Toast'
+import autobind from 'autobind-decorator'
 
-const styles = (t: Theme) => createStyles({});
+const styles = (t: Theme) => createStyles({})
 
 interface IProps extends WithToast, WithStyles<typeof styles> {
 }
@@ -13,7 +13,7 @@ interface IProps extends WithToast, WithStyles<typeof styles> {
 class ToastDemo extends React.Component<IProps, {}> {
 
   render() {
-    const {} = this.props;
+    const {} = this.props
     return (
       <Page>
         <Btn color="primary" onClick={this.popError}>Toast error</Btn>
@@ -22,7 +22,7 @@ class ToastDemo extends React.Component<IProps, {}> {
         <Btn color="primary" onClick={this.popInfo}>Toast Info</Btn>
         <Btn color="primary" onClick={this.popLoading}>Toast Loading</Btn>
       </Page>
-    );
+    )
   }
 
   @autobind
@@ -51,4 +51,4 @@ class ToastDemo extends React.Component<IProps, {}> {
   }
 }
 
-export default withStyles(styles)(withToast(ToastDemo));
+export default withStyles(styles)(withToast(ToastDemo))

@@ -1,6 +1,6 @@
-import * as React from 'react';
-import {ReactNode} from 'react';
-import {Checkbox, MenuItem, Radio} from '@material-ui/core';
+import * as React from 'react'
+import {ReactNode} from 'react'
+import {Checkbox, MenuItem, Radio} from '@material-ui/core'
 
 export interface AutocompleteItemProps {
   multiple?: boolean
@@ -14,7 +14,7 @@ export interface AutocompleteItemProps {
 class PickItem extends React.Component<AutocompleteItemProps, {}> {
 
   render() {
-    const {checked, disabled, multiple, value, children, onClick} = this.props;
+    const {checked, disabled, multiple, value, children, onClick} = this.props
     return (
       <MenuItem onClick={() => onClick(value)} style={{paddingLeft: 0}} disabled={disabled}>
         {multiple
@@ -23,8 +23,8 @@ class PickItem extends React.Component<AutocompleteItemProps, {}> {
         }
         {children}
       </MenuItem>
-    );
+    )
   }
 }
 
-export default PickItem;
+export default PickItem

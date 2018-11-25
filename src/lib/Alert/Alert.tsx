@@ -1,9 +1,9 @@
-import * as React from 'react';
-import {createStyles, Icon, IconButton, Theme, WithStyles, withStyles} from '@material-ui/core';
-import {colorError, colorInfo, colorSuccess, colorWarning} from '../style/color';
-import classNames from 'classnames';
+import * as React from 'react'
+import {createStyles, Icon, IconButton, Theme, WithStyles, withStyles} from '@material-ui/core'
+import {colorError, colorInfo, colorSuccess, colorWarning} from '../style/color'
+import classNames from 'classnames'
 
-const height = 52;
+const height = 52
 
 const styles = (t: Theme) => createStyles({
   root: t.mixins.gutters({
@@ -57,9 +57,9 @@ const styles = (t: Theme) => createStyles({
   action: {
     textAlign: 'right',
     margin: `${t.spacing.unit} ${t.spacing.unit / 2} ${t.spacing.unit / 2} 0`,
-    marginRight: - t.spacing.unit * 2,
+    marginRight: -t.spacing.unit * 2,
   }
-});
+})
 
 interface AlertProps extends WithStyles<typeof styles> {
   type: 'info' | 'error' | 'warning' | 'success';
@@ -73,12 +73,13 @@ class Alert extends React.Component<AlertProps, any> {
 
   state = {
     isVisible: true,
-  };
+  }
 
   render() {
-    const {type, children, icon, classes, action, deletable, className} = this.props;
+    const {type, children, icon, classes, action, deletable, className} = this.props
     return (
-      <div className={classNames(classes.root, classes['_' + type], className, !this.state.isVisible && classes._hidden)}>
+      <div
+        className={classNames(classes.root, classes['_' + type], className, !this.state.isVisible && classes._hidden)}>
         <Icon className={classes.i}>{icon ? icon : this.getIconFromType()}</Icon>
         <div className={classes.body}>
           {children}
@@ -98,17 +99,17 @@ class Alert extends React.Component<AlertProps, any> {
   getIconFromType = () => {
     switch (this.props.type) {
       case 'info':
-        return 'info';
+        return 'info'
       case 'error':
-        return 'error';
+        return 'error'
       case 'warning':
-        return 'warning';
+        return 'warning'
       case 'success':
-        return 'check_circle';
+        return 'check_circle'
       default:
-        return 'info';
+        return 'info'
     }
   }
 }
 
-export default withStyles(styles)(Alert);
+export default withStyles(styles)(Alert)

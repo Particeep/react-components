@@ -1,14 +1,14 @@
-import * as React from 'react';
-import {Page} from '../../../lib/index';
-import {ChipsUploader} from '../../../lib/ChipUploader/index';
-import {Panel, PanelBody} from '../../../lib/Panel/index';
+import * as React from 'react'
+import {Page} from '../../../lib/index'
+import {ChipsUploader} from '../../../lib/ChipUploader/index'
+import {Panel, PanelBody} from '../../../lib/Panel/index'
 
 class ChipUploaderDemo extends React.Component<any, any> {
 
   state = {
     document: null,
     isLoading: false,
-  };
+  }
 
   render() {
     return (
@@ -30,7 +30,7 @@ class ChipUploaderDemo extends React.Component<any, any> {
               onDelete={this.onDelete}
               variant="contained"
               color="secondary"
-              />
+            />
           </PanelBody>
         </Panel>
 
@@ -39,21 +39,21 @@ class ChipUploaderDemo extends React.Component<any, any> {
   }
 
   onUpload = (f: File) => {
-    const document = {name: f.name, permalink: 'http://google.fr'};
-    this.setState({isLoading: true});
+    const document = {name: f.name, permalink: 'http://google.fr'}
+    this.setState({isLoading: true})
     setTimeout(() => {
-      this.setState({document});
-      this.setState({isLoading: false});
+      this.setState({document})
+      this.setState({isLoading: false})
     }, 1200)
-  };
+  }
 
   onDelete = () => {
-    this.setState({isLoading: true});
+    this.setState({isLoading: true})
     setTimeout(() => {
-      this.setState({document: null});
-      this.setState({isLoading: false});
+      this.setState({document: null})
+      this.setState({isLoading: false})
     }, 800)
-  };
+  }
 }
 
-export default ChipUploaderDemo;
+export default ChipUploaderDemo
