@@ -12,8 +12,7 @@ import {
   WithStyles,
   withStyles
 } from '@material-ui/core'
-
-const sizeBeforeAutocomplete = 8
+import {InputProps} from '@material-ui/core/Input'
 
 const styles = (t: Theme) => createStyles({
   menu_head: {
@@ -21,6 +20,7 @@ const styles = (t: Theme) => createStyles({
     borderBottom: `1px solid ${t.palette.divider}`,
     display: 'flex',
     alignItems: 'center',
+    minHeight: 48,
   },
   menu_headWithCb: {
     paddingLeft: 0,
@@ -35,6 +35,7 @@ const styles = (t: Theme) => createStyles({
   menu_items: {
     maxHeight: 300,
     overflowY: 'auto',
+    minWidth: 220,
   },
   adornment: {
     height: 20,
@@ -44,11 +45,11 @@ const styles = (t: Theme) => createStyles({
 })
 
 interface Props extends WithStyles<typeof styles> {
-  multiple?: boolean;
-  value?: string[];
-  onChange: (value: string[]) => void;
-  searchLabel?: string;
-  readonly?: boolean;
+  multiple?: boolean
+  value?: string[]
+  onChange: (value: string[]) => void
+  searchLabel?: string
+  readonly?: boolean
 }
 
 interface State {
@@ -56,7 +57,7 @@ interface State {
   filter: string;
 }
 
-class Pick extends React.Component<Props, State> {
+class Autocomplete extends React.Component<Props, State> {
 
   state: State = {
     anchorEl: null,
@@ -66,12 +67,12 @@ class Pick extends React.Component<Props, State> {
   private $input: any
 
   render() {
-    const {value, multiple, searchLabel, readonly, children, classes} = this.props
+    const {value, multiple, searchLabel, readonly, children, classes, onChange, ...other} = this.props
     const {anchorEl} = this.state
     const optionsCount = React.Children.count(children)
     return (
       <>
-        <Input onClick={this.open} value={value && value.join(', ')} disabled={readonly} multiline rows="1" rowsMax="10"
+        <Input {...other} onClick={this.open} value={value && value.join(', ')} disabled={readonly}
                inputRef={(n: any) => this.$input = n}
                endAdornment={
                  <InputAdornment position="end">
@@ -80,7 +81,6 @@ class Pick extends React.Component<Props, State> {
                }
         />
         <Menu anchorEl={anchorEl} open={!!anchorEl} onClose={this.close}>
-          {sizeBeforeAutocomplete < optionsCount &&
           <header className={classNames(classes.menu_head, multiple && classes.menu_headWithCb)}>
             {multiple &&
             <Checkbox
@@ -90,9 +90,9 @@ class Pick extends React.Component<Props, State> {
               disabled={readonly}/>
             }
             <input className={classes.menu_input} placeholder={searchLabel}
+                   style={!multiple ? {marginLeft: 12} : {}}
                    onChange={e => this.setState({filter: e.target.value})}/>
           </header>
-          }
           <div className={classes.menu_items} style={{width: this.$input && this.$input.clientWidth}}>
             {this.getFilteredChildren().map(x =>
               React.cloneElement(x, {
@@ -151,4 +151,4 @@ const mapProps = (Component: any) => (props: any) => <Component
   value={!Array.isArray(props.value) ? [props.value] : props.value}
 />
 
-export default withStyles(styles)(mapProps(Pick))
+export default withStyles(styles)(mapProps(Autocomplete))

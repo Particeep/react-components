@@ -4,14 +4,14 @@ import {Checkbox, MenuItem, Radio} from '@material-ui/core'
 
 export interface AutocompleteItemProps {
   multiple?: boolean
-  disabled?: boolean;
-  checked?: boolean;
-  value: string;
-  children?: ReactNode;
+  disabled?: boolean
+  checked?: boolean
+  value: string
+  children?: ReactNode
   onClick?: (value: string) => void
 }
 
-class PickItem extends React.Component<AutocompleteItemProps, {}> {
+class AutocompleteItem extends React.Component<AutocompleteItemProps, {}> {
 
   render() {
     const {checked, disabled, multiple, value, children, onClick} = this.props
@@ -27,4 +27,4 @@ class PickItem extends React.Component<AutocompleteItemProps, {}> {
   }
 }
 
-export default PickItem
+export default AutocompleteItem
