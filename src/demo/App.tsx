@@ -9,7 +9,7 @@ import FenderDemo from './examples/Fender/FenderDemo'
 import InputDateDemo from './examples/InputDate/InputDateDemo'
 import ChipUploaderDemo from './examples/ChipUploader/ChipsUploaderDemo'
 import AutocompleteDemo from './examples/AutocompleteDemo/AutocompleteDemo'
-import BtnConfirmDemo from './examples/BtnConfirm/BtnConfirmDemo'
+import ConfirmDemo from './examples/Confirm/ConfirmDemo'
 import ToastDemo from './examples/Toast/ToastDemo'
 import GlobalProgressDemo from './examples/GlobalProgress/GlobalProgressDemo'
 import AnimateDemo from './examples/Animate/AnimateDemo'
@@ -81,7 +81,7 @@ class App extends React.Component<AppProps, {}> {
           <main className={classes.content}>
             <Route path="/panel" component={PanelDemo}/>
             <Route path="/btn" component={BtnDemo}/>
-            <Route path="/btn-confirm" component={BtnConfirmDemo}/>
+            <Route path="/btn-confirm" component={ConfirmDemo}/>
             <Route path="/chips-uploader" component={ChipUploaderDemo}/>
             <Route path="/alert" component={AlertDemo}/>
             <Route path="/icons" component={IconsDemo}/>
