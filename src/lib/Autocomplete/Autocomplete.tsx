@@ -34,6 +34,7 @@ const styles = (t: Theme) => createStyles({
   menu_items: {
     maxHeight: 300,
     overflowY: 'auto',
+    minWidth: 220,
   },
   adornment: {
     height: 20,
@@ -55,7 +56,7 @@ interface State {
   filter: string;
 }
 
-class Pick extends React.Component<Props, State> {
+class Autocomplete extends React.Component<Props, State> {
 
   state: State = {
     anchorEl: null,
@@ -65,12 +66,12 @@ class Pick extends React.Component<Props, State> {
   private $input: any
 
   render() {
-    const {value, multiple, searchLabel, readonly, children, classes} = this.props
+    const {value, multiple, searchLabel, readonly, children, classes, ...other} = this.props
     const {anchorEl} = this.state
     const optionsCount = React.Children.count(children)
     return (
       <>
-        <Input onClick={this.open} value={value && value.join(', ')} disabled={readonly} multiline rows="1" rowsMax="10"
+        <Input  onClick={this.open} value={value && value.join(', ')} disabled={readonly}
                inputRef={(n: any) => this.$input = n}
                endAdornment={
                  <InputAdornment position="end">
@@ -149,4 +150,4 @@ const mapProps = (Component: any) => (props: any) => <Component
   value={!Array.isArray(props.value) ? [props.value] : props.value}
 />
 
-export default withStyles(styles)(mapProps(Pick))
+export default withStyles(styles)(mapProps(Autocomplete))

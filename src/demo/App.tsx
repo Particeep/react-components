@@ -8,7 +8,7 @@ import ExpensionStepperDemo from './examples/ExpensionStepper/ExpensionStepperDe
 import FenderDemo from './examples/Fender/FenderDemo'
 import InputDateDemo from './examples/InputDate/InputDateDemo'
 import ChipUploaderDemo from './examples/ChipUploader/ChipsUploaderDemo'
-import PickDemo from './examples/PickDemo/PickDemo'
+import AutocompleteDemo from './examples/AutocompleteDemo/AutocompleteDemo'
 import BtnConfirmDemo from './examples/BtnConfirm/BtnConfirmDemo'
 import ToastDemo from './examples/Toast/ToastDemo'
 import GlobalProgressDemo from './examples/GlobalProgress/GlobalProgressDemo'
@@ -90,7 +90,7 @@ class App extends React.Component<AppProps, {}> {
             <Route path="/toast" component={ToastDemo}/>
             <Route path="/global-progress" component={GlobalProgressDemo}/>
             <Route path="/input-date" component={InputDateDemo}/>
-            <Route path="/pick" component={PickDemo}/>
+            <Route path="/pick" component={AutocompleteDemo}/>
             <Route path="/table-sort" component={TableSortDemo}/>
             <Route path="/animate" component={AnimateDemo}/>
           </main>

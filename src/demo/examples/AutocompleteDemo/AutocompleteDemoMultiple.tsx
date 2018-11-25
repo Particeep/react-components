@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {useState} from 'react'
-import {Pick, PickItem} from '../../../lib/index'
-import {FormControl, FormHelperText, InputLabel} from '@material-ui/core'
+import {FormControl, FormHelperText, Input, InputLabel} from '@material-ui/core'
+import {Autocomplete, AutocompleteItem} from '../../../lib/Autocomplete'
 
 const cities = [
   'Los Angeles',
@@ -21,24 +21,17 @@ const cities = [
   'Fremont',
   'Irvine',
   'San Bernardino',
-  'Modesto',
-  'Oxnard',
-  'Fontana',
-  'Moreno Valley',
-  'Glendale',
-  'Huntington Beach',
-  'Santa Clarita',
-  'Garden Grove',
 ]
-export const PickDemoMultiple = () => {
+
+export const AutocompleteDemoMultiple = () => {
   const [value, seValue] = useState([])
   return (
     <div>
       <FormControl fullWidth>
         <InputLabel>City</InputLabel>
-        <Pick multiple value={value} onChange={seValue} searchLabel="Search...">
-          {cities.map(c => <PickItem key={c} value={c}>{c}</PickItem>)}
-        </Pick>
+        <Autocomplete multiple value={value} onChange={seValue} searchLabel="Search..." multiline rows="1" rowsMax="10">
+          {cities.map(c => <AutocompleteItem key={c} value={c}>{c}</AutocompleteItem>)}
+        </Autocomplete>
         <FormHelperText><b>JS value: </b>{JSON.stringify(value)}</FormHelperText>
       </FormControl>
     </div>
