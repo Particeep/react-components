@@ -59,7 +59,6 @@ const styles = (t: Theme) => createStyles({
   content: {
     flexGrow: 1,
     backgroundColor: t.palette.background.paper,
-    padding: t.spacing.unit * 3,
   },
 })
 
