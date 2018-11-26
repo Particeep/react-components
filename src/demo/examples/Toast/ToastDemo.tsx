@@ -1,54 +1,44 @@
 import * as React from 'react'
-import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core'
 import {Page} from '../../../lib/Page/index'
-import {Btn} from '../../../lib/Btn/index'
-import {WithToast, withToast} from '../../../lib/Toast/Toast'
-import autobind from 'autobind-decorator'
+import {Demo} from '../../shared/Demo'
+import {ToastDemoExample} from './ToastDemoExample'
+import preval from 'babel-plugin-preval/macro'
+import {Code} from '../../shared/Code/Code'
+import {withToast} from '../../../lib/Toast'
 
-const styles = (t: Theme) => createStyles({})
+const ToastDemo = () => {
+  return (
+    <Page>
+      <h1>Toast</h1>
+      <p>
+        Simple wrapper for <code>{`<Snackbar/>`}</code> handling the commun types: error, success, warning, info and
+        loading.
+      </p>
 
-interface IProps extends WithToast, WithStyles<typeof styles> {
+      <h2>Usage</h2>
+      <p>
+        Add <code>{`<ToastProvider/>`}</code> in the root of your application, then simply wrap your component with <code>withToast</code> to access the methods
+        <code>toastError</code>, <code>toastWarning</code>, <code>toastSuccess</code>, <code>toastInfo</code> and <code>toastLoading</code>
+      </p>
+      <Code raw={
+        `import React from 'react'
+import {render} from 'react-dom'
+import {ToastProvider} from '../lib'
+import App from './components/App'
+​
+render(
+  <ToastProvider>
+    <App/>
+  </ToastProvider>,
+  document.getElementById('root')
+)`
+      }/>
+      <Demo
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./ToastDemoExample.tsx'), 'utf8')`}
+        component={ToastDemoExample}>
+      </Demo>
+    </Page>
+  )
 }
 
-class ToastDemo extends React.Component<IProps, {}> {
-
-  render() {
-    const {} = this.props
-    return (
-      <Page>
-        <Btn color="primary" onClick={this.popError}>Toast error</Btn>
-        <Btn color="primary" onClick={this.popWarning}>Toast Warning</Btn>
-        <Btn color="primary" onClick={this.popSuccess}>Toast Success</Btn>
-        <Btn color="primary" onClick={this.popInfo}>Toast Info</Btn>
-        <Btn color="primary" onClick={this.popLoading}>Toast Loading</Btn>
-      </Page>
-    )
-  }
-
-  @autobind
-  private popError() {
-    this.props.toastError('Something went wrong !')
-  }
-
-  @autobind
-  private popWarning() {
-    this.props.toastWarning('Something went wrong !')
-  }
-
-  @autobind
-  private popSuccess() {
-    this.props.toastSuccess('Something went wrong !')
-  }
-
-  @autobind
-  private popInfo() {
-    this.props.toastInfo('Something went wrong !')
-  }
-
-  @autobind
-  private popLoading() {
-    this.props.toastLoading('Something went wrong !')
-  }
-}
-
-export default withStyles(styles)(withToast(ToastDemo))
+export default ToastDemo
