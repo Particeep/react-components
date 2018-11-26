@@ -1,13 +1,10 @@
 import * as React from 'react'
-import {Alert, Panel} from '../../../lib/index'
-import {Button} from '@material-ui/core'
+import {Fender} from '../../../lib/index'
 
-export const AlertDemoCustom = () => {
+export const FenderDemoCustom = () => {
   return (
-    <Panel>
-      <Alert type="error" icon="cloud_off" action={
-        <Button>Dismiss</Button>
-      }>
+    <Fender icon="cloud_off">
+      <div style={{textAlign: 'left'}}>
         <div style={{fontSize: '1.4em', lineHeight: 1, marginBottom: 8}}>No internet</div>
         Try
         <ul>
@@ -16,7 +13,8 @@ export const AlertDemoCustom = () => {
           <li>Running Windows Network Diagnostics</li>
         </ul>
         <div style={{opacity: .5}}>DNS_PROBE_FINISHED_NO_INTERNET</div>
-      </Alert>
-    </Panel>
+      </div>
+    </Fender>
   )
 }
+

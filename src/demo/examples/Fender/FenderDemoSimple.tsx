@@ -7,19 +7,19 @@ export const FenderDemoSimple = () => {
   return (
     <div>
       <Fender {...marginBottom}>
-        No more data
+        <div>No data</div>
       </Fender>
       <Fender type="loading" {...marginBottom}>
-        Wait a moment please...
+        A simple <b>loading</b> fender
       </Fender>
       <Fender type="error" {...marginBottom}>
-        Something weng wrong !
+        A simple <b>error</b> fender
       </Fender>
       <Fender type="success" {...marginBottom}>
-        Everything is ok
+        A simple <b>success</b> fender
       </Fender>
       <Fender type="warning">
-        Take care of you
+        A simple <b>warning</b> fender
       </Fender>
     </div>
   )

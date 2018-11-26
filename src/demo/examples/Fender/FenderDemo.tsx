@@ -3,14 +3,24 @@ import {Page} from '../../../lib/index'
 import {Demo} from '../../shared/Demo'
 import preval from 'babel-plugin-preval/macro'
 import {FenderDemoSimple} from './FenderDemoSimple'
+import {FenderDemoCustom} from './FenderDemoCustom'
+import {FenderDemoLoading} from './FenderDemoLoading'
 
 const FenderDemo = () => {
   return (
     <Page>
       <h1>Fender</h1>
       <Demo
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./FenderDemoCustom.tsx'), 'utf8')`}
+        component={FenderDemoLoading}>
+      </Demo>
+      <Demo
         raw={preval`module.exports = require('fs').readFileSync(require.resolve('./FenderDemoSimple.tsx'), 'utf8')`}
         component={FenderDemoSimple}>
+      </Demo>
+      <Demo
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./FenderDemoCustom.tsx'), 'utf8')`}
+        component={FenderDemoCustom}>
       </Demo>
     </Page>
   )

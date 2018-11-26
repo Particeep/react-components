@@ -62,7 +62,7 @@ class Fender extends React.Component<Props, {}> {
 
   private getIcon() {
     const {icon, type} = this.props
-    if (icon) return this.icon('icon')
+    if (icon) return this.icon(icon)
     switch (type) {
       case 'empty':
         return this.icon('do_not_disturb')
