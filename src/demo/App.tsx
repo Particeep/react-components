@@ -11,11 +11,11 @@ import ChipUploaderDemo from './examples/BtnUploader/BtnUploaderDemo'
 import AutocompleteDemo from './examples/AutocompleteDemo/AutocompleteDemo'
 import ConfirmDemo from './examples/Confirm/ConfirmDemo'
 import ToastDemo from './examples/Toast/ToastDemo'
-import GlobalProgressDemo from './examples/GlobalProgress/GlobalProgressDemo'
 import AnimateDemo from './examples/Animate/AnimateDemo'
 import TableSortDemo from './examples/TableSort/TableSortDemo'
 import Sidebar from './core/component/Sidebar/Sidebar'
 import {Route} from 'react-router-dom'
+import GlobalProgressDemo from './examples/GlobalProgress/GlobalProgressDemo'
 
 const styles = (t: Theme) => createStyles({
   '@global': {

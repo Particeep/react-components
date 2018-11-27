@@ -12,8 +12,7 @@ const AutocompleteDemo = () => {
       <h2>Simple Autocomplete</h2>
       <Demo
         raw={preval`module.exports = require('fs').readFileSync(require.resolve('./AutocompleteDemoSimple.tsx'), 'utf8')`}
-        component={AutocompleteDemoSimple}>
-      </Demo>
+        component={AutocompleteDemoSimple}/>
       <h2>Multi-select Autocomplete</h2>
       <p>
         It behaves as an <code>{`<Input/>`}</code> component. So it can be wrapped in a <code>{`<FormControl/>`}</code>
@@ -21,8 +20,7 @@ const AutocompleteDemo = () => {
       </p>
       <Demo
         raw={preval`module.exports = require('fs').readFileSync(require.resolve('./AutocompleteDemoMultiple.tsx'), 'utf8')`}
-        component={AutocompleteDemoMultiple}>
-      </Demo>
+        component={AutocompleteDemoMultiple}/>
     </Page>
   )
 }

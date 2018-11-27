@@ -3,6 +3,8 @@ import autobind from 'autobind-decorator'
 
 export const GlobalProgressContext = React.createContext({})
 
+export const progressbarAnimationDuration = 400
+
 export interface IProgressState {
   currentStep: number,
   steps: number,
@@ -25,7 +27,7 @@ export interface IState extends IProgressState,
 
 class GlobalProgressProvider extends React.Component<IProps, IState> {
 
-  readonly INITIAL_PERCENT = 10
+  private timeouts = []
 
   state = {
     currentStep: 0,
@@ -46,8 +48,13 @@ class GlobalProgressProvider extends React.Component<IProps, IState> {
     )
   }
 
+  componentWillUnmount() {
+    this.clearTimeouts()
+  }
+
   @autobind
   private start(steps: number = 1) {
+    this.clearTimeouts()
     this.setState({
       started: true,
       currentStep: 0,
@@ -75,6 +82,7 @@ class GlobalProgressProvider extends React.Component<IProps, IState> {
   private stop() {
     this.setState({
       started: false,
+      currentStep: 0,
     })
   }
 
@@ -83,8 +91,7 @@ class GlobalProgressProvider extends React.Component<IProps, IState> {
     if (this.state.started) {
       this.setState(state => ({
         currentStep: state.steps,
-        started: false,
-      }))
+      }), this.stopHandlingAnimation)
     }
   }
 
@@ -92,9 +99,23 @@ class GlobalProgressProvider extends React.Component<IProps, IState> {
   private next() {
     if (this.state.started) {
       this.setState(state => ({
-        currentStep: Math.min(state.currentStep + 1, state.steps)
-      }))
+        currentStep: Math.min(state.currentStep + 1, state.steps),
+      }), () => this.state.currentStep === this.state.steps && this.stopHandlingAnimation())
     }
+  }
+
+  private stopHandlingAnimation() {
+    this.setTimeout(() => this.setState({started: false}), progressbarAnimationDuration)
+    this.setTimeout(() => this.setState({currentStep: 0}), progressbarAnimationDuration * 2)
+  }
+
+  private setTimeout(fn: () => void, duration?: number) {
+    this.timeouts.push(setTimeout(fn, duration))
+  }
+
+  private clearTimeouts() {
+    this.timeouts.map(clearTimeout)
+    this.timeouts = []
   }
 }
 

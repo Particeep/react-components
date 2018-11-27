@@ -1,70 +1,51 @@
 import * as React from 'react'
 import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core'
-import {IProgressState, withGlobalProgress} from './GlobalProgressContext'
+import {IProgressState, progressbarAnimationDuration, withGlobalProgress} from './GlobalProgressContext'
+import classNames from 'classnames'
 
-const ProgressBar = require('react-progress-bar-plus')
-
-const progressbarColor = (t: Theme) => t.palette.secondary.main
+const progressbarColor = (t: Theme) => t.palette.primary.main
 
 const styles = (t: Theme) => createStyles({
-  '@global': {
-    '.react-progress-bar-percent': {
-      background: progressbarColor(t),
-      boxShadow: `0 0 10px ${progressbarColor(t)}, 0 0 5px ${progressbarColor(t)}`,
-      height: 2,
-      transition: t.transitions.create('all', {duration: 400}),
-    },
-    '.react-progress-bar': {
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      width: '100%',
-      visibility: 'visible',
-      opacity: 1,
-      transition: 'all 400ms',
-      zIndex: 9999,
-    },
-    '.react-progress-bar-hide': {
-      opacity: 0,
-      visibility: 'hidden',
-      zIndex: -10,
-    }
-  }
+  root: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    width: '100%',
+    visibility: 'visible',
+    opacity: 1,
+    transition: 'all 400ms',
+    zIndex: 9999,
+  },
+  progress: {
+    background: progressbarColor(t),
+    boxShadow: `0 0 10px ${progressbarColor(t)}, 0 0 5px ${progressbarColor(t)}`,
+    height: 2,
+    transition: t.transitions.create('all', {duration: progressbarAnimationDuration}),
+  },
+  progressHide: {
+    height: 0,
+  },
 })
 
 interface IProps extends WithStyles<typeof styles>, IProgressState {
+  className?: string
   style?: object
+  styleProgress?: object
 }
 
-export interface WithProgress {
-  readonly progressStart: (steps?: number) => void;
-  readonly progressStop: () => void;
-  readonly progressEnd: () => void;
-  readonly progressNext: () => void;
-  readonly promisesWithProgress: (...promises: Promise<any>[]) => void;
-}
+const INITIAL_PERCENT = 10
 
-class GlobalProgressBar extends React.PureComponent<any, {}> {
+const GlobalProgressBar = ({currentStep, steps, started, classes, className, style, styleProgress}: IProps) => {
 
-  readonly INITIAL_PERCENT = 10
+  const getPercent = () => INITIAL_PERCENT + (100 - INITIAL_PERCENT) / steps * currentStep
 
-  render() {
-    const {classes, style} = this.props
-    return (
-      <ProgressBar
-        style={style}
-        percent={this.getPercent()}
-        autoIncrement={this.props.started}
-        spinner={false}
-        intervalTime={400}/>
-    )
-  }
-
-  private getPercent() {
-    const {steps, currentStep} = this.props
-    return this.INITIAL_PERCENT + (100 - this.INITIAL_PERCENT) / steps * currentStep
-  }
+  return (
+    <div className={classes.root} style={style}>
+      <div className={classNames(classes.progress, !started && classes.progressHide)}
+           style={{...styleProgress, width: getPercent() + '%'}}/>
+    </div>
+  )
 }
 
 export default withStyles(styles)(withGlobalProgress(GlobalProgressBar))
