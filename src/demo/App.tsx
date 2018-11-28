@@ -11,21 +11,19 @@ import ChipUploaderDemo from './examples/BtnUploader/BtnUploaderDemo'
 import AutocompleteDemo from './examples/AutocompleteDemo/AutocompleteDemo'
 import ConfirmDemo from './examples/Confirm/ConfirmDemo'
 import ToastDemo from './examples/Toast/ToastDemo'
-import GlobalProgressDemo from './examples/GlobalProgress/GlobalProgressDemo'
 import AnimateDemo from './examples/Animate/AnimateDemo'
 import TableSortDemo from './examples/TableSort/TableSortDemo'
 import Sidebar from './core/component/Sidebar/Sidebar'
 import {Route} from 'react-router-dom'
+import GlobalProgressDemo from './examples/GlobalProgress/GlobalProgressDemo'
 
 const styles = (t: Theme) => createStyles({
   '@global': {
     body: {
       fontFamily: t.typography.fontFamily,
-    },
-    code: {
-      background: '#f5f2f0',
-      borderRadius: 3,
-      padding: '.2em .4em'
+      background: t.palette.background.paper,
+      margin: 0,
+      color: t.palette.text.primary,
     },
     ul: {
       marginTop: '.5em'
@@ -63,7 +61,7 @@ const styles = (t: Theme) => createStyles({
 })
 
 interface AppProps extends WithStyles<typeof styles> {
-
+  theme: any
 }
 
 class App extends React.Component<AppProps, {}> {
@@ -104,4 +102,4 @@ class App extends React.Component<AppProps, {}> {
   }
 }
 
-export default withStyles(styles)(App)
+export default withStyles(styles, {withTheme: true})(App)

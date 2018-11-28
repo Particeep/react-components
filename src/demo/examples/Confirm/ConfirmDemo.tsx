@@ -4,13 +4,14 @@ import preval from 'babel-plugin-preval/macro'
 import {Demo} from '../../shared/Demo'
 import {ConfirmDemoButton} from './ConfirmDemoButton'
 import {ConfirmDemoMenu} from './ConfirmDemoMenu'
+import {Code} from '../../shared/Code/Code'
 
 const ConfirmDemo = () => {
   return (
     <Page>
       <h1>Confirm</h1>
       <p>
-        Wrap a component with <code>{`<Confirm/>`}</code> to pop a confirm dialog before to process a given action.
+        Wrap a component with <Code>{`<Confirm/>`}</Code> to pop a confirm dialog before to process a given action.
       </p>
       <Demo
         raw={preval`module.exports = require('fs').readFileSync(require.resolve('./ConfirmDemoButton.tsx'), 'utf8')`}

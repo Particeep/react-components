@@ -1,48 +1,71 @@
 import * as React from 'react'
-import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core'
-import {Page} from '../../../lib/Page/index'
-import {withGlobalProgress, WithProgress} from '../../../lib/GlobalProgress/GlobalProgressContext'
-import autobind from 'autobind-decorator'
-import {Btn} from '../../../lib/Btn/index'
+import {Demo} from '../../shared/Demo'
+import {GlobalProgressDemoManual} from './GlobalProgressDemoManual'
+import preval from 'babel-plugin-preval/macro'
+import {GlobalProgressDemoRealLife} from './GlobalProgressDemoRealLife'
+import {DocTable} from '../../shared/DocTable/DocTable'
+import {Code} from '../../shared/Code/Code'
 
-const styles = (t: Theme) => createStyles({})
+const GlobalProgressDemo = () => {
+  return (
+    <div style={{margin: 'auto', maxWidth: 900}}>
+      <h1>GlobalProgress</h1>
+      <p>
+        Provides a convenient API to handle a progress bar GitHub like.
+      </p>
+      <h2>Usage</h2>
+      <p>
+        Add <Code>{`<GlobalProgressProvider/>`}</Code> in the root of your application,
+        add {`<GlobalProgressBar/>`} somewhere you want to display the progressbar then simply wrap your component
+        with <Code>withGlobalProgress</Code> to access the methods belows.
+      </p>
+      <DocTable>
+        <thead>
+        <tr>
+          <th>Function name</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><Code>progressStart</Code></td>
+          <td>Start the progressbar. Takes a <Code>steps</Code> arguments of type number as the number of steps.
+          </td>
+        </tr>
+        <tr>
+          <td><Code>progressStop</Code></td>
+          <td>Instantly hide the progressbar.</td>
+        </tr>
+        <tr>
+          <td><Code>progressComplete</Code></td>
+          <td>Complete the progressbar then hide it.</td>
+        </tr>
+        <tr>
+          <td><Code>progressNext</Code></td>
+          <td>Increase the progressbar the next step. If it is the last step, also hide it.</td>
+        </tr>
+        <tr>
+          <td><Code>promisesWithProgress</Code></td>
+          <td>Sugar method allowing to automatically handle progressbar with a list of <Code>Promises</Code>.
+          </td>
+        </tr>
+        </tbody>
+      </DocTable>
 
-interface IProps extends WithProgress, WithStyles<typeof styles> {
+      <Demo
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./GlobalProgressDemoManual.tsx'), 'utf8')`}
+        component={GlobalProgressDemoManual}/>
+
+      <h2>promisesWithProgress</h2>
+      <p>
+        This example demonstrates how to use <Code>promisesWithProgress</Code> and how to stylize the progressbar using
+        the props <Code>style</Code> and <Code>styleProgress</Code>.
+      </p>
+      <Demo
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./GlobalProgressDemoRealLife.tsx'), 'utf8')`}
+        component={GlobalProgressDemoRealLife}/>
+    </div>
+  )
 }
 
-export const willSucceed = (delay) => new Promise((resolve, reject) => setTimeout(resolve, delay, {}))
-export const willFail = (delay) => new Promise((resolve, reject) => setTimeout(() => reject('oops'), delay, {}))
-
-
-class ToastDemo extends React.Component<IProps, {}> {
-
-  private timeouts: any[] = []
-
-  render() {
-    return (
-      <Page>
-        <Btn onClick={this.start}>Start</Btn>
-      </Page>
-    )
-  }
-
-  componentDidMount() {
-    const {promisesWithProgress} = this.props
-    promisesWithProgress(
-      willSucceed(1000).then(() => {console.log('ok')}),
-      willFail(3000).catch(e => {console.log(e)})
-    )
-  }
-
-  @autobind
-  private start() {
-    const {progressStart, progressNext} = this.props
-    this.timeouts.map(clearTimeout)
-    progressStart(3)
-    this.timeouts.push(setTimeout(progressNext, 800))
-    this.timeouts.push(setTimeout(progressNext, 2200))
-    this.timeouts.push(setTimeout(progressNext, 2800))
-  }
-}
-
-export default withStyles(styles)(withGlobalProgress(ToastDemo))
+export default GlobalProgressDemo

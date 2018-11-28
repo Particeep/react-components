@@ -2,7 +2,7 @@
 import * as React from 'react'
 import {useState} from 'react'
 import {Collapse, createStyles, Icon, IconButton, Theme, withStyles, WithStyles} from '@material-ui/core'
-import {Code} from '../Code/Code'
+import {Pre} from '../Pre/Pre'
 
 const styles = (t: Theme) => createStyles({
   root: {
@@ -22,7 +22,7 @@ const styles = (t: Theme) => createStyles({
   wrapper: {
     margin: t.spacing.unit * 2,
     padding: t.spacing.unit * 2,
-    background: 'white',
+    background: t.palette.background.paper,
   }
 })
 
@@ -45,7 +45,7 @@ export const Demo = withStyles(styles)(({component: Component, raw, classes}: IP
         </IconButton>
       </div>
       <Collapse in={codeOpened} unmountOnExit>
-        <Code raw={parseComponentCode(raw)} style={{margin: 0, borderRadius: 0}}/>
+        <Pre raw={parseComponentCode(raw)} style={{margin: 0, borderRadius: 0}}/>
       </Collapse>
       <div className={classes.wrapper}>
         <Component/>
