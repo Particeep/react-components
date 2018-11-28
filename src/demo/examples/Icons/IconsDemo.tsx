@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {FacebookIcon, IconSkype, LinkedinIcon, Page, TwitterIcon} from '../../../lib/index'
-import {createStyles, TextField, Theme, withStyles} from '@material-ui/core'
+import {createStyles, FormControl, InputLabel, MenuItem, Select, TextField, Theme, withStyles} from '@material-ui/core'
 import GitHubIcon from '../../../lib/icon/GitHubIcon'
 
 const styles = (t: Theme) => createStyles({
@@ -47,20 +47,19 @@ class IconsDemo extends React.Component<any, any> {
     return (
       <Page>
         <div className={classes.config}>
-          <TextField
-            select
-            label="Color"
-            value={this.state.color}
-            onChange={e => this.setState({color: e.target.value})}
-            SelectProps={{
-              native: true,
-              MenuProps: {
-                className: classes.menu,
-              },
-            }}
-          >
-            {colors.map(c => <option key={c} value={c}>{c}</option>)}
-          </TextField>
+          <FormControl>
+            <InputLabel>Color</InputLabel>
+            <Select
+              value={this.state.color}
+              onChange={e => this.setState({color: e.target.value})}
+              inputProps={{
+                name: 'age',
+                id: 'age-simple',
+              }}
+            >
+              {colors.map(c => <MenuItem key={c} value={c}>{c}</MenuItem>)}
+            </Select>
+          </FormControl>
           <TextField
             label="Size"
             type="number"

@@ -3,14 +3,22 @@ import {Icon, withStyles} from '@material-ui/core'
 import {ExpensionStep, ExpensionStepper} from '../../../lib/ExpensionStepper/index'
 import {Btn} from '../../../lib/Btn'
 
-export const ExpensionStepperDemoAccordion = () => {
+
+const styles = t => ({
+  root: {
+    border: '1px solid ' + t.palette.divider,
+    borderRadius: 4
+  }
+})
+
+export const ExpensionStepperDemoAccordion = withStyles(styles)(({classes}) => {
   return (
-    <ExpensionStepper position={1} free style={{border: '1px solid rgba(0, 0, 0, 0.12)', borderRadius: 4}}>
+    <ExpensionStepper position={1} free className={classes.root}>
       <ExpensionStep label="Third-party access" component={<StepAccess/>}/>
       <ExpensionStep label="My devices" component={<StepDevices/>}/>
     </ExpensionStepper>
   )
-}
+})
 
 const StepDevices = () => {
   return (

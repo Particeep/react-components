@@ -7,7 +7,7 @@ const styles = (t: Theme) => createStyles({
     display: 'flex',
     alignItems: 'center',
     color: t.palette.text.secondary,
-    background: t.palette.grey[50],
+    background: t.palette.type === 'light' ? t.palette.grey[100] : t.palette.grey[900],
     borderBottom: '1px solid ' + t.palette.divider,
     paddingRight: t.spacing.unit + 'px !important',
     order: -1, // To be positioned before loader,

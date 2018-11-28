@@ -21,7 +21,7 @@ export const muiTheme = (): any => ({
     primary: blue,
     secondary: orange,
     error: red,
-    type: 'light'
+    type: 'dark'
   },
   typography: {
     fontFamily: '"Open Sans", sans-serif',

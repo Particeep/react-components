@@ -1,18 +1,22 @@
 import * as React from 'react'
-import prism from 'prismjs'
-import 'prismjs/themes/prism.css'
+import {ReactChild} from 'react'
+import {createStyles, Theme, withStyles, WithStyles} from '@material-ui/core'
 
-interface IProps {
-  raw: string
-  style?: object
+const styles = (t: Theme) => createStyles({
+  root: {
+    background: t.palette.background.default,
+    color: t.palette.text.secondary,
+    borderRadius: 3,
+    padding: '.2em .4em'
+  }
+})
+
+interface IProps extends WithStyles<typeof styles> {
+  children: ReactChild
 }
 
-export const Code = ({raw, style}: IProps) => {
+export const Code = withStyles(styles)(({classes, children}: IProps) => {
   return (
-    <pre className="language-javascript" style={{margin: '1em 0', fontSize: 13, borderRadius: 4, ...style}}>
-      <code style={{padding:0}} className="markdown-body"
-            dangerouslySetInnerHTML={{__html: prism.highlight(raw, prism.languages.javascript, 'typescript')}}
-      />
-    </pre>
+    <code className={classes.root}>{children}</code>
   )
-}
+})
