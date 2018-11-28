@@ -35,8 +35,7 @@ render(
       }/>
       <Demo
         raw={preval`module.exports = require('fs').readFileSync(require.resolve('./ToastDemoExample.tsx'), 'utf8')`}
-        component={ToastDemoExample}>
-      </Demo>
+        component={ToastDemoExample}/>
     </Page>
   )
 }

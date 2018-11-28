@@ -29,17 +29,35 @@ const styles = (t: Theme) => createStyles({
 interface IProps extends WithStyles<typeof styles> {
   component: any
   raw: string
+  reloadable?: boolean
 }
 
 const parseComponentCode = (code: string): string => code
   .replace(/import \{fetchUsers\} from \'.*?\'/, 'import {fetchUsers} from \'./action.js\'')
   .replace(/fetchUsers\(.*?\)/, 'fetchUsers')
 
-export const Demo = withStyles(styles)(({component: Component, raw, classes}: IProps) => {
+export const Demo = withStyles(styles)(({component: Component, raw, classes, reloadable}: IProps) => {
   const [codeOpened, setCodeOponed] = useState<boolean>(false)
+  const [show, setShow] = useState<boolean>(true)
+  const [containetHeight, setContainetHeight] = useState<number>(undefined)
+  const componentContainer = React.createRef()
+
+  const reload = () => {
+    if (!containetHeight) {
+      setContainetHeight((componentContainer.current as any).offsetHeight)
+    }
+    setShow(false)
+    setTimeout(() => setShow(true))
+  }
+
   return (
     <section className={classes.root}>
       <div className={classes.head}>
+        {reloadable &&
+        <IconButton disabled={!show} onClick={reload}>
+          <Icon>refresh</Icon>
+        </IconButton>
+        }
         <IconButton color={codeOpened ? 'primary' : undefined} onClick={() => setCodeOponed(!codeOpened)}>
           <Icon>code</Icon>
         </IconButton>
@@ -47,8 +65,8 @@ export const Demo = withStyles(styles)(({component: Component, raw, classes}: IP
       <Collapse in={codeOpened} unmountOnExit>
         <Pre raw={parseComponentCode(raw)} style={{margin: 0, borderRadius: 0}}/>
       </Collapse>
-      <div className={classes.wrapper}>
-        <Component/>
+      <div className={classes.wrapper} ref={componentContainer} style={{height: containetHeight}}>
+        {show && <Component/>}
       </div>
     </section>
   )

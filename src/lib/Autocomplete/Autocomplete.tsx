@@ -12,7 +12,6 @@ import {
   WithStyles,
   withStyles
 } from '@material-ui/core'
-import {InputProps} from '@material-ui/core/Input'
 
 const styles = (t: Theme) => createStyles({
   menu_head: {

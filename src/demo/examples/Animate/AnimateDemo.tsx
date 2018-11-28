@@ -1,54 +1,33 @@
 import * as React from 'react'
-import {Animate, Page} from '../../../lib/index'
-import {Card, CardContent, Divider, Grid, Typography} from '@material-ui/core'
-import AnimateList from '../../../lib/Animate/AnimateList'
+import {Page} from '../../../lib/index'
+import {Demo} from '../../shared/Demo'
+import {AnimateDemoSimple} from './AnimateDemoSimple'
+import preval from 'babel-plugin-preval/macro'
+import {AnimateDemoList} from './AnimateDemoList'
+import {Code} from '../../shared/Code/Code'
 
-const size = 40
-const delay = 40
+const AnimateDemo = () => {
+  return (
+    <Page>
+      <h1>Animate</h1>
 
-class AnimateDemo extends React.Component<{}, any> {
+      <h2>Animate</h2>
+      <Demo
+        reloadable
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./AnimateDemoSimple.tsx'), 'utf8')`}
+        component={AnimateDemoSimple}/>
 
-  render() {
-    return (
-      <Page>
-        <Typography paragraph>
-          There is not intermediate DOM element, transform promerty is directly added to the children.
-          Therefore it can be, for example, used in a grid without breaking it.
-        </Typography>
-
-        <Animate delay={(size + 1) * delay}>
-          <Card>
-            <CardContent>
-              Coucou
-            </CardContent>
-          </Card>
-        </Animate>
-
-        <Divider style={{marginTop: 16, marginBottom: 16}}/>
-
-        <Grid container spacing={16}>
-          <AnimateList initialDelay={300} delay={delay}>
-            <Grid item md={3}>
-              <Card>
-                <CardContent>
-                  Coucou2
-                </CardContent>
-              </Card>
-            </Grid>
-            {new Array(40).fill(1).map((x, i) =>
-              <Grid item md={3} key={i}>
-                <Card>
-                  <CardContent>
-                    Coucou
-                  </CardContent>
-                </Card>
-              </Grid>
-            )}
-          </AnimateList>
-        </Grid>
-      </Page>
-    )
-  }
+      <h2>AnimateList</h2>
+      <p>
+        There is not intermediate DOM element, <Code>transform</Code> property is directly added to the children.
+        Therefore it can be, for example, used in a grid without breaking it.
+      </p>
+      <Demo
+        reloadable
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./AnimateDemoList.tsx'), 'utf8')`}
+        component={AnimateDemoList}/>
+    </Page>
+  )
 }
 
 export default AnimateDemo
