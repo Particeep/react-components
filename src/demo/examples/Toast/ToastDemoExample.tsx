@@ -1,9 +1,16 @@
 import * as React from 'react'
 import {Btn} from '../../../lib/Btn/index'
-import {withToast} from '../../../lib/Toast'
+import {ToastProvider, withToast} from '../../../lib/Toast'
 
-export const ToastDemoExample = withToast(({toastError, toastWarning, toastSuccess, toastInfo, toastLoading}) => {
+export const ToastDemoExample = () => {
+  return (
+    <ToastProvider>
+      <App/>
+    </ToastProvider>
+  )
+}
 
+const App = withToast(({toastError, toastWarning, toastSuccess, toastInfo, toastLoading}) => {
   const popError = () => toastError('Error toast !')
 
   const popWarning = () => toastWarning('Warning toast !')

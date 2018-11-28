@@ -3,7 +3,6 @@ import {Page} from '../../../lib/Page/index'
 import {Demo} from '../../shared/Demo'
 import {ToastDemoExample} from './ToastDemoExample'
 import preval from 'babel-plugin-preval/macro'
-import {Pre} from '../../shared/Pre/Pre'
 import {Code} from '../../shared/Code/Code'
 
 const ToastDemo = () => {
@@ -17,22 +16,16 @@ const ToastDemo = () => {
 
       <h2>Usage</h2>
       <p>
-        Add <Code>{`<ToastProvider/>`}</Code> in the root of your application, then simply wrap your component with <Code>withToast</Code> to access the methods
-        <Code>toastError</Code>, <Code>toastWarning</Code>, <Code>toastSuccess</Code>, <Code>toastInfo</Code> and <Code>toastLoading</Code>
+        Add <Code>{`<ToastProvider/>`}</Code> in the root of your application, then simply wrap your component
+        with <Code>withToast</Code> to access the methods:
+        <ul>
+          <li><Code>toastError</Code></li>
+          <li><Code>toastWarning</Code></li>
+          <li><Code>toastSuccess</Code></li>
+          <li><Code>toastInfo</Code></li>
+          <li><Code>toastLoading</Code></li>
+        </ul>
       </p>
-      <Pre raw={
-        `import React from 'react'
-import {render} from 'react-dom'
-import {ToastProvider} from '../lib'
-import App from './components/App'
-​
-render(
-  <ToastProvider>
-    <App/>
-  </ToastProvider>,
-  document.getElementById('root')
-)`
-      }/>
       <Demo
         raw={preval`module.exports = require('fs').readFileSync(require.resolve('./ToastDemoExample.tsx'), 'utf8')`}
         component={ToastDemoExample}/>
