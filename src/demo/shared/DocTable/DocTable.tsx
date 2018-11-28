@@ -10,18 +10,18 @@ const styles = (t: Theme) => createStyles({
     borderCollapse: 'collapse',
     borderSpacing: 0,
     color: t.palette.text.primary,
-    fontSize: t.typography.fontSize,
+    fontSize: t.typography.body1.fontSize,
     '& $tr': {
       backgroundColor: t.palette.background.paper,
       borderTop: `1px solid ${t.palette.divider}`,
     },
     '& $td': {
       border: `1px solid ${t.palette.divider}`,
-      padding: `6px 13px`,
+      padding: t.spacing.unit * 1.5,
     },
     '& $th': {
       border: `1px solid ${t.palette.divider}`,
-      padding: `6px 13px`,
+      padding: t.spacing.unit * 1.5,
     },
     '& $tr:nth-child(2n)': {
       backgroundColor: t.palette.background.default

@@ -24,7 +24,7 @@ const styles = (t: Theme) => createStyles({
     transition: t.transitions.create('all', {duration: progressbarAnimationDuration}),
   },
   progressHide: {
-    height: 0,
+    height: '0px !important',
   },
 })
 

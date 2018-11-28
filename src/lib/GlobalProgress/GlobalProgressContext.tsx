@@ -17,7 +17,7 @@ interface IProps {
 export interface WithProgress {
   readonly progressStart: (steps?: number) => void;
   readonly progressStop: () => void;
-  readonly progressEnd: () => void;
+  readonly progressComplete: () => void;
   readonly progressNext: () => void;
   readonly promisesWithProgress: (...promises: Promise<any>[]) => void;
 }
@@ -35,7 +35,7 @@ class GlobalProgressProvider extends React.Component<IProps, IState> {
     started: false,
     progressStart: this.start,
     progressStop: this.stop,
-    progressEnd: this.end,
+    progressComplete: this.complete,
     progressNext: this.next,
     promisesWithProgress: this.promisesWithProgress,
   }
@@ -87,7 +87,7 @@ class GlobalProgressProvider extends React.Component<IProps, IState> {
   }
 
   @autobind
-  private end() {
+  private complete() {
     if (this.state.started) {
       this.setState(state => ({
         currentStep: state.steps,

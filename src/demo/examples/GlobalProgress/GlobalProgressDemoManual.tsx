@@ -1,7 +1,6 @@
 import * as React from 'react'
 import {useEffect, useState} from 'react'
-import {withGlobalProgress} from '../../../lib'
-import {Btn} from '../../../lib/Btn/index'
+import {Btn, withGlobalProgress} from '../../../lib'
 import {GlobalProgressBar, GlobalProgressProvider} from '../../../lib/GlobalProgress'
 import {FormControl, Input, InputLabel} from '@material-ui/core'
 
@@ -27,22 +26,22 @@ const App = withGlobalProgress(({progressStart, progressNext}) => {
   const start = () => {
     timeouts.map(clearTimeout)
     progressStart(stepsCount)
-    for (let i = 0; i < stepsCount; i++) {
+    for (let i = 1; i <= stepsCount; i++) {
       timeouts.push(setTimeout(progressNext, i * delay))
     }
   }
 
   return (
-    <div style={{display: 'flex', justifyContent: 'space-around', paddingTop: 16}}>
+    <div style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center', paddingTop: 16}}>
       <FormControl>
         <InputLabel>Number of steps</InputLabel>
-        <Input type="number" value={stepsCount} onChange={e => setStepsCount(+e.target.value)}/>
+        <Input type="number" inputProps={{min: 1}} value={stepsCount} onChange={e => setStepsCount(+e.target.value)}/>
       </FormControl>
       <FormControl>
         <InputLabel>Delay</InputLabel>
         <Input type="number" value={delay} onChange={e => setDelay(+e.target.value)}/>
       </FormControl>
-      <Btn onClick={start} color="primary">Start</Btn>
+      <Btn onClick={start} variant="outlined" color="primary">Start</Btn>
     </div>
   )
 })
