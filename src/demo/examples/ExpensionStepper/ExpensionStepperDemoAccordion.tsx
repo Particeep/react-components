@@ -3,7 +3,6 @@ import {Icon, withStyles} from '@material-ui/core'
 import {ExpensionStep, ExpensionStepper} from '../../../lib/ExpensionStepper/index'
 import {Btn} from '../../../lib/Btn'
 
-
 const styles = t => ({
   root: {
     border: '1px solid ' + t.palette.divider,
@@ -11,6 +10,7 @@ const styles = t => ({
   }
 })
 
+// @ts-ignore
 export const ExpensionStepperDemoAccordion = withStyles(styles)(({classes}) => {
   return (
     <ExpensionStepper position={1} free className={classes.root}>
@@ -22,7 +22,7 @@ export const ExpensionStepperDemoAccordion = withStyles(styles)(({classes}) => {
 
 const StepDevices = () => {
   return (
-    <div>
+    <>
       <p style={{marginTop: 0}}>
         Listen to your music from any computer as well as up to ten devices. Uploading or downloading music using Music
         Manager or Google Play Music for Chrome counts towards your device limit. You can deauthorize four devices per
@@ -31,19 +31,16 @@ const StepDevices = () => {
       <Row icon="phone_android" label="samsung SM-G935F" date="August 28, 2018"/>
       <Row icon="phone_android" label="LGE LG-H870DS" date="July 3, 2018"/>
       <Row icon="laptop" label="Computer App" date="June 10, 2018"/>
-    </div>
+    </>
   )
 }
 
-
 const StepAccess = () => {
   return (
-    <div>
-      <p style={{marginTop: 0}}>
-        Your account is vulnerable to malicious activity because you’re allowing apps & devices that use less secure
-        sign-in technology to access your account. You should turn off this type of access.
-      </p>
-    </div>
+    <p style={{marginTop: 0}}>
+      Your account is vulnerable to malicious activity because you’re allowing apps & devices that use less secure
+      sign-in technology to access your account. You should turn off this type of access.
+    </p>
   )
 }
 

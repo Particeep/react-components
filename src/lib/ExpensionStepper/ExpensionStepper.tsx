@@ -9,6 +9,7 @@ interface Props extends WithStyles<typeof styles> {
   readonly position?: number;
   readonly className?: string;
   readonly free?: boolean;
+  readonly autoScroll?: boolean;
   readonly onNext?: (index: number, data?: any) => void;
   readonly onEnd?: (data?: any) => void;
   readonly children?: ReactElement<ExpensionStepProps>[];
@@ -22,7 +23,7 @@ interface State {
 class ExpensionStepper extends React.Component<Props, State> {
 
   render() {
-    const {className, free, onNext, onEnd, children, ...other} = this.props
+    const {className, autoScroll, free, onNext, onEnd, children, ...other} = this.props
     return (
       <div className={className} {...other}>
         {React.Children.map(this.props.children, (step: ReactElement<ExpensionStepProps>, i: number) => {
@@ -30,12 +31,13 @@ class ExpensionStepper extends React.Component<Props, State> {
               prev: this.prev,
               next: this.next,
               goTo: this.goTo,
-              free: this.props.free,
+              free: free,
               index: i,
               disabled: step.props.disabled || i > this.state.reached,
               done: step.props.done || i < this.state.reached,
+              autoScroll,
               isCurrent: i == this.state.current,
-              isLast: i == React.Children.count(this.props.children) - 1
+              isLast: i == React.Children.count(children) - 1
             })
           }
         )}

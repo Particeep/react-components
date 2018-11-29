@@ -54,6 +54,7 @@ export interface ExpensionStepProps {
   readonly done?: boolean
   readonly isCurrent?: boolean
   readonly isLast?: boolean
+  readonly autoScroll?: boolean
 }
 
 interface Props extends ExpensionStepProps, WithStyles<typeof styles> {
@@ -68,7 +69,21 @@ class ExpensionStep extends React.Component<Props, {}> {
 
   render() {
     const {
-      disabled, done, free, isCurrent, index, label, component, goTo, classes, prev, next, isLast, className, ...other
+      disabled,
+      done,
+      free,
+      isCurrent,
+      index,
+      label,
+      component,
+      goTo,
+      classes,
+      prev,
+      next,
+      isLast,
+      className,
+      autoScroll,
+      ...other
     } = this.props
     return (
       <div className={classNames(classes.root, className)} ref={node => this.$root = node} {...other}>
@@ -88,7 +103,8 @@ class ExpensionStep extends React.Component<Props, {}> {
   }
 
   componentDidUpdate(prevProps: any) {
-    if (!prevProps.isCurrent && this.props.isCurrent)
+    const {autoScroll, isCurrent} = this.props
+    if (autoScroll && !prevProps.isCurrent && isCurrent)
       setTimeout(() => this.scrollTop(), animationDuration)
   }
 
