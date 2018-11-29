@@ -33,8 +33,7 @@ interface IProps extends WithStyles<typeof styles> {
 }
 
 const parseComponentCode = (code: string): string => code
-  .replace(/import \{fetchUsers\} from \'.*?\'/, 'import {fetchUsers} from \'./action.js\'')
-  .replace(/fetchUsers\(.*?\)/, 'fetchUsers')
+  .replace(/\/\/\s*@ts-ignore\s*?\n/, '')
 
 export const Demo = withStyles(styles)(({component: Component, raw, classes, reloadable}: IProps) => {
   const [codeOpened, setCodeOponed] = useState<boolean>(false)
@@ -44,7 +43,7 @@ export const Demo = withStyles(styles)(({component: Component, raw, classes, rel
 
   const reload = () => {
     if (!containetHeight) {
-      setContainetHeight((componentContainer.current as any).offsetHeight)
+      setContainetHeight((componentContainer.current as any).offsetHeight - 32)
     }
     setShow(false)
     setTimeout(() => setShow(true))
@@ -65,7 +64,7 @@ export const Demo = withStyles(styles)(({component: Component, raw, classes, rel
       <Collapse in={codeOpened} unmountOnExit>
         <Pre raw={parseComponentCode(raw)} style={{margin: 0, borderRadius: 0}}/>
       </Collapse>
-      <div className={classes.wrapper} ref={componentContainer} style={{height: containetHeight}}>
+      <div className={classes.wrapper} ref={componentContainer as any} style={{height: containetHeight}}>
         {show && <Component/>}
       </div>
     </section>

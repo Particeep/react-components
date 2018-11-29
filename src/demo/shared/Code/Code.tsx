@@ -7,7 +7,7 @@ const styles = (t: Theme) => createStyles({
     background: t.palette.background.default,
     color: t.palette.text.secondary,
     borderRadius: 3,
-    padding: '.2em .4em'
+    padding: '.2em .4em',
   }
 })
 
@@ -17,6 +17,10 @@ interface IProps extends WithStyles<typeof styles> {
 
 export const Code = withStyles(styles)(({classes, children}: IProps) => {
   return (
-    <code className={classes.root}>{children}</code>
+    <>
+      {' '/*https://github.com/facebook/react/issues/1643*/}
+      <code className={classes.root}>{children}</code>
+      {' '}
+    </>
   )
 })

@@ -41,6 +41,10 @@ const styles = (t: Theme) => createStyles({
     ':focus': {
       outline: 0,
     },
+    '.link': {
+      color: t.palette.primary.main,
+      textDecoration: 'underline',
+    }
   },
   root: {
     overflow: 'hidden',

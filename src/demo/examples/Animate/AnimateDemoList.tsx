@@ -4,7 +4,7 @@ import AnimateList from '../../../lib/Animate/AnimateList'
 
 export const AnimateDemoList = () => {
   return (
-    <Grid container spacing={16}>
+    <Grid container spacing={16} style={{overflowY: 'hidden'}}>
       <AnimateList initialDelay={300} delay={40}>
         <Grid item md={3}>
           <Card>

@@ -5,7 +5,7 @@ import 'prismjs/components/prism-javascript'
 import 'prismjs/components/prism-jsx'
 import 'prismjs/components/prism-markup'
 import 'prismjs/components/prism-typescript'
-import 'prismjs/themes/prism.css'
+import 'prismjs/themes/prism-okaidia.css'
 
 // TODO Find a way to toggle both theme according to mui theme
 // import lightTheme from 'prismjs/themes/prism.css'
