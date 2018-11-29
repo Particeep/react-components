@@ -1,82 +1,25 @@
 import * as React from 'react'
-import {createStyles, Table, TableBody, TableCell, TableRow, Theme, WithStyles, withStyles} from '@material-ui/core'
 import {Page} from '../../../lib/Page/index'
-import {WithToast, withToast} from '../../../lib/Toast/Toast'
-import autobind from 'autobind-decorator'
-import {TableSort, TableSortCell} from '../../../lib/TableSort/index'
-import {OrderByType} from '../../../lib/TableSort/TableSort'
+import {Demo} from '../../shared/Demo'
+import {TableSortDemoSimple} from './TableSortDemoSimple'
+import preval from 'babel-plugin-preval/macro'
+import {Code} from '../../shared/Code/Code'
 
-const styles = (t: Theme) => createStyles({})
+const TableSortDemo = () => {
 
-interface IProps extends WithToast, WithStyles<typeof styles> {
+  return (
+    <Page>
+      <h1>TableSort</h1>
+      <p>
+        A convenient wrapper to drastically improve the sort API of the Material-UI
+        <Code>{`<Table/>`}</Code> visible
+        <a className="link" href="https://material-ui.com/demos/tables/#sorting-amp-selecting">here</a>.
+      </p>
+      <Demo
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./TableSortDemoSimple.tsx'), 'utf8')`}
+        component={TableSortDemoSimple}/>
+    </Page>
+  )
 }
 
-interface IState {
-  sortBy: string,
-  orderBy: OrderByType,
-}
-
-const data = [
-  {
-    name: 'Alex',
-    age: '29',
-  },
-  {
-    name: 'Roger',
-    age: '99',
-  },
-  {
-    name: 'Laurette',
-    age: '22',
-  },
-  {
-    name: 'Roberto',
-    age: '29',
-  },
-]
-
-class TableSortDemo extends React.Component<IProps, IState> {
-
-  state = {
-    sortBy: 'name',
-    orderBy: 'desc' as OrderByType,
-  }
-
-  render() {
-    const {sortBy, orderBy} = this.state
-    return (
-      <Page>
-        <Table>
-          <TableSort sortBy={sortBy} orderBy={orderBy as OrderByType} onSort={this.handleSort}>
-            <TableSortCell name="name">
-              Name
-            </TableSortCell>
-            <TableSortCell name="age">
-              Age
-            </TableSortCell>
-          </TableSort>
-          <TableBody>
-            {this.sortedData().map((d, i) =>
-              <TableRow key={i}>
-                <TableCell>{d.name}</TableCell>
-                <TableCell>{d.age}</TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
-      </Page>
-    )
-  }
-
-  @autobind
-  private handleSort(sortBy: string, orderBy: OrderByType) {
-    this.setState({sortBy, orderBy})
-  }
-
-  private sortedData(): any[] {
-    const {sortBy, orderBy} = this.state
-    return data.sort((a, b) => (a[sortBy] < b[sortBy] ? -1 : 1) * (orderBy === 'asc' ? 1 : -1))
-  }
-}
-
-export default withStyles(styles)(withToast(TableSortDemo))
+export default TableSortDemo
