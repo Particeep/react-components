@@ -7,6 +7,7 @@ const styles = (t: Theme) => createStyles({
     transition: t.transitions.create('all'),
     opacity: 0,
     transform: 'translateY(60px)',
+    overflowY: 'hidden',
   },
   root_appeared: {
     opacity: 1,

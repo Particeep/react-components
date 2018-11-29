@@ -1,20 +1,7 @@
 import * as React from 'react'
-import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core'
 import {Animate} from './index'
 
-const styles = (t: Theme) => createStyles({
-  root: {
-    transition: t.transitions.create('all'),
-    opacity: 0,
-    transform: 'translateY(60px)',
-  },
-  root_appeared: {
-    opacity: 1,
-    transform: 'translateY(0)',
-  },
-})
-
-interface IProps extends WithStyles<typeof styles> {
+interface IProps {
   delay?: number,
   initialDelay?: number,
 }
@@ -49,4 +36,4 @@ class AnimateList extends React.Component<IProps, any> {
   }
 }
 
-export default withStyles(styles)(AnimateList)
+export default AnimateList
