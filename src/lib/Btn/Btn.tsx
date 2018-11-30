@@ -11,6 +11,10 @@ const styles = (t: Theme) => createStyles({
     marginTop: -12,
     marginLeft: -12,
   },
+  label: {
+    display: 'flex',
+    alignItems: 'center',
+  },
   icon: {
     height: 16,
     lineHeight: '16px',
@@ -20,7 +24,9 @@ const styles = (t: Theme) => createStyles({
   iconAfter: {
     marginRight: 0,
     marginLeft: t.spacing.unit,
-
+  },
+  labelHidden: {
+    visibility: 'hidden',
   }
 })
 
@@ -36,13 +42,11 @@ class Btn extends React.Component<Props & ButtonProps, {}> {
     const {loading, classes, children, disabled, icon, iconAfter, ...props} = this.props
     return (
       <Button {...props} disabled={disabled || loading}>
-        {!loading &&
-        <>
+        <div className={classNames(classes.label, loading && classes.labelHidden)}>
           {icon && <Icon className={classes.icon}>{icon}</Icon>}
           {children}
           {iconAfter && <Icon className={classNames(classes.icon, classes.iconAfter)}>{iconAfter}</Icon>}
-        </>
-        }
+        </div>
         {loading && <CircularProgress size={24} className={classes.progress}/>}
       </Button>
     )

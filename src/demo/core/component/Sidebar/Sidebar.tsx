@@ -67,10 +67,10 @@ class Sidebar extends React.Component<IProps, {}> {
             </SidebarItem>
             <SidebarHr margin/>
             <SidebarItem to={basePath + '/stepper'}>ExpensionStepper</SidebarItem>
-            <SidebarItem to={basePath + '/pick'}>Pick</SidebarItem>
+            <SidebarItem to={basePath + '/autocomplete'}>Autocomplete</SidebarItem>
             <SidebarItem to={basePath + '/btn'}>Btn</SidebarItem>
             <SidebarItem to={basePath + '/btn-confirm'}>BtnConfirm</SidebarItem>
-            <SidebarItem to={basePath + '/chips-uploader'}>ChipsUploader</SidebarItem>
+            <SidebarItem to={basePath + '/btn-uploader'}>BtnLoader</SidebarItem>
             <SidebarItem to={basePath + '/panel'}>Panel</SidebarItem>
             <SidebarItem to={basePath + '/alert'}>Alert</SidebarItem>
             <SidebarItem to={basePath + '/icons'}>Icons</SidebarItem>

@@ -84,7 +84,7 @@ class App extends React.Component<AppProps, {}> {
             <Route path="/panel" component={PanelDemo}/>
             <Route path="/btn" component={BtnDemo}/>
             <Route path="/btn-confirm" component={ConfirmDemo}/>
-            <Route path="/chips-uploader" component={ChipUploaderDemo}/>
+            <Route path="/btn-uploader" component={ChipUploaderDemo}/>
             <Route path="/alert" component={AlertDemo}/>
             <Route path="/icons" component={IconsDemo}/>
             <Route path="/stepper" component={ExpensionStepperDemo}/>
@@ -92,7 +92,7 @@ class App extends React.Component<AppProps, {}> {
             <Route path="/toast" component={ToastDemo}/>
             <Route path="/global-progress" component={GlobalProgressDemo}/>
             <Route path="/input-date" component={InputDateDemo}/>
-            <Route path="/pick" component={AutocompleteDemo}/>
+            <Route path="/autocomplete" component={AutocompleteDemo}/>
             <Route path="/table-sort" component={TableSortDemo}/>
             <Route path="/animate" component={AnimateDemo}/>
           </main>

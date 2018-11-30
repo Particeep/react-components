@@ -16,7 +16,7 @@ export const ExpensionStepperDemoTunnel = () => {
         </div>
         <Switch value={autoScroll} onChange={(e, c) => setAutoScroll(c)}/>
       </div>
-      
+
       <Typography paragraph>{msg}</Typography>
 
       <Panel>
