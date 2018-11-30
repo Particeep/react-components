@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {ReactNode} from 'react'
-import {createStyles, Icon, Theme, withStyles, WithStyles} from '@material-ui/core'
+import {createStyles, Divider, Icon, Theme, withStyles, WithStyles} from '@material-ui/core'
 
 const styles = (t: Theme) => createStyles({
   root: t.mixins.gutters({
@@ -8,7 +8,6 @@ const styles = (t: Theme) => createStyles({
     alignItems: 'center',
     color: t.palette.text.secondary,
     background: t.palette.type === 'light' ? t.palette.grey[100] : t.palette.grey[900],
-    borderBottom: '1px solid ' + t.palette.divider,
     paddingRight: t.spacing.unit + 'px !important',
     order: -1, // To be positioned before loader,
     height: 48,
@@ -33,15 +32,18 @@ class PanelHead extends React.Component<PanelHeadProps, {}> {
   render() {
     const {className, icon, children, action, classes} = this.props
     return (
-      <div className={`${classes.root} ${className || ''}`}>
-        {icon &&
-        <Icon className={classes.icon}>{icon}</Icon>
-        }
-        <div className={classes.content}>{children}</div>
-        <div>
-          {action}
+      <>
+        <div className={`${classes.root} ${className || ''}`}>
+          {icon &&
+          <Icon className={classes.icon}>{icon}</Icon>
+          }
+          <div className={classes.content}>{children}</div>
+          <div>
+            {action}
+          </div>
         </div>
-      </div>
+        <Divider/>
+      </>
     )
   }
 }

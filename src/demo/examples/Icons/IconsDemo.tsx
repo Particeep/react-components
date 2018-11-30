@@ -94,6 +94,7 @@ const IconsDemo = ({theme, classes}: IProps) => {
           type="number"
           style={{width: 80}}
           value={size}
+          inputProps={{min: 1}}
           onChange={e => setSize(+e.target.value)}
         />
       </header>

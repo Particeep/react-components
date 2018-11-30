@@ -30,6 +30,7 @@ const styles = (t: Theme) => createStyles({
     width: '100%',
     height: 30,
     fontSize: '1rem',
+    color: t.palette.text.primary,
   },
   menu_items: {
     maxHeight: 300,
