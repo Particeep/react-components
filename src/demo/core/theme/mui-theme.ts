@@ -16,12 +16,12 @@ const Tab = {
   }
 }
 
-export const muiTheme = (): any => ({
+export const muiTheme = (isDarkTheme: boolean): any => ({
   palette: {
     primary: blue,
     secondary: orange,
     error: red,
-    type: 'dark'
+    type: isDarkTheme ? 'dark' : 'light'
   },
   typography: {
     fontFamily: '"Open Sans", sans-serif',

@@ -65,45 +65,32 @@ const styles = (t: Theme) => createStyles({
 })
 
 interface AppProps extends WithStyles<typeof styles> {
-  theme: any
 }
 
-class App extends React.Component<AppProps, {}> {
-
-  state = {
-    mobileOpen: false,
-  }
-
-  render() {
-    const {classes} = this.props
-    return (
-      <div className={classes.root}>
-        <Sidebar/>
-        <div className={classes.body}>
-          <main className={classes.content}>
-            <Route path="/panel" component={PanelDemo}/>
-            <Route path="/btn" component={BtnDemo}/>
-            <Route path="/btn-confirm" component={ConfirmDemo}/>
-            <Route path="/btn-uploader" component={ChipUploaderDemo}/>
-            <Route path="/alert" component={AlertDemo}/>
-            <Route path="/icons" component={IconsDemo}/>
-            <Route path="/stepper" component={ExpensionStepperDemo}/>
-            <Route path="/fender" component={FenderDemo}/>
-            <Route path="/toast" component={ToastDemo}/>
-            <Route path="/global-progress" component={GlobalProgressDemo}/>
-            <Route path="/input-date" component={InputDateDemo}/>
-            <Route path="/autocomplete" component={AutocompleteDemo}/>
-            <Route path="/table-sort" component={TableSortDemo}/>
-            <Route path="/animate" component={AnimateDemo}/>
-          </main>
-        </div>
+const App = ({classes}: AppProps) => {
+  return (
+    <div className={classes.root}>
+      <Sidebar/>
+      <div className={classes.body}>
+        <main className={classes.content}>
+          <Route path="/panel" component={PanelDemo}/>
+          <Route path="/btn" component={BtnDemo}/>
+          <Route path="/btn-confirm" component={ConfirmDemo}/>
+          <Route path="/btn-uploader" component={ChipUploaderDemo}/>
+          <Route path="/alert" component={AlertDemo}/>
+          <Route path="/icons" component={IconsDemo}/>
+          <Route path="/stepper" component={ExpensionStepperDemo}/>
+          <Route path="/fender" component={FenderDemo}/>
+          <Route path="/toast" component={ToastDemo}/>
+          <Route path="/global-progress" component={GlobalProgressDemo}/>
+          <Route path="/input-date" component={InputDateDemo}/>
+          <Route path="/autocomplete" component={AutocompleteDemo}/>
+          <Route path="/table-sort" component={TableSortDemo}/>
+          <Route path="/animate" component={AnimateDemo}/>
+        </main>
       </div>
-    )
-  }
-
-  handleDrawerToggle = () => {
-    this.setState({mobileOpen: !this.state.mobileOpen})
-  }
+    </div>
+  )
 }
 
-export default withStyles(styles, {withTheme: true})(App)
+export default withStyles(styles)(App)

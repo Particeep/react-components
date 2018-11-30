@@ -18,8 +18,11 @@ const styles = (t: Theme) => createStyles({
     minHeight: 34,
     marginTop: t.spacing.unit / 4,
     marginBottom: t.spacing.unit / 4,
-    cursor: 'pointer',
     borderRadius: 42,
+
+  },
+  rootClickable: {
+    cursor: 'pointer',
     '&:hover': {
       background: 'rgba(0, 0, 0, .05)',
     },
@@ -68,13 +71,17 @@ class SidebarItem extends React.Component<IProps & any, any> {
 
   private renderRoot(element: ReactElement<any>, props: any) {
     const {classes, className} = this.props
-    return <div {...props} className={classNames(className, classes.root)}>{element}</div>
+    return (
+      <div {...props} className={classNames(className, classes.root, props.onClick && classes.rootClickable)}>
+        {element}
+      </div>
+    )
   }
 
   private renderRootNavLink(element: ReactElement<any>, props: any, to: any) {
     const {classes, className} = this.props
     return (
-      <NavLink {...props} to={to} className={classNames(className, classes.root)}
+      <NavLink {...props} to={to} className={classNames(className, classes.root, classes.rootClickable)}
                activeClassName={classes.rootActive}>
         {element}
       </NavLink>
@@ -84,7 +91,7 @@ class SidebarItem extends React.Component<IProps & any, any> {
   private renderRootHref(element: ReactElement<any>, props: any, href: any) {
     const {classes, className} = this.props
     return (
-      <a {...props} href={href} className={classNames(className, classes.root)}>
+      <a {...props} href={href} className={classNames(className, classes.root, classes.rootClickable)}>
         {element}
       </a>
     )
