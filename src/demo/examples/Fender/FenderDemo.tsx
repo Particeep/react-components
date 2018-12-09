@@ -5,12 +5,14 @@ import preval from 'babel-plugin-preval/macro'
 import {FenderDemoSimple} from './FenderDemoSimple'
 import {FenderDemoCustom} from './FenderDemoCustom'
 import {FenderDemoLoading} from './FenderDemoLoading'
+import {PageTitle} from '../../shared/PageHeader/PageTitle'
 
 const FenderDemo = () => {
   return (
     <Page>
-      <h1>Fender</h1>
+      <PageTitle>Fender</PageTitle>
       <Demo
+        reloadable
         raw={preval`module.exports = require('fs').readFileSync(require.resolve('./FenderDemoCustom.tsx'), 'utf8')`}
         component={FenderDemoLoading}>
       </Demo>

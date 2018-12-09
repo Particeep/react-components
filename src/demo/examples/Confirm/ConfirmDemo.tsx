@@ -5,11 +5,12 @@ import {Demo} from '../../shared/Demo'
 import {ConfirmDemoButton} from './ConfirmDemoButton'
 import {ConfirmDemoMenu} from './ConfirmDemoMenu'
 import {Code} from '../../shared/Code/Code'
+import {PageTitle} from '../../shared/PageHeader/PageTitle'
 
 const ConfirmDemo = () => {
   return (
     <Page>
-      <h1>Confirm</h1>
+      <PageTitle>Confirm</PageTitle>
       <p>
         Wrap a component with <Code>{`<Confirm/>`}</Code> to pop a confirm dialog before to process a given action.
       </p>

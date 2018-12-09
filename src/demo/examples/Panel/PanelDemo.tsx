@@ -3,12 +3,13 @@ import {Page} from '../../../lib/index'
 import {Demo} from '../../shared/Demo'
 import {PanelDemoSimple} from './PanelDemoSimple'
 import preval from 'babel-plugin-preval/macro'
+import {PageTitle} from '../../shared/PageHeader/PageTitle'
 
 const PanelDemo = () => {
 
   return (
     <Page>
-      <h1>Panel</h1>
+      <PageTitle>Panel</PageTitle>
       <Demo
         raw={preval`module.exports = require('fs').readFileSync(require.resolve('./PanelDemoSimple.tsx'), 'utf8')`}
         component={PanelDemoSimple}/>

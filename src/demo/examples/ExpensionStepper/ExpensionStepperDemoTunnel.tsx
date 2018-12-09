@@ -14,7 +14,7 @@ export const ExpensionStepperDemoTunnel = () => {
           <Typography variant="body2">Autoscroll</Typography>
           <Typography variant="body1">Enable auto scroll on step change. Useful on really long steps.</Typography>
         </div>
-        <Switch value={autoScroll} onChange={(e, c) => setAutoScroll(c)}/>
+        <Switch checked={autoScroll} onChange={(e, c) => setAutoScroll(c)}/>
       </div>
 
       <Typography paragraph>{msg}</Typography>

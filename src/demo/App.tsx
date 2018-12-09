@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {createStyles, Theme, withStyles, WithStyles} from '@material-ui/core'
+import {createStyles, Theme, withStyles} from '@material-ui/core'
 import PanelDemo from './examples/Panel/PanelDemo'
 import BtnDemo from './examples/Btn/BtnDemo'
 import AlertDemo from './examples/Alert/AlertDemo'
@@ -13,9 +13,11 @@ import ConfirmDemo from './examples/Confirm/ConfirmDemo'
 import ToastDemo from './examples/Toast/ToastDemo'
 import AnimateDemo from './examples/Animate/AnimateDemo'
 import TableSortDemo from './examples/TableSort/TableSortDemo'
-import Sidebar from './core/component/Sidebar/Sidebar'
 import {Route} from 'react-router-dom'
 import GlobalProgressDemo from './examples/GlobalProgress/GlobalProgressDemo'
+import {Home} from './pages/Home/Home'
+import {Redirect, withRouter} from 'react-router'
+import {Layout} from './core/component/Layout'
 
 const styles = (t: Theme) => createStyles({
   '@global': {
@@ -46,50 +48,28 @@ const styles = (t: Theme) => createStyles({
       textDecoration: 'underline',
     }
   },
-  root: {
-    overflow: 'hidden',
-    position: 'relative',
-  },
-  body: {
-    display: 'flex',
-  },
-  navIconHide: {
-    [t.breakpoints.up('md')]: {
-      display: 'none',
-    },
-  },
-  content: {
-    flexGrow: 1,
-    backgroundColor: t.palette.background.paper,
-  },
 })
 
-interface AppProps extends WithStyles<typeof styles> {
-}
-
-const App = ({classes}: AppProps) => {
+const App = () => {
   return (
-    <div className={classes.root}>
-      <Sidebar/>
-      <div className={classes.body}>
-        <main className={classes.content}>
-          <Route path="/panel" component={PanelDemo}/>
-          <Route path="/btn" component={BtnDemo}/>
-          <Route path="/btn-confirm" component={ConfirmDemo}/>
-          <Route path="/btn-uploader" component={ChipUploaderDemo}/>
-          <Route path="/alert" component={AlertDemo}/>
-          <Route path="/icons" component={IconsDemo}/>
-          <Route path="/stepper" component={ExpensionStepperDemo}/>
-          <Route path="/fender" component={FenderDemo}/>
-          <Route path="/toast" component={ToastDemo}/>
-          <Route path="/global-progress" component={GlobalProgressDemo}/>
-          <Route path="/input-date" component={InputDateDemo}/>
-          <Route path="/autocomplete" component={AutocompleteDemo}/>
-          <Route path="/table-sort" component={TableSortDemo}/>
-          <Route path="/animate" component={AnimateDemo}/>
-        </main>
-      </div>
-    </div>
+    <Layout>
+      <Route path="/home" component={Home}/>
+      <Route path="/panel" component={PanelDemo}/>
+      <Route path="/btn" component={BtnDemo}/>
+      <Route path="/confirm" component={ConfirmDemo}/>
+      <Route path="/btn-uploader" component={ChipUploaderDemo}/>
+      <Route path="/alert" component={AlertDemo}/>
+      <Route path="/icons" component={IconsDemo}/>
+      <Route path="/stepper" component={ExpensionStepperDemo}/>
+      <Route path="/fender" component={FenderDemo}/>
+      <Route path="/toast" component={ToastDemo}/>
+      <Route path="/global-progress" component={GlobalProgressDemo}/>
+      <Route path="/input-date" component={InputDateDemo}/>
+      <Route path="/autocomplete" component={AutocompleteDemo}/>
+      <Route path="/table-sort" component={TableSortDemo}/>
+      <Route path="/animate" component={AnimateDemo}/>
+      <Redirect exact from="/" to="/home"/>
+    </Layout>
   )
 }
 

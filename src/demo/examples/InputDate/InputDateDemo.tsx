@@ -1,19 +1,26 @@
 import * as React from 'react'
 import {Page} from '../../../lib/index'
-import InputDate from '../../../lib/InputDate/InputDate'
+import {Demo} from '../../shared/Demo'
+import {InputDateDemoSimple} from './InputDateDemoSimple'
+import preval from 'babel-plugin-preval/macro'
+import {InputDateDemoCustom} from './InputDateDemoCustom'
+import {PageTitle} from '../../shared/PageHeader/PageTitle'
 
-class InputDateDemo extends React.Component<{}, {}> {
+const InputDateDemo = () => {
+  return (
+    <Page>
+      <PageTitle>InputDate</PageTitle>
+      <p>
 
-  render() {
-    const style = {marginRight: 16}
-    return (
-      <Page>
-        <InputDate format="dd/mm/yyyy" style={style} value="11/12/1991"/>
-        <InputDate format="yyyy-mm-dd" style={style}/>
-        <InputDate format="yyyy.mm.dd" style={style}/>
-      </Page>
-    )
-  }
+      </p>
+      <Demo
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./InputDateDemoSimple.tsx'), 'utf8')`}
+        component={InputDateDemoSimple}/>
+      <Demo
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./InputDateDemoCustom.tsx'), 'utf8')`}
+        component={InputDateDemoCustom}/>
+    </Page>
+  )
 }
 
 export default InputDateDemo

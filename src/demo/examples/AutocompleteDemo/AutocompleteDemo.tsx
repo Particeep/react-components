@@ -5,11 +5,12 @@ import preval from 'babel-plugin-preval/macro'
 import {AutocompleteDemoMultiple} from './AutocompleteDemoMultiple'
 import {AutocompleteDemoSimple} from './AutocompleteDemoSimple'
 import {Code} from '../../shared/Code/Code'
+import {PageTitle} from '../../shared/PageHeader/PageTitle'
 
 const AutocompleteDemo = () => {
   return (
     <Page>
-      <h1>Autocomplete</h1>
+      <PageTitle>Autocomplete</PageTitle>
       <h2>Simple Autocomplete</h2>
       <Demo
         raw={preval`module.exports = require('fs').readFileSync(require.resolve('./AutocompleteDemoSimple.tsx'), 'utf8')`}

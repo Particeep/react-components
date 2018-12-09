@@ -6,11 +6,12 @@ import {Pre} from '../../shared/Pre/Pre'
 import {ExpensionStepperDemoTunnel} from './ExpensionStepperDemoTunnel'
 import {ExpensionStepperDemoAccordion} from './ExpensionStepperDemoAccordion'
 import {Code} from '../../shared/Code/Code'
+import {PageTitle} from '../../shared/PageHeader/PageTitle'
 
 const ExpensionStepperDemo = () => {
   return (
     <Page>
-      <h1>ExpensionStepper</h1>
+      <PageTitle>ExpensionStepper</PageTitle>
       <p>
         <Code>ExpensionStepper</Code> is a container dividing content into logical steps. His advantages compared to
         other solutions are that step are containing in their dedicated component. Therefore they are easy to reuse or

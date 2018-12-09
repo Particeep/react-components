@@ -5,11 +5,12 @@ import {BtnDemoButton} from './BtnDemoButton'
 import preval from 'babel-plugin-preval/macro'
 import {BtnDemoIconButton} from './BtnDemoIconButton'
 import {Code} from '../../shared/Code/Code'
+import {PageTitle} from '../../shared/PageHeader/PageTitle'
 
 const BtnDemo = () => {
   return (
     <Page>
-      <h1>Btn</h1>
+      <PageTitle>Btn</PageTitle>
       <p>
         <Code>Btn</Code> and <Code>BtnIcon</Code> are wrappers for the respectives <Code>Button</Code> and
         <Code>IconButton</Code> components of Material-UI adding the props <Code>loading</Code>.

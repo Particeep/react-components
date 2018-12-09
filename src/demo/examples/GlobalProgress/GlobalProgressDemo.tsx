@@ -5,11 +5,12 @@ import preval from 'babel-plugin-preval/macro'
 import {GlobalProgressDemoRealLife} from './GlobalProgressDemoRealLife'
 import {DocTable} from '../../shared/DocTable/DocTable'
 import {Code} from '../../shared/Code/Code'
+import {PageTitle} from '../../shared/PageHeader/PageTitle'
 
 const GlobalProgressDemo = () => {
   return (
     <div style={{margin: 'auto', maxWidth: 900}}>
-      <h1>GlobalProgress</h1>
+      <PageTitle>GlobalProgress</PageTitle>
       <p>
         Provides a convenient API to handle a progress bar GitHub like.
       </p>

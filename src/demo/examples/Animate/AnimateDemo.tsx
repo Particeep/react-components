@@ -5,11 +5,12 @@ import {AnimateDemoSimple} from './AnimateDemoSimple'
 import preval from 'babel-plugin-preval/macro'
 import {AnimateDemoList} from './AnimateDemoList'
 import {Code} from '../../shared/Code/Code'
+import {PageTitle} from '../../shared/PageHeader/PageTitle'
 
 const AnimateDemo = () => {
   return (
     <Page>
-      <h1>Animate</h1>
+      <PageTitle>Animate</PageTitle>
 
       <h2>Animate</h2>
       <Demo

@@ -6,9 +6,11 @@ const styles = (t: Theme) => createStyles({
   root: {
     transition: t.transitions.create('all'),
     margin: 'auto',
+    padding: t.spacing.unit * 2,
     opacity: 0,
     transform: 'scale(.94)',
-    maxWidth: 900,
+    maxWidth: 932,
+    width: '100%',
   },
   root_appeared: {
     opacity: 1,

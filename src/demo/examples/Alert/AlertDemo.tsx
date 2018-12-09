@@ -5,11 +5,12 @@ import {AlertDemoSimple} from './AlertDemoSimple'
 import preval from 'babel-plugin-preval/macro'
 import {AlertDemoCustom} from './AlertDemoCustom'
 import {AlertDemoWithPanel} from './AlertDemoWithPanel'
+import {PageTitle} from '../../shared/PageHeader/PageTitle'
 
 const AlertDemo = () => {
   return (
     <Page>
-      <h1>Alert</h1>
+      <PageTitle>Alert</PageTitle>
 
       <h2>Simple alert</h2>
       <p>

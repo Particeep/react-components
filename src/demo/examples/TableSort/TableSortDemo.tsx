@@ -4,12 +4,13 @@ import {Demo} from '../../shared/Demo'
 import {TableSortDemoSimple} from './TableSortDemoSimple'
 import preval from 'babel-plugin-preval/macro'
 import {Code} from '../../shared/Code/Code'
+import {PageTitle} from '../../shared/PageHeader/PageTitle'
 
 const TableSortDemo = () => {
 
   return (
     <Page>
-      <h1>TableSort</h1>
+      <PageTitle>TableSort</PageTitle>
       <p>
         A convenient wrapper to drastically improve the sort API of the Material-UI
         <Code>{`<Table/>`}</Code> visible

@@ -6,6 +6,7 @@ import GitHubIcon from '../../../lib/icon/GitHubIcon'
 import {fade} from '@material-ui/core/styles/colorManipulator'
 import classNames from 'classnames'
 import {IconsDemoSelected} from './IconsDemoSelected'
+import {PageTitle} from '../../shared/PageHeader/PageTitle'
 
 const styles = (t: Theme) => createStyles({
   head: {
@@ -61,7 +62,6 @@ const IconsDemo = ({theme, classes}: IProps) => {
     Text: theme.palette.text.primary,
     Primary: theme.palette.primary.main,
     Secondary: theme.palette.secondary.main,
-    Black: 'Black',
     Red: 'Red',
     Blue: 'Blue',
     Silver: 'Silver',
@@ -73,7 +73,7 @@ const IconsDemo = ({theme, classes}: IProps) => {
 
   return (
     <Page>
-      <h1>Icons</h1>
+      <PageTitle>Icons</PageTitle>
       <p>
         Set of SVG icons not available in Material icons.
       </p>

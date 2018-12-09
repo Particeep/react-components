@@ -4,11 +4,12 @@ import {Demo} from '../../shared/Demo'
 import {ToastDemoExample} from './ToastDemoExample'
 import preval from 'babel-plugin-preval/macro'
 import {Code} from '../../shared/Code/Code'
+import {PageTitle} from '../../shared/PageHeader/PageTitle'
 
 const ToastDemo = () => {
   return (
     <Page>
-      <h1>Toast</h1>
+      <PageTitle>Toast</PageTitle>
       <p>
         Simple wrapper for <Code>{`<Snackbar/>`}</Code> handling the commun types: error, success, warning, info and
         loading.
