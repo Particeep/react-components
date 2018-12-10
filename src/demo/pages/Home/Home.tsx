@@ -6,9 +6,9 @@ import {PageTitle} from '../../shared/PageHeader/PageTitle'
 export const Home = () => {
   return (
     <Page>
-      <PageTitle>react-components</PageTitle>
+      <PageTitle>Mui-extension</PageTitle>
       <p>
-        Some are simple wrappers whose purpose is to simplify API or specify the design.
+        Set of UI components based on Material-UI.
       </p>
     </Page>
   )

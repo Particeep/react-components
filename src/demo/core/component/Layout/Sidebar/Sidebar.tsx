@@ -5,7 +5,6 @@ import {GitHubIcon} from '../../../../../lib/icon/index'
 import {useTheme, useToggleTheme} from '../../../theme/ThemeContext'
 import classNames from 'classnames'
 import {useSidebarContext} from '../LayoutContext'
-import {useIsMobileWidth} from '../../../useIsMobileWidth'
 import {sidebarWith} from '../Layout'
 import {Header} from '../Header/Header'
 
@@ -51,8 +50,7 @@ interface IProps extends WithStyles<typeof styles> {
 export const Sidebar = withStyles(styles)(({classes, className, basePath = ''}: IProps) => {
   const isDarkTheme = useTheme()
   const toggleDarkTheme = useToggleTheme()
-  const {isMobileSidebarOpened, openMobileSidebar, closeMobileSidebar} = useSidebarContext()
-  const isMobileWidth = useIsMobileWidth()
+  const {isMobileWidth, isMobileSidebarOpened, openMobileSidebar, closeMobileSidebar} = useSidebarContext()
   const opened = !isMobileWidth || isMobileSidebarOpened
 
   return (
@@ -83,8 +81,8 @@ export const Sidebar = withStyles(styles)(({classes, className, basePath = ''}: 
             <SidebarItem to={basePath + '/stepper'}>ExpensionStepper</SidebarItem>
             <SidebarItem to={basePath + '/autocomplete'}>Autocomplete</SidebarItem>
             <SidebarItem to={basePath + '/btn'}>Btn</SidebarItem>
-            <SidebarItem to={basePath + '/confirm'}>Confirm</SidebarItem>
             <SidebarItem to={basePath + '/btn-uploader'}>BtnUpLoader</SidebarItem>
+            <SidebarItem to={basePath + '/confirm'}>Confirm</SidebarItem>
             <SidebarItem to={basePath + '/panel'}>Panel</SidebarItem>
             <SidebarItem to={basePath + '/alert'}>Alert</SidebarItem>
             <SidebarItem to={basePath + '/icons'}>Icons</SidebarItem>

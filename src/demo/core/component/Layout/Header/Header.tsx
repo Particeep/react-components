@@ -3,7 +3,6 @@ import * as React from 'react'
 import {useSidebarContext} from '../LayoutContext'
 import classNames from 'classnames'
 import IconBtn from '../../../../../lib/IconBtn/IconBtn'
-import {useIsMobileWidth} from '../../../useIsMobileWidth'
 
 export const heightHeight = 42
 
@@ -28,8 +27,7 @@ const styles = (t: Theme) => createStyles({
 })
 
 export const Header = withStyles(styles)(({classes, className}: any) => {
-  const {isMobileSidebarOpened, toggleMobileSidebar} = useSidebarContext()
-  const isMobileWidth = useIsMobileWidth()
+  const {isMobileWidth, isMobileSidebarOpened, toggleMobileSidebar} = useSidebarContext()
 
   return (
     <header className={classNames(classes.root, className)}>

@@ -16,7 +16,7 @@ import TableSortDemo from './examples/TableSort/TableSortDemo'
 import {Route} from 'react-router-dom'
 import GlobalProgressDemo from './examples/GlobalProgress/GlobalProgressDemo'
 import {Home} from './pages/Home/Home'
-import {Redirect, withRouter} from 'react-router'
+import {Redirect, withRouter, Switch} from 'react-router'
 import {Layout} from './core/component/Layout'
 
 const styles = (t: Theme) => createStyles({
@@ -53,22 +53,24 @@ const styles = (t: Theme) => createStyles({
 const App = () => {
   return (
     <Layout>
-      <Route path="/home" component={Home}/>
-      <Route path="/panel" component={PanelDemo}/>
-      <Route path="/btn" component={BtnDemo}/>
-      <Route path="/confirm" component={ConfirmDemo}/>
-      <Route path="/btn-uploader" component={ChipUploaderDemo}/>
-      <Route path="/alert" component={AlertDemo}/>
-      <Route path="/icons" component={IconsDemo}/>
-      <Route path="/stepper" component={ExpensionStepperDemo}/>
-      <Route path="/fender" component={FenderDemo}/>
-      <Route path="/toast" component={ToastDemo}/>
-      <Route path="/global-progress" component={GlobalProgressDemo}/>
-      <Route path="/input-date" component={InputDateDemo}/>
-      <Route path="/autocomplete" component={AutocompleteDemo}/>
-      <Route path="/table-sort" component={TableSortDemo}/>
-      <Route path="/animate" component={AnimateDemo}/>
-      <Redirect exact from="/" to="/home"/>
+      <Switch>
+        <Route path="/home" component={Home}/>
+        <Route path="/panel" component={PanelDemo}/>
+        <Route path="/btn" component={BtnDemo}/>
+        <Route path="/confirm" component={ConfirmDemo}/>
+        <Route path="/btn-uploader" component={ChipUploaderDemo}/>
+        <Route path="/alert" component={AlertDemo}/>
+        <Route path="/icons" component={IconsDemo}/>
+        <Route path="/stepper" component={ExpensionStepperDemo}/>
+        <Route path="/fender" component={FenderDemo}/>
+        <Route path="/toast" component={ToastDemo}/>
+        <Route path="/global-progress" component={GlobalProgressDemo}/>
+        <Route path="/input-date" component={InputDateDemo}/>
+        <Route path="/autocomplete" component={AutocompleteDemo}/>
+        <Route path="/table-sort" component={TableSortDemo}/>
+        <Route path="/animate" component={AnimateDemo}/>
+        <Redirect exact from="/" to="/home"/>
+      </Switch>
     </Layout>
   )
 }

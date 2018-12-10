@@ -1,30 +1,49 @@
 import * as React from 'react'
-import {createContext, useContext, useState} from 'react'
+import {createContext, ReactChild, useContext, useEffect, useState} from 'react'
+import {debounce} from '../../../utils/debounce'
 
 const LayoutContext = createContext<SidebarContextProps>({} as SidebarContextProps)
 
+interface IProps {
+  children: ReactChild
+  mobileBreakpoint?: number
+}
+
 interface SidebarContextProps {
+  isMobileWidth: boolean,
   isMobileSidebarOpened: boolean
   openMobileSidebar: () => void
   closeMobileSidebar: () => void
   toggleMobileSidebar: () => void
 }
 
-export const SidebarContextProvider = ({children}) => {
+export const LayoutProvider = ({mobileBreakpoint = 700, children}: IProps) => {
   const [isMobileSidebarOpened, setIsMobileSidebarOpened] = useState(false)
+  const [mobileWidth, setMobileWidth] = useState(getWidth())
+
   const openMobileSidebar = () => setIsMobileSidebarOpened(true)
   const closeMobileSidebar = () => setIsMobileSidebarOpened(false)
   const toggleMobileSidebar = () => setIsMobileSidebarOpened(!isMobileSidebarOpened)
+
+  useEffect(() => {
+    window.addEventListener('resize', debounce(() => setMobileWidth(getWidth()), 600))
+  }, [])
+
   return (
     <LayoutContext.Provider value={{
       isMobileSidebarOpened,
       openMobileSidebar,
       closeMobileSidebar,
       toggleMobileSidebar,
+      isMobileWidth: mobileWidth < mobileBreakpoint,
     }}>
       {children}
     </LayoutContext.Provider>
   )
+}
+
+function getWidth(): number {
+  return window.innerWidth
 }
 
 export const useSidebarContext = (): SidebarContextProps => {

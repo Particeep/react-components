@@ -1,6 +1,6 @@
 import * as React from 'react'
-import {Btn, Confirm, Page} from '../../../lib/index'
 import {useState} from 'react'
+import {Btn, Confirm} from '../../../lib/index'
 
 export const ConfirmDemoButton = () => {
 

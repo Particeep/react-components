@@ -39,6 +39,10 @@ const styles = (t: Theme) => createStyles({
     textAlign: 'center',
     marginRight: t.spacing.unit * 2,
   },
+  before: {
+    display: 'flex',
+    alignItems: 'center'
+  },
   label: {
     ...css.noWrap,
     display: 'flex',
@@ -94,7 +98,7 @@ const SidebarItem = ({classes, href, to, children, icon, before, className, larg
   const item = (
     <>
       {icon && <Icon className={classes.i}>{icon}</Icon>}
-      {before && <div className={classes.i} style={{display: 'flex', alignItems: 'center'}}>{before}</div>}
+      {before && <div className={classNames(classes.i, classes.before)}>{before}</div>}
       <span className={classes.label}>{children}</span>
     </>
   )

@@ -9,7 +9,7 @@ export const PanelDemoSimple = () => {
 
   const load = () => {
     setIsLoading(true)
-    setTimeout(() => setIsLoading(false), 2000)
+    setTimeout(() => setIsLoading(false), 1200)
   }
 
   useEffect(load, [])

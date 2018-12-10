@@ -18,14 +18,10 @@ interface IProps extends WithStyles<typeof styles> {
   margin?: boolean;
 }
 
-class SidebarHr extends React.Component<IProps, {}> {
-
-  render() {
-    const {className, margin, classes} = this.props
-    return (
-      <div className={classNames(classes.root, className, margin && classes.rootMargin)}/>
-    )
-  }
+const SidebarHr = ({className, margin, classes}: IProps) => {
+  return (
+    <div className={classNames(classes.root, className, margin && classes.rootMargin)}/>
+  )
 }
 
 export default withStyles(styles)(SidebarHr)

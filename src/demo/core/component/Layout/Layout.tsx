@@ -1,8 +1,7 @@
 import * as React from 'react'
 import {ReactChild} from 'react'
 import {createStyles, Theme, withStyles, WithStyles} from '@material-ui/core'
-import {SidebarContextProvider, useSidebarContext} from './LayoutContext'
-import {useIsMobileWidth} from '../../useIsMobileWidth'
+import {LayoutProvider, useSidebarContext} from './LayoutContext'
 import {MobileHeader} from './MobileHeader/MobileHeader'
 import {Sidebar} from './Sidebar/Sidebar'
 import classNames from 'classnames'
@@ -34,16 +33,16 @@ interface IProps extends WithStyles<typeof styles> {
 
 export const Layout = ({children}) => {
   return (
-    <SidebarContextProvider>
-      <Component>
+    <LayoutProvider>
+      <LayoutUsingContext>
         {children}
-      </Component>
-    </SidebarContextProvider>
+      </LayoutUsingContext>
+    </LayoutProvider>
   )
 }
 
-const Component = withStyles(styles)(({children, classes}: IProps) => {
-  const isMobileWidth = useIsMobileWidth()
+const LayoutUsingContext = withStyles(styles)(({children, classes}: IProps) => {
+  const {isMobileWidth} = useSidebarContext()
 
   return (
     <>

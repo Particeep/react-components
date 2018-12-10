@@ -1,7 +1,7 @@
 import {createStyles, Slide, Theme, withStyles} from '@material-ui/core'
 import * as React from 'react'
-import {useIsMobileWidth} from '../../../useIsMobileWidth'
 import {Header, heightHeight} from '../Header/Header'
+import {useSidebarContext} from '../LayoutContext'
 
 const styles = (t: Theme) => createStyles({
   header: {
@@ -18,7 +18,8 @@ const styles = (t: Theme) => createStyles({
 })
 
 export const MobileHeader = withStyles(styles)(({classes}: any) => {
-  const isMobileWidth = useIsMobileWidth()
+  const {isMobileWidth} = useSidebarContext()
+
   return (
     <Slide direction="down" in={isMobileWidth} mountOnEnter unmountOnExit>
       <>

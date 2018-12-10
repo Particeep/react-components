@@ -1,7 +1,7 @@
 import * as React from 'react'
+import {useEffect} from 'react'
 import {Btn, withGlobalProgress} from '../../../lib'
 import {GlobalProgressBar, GlobalProgressProvider} from '../../../lib/GlobalProgress'
-import {useEffect} from 'react'
 
 const fetchSomething = delay => new Promise(resolve => setTimeout(resolve, delay, {}))
 const fetchSomethingRejected = delay => new Promise((resolve, reject) => setTimeout(() => reject('oops'), delay, {}))
