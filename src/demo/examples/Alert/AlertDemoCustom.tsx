@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Alert, Panel} from '../../../lib/index'
+import {Alert, Panel} from 'mui-extension'
 import {Button} from '@material-ui/core'
 
 export const AlertDemoCustom = () => {

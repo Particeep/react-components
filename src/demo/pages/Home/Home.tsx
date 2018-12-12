@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Page} from '../../../lib/Page/index'
+import {Page} from 'mui-extension'
 import {NavLink} from 'react-router-dom'
 import {PageTitle} from '../../shared/PageHeader/PageTitle'
 import {createStyles, Theme, withStyles} from '@material-ui/core'

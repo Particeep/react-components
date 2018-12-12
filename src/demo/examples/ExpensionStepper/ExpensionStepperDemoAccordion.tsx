@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {Icon, withStyles} from '@material-ui/core'
-import {ExpensionStep, ExpensionStepper} from '../../../lib/ExpensionStepper/index'
-import {Btn} from '../../../lib/Btn'
+import {ExpensionStep, ExpensionStepper} from 'mui-extension'
+import {Btn} from 'mui-extension'
 
 const styles = t => ({
   root: {

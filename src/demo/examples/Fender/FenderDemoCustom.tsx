@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Fender} from '../../../lib/index'
+import {Fender} from 'mui-extension'
 
 export const FenderDemoCustom = () => {
   return (

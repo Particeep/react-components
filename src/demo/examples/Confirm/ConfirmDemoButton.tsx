@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {useState} from 'react'
-import {Btn, Confirm} from '../../../lib/index'
+import {Btn, Confirm} from 'mui-extension'
 
 export const ConfirmDemoButton = () => {
 

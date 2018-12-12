@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {useEffect, useState} from 'react'
-import {Fender} from '../../../lib/index'
+import {Fender} from 'mui-extension'
 
 export const FenderDemoLoading = () => {
   const [isLoading, setIsLoading] = useState(true)

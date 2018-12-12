@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {useState} from 'react'
 import {Table, TableBody, TableCell, TableRow} from '@material-ui/core'
-import {TableSort, TableSortCell} from '../../../lib/TableSort/index'
+import {TableSort, TableSortCell} from 'mui-extension'
 
 const data = [
   {name: 'Alex', age: '29',},

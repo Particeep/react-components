@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Alert} from '../../../lib/index'
+import {Alert} from 'mui-extension'
 
 export const AlertDemoSimple = () => {
   return (

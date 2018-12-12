@@ -1,8 +1,8 @@
 import * as React from 'react'
 import {useState} from 'react'
 import {Button, FormControl, Switch, TextField, Typography} from '@material-ui/core'
-import {Panel} from '../../../lib/Panel/index'
-import {ExpensionStep, ExpensionStepper} from '../../../lib/ExpensionStepper/index'
+import {Panel} from 'mui-extension'
+import {ExpensionStep, ExpensionStepper} from 'mui-extension'
 
 export const ExpensionStepperDemoTunnel = () => {
   const [msg, setMsg] = useState(undefined)
