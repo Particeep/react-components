@@ -14,7 +14,7 @@ Set of [React](https://reactjs.org/) components based on [Material icons](https:
 ### Usage
 
 ```
-import {Btn, Panel, PanelBody} from "mui-extension";
+import {Btn, Panel, PanelBody} from 'mui-extension'
 
 const AppComponent = () => 
   <Panel>
@@ -50,5 +50,5 @@ class App extends Component {
   }
 }
 
-export default App; 
+export default App
 ```
