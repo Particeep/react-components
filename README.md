@@ -1,6 +1,6 @@
 # Mui-extension
 
-Set of [React](https://reactjs.org/) components depending on [Material icons](https://material.io/icons/). See Material icons installation instructions [here](http://google.github.io/material-design-icons/#icon-font-for-the-web).
+Set of [React](https://reactjs.org/) components based on [Material icons](https://material.io/icons/). See Material icons installation instructions [here](http://google.github.io/material-design-icons/#icon-font-for-the-web).
 
 ### Installation
 
