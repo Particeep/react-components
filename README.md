@@ -4,7 +4,7 @@ Set of [React](https://reactjs.org/) components based on [Material icons](https:
 
 ### Installation
 
-```npm i -s git+https://github.com/Particeep/react-components.git```
+```npm i -s git+https://github.com/alexandreannic/mui-extension.git```
 
 ### Demo
 
