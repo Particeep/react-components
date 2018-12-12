@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {ReactChild} from 'react'
+import {ReactNode} from 'react'
 import {createStyles, Theme, withStyles, WithStyles} from '@material-ui/core'
 
 const styles = (t: Theme) => createStyles({
@@ -12,7 +12,7 @@ const styles = (t: Theme) => createStyles({
 })
 
 interface IProps extends WithStyles<typeof styles> {
-  children: ReactChild
+  children: ReactNode
 }
 
 export const Code = withStyles(styles)(({classes, children}: IProps) => {

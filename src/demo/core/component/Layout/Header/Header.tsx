@@ -27,16 +27,14 @@ const styles = (t: Theme) => createStyles({
 })
 
 export const Header = withStyles(styles)(({classes, className}: any) => {
-  const {isMobileWidth, isMobileSidebarOpened, toggleMobileSidebar} = useSidebarContext()
+  const {title, isMobileWidth, isMobileSidebarOpened, toggleMobileSidebar} = useSidebarContext()
 
   return (
     <header className={classNames(classes.root, className)}>
-      <IconBtn onClick={toggleMobileSidebar} className={!isMobileWidth && classes.hidden}>
+      <IconBtn onClick={toggleMobileSidebar} className={isMobileWidth ? '' : classes.hidden}>
         <Icon>{isMobileSidebarOpened ? 'clear' : 'menu'}</Icon>
       </IconBtn>
-      <div className={classes.title}>
-        Mui-extension
-      </div>
+      <div className={classes.title}>{title}</div>
     </header>
   )
 })

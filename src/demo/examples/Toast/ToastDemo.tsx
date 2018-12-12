@@ -16,17 +16,15 @@ const ToastDemo = () => {
       </p>
 
       <h2>Usage</h2>
-      <p>
-        Add <Code>{`<ToastProvider/>`}</Code> in the root of your application, then simply wrap your component
-        with <Code>withToast</Code> to access the methods:
-        <ul>
-          <li><Code>toastError</Code></li>
-          <li><Code>toastWarning</Code></li>
-          <li><Code>toastSuccess</Code></li>
-          <li><Code>toastInfo</Code></li>
-          <li><Code>toastLoading</Code></li>
-        </ul>
-      </p>
+      Add <Code>{`<ToastProvider/>`}</Code> in the root of your application, then simply wrap your component
+      with <Code>withToast</Code> to access the methods:
+      <ul>
+        <li><Code>toastError</Code></li>
+        <li><Code>toastWarning</Code></li>
+        <li><Code>toastSuccess</Code></li>
+        <li><Code>toastInfo</Code></li>
+        <li><Code>toastLoading</Code></li>
+      </ul>
       <Demo
         raw={preval`module.exports = require('fs').readFileSync(require.resolve('./ToastDemoExample.tsx'), 'utf8')`}
         component={ToastDemoExample}/>

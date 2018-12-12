@@ -18,6 +18,7 @@ import GlobalProgressDemo from './examples/GlobalProgress/GlobalProgressDemo'
 import {Home} from './pages/Home/Home'
 import {Redirect, withRouter, Switch} from 'react-router'
 import {Layout} from './core/component/Layout'
+import {Menu, Sidebar} from './core/component/Sidebar/Sidebar'
 
 const styles = (t: Theme) => createStyles({
   '@global': {
@@ -52,7 +53,7 @@ const styles = (t: Theme) => createStyles({
 
 const App = () => {
   return (
-    <Layout>
+    <Layout sidebar={Menu} title="Mui-extension">
       <Switch>
         <Route path="/home" component={Home}/>
         <Route path="/panel" component={PanelDemo}/>
