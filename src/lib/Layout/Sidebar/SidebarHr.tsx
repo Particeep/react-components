@@ -18,10 +18,8 @@ interface IProps extends WithStyles<typeof styles> {
   margin?: boolean;
 }
 
-const SidebarHr = ({className, margin, classes}: IProps) => {
+export const SidebarHr = withStyles(styles)(({className, margin, classes}: IProps) => {
   return (
     <div className={classNames(classes.root, className, margin && classes.rootMargin)}/>
   )
-}
-
-export default withStyles(styles)(SidebarHr)
+})

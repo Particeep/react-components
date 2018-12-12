@@ -3,13 +3,16 @@ import {useEffect, useState} from 'react'
 import {Btn, Page, Panel, PanelBody, PanelFoot, PanelHead} from '../../../lib/index'
 import {Button, Divider, Icon, IconButton, withStyles} from '@material-ui/core'
 
+let timeout
+
 export const PanelDemoSimple = () => {
 
   const [isLoading, setIsLoading] = useState(true)
 
   const load = () => {
     setIsLoading(true)
-    setTimeout(() => setIsLoading(false), 1200)
+    timeout = setTimeout(() => setIsLoading(false), 1200)
+    return () => clearTimeout(timeout)
   }
 
   useEffect(load, [])

@@ -4,7 +4,7 @@ import {createStyles, Icon, Theme, WithStyles, withStyles} from '@material-ui/co
 import {NavLink} from 'react-router-dom'
 import classNames from 'classnames'
 import {fade} from '@material-ui/core/styles/colorManipulator'
-import {css} from '../../../theme/style'
+import {css} from '../../../demo/core/theme/style'
 
 const styles = (t: Theme) => createStyles({
   root: {
@@ -62,7 +62,7 @@ interface IProps extends WithStyles<typeof styles>, HTMLProps<any> {
   large?: boolean
 }
 
-const SidebarItem = ({classes, href, to, children, icon, before, className, large, ...other}: IProps) => {
+export const SidebarItem = withStyles(styles)(({classes, href, to, children, icon, before, className, large, ...other}: IProps) => {
 
   const getClassName = (clickable: boolean = true) => classNames(
     className,
@@ -105,6 +105,4 @@ const SidebarItem = ({classes, href, to, children, icon, before, className, larg
   if (to) return renderRootNavLink(item, to)
   if (href) return renderRootHref(item, href)
   return renderRoot(item)
-}
-
-export default withStyles(styles)(SidebarItem)
+})

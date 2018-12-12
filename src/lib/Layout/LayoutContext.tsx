@@ -1,23 +1,25 @@
 import * as React from 'react'
 import {createContext, ReactChild, useContext, useEffect, useState} from 'react'
-import {debounce} from '../../../utils/debounce'
+import {debounce} from '../../demo/utils/debounce'
 
 const LayoutContext = createContext<SidebarContextProps>({} as SidebarContextProps)
 
 interface IProps {
   children: ReactChild
   mobileBreakpoint?: number
+  title?: string
 }
 
 interface SidebarContextProps {
-  isMobileWidth: boolean,
+  title?: string
+  isMobileWidth: boolean
   isMobileSidebarOpened: boolean
   openMobileSidebar: () => void
   closeMobileSidebar: () => void
   toggleMobileSidebar: () => void
 }
 
-export const LayoutProvider = ({mobileBreakpoint = 700, children}: IProps) => {
+export const LayoutProvider = ({title, mobileBreakpoint = 700, children}: IProps) => {
   const [isMobileSidebarOpened, setIsMobileSidebarOpened] = useState(false)
   const [mobileWidth, setMobileWidth] = useState(getWidth())
 
@@ -35,6 +37,7 @@ export const LayoutProvider = ({mobileBreakpoint = 700, children}: IProps) => {
       openMobileSidebar,
       closeMobileSidebar,
       toggleMobileSidebar,
+      title,
       isMobileWidth: mobileWidth < mobileBreakpoint,
     }}>
       {children}
