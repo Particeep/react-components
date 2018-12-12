@@ -45,7 +45,7 @@ export const IconsDemoSelected = withStyles(styles)(({name, size, color, onClear
           </IconBtn>
         </header>
         <Pre className={classes.pre} raw={
-          `import {${name}} from 'react-components'
+          `import {${name}} from 'mui-extension'
 ...
 <${name} style={{height: ${size}, width: ${size}, color: '${color}'}}/>
 ...`
