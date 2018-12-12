@@ -1,15 +1,20 @@
-# React-components
+# Mui-extension
 
-React-components depends on [Material icons](https://material.io/icons/). See installation instructions [here](http://google.github.io/material-design-icons/#icon-font-for-the-web).
+Set of [React](https://reactjs.org/) components depending on [Material icons](https://material.io/icons/). See Material icons installation instructions [here](http://google.github.io/material-design-icons/#icon-font-for-the-web).
 
 ### Installation
 
 ```npm i -s git+https://github.com/Particeep/react-components.git```
 
+### Demo
+
+[Click here](https://mui-extension.firebaseapp.com/)
+
+
 ### Usage
 
 ```
-import {Btn, Panel, PanelBody} from 'react-components'
+import {Btn, Panel, PanelBody} from "mui-extension";
 
 const AppComponent = () => 
   <Panel>

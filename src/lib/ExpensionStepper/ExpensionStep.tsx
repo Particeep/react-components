@@ -1,10 +1,10 @@
-import * as React from 'react';
-import {ReactElement} from 'react';
-import {Collapse, createStyles, Icon, Theme, WithStyles, withStyles} from '@material-ui/core';
-import {colorSuccess} from '../style/color';
-import classNames from 'classnames';
+import * as React from 'react'
+import {ReactElement} from 'react'
+import {Collapse, createStyles, Icon, Theme, WithStyles, withStyles} from '@material-ui/core'
+import {colorSuccess} from '../style/color'
+import classNames from 'classnames'
 
-const animationDuration = 300;
+const animationDuration = 300
 
 const styles = (t: Theme) => createStyles({
   root: {
@@ -42,40 +42,55 @@ const styles = (t: Theme) => createStyles({
   content: {
     padding: `0 ${t.spacing.unit * 3}px ${t.spacing.unit * 3}px ${t.spacing.unit * 3}px`
   }
-});
+})
 
 export interface ExpensionStepProps {
-  readonly prev?: () => void;
-  readonly next?: () => void;
-  readonly goTo?: (i: number) => void;
-  readonly free?: boolean;
-  readonly index?: number;
-  readonly disabled?: boolean;
-  readonly done?: boolean;
-  readonly isCurrent?: boolean;
-  readonly isLast?: boolean;
+  readonly prev?: () => void
+  readonly next?: (data?: any) => void
+  readonly goTo?: (i: number) => void
+  readonly free?: boolean
+  readonly index?: number
+  readonly disabled?: boolean
+  readonly done?: boolean
+  readonly isCurrent?: boolean
+  readonly isLast?: boolean
+  readonly autoScroll?: boolean
 }
 
 interface Props extends ExpensionStepProps, WithStyles<typeof styles> {
-  readonly className?: string;
-  readonly label: string;
-  readonly component: ReactElement<any>;
+  readonly className?: string
+  readonly label: string
+  readonly component: ReactElement<any>
 }
 
 class ExpensionStep extends React.Component<Props, {}> {
 
-  private $root: HTMLElement;
+  private $root: HTMLElement
 
   render() {
     const {
-      disabled, done, free, isCurrent, index, label, component, goTo, classes, prev, next, isLast, className, ...other
-    } = this.props;
+      disabled,
+      done,
+      free,
+      isCurrent,
+      index,
+      label,
+      component,
+      goTo,
+      classes,
+      prev,
+      next,
+      isLast,
+      className,
+      autoScroll,
+      ...other
+    } = this.props
     return (
       <div className={classNames(classes.root, className)} ref={node => this.$root = node} {...other}>
         <header
           className={classNames(classes.header, isCurrent && classes.headerCurrent, this.isClickable() && classes.headerClickable)}
           onClick={() => goTo(index)}>
-          {done && !isCurrent && <Icon className={classes.i}>check</Icon>}
+          {!free && done && !isCurrent && <Icon className={classes.i}>check</Icon>}
           {!free && <>{index + 1}. </>}{label}
         </header>
         <Collapse in={isCurrent} timeout={animationDuration} className={classes.body}>
@@ -84,22 +99,23 @@ class ExpensionStep extends React.Component<Props, {}> {
           </div>
         </Collapse>
       </div>
-    );
+    )
   }
 
   componentDidUpdate(prevProps: any) {
-    if (!prevProps.isCurrent && this.props.isCurrent)
-      setTimeout(() => this.scrollTop(), animationDuration);
+    const {autoScroll, isCurrent} = this.props
+    if (autoScroll && !prevProps.isCurrent && isCurrent)
+      setTimeout(() => this.scrollTop(), animationDuration)
   }
 
   private isClickable = () => {
-    const {isCurrent, disabled} = this.props;
-    return !isCurrent && !disabled;
-  };
+    const {isCurrent, disabled} = this.props
+    return !isCurrent && !disabled
+  }
 
   private scrollTop = () => {
-    this.$root.scrollIntoView({behavior: 'smooth', block: 'start'});
-  };
+    this.$root.scrollIntoView({behavior: 'smooth', block: 'start'})
+  }
 }
 
-export default withStyles(styles)(ExpensionStep);
+export default withStyles(styles)(ExpensionStep)

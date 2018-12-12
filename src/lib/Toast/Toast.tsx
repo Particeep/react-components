@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react'
 import {
   CircularProgress,
   createStyles,
@@ -8,11 +8,11 @@ import {
   Theme,
   WithStyles,
   withStyles
-} from '@material-ui/core';
-import {colorInfo, colorSuccess, colorWarning} from '../style/color';
-import autobind from 'autobind-decorator';
+} from '@material-ui/core'
+import {colorInfo, colorSuccess, colorWarning} from '../style/color'
+import autobind from 'autobind-decorator'
 
-const ToastContext = React.createContext({});
+const ToastContext = React.createContext({})
 
 const styles = (t: Theme) => createStyles({
   iError: {
@@ -28,9 +28,9 @@ const styles = (t: Theme) => createStyles({
     color: colorInfo,
   },
   label: {
-    marginLeft: t.spacing.unit,
+    marginLeft: t.spacing.unit * 2,
   }
-});
+})
 
 type ToastType = 'error' | 'loading' | 'warning' | 'success' | 'info' | undefined;
 
@@ -65,11 +65,11 @@ class ToastProvider extends React.Component<IProps, IState> {
     toastWarning: this.popWarning,
     toastInfo: this.popInfo,
     toastLoading: this.popLoading,
-  };
+  }
 
   render() {
-    const {classes} = this.props;
-    const {type, open, message} = this.state;
+    const {classes} = this.props
+    const {type, open, message} = this.state
     return (
       <ToastContext.Provider value={this.state}>
         {this.props.children}
@@ -91,66 +91,66 @@ class ToastProvider extends React.Component<IProps, IState> {
           }
         />
       </ToastContext.Provider>
-    );
+    )
   }
 
   private renderIcon(type: ToastType) {
-    const {classes} = this.props;
+    const {classes} = this.props
     switch (type!) {
       case 'error':
-        return <Icon className={classes.iError}>error</Icon>;
+        return <Icon className={classes.iError}>error</Icon>
       case 'success':
-        return <Icon className={classes.iSuccess}>check_circle</Icon>;
+        return <Icon className={classes.iSuccess}>check_circle</Icon>
       case 'warning':
-        return <Icon className={classes.iWarning}>warning</Icon>;
+        return <Icon className={classes.iWarning}>warning</Icon>
       case 'info':
-        return <Icon className={classes.iInfo}>info</Icon>;
+        return <Icon className={classes.iInfo}>info</Icon>
       case 'loading':
-        return <CircularProgress size={24} thickness={5}/>;
+        return <CircularProgress size={24} thickness={5}/>
       default:
-        return <></>;
+        return <></>
     }
   }
 
   private pop(type: ToastType, message: string) {
-    this.setState({open: true, type, message});
+    this.setState({open: true, type, message})
   }
 
   @autobind
   private popError(message: string) {
-    this.pop('error', message);
+    this.pop('error', message)
   };
 
   @autobind
   private popSuccess(message: string) {
-    this.pop('success', message);
+    this.pop('success', message)
   }
 
   @autobind
   private popWarning(message: string) {
-    this.pop('warning', message);
+    this.pop('warning', message)
   }
 
   @autobind
   private popInfo(message: string) {
-    this.pop('info', message);
+    this.pop('info', message)
   }
 
   @autobind
   private popLoading(message: string) {
-    this.pop('loading', message);
+    this.pop('loading', message)
   }
 
   @autobind
   private close() {
-    this.setState({open: false});
+    this.setState({open: false})
   }
 }
 
-export default withStyles(styles)(ToastProvider);
+export default withStyles(styles)(ToastProvider)
 
 export const withToast = (Component: any) => (props: any) => (
   <ToastContext.Consumer>
     {(other: WithToast) => <Component {...props} {...other}/>}
   </ToastContext.Consumer>
-);
+)

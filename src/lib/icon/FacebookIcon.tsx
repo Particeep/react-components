@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import * as React from 'react';
+import * as React from 'react'
 import SvgIcon from '@material-ui/core/SvgIcon'
 
 const FacebookIcon = ({className, ...props}: any) =>
@@ -12,6 +12,6 @@ const FacebookIcon = ({className, ...props}: any) =>
       </g>
     </svg>
   </SvgIcon>
-;
 
-export default FacebookIcon;
+
+export default FacebookIcon

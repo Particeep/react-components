@@ -1,2 +1,2 @@
-export {default as ToastProvider} from './Toast';
-export {withToast} from './Toast';
+export {default as ToastProvider} from './Toast'
+export {withToast} from './Toast'
