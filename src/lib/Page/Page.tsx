@@ -22,6 +22,7 @@ interface Props extends WithStyles<typeof styles> {
   width?: number,
   animated?: boolean;
   className?: any;
+  style?: object
 }
 
 class Page extends React.Component<Props, {}> {
@@ -35,10 +36,10 @@ class Page extends React.Component<Props, {}> {
   }
 
   render() {
-    const {classes, children, width, animated, className} = this.props
+    const {classes, children, width, animated, className, style} = this.props
     return (
       <div className={classNames(classes.root, (!animated || this.state.appeared) && classes.root_appeared, className)}
-           style={width && {maxWidth: width}}>
+           style={{...(width && {maxWidth: width}), ...style}}>
         {children}
       </div>
     )

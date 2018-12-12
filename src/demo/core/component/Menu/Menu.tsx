@@ -31,7 +31,7 @@ export const Menu = withStyles(styles)(({classes, className, basePath = ''}: IPr
           Home
         </SidebarItem>
         <SidebarItem
-          href="https://github.com/alexandreannic/react-components"
+          href="https://github.com/alexandreannic/mui-extension"
           before={<GitHubIcon/>}
           target="_blank"
           large>
@@ -60,7 +60,12 @@ export const Menu = withStyles(styles)(({classes, className, basePath = ''}: IPr
       <SidebarFooter>
         <SidebarItem icon="brightness_3">
           Night mode
-          <Switch color="primary" className={classes.itemI} checked={isDarkTheme} onChange={toggleDarkTheme}/>
+          <Switch
+            color="primary"
+            className={classes.itemI}
+            checked={isDarkTheme}
+            onChange={toggleDarkTheme}
+            style={{marginTop: -4, marginBottom: -4}}/>
         </SidebarItem>
       </SidebarFooter>
     </Sidebar>

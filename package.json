@@ -28,9 +28,9 @@
   },
   "scripts": {
     "test": "jest",
-    "compile": "webpack --config conf/webpack.compile.js",
+    "compile": "webpack --config webpack.compile.js",
     "start": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production"
+    "build": "webpack --config webpack.build.js -p"
   },
   "author": {
     "name": "Alexandre Annic",
