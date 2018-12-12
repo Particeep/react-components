@@ -6,6 +6,7 @@ import classNames from 'classnames'
 const styles = (t: Theme) => createStyles({
   root: {
     paddingTop: t.spacing.unit / 2,
+    paddingBottom: t.spacing.unit / 2,
     borderTop: '1px solid ' + t.palette.divider,
   },
 })
