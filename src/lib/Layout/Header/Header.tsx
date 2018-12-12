@@ -2,7 +2,7 @@ import {createStyles, Icon, Theme, withStyles} from '@material-ui/core'
 import * as React from 'react'
 import {useSidebarContext} from '../LayoutContext'
 import classNames from 'classnames'
-import IconBtn from '../../../../../lib/IconBtn/IconBtn'
+import IconBtn from '../../IconBtn/IconBtn'
 
 export const heightHeight = 42
 

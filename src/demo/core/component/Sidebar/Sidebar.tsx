@@ -1,8 +1,8 @@
 import * as React from 'react'
 import {createStyles, Icon, Switch, Theme, WithStyles, withStyles} from '@material-ui/core'
 import {useTheme, useToggleTheme} from '../../theme/ThemeContext'
-import {SidebarHeader} from '../Layout/Sidebar/SidebarHeader'
-import {Sidebar, SidebarBody, SidebarFooter, SidebarItem} from '../Layout/Sidebar'
+import {SidebarHeader} from '../../../../lib/Layout/Sidebar/SidebarHeader'
+import {Sidebar, SidebarBody, SidebarFooter, SidebarItem} from '../../../../lib/Layout'
 import {GitHubIcon} from '../../../../lib/icon'
 
 const styles = (t: Theme) => createStyles({
@@ -45,7 +45,7 @@ export const Menu = withStyles(styles)(({classes, className, basePath = ''}: IPr
         <SidebarItem to={basePath + '/stepper'}>ExpensionStepper</SidebarItem>
         <SidebarItem to={basePath + '/autocomplete'}>Autocomplete</SidebarItem>
         <SidebarItem to={basePath + '/btn'}>Btn</SidebarItem>
-        <SidebarItem to={basePath + '/btn-uploader'}>BtnUpLoader</SidebarItem>
+        <SidebarItem to={basePath + '/btn-uploader'}>BtnUploader</SidebarItem>
         <SidebarItem to={basePath + '/confirm'}>Confirm</SidebarItem>
         <SidebarItem to={basePath + '/panel'}>Panel</SidebarItem>
         <SidebarItem to={basePath + '/alert'}>Alert</SidebarItem>

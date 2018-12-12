@@ -4,7 +4,7 @@ import {createStyles, Icon, Theme, WithStyles, withStyles} from '@material-ui/co
 import {NavLink} from 'react-router-dom'
 import classNames from 'classnames'
 import {fade} from '@material-ui/core/styles/colorManipulator'
-import {css} from '../../../theme/style'
+import {css} from '../../../demo/core/theme/style'
 
 const styles = (t: Theme) => createStyles({
   root: {

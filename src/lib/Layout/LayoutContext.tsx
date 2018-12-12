@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {createContext, ReactChild, useContext, useEffect, useState} from 'react'
-import {debounce} from '../../../utils/debounce'
+import {debounce} from '../../demo/utils/debounce'
 
 const LayoutContext = createContext<SidebarContextProps>({} as SidebarContextProps)
 
