@@ -13,5 +13,6 @@ export * from './GlobalProgress'
 export * from './Fender'
 export * from './Animate'
 export * from './TableSort'
+export * from './Layout'
 export * from './icon'
 
