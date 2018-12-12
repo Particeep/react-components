@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {Card, CardContent, Grid} from '@material-ui/core'
-import AnimateList from '../../../lib/Animate/AnimateList'
+import AnimateList from 'mui-extension'
 
 export const AnimateDemoList = () => {
   return (

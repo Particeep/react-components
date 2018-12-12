@@ -17,8 +17,8 @@ import {Route} from 'react-router-dom'
 import GlobalProgressDemo from './examples/GlobalProgress/GlobalProgressDemo'
 import {Home} from './pages/Home/Home'
 import {Redirect, withRouter, Switch} from 'react-router'
-import {Layout} from '../lib/Layout'
-import {Menu, Sidebar} from './core/component/Menu/Menu'
+import {Layout} from 'mui-extension'
+import {Menu} from './core/component/Menu/Menu'
 
 const styles = (t: Theme) => createStyles({
   '@global': {

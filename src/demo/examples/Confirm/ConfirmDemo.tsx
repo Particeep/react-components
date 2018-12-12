@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Page} from '../../../lib/index'
+import {Page} from 'mui-extension'
 import preval from 'babel-plugin-preval/macro'
 import {Demo} from '../../shared/Demo'
 import {ConfirmDemoButton} from './ConfirmDemoButton'

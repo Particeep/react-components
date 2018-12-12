@@ -1,7 +1,6 @@
 import * as React from 'react'
 import {useEffect, useState} from 'react'
-import {Btn, withGlobalProgress} from '../../../lib'
-import {GlobalProgressBar, GlobalProgressProvider} from '../../../lib/GlobalProgress'
+import {Btn, withGlobalProgress, GlobalProgressBar, GlobalProgressProvider} from 'mui-extension'
 import {FormControl, Input, InputLabel} from '@material-ui/core'
 
 export const GlobalProgressDemoManual = () => {

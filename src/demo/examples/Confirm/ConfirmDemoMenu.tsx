@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Btn, Confirm} from '../../../lib/index'
+import {Btn, Confirm} from 'mui-extension'
 import {Menu, MenuItem} from '@material-ui/core'
 
 export class ConfirmDemoMenu extends React.Component<{}, any> {

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {useState} from 'react'
-import {BtnUploader} from '../../../lib/BtnUploader/index'
+import {BtnUploader} from 'mui-extension'
 
 export const BtnUploaderDemoButton = () => {
 

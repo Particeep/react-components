@@ -1,6 +1,6 @@
 import * as React from 'react'
-import {Btn} from '../../../lib/Btn/index'
-import {ToastProvider, withToast} from '../../../lib/Toast'
+import {Btn} from 'mui-extension'
+import {ToastProvider, withToast} from 'mui-extension'
 
 export const ToastDemoExample = () => {
   return (

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {useState} from 'react'
-import {Btn} from '../../../lib/index'
+import {Btn} from 'mui-extension'
 import {Icon} from '@material-ui/core'
 
 export const BtnDemoButton = () => {

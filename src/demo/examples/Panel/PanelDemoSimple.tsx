@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {useEffect, useState} from 'react'
-import {Btn, Page, Panel, PanelBody, PanelFoot, PanelHead} from '../../../lib/index'
+import {Btn, Page, Panel, PanelBody, PanelFoot, PanelHead} from 'mui-extension'
 import {Button, Divider, Icon, IconButton, withStyles} from '@material-ui/core'
 
 let timeout

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Alert, Panel, PanelBody, PanelHead} from '../../../lib/index'
+import {Alert, Panel, PanelBody, PanelHead} from 'mui-extension'
 
 export const AlertDemoWithPanel = () => {
   return (

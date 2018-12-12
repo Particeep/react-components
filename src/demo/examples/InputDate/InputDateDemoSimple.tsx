@@ -1,5 +1,5 @@
 import * as React from 'react'
-import InputDate from '../../../lib/InputDate/InputDate'
+import InputDate from 'mui-extension'
 
 export const InputDateDemoSimple = () => {
   return (

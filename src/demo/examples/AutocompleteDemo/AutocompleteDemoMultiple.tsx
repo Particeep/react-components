@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {useState} from 'react'
 import {FormControl, FormHelperText, InputLabel} from '@material-ui/core'
-import {Autocomplete, AutocompleteItem} from '../../../lib/Autocomplete'
+import {Autocomplete, AutocompleteItem} from 'mui-extension'
 
 const cities = [
   'Los Angeles',
