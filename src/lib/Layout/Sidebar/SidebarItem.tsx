@@ -5,6 +5,7 @@ import {NavLink} from 'react-router-dom'
 import classNames from 'classnames'
 import {fade} from '@material-ui/core/styles/colorManipulator'
 import {css} from '../../../demo/core/theme/style'
+import {useLayoutContext} from '../LayoutContext'
 
 const styles = (t: Theme) => createStyles({
   root: {
@@ -64,6 +65,8 @@ interface IProps extends WithStyles<typeof styles>, HTMLProps<any> {
 
 export const SidebarItem = withStyles(styles)(({classes, href, to, children, icon, before, className, large, ...other}: IProps) => {
 
+  const {closeMobileSidebar} = useLayoutContext()
+
   const getClassName = (clickable: boolean = true) => classNames(
     className,
     classes.root,
@@ -95,14 +98,20 @@ export const SidebarItem = withStyles(styles)(({classes, href, to, children, ico
     )
   }
 
-  const item = (
+  const content = (
     <>
       {icon && <Icon className={classes.i}>{icon}</Icon>}
       {before && <div className={classNames(classes.i, classes.before)}>{before}</div>}
       <span className={classes.label}>{children}</span>
     </>
   )
-  if (to) return renderRootNavLink(item, to)
-  if (href) return renderRootHref(item, href)
-  return renderRoot(item)
+  let wrapper
+  if (to) wrapper = renderRootNavLink(content, to)
+  else if (href) wrapper = renderRootHref(content, href)
+  else wrapper = renderRoot(content)
+  return (
+    <div onClick={closeMobileSidebar}>
+      {wrapper}
+    </div>
+  )
 })

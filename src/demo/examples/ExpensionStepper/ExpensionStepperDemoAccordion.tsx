@@ -48,6 +48,7 @@ const Row = withStyles((t) => ({
   root: {
     display: 'flex',
     alignItems: 'center',
+    flexWrap: 'wrap',
     marginTop: t.spacing.unit * 2,
     paddingBottom: t.spacing.unit * 2,
     '&:not(:last-of-type)': {

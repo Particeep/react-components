@@ -1,11 +1,11 @@
 import * as React from 'react'
-import {Page} from 'mui-extension'
+import {Page} from '../../shared/Page/Page'
 import preval from 'babel-plugin-preval/macro'
 import {Demo} from '../../shared/Demo'
 import {ConfirmDemoButton} from './ConfirmDemoButton'
 import {ConfirmDemoMenu} from './ConfirmDemoMenu'
 import {Code} from '../../shared/Code/Code'
-import {PageTitle} from '../../shared/PageHeader/PageTitle'
+import {PageTitle} from '../../shared/PageTitle/PageTitle'
 
 const ConfirmDemo = () => {
   return (

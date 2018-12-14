@@ -1,10 +1,10 @@
 import * as React from 'react'
-import {Page} from 'mui-extension'
+import {Page} from '../../shared/Page/Page'
 import {Demo} from '../../shared/Demo'
 import {ToastDemoExample} from './ToastDemoExample'
 import preval from 'babel-plugin-preval/macro'
 import {Code} from '../../shared/Code/Code'
-import {PageTitle} from '../../shared/PageHeader/PageTitle'
+import {PageTitle} from '../../shared/PageTitle/PageTitle'
 
 const ToastDemo = () => {
   return (

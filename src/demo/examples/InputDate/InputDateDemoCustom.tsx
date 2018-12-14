@@ -1,5 +1,5 @@
 import * as React from 'react'
-import InputDate from 'mui-extension'
+import {InputDate} from 'mui-extension'
 import {FormControl, FormHelperText, InputLabel} from '@material-ui/core'
 
 export const InputDateDemoCustom = () => {

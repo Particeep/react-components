@@ -17,8 +17,8 @@ import {Route} from 'react-router-dom'
 import GlobalProgressDemo from './examples/GlobalProgress/GlobalProgressDemo'
 import {Home} from './pages/Home/Home'
 import {Redirect, withRouter, Switch} from 'react-router'
-import {Layout} from 'mui-extension'
 import {Menu} from './core/component/Menu/Menu'
+import {Layout} from '../lib/Layout'
 
 const styles = (t: Theme) => createStyles({
   '@global': {
@@ -36,7 +36,10 @@ const styles = (t: Theme) => createStyles({
       ...t.typography.h6,
       marginBottom: 0,
     },
-    p: t.typography.body1,
+    p: {
+      ...t.typography.body1,
+      textAlign: 'justify',
+    },
     a: {
       color: 'inherit',
       textDecoration: 'none',

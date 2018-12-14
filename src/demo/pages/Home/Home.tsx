@@ -1,7 +1,7 @@
 import * as React from 'react'
-import {Page} from 'mui-extension'
+import {Page} from '../../shared/Page/Page'
 import {NavLink} from 'react-router-dom'
-import {PageTitle} from '../../shared/PageHeader/PageTitle'
+import {PageTitle} from '../../shared/PageTitle/PageTitle'
 import {createStyles, Theme, withStyles} from '@material-ui/core'
 
 const styles = (t: Theme) => createStyles({

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {useState} from 'react'
 import {Icon} from '@material-ui/core'
-import IconBtn from 'mui-extension'
+import {IconBtn} from 'mui-extension'
 
 export const BtnDemoIconButton = () => {
   const [isLoading, setIsLoading] = useState(false)

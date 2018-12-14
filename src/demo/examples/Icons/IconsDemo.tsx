@@ -1,12 +1,12 @@
 import * as React from 'react'
 import {useState} from 'react'
-import {FacebookIcon, IconSkype, LinkedinIcon, Page, TwitterIcon} from 'mui-extension'
+import {GitHubIcon, FacebookIcon, IconSkype, LinkedinIcon, TwitterIcon} from 'mui-extension'
 import {createStyles, MenuItem, TextField, Theme, WithStyles, withStyles} from '@material-ui/core'
-import GitHubIcon from 'mui-extension'
 import {fade} from '@material-ui/core/styles/colorManipulator'
 import classNames from 'classnames'
 import {IconsDemoSelected} from './IconsDemoSelected'
-import {PageTitle} from '../../shared/PageHeader/PageTitle'
+import {PageTitle} from '../../shared/PageTitle/PageTitle'
+import {Page} from '../../shared/Page/Page'
 
 const styles = (t: Theme) => createStyles({
   head: {

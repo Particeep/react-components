@@ -1,11 +1,11 @@
 import * as React from 'react'
-import {Page} from 'mui-extension'
+import {Page} from '../../shared/Page/Page'
 import {Demo} from '../../shared/Demo'
 import {BtnDemoButton} from './BtnDemoButton'
 import preval from 'babel-plugin-preval/macro'
 import {BtnDemoIconButton} from './BtnDemoIconButton'
 import {Code} from '../../shared/Code/Code'
-import {PageTitle} from '../../shared/PageHeader/PageTitle'
+import {PageTitle} from '../../shared/PageTitle/PageTitle'
 
 const BtnDemo = () => {
   return (
@@ -22,13 +22,11 @@ const BtnDemo = () => {
       </p>
       <Demo
         raw={preval`module.exports = require('fs').readFileSync(require.resolve('./BtnDemoButton.tsx'), 'utf8')`}
-        component={BtnDemoButton}>
-      </Demo>
+        component={BtnDemoButton}/>
       <h2>{`<IconButton/>`} wrapper</h2>
       <Demo
         raw={preval`module.exports = require('fs').readFileSync(require.resolve('./BtnDemoIconButton.tsx'), 'utf8')`}
-        component={BtnDemoIconButton}>
-      </Demo>
+        component={BtnDemoIconButton}/>
     </Page>
   )
 }

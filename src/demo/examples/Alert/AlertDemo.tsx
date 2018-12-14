@@ -1,11 +1,11 @@
 import * as React from 'react'
-import {Page} from 'mui-extension'
 import {Demo} from '../../shared/Demo'
 import {AlertDemoSimple} from './AlertDemoSimple'
 import preval from 'babel-plugin-preval/macro'
 import {AlertDemoCustom} from './AlertDemoCustom'
 import {AlertDemoWithPanel} from './AlertDemoWithPanel'
-import {PageTitle} from '../../shared/PageHeader/PageTitle'
+import {PageTitle} from '../../shared/PageTitle/PageTitle'
+import {Page} from '../../shared/Page/Page'
 
 const AlertDemo = () => {
   return (
