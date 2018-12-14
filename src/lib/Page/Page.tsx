@@ -1,4 +1,5 @@
 import * as React from 'react'
+import {ReactNode, useEffect, useState} from 'react'
 import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core'
 import classNames from 'classnames'
 
@@ -6,7 +7,6 @@ const styles = (t: Theme) => createStyles({
   root: {
     transition: t.transitions.create('all'),
     margin: 'auto',
-    padding: t.spacing.unit * 2,
     opacity: 0,
     transform: 'scale(.94)',
     maxWidth: 932,
@@ -19,35 +19,30 @@ const styles = (t: Theme) => createStyles({
 })
 
 interface Props extends WithStyles<typeof styles> {
-  width?: number,
-  animated?: boolean;
-  className?: any;
+  width?: number
+  animated?: boolean
+  className?: any
   style?: object
+  children: ReactNode
 }
 
-class Page extends React.Component<Props, {}> {
+let timeout
 
-  public static defaultProps: Partial<Props> = {
-    animated: true,
-  }
+const Page = ({classes, children, width, animated = true, className, style,}: Props) => {
 
-  state = {
-    appeared: false,
-  }
+  const [appeared, setAppeared] = useState(false)
 
-  render() {
-    const {classes, children, width, animated, className, style} = this.props
-    return (
-      <div className={classNames(classes.root, (!animated || this.state.appeared) && classes.root_appeared, className)}
-           style={{...(width && {maxWidth: width}), ...style}}>
-        {children}
-      </div>
-    )
-  }
+  useEffect(() => {
+    if (animated) timeout = setTimeout(() => setAppeared(true))
+    return () => clearTimeout(timeout)
+  }, [])
 
-  componentDidMount() {
-    if (this.props.animated) setTimeout(() => this.setState({appeared: true}))
-  }
+  return (
+    <div className={classNames(classes.root, (!animated || appeared) && classes.root_appeared, className)}
+         style={{...(width && {maxWidth: width}), ...style}}>
+      {children}
+    </div>
+  )
 }
 
 export default withStyles(styles)(Page)

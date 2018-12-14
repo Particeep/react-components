@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {ReactChild, ReactNode} from 'react'
 import {createStyles, Theme, withStyles} from '@material-ui/core'
-import {LayoutProvider, useSidebarContext} from './LayoutContext'
+import {LayoutProvider, useLayoutContext} from './LayoutContext'
 import {MobileHeader} from './MobileHeader/MobileHeader'
 import classNames from 'classnames'
 
@@ -44,7 +44,7 @@ export const Layout = ({title, mobileBreakpoint, children, sidebar}: IProps) => 
 }
 
 const LayoutUsingContext = withStyles(styles)(({children, classes, sidebar: Sidebar}: any) => {
-  const {isMobileWidth} = useSidebarContext()
+  const {isMobileWidth} = useLayoutContext()
 
   return (
     <>

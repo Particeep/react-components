@@ -1,7 +1,8 @@
 import * as React from 'react'
 import {useEffect, useState} from 'react'
-import {Btn, Page, Panel, PanelBody, PanelFoot, PanelHead} from 'mui-extension'
+import {Btn, Panel, PanelBody, PanelFoot, PanelHead} from 'mui-extension'
 import {Button, Divider, Icon, IconButton, withStyles} from '@material-ui/core'
+import {Page} from '../../shared/Page/Page'
 
 let timeout
 
@@ -59,6 +60,7 @@ const Row = withStyles((t) => ({
   root: {
     display: 'flex',
     alignItems: 'center',
+    flexWrap: 'wrap',
     paddingBottom: t.spacing.unit * 2,
     '&:not(:first-of-type)': {
       marginTop: t.spacing.unit * 2,

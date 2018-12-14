@@ -1,6 +1,6 @@
 import {createStyles, Icon, Theme, withStyles} from '@material-ui/core'
 import * as React from 'react'
-import {useSidebarContext} from '../LayoutContext'
+import {useLayoutContext} from '../LayoutContext'
 import classNames from 'classnames'
 import IconBtn from '../../IconBtn/IconBtn'
 
@@ -27,7 +27,7 @@ const styles = (t: Theme) => createStyles({
 })
 
 export const Header = withStyles(styles)(({classes, className}: any) => {
-  const {title, isMobileWidth, isMobileSidebarOpened, toggleMobileSidebar} = useSidebarContext()
+  const {title, isMobileWidth, isMobileSidebarOpened, toggleMobileSidebar} = useLayoutContext()
 
   return (
     <header className={classNames(classes.root, className)}>

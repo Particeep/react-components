@@ -2,7 +2,7 @@ import * as React from 'react'
 import {createContext, ReactChild, useContext, useEffect, useState} from 'react'
 import {debounce} from '../../demo/utils/debounce'
 
-const LayoutContext = createContext<SidebarContextProps>({} as SidebarContextProps)
+const LayoutContext = createContext<LayoutContextProps>({} as LayoutContextProps)
 
 interface IProps {
   children: ReactChild
@@ -10,7 +10,7 @@ interface IProps {
   title?: string
 }
 
-interface SidebarContextProps {
+interface LayoutContextProps {
   title?: string
   isMobileWidth: boolean
   isMobileSidebarOpened: boolean
@@ -49,6 +49,6 @@ function getWidth(): number {
   return window.innerWidth
 }
 
-export const useSidebarContext = (): SidebarContextProps => {
-  return useContext<SidebarContextProps>(LayoutContext)
+export const useLayoutContext = (): LayoutContextProps => {
+  return useContext<LayoutContextProps>(LayoutContext)
 }

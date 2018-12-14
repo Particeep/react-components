@@ -14,7 +14,7 @@ export const BtnDemoButton = () => {
   }
 
   return (
-    <div style={{padding: 16, display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
+    <div style={{padding: 16, display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', alignItems: 'center'}}>
       <Btn loading={isLoading[0]} onClick={upload(0)} color="primary">
         Confirm
       </Btn>

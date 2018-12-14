@@ -1,10 +1,10 @@
 import * as React from 'react'
-import {ReactChild, ReactNode} from 'react'
+import {ReactNode} from 'react'
 import {createStyles, SwipeableDrawer, Theme, WithStyles, withStyles} from '@material-ui/core'
 import classNames from 'classnames'
-import {useSidebarContext} from '../LayoutContext'
 import {sidebarWith} from '../Layout'
 import {Header} from '../Header/Header'
+import {useLayoutContext} from '../LayoutContext'
 
 const styles = (t: Theme) => createStyles({
   root: {
@@ -22,9 +22,10 @@ interface IProps extends WithStyles<typeof styles> {
 }
 
 export const Sidebar = withStyles(styles)(({children, classes, className}: IProps) => {
-  const {isMobileWidth, isMobileSidebarOpened, openMobileSidebar, closeMobileSidebar} = useSidebarContext()
+  const {isMobileWidth, isMobileSidebarOpened, openMobileSidebar, closeMobileSidebar} = useLayoutContext()
   const opened = !isMobileWidth || isMobileSidebarOpened
 
+  console.log(closeMobileSidebar)
   return (
     <SwipeableDrawer
       open={opened}

@@ -1,7 +1,8 @@
 import * as React from 'react'
 import {createStyles, Icon, Switch, Theme, WithStyles, withStyles} from '@material-ui/core'
 import {useTheme, useToggleTheme} from '../../theme/ThemeContext'
-import {Sidebar, SidebarHeader, GitHubIcon, SidebarBody, SidebarFooter, SidebarItem} from 'mui-extension'
+import {GitHubIcon} from 'mui-extension'
+import {Sidebar, SidebarHeader, SidebarBody, SidebarFooter, SidebarItem} from '../../../../lib/Layout'
 
 const styles = (t: Theme) => createStyles({
   avatar: {

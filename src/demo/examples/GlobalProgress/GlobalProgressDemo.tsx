@@ -5,7 +5,7 @@ import preval from 'babel-plugin-preval/macro'
 import {GlobalProgressDemoRealLife} from './GlobalProgressDemoRealLife'
 import {DocTable} from '../../shared/DocTable/DocTable'
 import {Code} from '../../shared/Code/Code'
-import {PageTitle} from '../../shared/PageHeader/PageTitle'
+import {PageTitle} from '../../shared/PageTitle/PageTitle'
 
 const GlobalProgressDemo = () => {
   return (

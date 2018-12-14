@@ -20,7 +20,7 @@ const styles = (t: Theme) => createStyles({
     justifyContent: 'flex-end'
   },
   wrapper: {
-    margin: t.spacing.unit * 2,
+    margin: t.spacing.unit,
     padding: t.spacing.unit * 2,
     background: t.palette.background.paper,
   }
