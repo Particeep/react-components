@@ -25,7 +25,6 @@ export const Sidebar = withStyles(styles)(({children, classes, className}: IProp
   const {isMobileWidth, isMobileSidebarOpened, openMobileSidebar, closeMobileSidebar} = useLayoutContext()
   const opened = !isMobileWidth || isMobileSidebarOpened
 
-  console.log(closeMobileSidebar)
   return (
     <SwipeableDrawer
       open={opened}
