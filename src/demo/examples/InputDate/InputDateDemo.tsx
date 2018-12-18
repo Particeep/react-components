@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {Page} from '../../shared/Page/Page'
-import {Demo} from '../../shared/Demo'
+import {Demo} from '../../../lib/Demo'
 import {InputDateDemoSimple} from './InputDateDemoSimple'
 import preval from 'babel-plugin-preval/macro'
 import {InputDateDemoCustom} from './InputDateDemoCustom'

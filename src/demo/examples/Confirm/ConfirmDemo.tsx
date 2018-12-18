@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {Page} from '../../shared/Page/Page'
 import preval from 'babel-plugin-preval/macro'
-import {Demo} from '../../shared/Demo'
+import {Demo} from '../../../lib/Demo'
 import {ConfirmDemoButton} from './ConfirmDemoButton'
 import {ConfirmDemoMenu} from './ConfirmDemoMenu'
 import {Code} from '../../shared/Code/Code'

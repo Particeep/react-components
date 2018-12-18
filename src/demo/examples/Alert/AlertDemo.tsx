@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Demo} from '../../shared/Demo'
+import {Demo} from '../../../lib/Demo'
 import {AlertDemoSimple} from './AlertDemoSimple'
 import preval from 'babel-plugin-preval/macro'
 import {AlertDemoCustom} from './AlertDemoCustom'

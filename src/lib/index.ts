@@ -13,6 +13,8 @@ export * from './GlobalProgress'
 export * from './Fender'
 export * from './Animate'
 export * from './TableSort'
-export * from './Layout'
 export * from './icon'
+// Should be exported separately. Only used in my own app
+export * from './Layout'
+export * from './Demo'
 

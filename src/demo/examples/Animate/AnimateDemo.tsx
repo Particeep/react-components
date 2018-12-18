@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {Page} from '../../shared/Page/Page'
-import {Demo} from '../../shared/Demo'
+import {Demo} from '../../../lib/Demo'
 import {AnimateDemoSimple} from './AnimateDemoSimple'
 import preval from 'babel-plugin-preval/macro'
 import {AnimateDemoList} from './AnimateDemoList'

@@ -2,7 +2,7 @@
 import * as React from 'react'
 import {useState} from 'react'
 import {Collapse, createStyles, Icon, IconButton, Theme, withStyles, WithStyles} from '@material-ui/core'
-import {Pre} from '../Pre/Pre'
+import {Pre} from '../../demo/shared/Pre/Pre'
 
 const styles = (t: Theme) => createStyles({
   root: {
