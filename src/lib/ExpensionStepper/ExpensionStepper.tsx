@@ -6,18 +6,18 @@ import {ExpensionStepProps} from './index'
 const styles = (t: Theme) => createStyles({})
 
 interface Props extends WithStyles<typeof styles> {
-  readonly position?: number;
-  readonly className?: string;
-  readonly free?: boolean;
-  readonly autoScroll?: boolean;
-  readonly onNext?: (index: number, data?: any) => void;
-  readonly onEnd?: (data?: any) => void;
-  readonly children?: ReactElement<ExpensionStepProps>[];
+  readonly position?: number
+  readonly className?: string
+  readonly free?: boolean
+  readonly autoScroll?: boolean
+  readonly onNext?: (index: number, data?: any) => void
+  readonly onEnd?: (data?: any) => void
+  readonly children?: ReactElement<ExpensionStepProps>[]
 }
 
 interface State {
-  current: number;
-  reached: number;
+  current: number
+  reached: number
 }
 
 class ExpensionStepper extends React.Component<Props, State> {

@@ -19,6 +19,7 @@ import {Home} from './pages/Home/Home'
 import {Redirect, withRouter, Switch} from 'react-router'
 import {Menu} from './core/component/Menu/Menu'
 import {Layout} from '../lib/Layout'
+import {css} from './core/theme/style'
 
 const styles = (t: Theme) => createStyles({
   '@global': {
@@ -34,7 +35,10 @@ const styles = (t: Theme) => createStyles({
     h1: t.typography.h4,
     h2: {
       ...t.typography.h6,
-      marginBottom: 0,
+    },
+    h3: {
+      ...t.typography.subtitle2,
+      fontSize: css.fontBig(t),
     },
     p: {
       ...t.typography.body1,
