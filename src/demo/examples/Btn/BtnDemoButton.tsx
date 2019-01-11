@@ -6,7 +6,9 @@ import {Icon} from '@material-ui/core'
 export const BtnDemoButton = () => {
   const [isLoading, setIsLoading] = useState([false, false, false, false])
 
-  const setIsLoadingAtIndex = (i, value) => setIsLoading(pevIsLoading => pevIsLoading.map((v, j) => i === j ? value : v))
+  const setIsLoadingAtIndex = (i, value) => {
+    setIsLoading(pevIsLoading => pevIsLoading.map((v, j) => i === j ? value : v))
+  }
 
   const upload = (i) => () => {
     setIsLoadingAtIndex(i, true)

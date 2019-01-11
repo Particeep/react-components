@@ -31,9 +31,9 @@ const styles = (t: Theme) => createStyles({
 })
 
 interface Props extends WithStyles<typeof styles> {
-  loading?: boolean;
-  icon?: string;
-  iconAfter?: string;
+  loading?: boolean
+  icon?: string
+  iconAfter?: string
 }
 
 class Btn extends React.Component<Props & ButtonProps, {}> {
