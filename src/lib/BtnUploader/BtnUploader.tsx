@@ -47,23 +47,23 @@ const styles = (t: Theme) => createStyles({
 })
 
 interface Document {
-  permalink: string;
-  name: string;
+  permalink: string
+  name: string
 }
 
 interface Messages {
-  loading: string;
-  upload: string;
-  invalidSize: string;
+  loading: string
+  upload: string
+  invalidSize: string
 }
 
 interface Props extends WithStyles<typeof styles>, Pick<ButtonProps, Exclude<keyof ButtonProps, keyof { classes }>> {
   document?: Document
-  msg?: Messages;
-  uploading?: boolean;
-  maxUploadFileSize?: number;
-  onDelete: () => void;
-  onUpload: (f: File) => void;
+  msg?: Messages
+  uploading?: boolean
+  maxUploadFileSize?: number
+  onDelete: () => void
+  onUpload: (f: File) => void
 }
 
 // TODO(Alex) Fix wierd typing issue (it works for <Btn>)
