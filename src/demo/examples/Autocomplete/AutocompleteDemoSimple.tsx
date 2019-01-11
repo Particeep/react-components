@@ -23,12 +23,13 @@ const cities = [
 ]
 
 export const AutocompleteDemoSimple = () => {
-  const [value, setValue] = useState([])
+  const [value, setValue] = useState(cities[0])
   return (
     <div style={{textAlign: 'center'}}>
       <Autocomplete onChange={setValue} value={value} searchLabel="Search...">
           {cities.map(c => <AutocompleteItem key={c} value={c}>{c}</AutocompleteItem>)}
       </Autocomplete>
+      <div>JS Value: {value}</div>
     </div>
   )
 }

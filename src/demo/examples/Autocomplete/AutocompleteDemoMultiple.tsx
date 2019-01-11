@@ -24,7 +24,7 @@ const cities = [
 ]
 
 export const AutocompleteDemoMultiple = () => {
-  const [value, seValue] = useState([])
+  const [value, seValue] = useState([cities[1], cities[4]])
   return (
     <div>
       <FormControl fullWidth>
