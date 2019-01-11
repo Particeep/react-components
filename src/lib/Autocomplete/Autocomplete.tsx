@@ -46,8 +46,8 @@ const styles = (t: Theme) => createStyles({
 
 interface Props extends WithStyles<typeof styles> {
   multiple?: boolean
-  value?: string[]
-  onChange: (value: string[]) => void
+  value?: string[] | string
+  onChange: (value: string[] | string) => void
   searchLabel?: string
   readonly?: boolean
 }
@@ -70,9 +70,11 @@ class Autocomplete extends React.Component<Props, State> {
     const {value, multiple, searchLabel, readonly, children, classes, onChange, ...other} = this.props
     const {anchorEl} = this.state
     const optionsCount = React.Children.count(children)
+    const filteredChildren = this.getFilteredChildren()
     return (
       <>
-        <Input {...other} onClick={this.open} value={value && value.join(', ')} disabled={readonly}
+        <Input {...other} onClick={this.open} value={multiple ? value && (value as string[]).join(', ') : value}
+               disabled={readonly}
                inputRef={(n: any) => this.$input = n}
                endAdornment={
                  <InputAdornment position="end">
@@ -89,12 +91,12 @@ class Autocomplete extends React.Component<Props, State> {
               indeterminate={value.length > 0 && value.length < optionsCount}
               disabled={readonly}/>
             }
-            <input className={classes.menu_input} placeholder={searchLabel}
+            <input autoFocus className={classes.menu_input} placeholder={searchLabel}
                    style={!multiple ? {marginLeft: 12} : {}}
                    onChange={e => this.setState({filter: e.target.value})}/>
           </header>
           <div className={classes.menu_items} style={{width: this.$input && this.$input.clientWidth}}>
-            {this.getFilteredChildren().map(x =>
+            {filteredChildren.map(x =>
               React.cloneElement(x, {
                 ...x.props,
                 multiple: multiple,
@@ -119,11 +121,11 @@ class Autocomplete extends React.Component<Props, State> {
   private handleChange = (value: string) => {
     let newValue
     if (this.props.multiple) {
-      if (this.props.value.indexOf(value) === -1) newValue = this.props.value.concat(value)
-      else newValue = this.props.value.filter(v => v !== value)
+      if (this.props.value.indexOf(value) === -1) newValue = (this.props.value as string[]).concat(value)
+      else newValue = (this.props.value as string[]).filter(v => v !== value)
     } else {
       this.close()
-      if (this.props.value.indexOf(value) === -1) newValue = value
+      if (this.props.value !== value) newValue = value
       else newValue = ''
     }
     this.props.onChange(newValue)

@@ -8,7 +8,7 @@ import ExpensionStepperDemo from './examples/ExpensionStepper/ExpensionStepperDe
 import FenderDemo from './examples/Fender/FenderDemo'
 import InputDateDemo from './examples/InputDate/InputDateDemo'
 import ChipUploaderDemo from './examples/BtnUploader/BtnUploaderDemo'
-import AutocompleteDemo from './examples/AutocompleteDemo/AutocompleteDemo'
+import AutocompleteDemo from './examples/Autocomplete/AutocompleteDemo'
 import ConfirmDemo from './examples/Confirm/ConfirmDemo'
 import ToastDemo from './examples/Toast/ToastDemo'
 import AnimateDemo from './examples/Animate/AnimateDemo'
