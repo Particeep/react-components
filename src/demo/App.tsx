@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {createStyles, Theme, withStyles} from '@material-ui/core'
+import {Theme} from '@material-ui/core'
 import PanelDemo from './examples/Panel/PanelDemo'
 import BtnDemo from './examples/Btn/BtnDemo'
 import AlertDemo from './examples/Alert/AlertDemo'
@@ -16,12 +16,13 @@ import TableSortDemo from './examples/TableSort/TableSortDemo'
 import {Route} from 'react-router-dom'
 import GlobalProgressDemo from './examples/GlobalProgress/GlobalProgressDemo'
 import {Home} from './pages/Home/Home'
-import {Redirect, withRouter, Switch} from 'react-router'
+import {Redirect, Switch, withRouter} from 'react-router'
 import {Menu} from './core/component/Menu/Menu'
 import {Layout} from '../lib/Layout'
 import {css} from './core/theme/style'
+import {makeStyles} from '@material-ui/styles'
 
-const styles = (t: Theme) => createStyles({
+const useStyles = makeStyles((t: Theme) => ({
   '@global': {
     body: {
       fontFamily: t.typography.fontFamily,
@@ -56,9 +57,11 @@ const styles = (t: Theme) => createStyles({
       textDecoration: 'underline',
     }
   },
-})
+}))
 
 const App = () => {
+  // @ts-ignore
+  useStyles()
   return (
     <Layout sidebar={Menu} title="Mui-extension">
       <Switch>
@@ -83,4 +86,4 @@ const App = () => {
   )
 }
 
-export default withStyles(styles)(App)
+export default App

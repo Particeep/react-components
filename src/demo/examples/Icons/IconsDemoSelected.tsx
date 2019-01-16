@@ -1,9 +1,10 @@
 import * as React from 'react'
-import {createStyles, Icon, Slide, Theme, WithStyles, withStyles} from '@material-ui/core'
+import {Icon, Slide, Theme} from '@material-ui/core'
 import {Pre} from '../../shared/Pre/Pre'
 import {IconBtn} from 'mui-extension'
+import {makeStyles} from '@material-ui/styles'
 
-const styles = (t: Theme) => createStyles({
+const useStyles = makeStyles((t: Theme) => ({
   root: {
     position: 'fixed',
     top: 0,
@@ -25,16 +26,18 @@ const styles = (t: Theme) => createStyles({
   icon: {
     marginLeft: 'auto',
   }
-})
+}))
 
-interface IProps extends WithStyles<typeof styles> {
+interface IProps {
   name: string
   color: string
   size: number
   onClear: () => void
 }
 
-export const IconsDemoSelected = withStyles(styles)(({name, size, color, onClear, classes}: IProps) => {
+export const IconsDemoSelected = ({name, size, color, onClear}: IProps) => {
+  // @ts-ignore
+  const classes = useStyles()
   return (
     <Slide direction="down" in={!!name} mountOnEnter unmountOnExit>
       <div className={classes.root}>
@@ -53,4 +56,4 @@ export const IconsDemoSelected = withStyles(styles)(({name, size, color, onClear
       </div>
     </Slide>
   )
-})
+}

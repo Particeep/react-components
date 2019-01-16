@@ -15,13 +15,13 @@ import {
 const styles = (t: Theme) => createStyles({})
 
 interface Props extends WithStyles<typeof styles> {
-  disabled?: boolean;
-  title?: string;
-  confirmLabel?: string;
-  cancelLabel?: string;
-  content?: any;
-  children?: ReactNode;
-  onConfirm?: () => void;
+  disabled?: boolean
+  title?: string
+  confirmLabel?: string
+  cancelLabel?: string
+  content?: any
+  children?: ReactNode
+  onConfirm?: () => void
 }
 
 class Confirm extends React.Component<Props, any> {

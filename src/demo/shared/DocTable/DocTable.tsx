@@ -1,8 +1,8 @@
 import * as React from 'react'
-import withStyles from '@material-ui/core/styles/withStyles'
-import {createStyles, Theme} from '@material-ui/core'
+import {Theme} from '@material-ui/core'
+import {makeStyles} from '@material-ui/styles'
 
-const styles = (t: Theme) => createStyles({
+const useStyles = makeStyles((t: Theme) => ({
   root: {
     overflow: 'auto',
     width: '100%',
@@ -27,10 +27,12 @@ const styles = (t: Theme) => createStyles({
       backgroundColor: t.palette.background.default
     }
   },
-})
+}))
 
-export const DocTable = withStyles(styles)(({classes, children}: any) => {
+export const DocTable = ({children}: any) => {
+  // @ts-ignore
+  const classes = useStyles()
   return (
     <table className={classes.root}>{children}</table>
   )
-})
+}

@@ -1,24 +1,25 @@
 import * as React from 'react'
-import {Icon, withStyles} from '@material-ui/core'
-import {ExpensionStep, ExpensionStepper} from 'mui-extension'
-import {Btn} from 'mui-extension'
+import {Icon, Theme} from '@material-ui/core'
+import {Btn, ExpensionStep, ExpensionStepper} from 'mui-extension'
+import {makeStyles} from '@material-ui/styles'
 
-const styles = t => ({
+const useStyles = makeStyles((t: Theme) => ({
   root: {
     border: '1px solid ' + t.palette.divider,
     borderRadius: 4
   }
-})
+}))
 
-// @ts-ignore
-export const ExpensionStepperDemoAccordion = withStyles(styles)(({classes}) => {
+export const ExpensionStepperDemoAccordion = () => {
+  // @ts-ignore
+  const classes = useStyles()
   return (
     <ExpensionStepper position={1} free className={classes.root}>
       <ExpensionStep label="Third-party access" component={<StepAccess/>}/>
       <ExpensionStep label="My devices" component={<StepDevices/>}/>
     </ExpensionStepper>
   )
-})
+}
 
 const StepDevices = () => {
   return (
@@ -44,7 +45,7 @@ const StepAccess = () => {
   )
 }
 
-const Row = withStyles((t) => ({
+const useRowStyles = makeStyles((t: Theme) => ({
   root: {
     display: 'flex',
     alignItems: 'center',
@@ -71,7 +72,11 @@ const Row = withStyles((t) => ({
     fontSize: t.typography.caption.fontSize,
     color: t.typography.caption.color,
   }
-}))(({classes, icon, label, date}: any) => {
+}))
+
+const Row = (({icon, label, date}: any) => {
+  // @ts-ignore
+  const classes = useRowStyles()
   return (
     <div className={classes.root}>
       <Icon className={classes.icon}>{icon}</Icon>

@@ -1,10 +1,11 @@
 import * as React from 'react'
-import {createStyles, Icon, Switch, Theme, WithStyles, withStyles} from '@material-ui/core'
+import {Icon, Switch, Theme} from '@material-ui/core'
 import {useTheme, useToggleTheme} from '../../theme/ThemeContext'
 import {GitHubIcon} from 'mui-extension'
-import {Sidebar, SidebarHeader, SidebarBody, SidebarFooter, SidebarItem} from '../../../../lib/Layout'
+import {Sidebar, SidebarBody, SidebarFooter, SidebarHeader, SidebarItem} from '../../../../lib/Layout'
+import {makeStyles} from '@material-ui/styles'
 
-const styles = (t: Theme) => createStyles({
+const useStyles = makeStyles((t: Theme) => ({
   avatar: {
     background: t.palette.divider,
     margin: 'auto',
@@ -13,14 +14,17 @@ const styles = (t: Theme) => createStyles({
     marginLeft: 'auto',
     color: t.palette.text.disabled,
   }
-})
+}))
 
-interface IProps extends WithStyles<typeof styles> {
+interface IProps {
   basePath?: string
   className?: string
 }
 
-export const Menu = withStyles(styles)(({classes, className, basePath = ''}: IProps) => {
+export const Menu = ({className, basePath = ''}: IProps) => {
+  // @ts-ignore
+  const classes = useStyles()
+
   const isDarkTheme = useTheme()
   const toggleDarkTheme = useToggleTheme()
   return (
@@ -69,4 +73,4 @@ export const Menu = withStyles(styles)(({classes, className, basePath = ''}: IPr
       </SidebarFooter>
     </Sidebar>
   )
-})
+}

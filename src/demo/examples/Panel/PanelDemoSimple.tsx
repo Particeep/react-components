@@ -1,8 +1,9 @@
 import * as React from 'react'
 import {useEffect, useState} from 'react'
 import {Btn, Panel, PanelBody, PanelFoot, PanelHead} from 'mui-extension'
-import {Button, Divider, Icon, IconButton, withStyles} from '@material-ui/core'
+import {Button, Divider, Icon, IconButton} from '@material-ui/core'
 import {Page} from '../../shared/Page/Page'
+import {makeStyles} from '@material-ui/styles'
 
 let timeout
 
@@ -56,7 +57,7 @@ export const PanelDemoSimple = () => {
   )
 }
 
-const Row = withStyles((t) => ({
+const useStyles = makeStyles(t => ({
   root: {
     display: 'flex',
     alignItems: 'center',
@@ -85,7 +86,11 @@ const Row = withStyles((t) => ({
     fontSize: t.typography.caption.fontSize,
     color: t.typography.caption.color,
   }
-}))(({classes, icon, label, date}: any) => {
+}))
+
+const Row = (({icon, label, date}) => {
+  // @ts-ignore
+  const classes = useStyles()
   return (
     <div className={classes.root}>
       <Icon className={classes.icon}>{icon}</Icon>

@@ -6,8 +6,9 @@ import classNames from 'classnames'
 import {fade} from '@material-ui/core/styles/colorManipulator'
 import {css} from '../../../demo/core/theme/style'
 import {useLayoutContext} from '../LayoutContext'
+import {makeStyles} from "@material-ui/styles"
 
-const styles = (t: Theme) => createStyles({
+const useStyles = makeStyles((t: Theme) => ({
   root: {
     transition: t.transitions.create('all'),
     display: 'flex',
@@ -52,9 +53,9 @@ const styles = (t: Theme) => createStyles({
     fontSize: t.typography.fontSize,
     fontWeight: t.typography.fontWeightMedium,
   },
-})
+}))
 
-interface IProps extends WithStyles<typeof styles>, HTMLProps<any> {
+interface IProps extends HTMLProps<any> {
   icon?: string
   before?: ReactChild
   to?: any
@@ -63,7 +64,9 @@ interface IProps extends WithStyles<typeof styles>, HTMLProps<any> {
   large?: boolean
 }
 
-export const SidebarItem = withStyles(styles)(({classes, href, to, children, icon, before, className, large, ...other}: IProps) => {
+export const SidebarItem = ({href, to, children, icon, before, className, large, ...other}: IProps) => {
+  // @ts-ignore
+  const classes = useStyles()
 
   const {closeMobileSidebar} = useLayoutContext()
 
@@ -114,4 +117,5 @@ export const SidebarItem = withStyles(styles)(({classes, href, to, children, ico
       {wrapper}
     </div>
   )
-})
+}
+

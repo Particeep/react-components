@@ -1,18 +1,19 @@
 import * as React from 'react'
 import {useState} from 'react'
-import {GitHubIcon, FacebookIcon, IconSkype, LinkedinIcon, TwitterIcon} from 'mui-extension'
-import {createStyles, MenuItem, TextField, Theme, WithStyles, withStyles} from '@material-ui/core'
+import {FacebookIcon, GitHubIcon, IconSkype, LinkedinIcon, TwitterIcon} from 'mui-extension'
+import {MenuItem, TextField, Theme} from '@material-ui/core'
 import {fade} from '@material-ui/core/styles/colorManipulator'
 import classNames from 'classnames'
 import {IconsDemoSelected} from './IconsDemoSelected'
 import {PageTitle} from '../../shared/PageTitle/PageTitle'
 import {Page} from '../../shared/Page/Page'
+import {makeStyles, withTheme} from '@material-ui/styles'
 
-const styles = (t: Theme) => createStyles({
+const useStyles = makeStyles((t: Theme) => ({
   head: {
     marginBottom: t.spacing.unit * 3,
     '& > *': {
-      marginRight: t.spacing.unit * 2
+      marginRight: `${t.spacing.unit * 2}px !important`
     }
   },
   icons: {
@@ -42,7 +43,7 @@ const styles = (t: Theme) => createStyles({
     fontSize: t.typography.caption.fontSize,
     marginTop: t.spacing.unit / 2,
   }
-})
+}))
 
 const icons = {
   'IconSkype': <IconSkype/>,
@@ -52,11 +53,10 @@ const icons = {
   'GitHubIcon': <GitHubIcon/>,
 }
 
-interface IProps extends WithStyles<typeof styles> {
-  theme: Theme
-}
 
-const IconsDemo = ({theme, classes}: IProps) => {
+const IconsDemo = ({theme}) => {
+  // @ts-ignore
+  const classes = useStyles()
 
   const colors = {
     Text: theme.palette.text.primary,
@@ -117,4 +117,4 @@ const IconsDemo = ({theme, classes}: IProps) => {
   )
 }
 
-export default withStyles(styles, {withTheme: true})(IconsDemo)
+export default withTheme()(IconsDemo)
