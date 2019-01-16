@@ -29,31 +29,38 @@ const ConfirmDemo = () => {
         <tbody>
         <tr>
           <td>disabled</td>
-          <td>boolean</td>
+          <td><Code>boolean</Code></td>
+          <td>Whether the confirm button of the dialog is disabled.</td>
         </tr>
         <tr>
           <td>title</td>
-          <td>string</td>
-        </tr>
-        <tr>
-          <td>confirmLabel</td>
-          <td>string</td>
-        </tr>
-        <tr>
-          <td>cancelLabel</td>
-          <td>string</td>
+          <td><Code>string | ReactChild</Code></td>
+          <td>Dialog title</td>
         </tr>
         <tr>
           <td>content</td>
-          <td>any</td>
+          <td><Code>string | ReactChild</Code></td>
+          <td>Dialog text</td>
+        </tr>
+        <tr>
+          <td>confirmLabel</td>
+          <td><Code>string</Code></td>
+          <td>Label of the confirm button of the dialog.</td>
+        </tr>
+        <tr>
+          <td>cancelLabel</td>
+          <td><Code>string</Code></td>
+          <td>Label of the cancel button of the dialog.</td>
         </tr>
         <tr>
           <td>children</td>
-          <td>ReactNode</td>
+          <td><Code>ReactChild</Code></td>
+          <td>Element that will trigger the dialog on click.</td>
         </tr>
         <tr>
           <td>onConfirm</td>
-          <td>() => void</td>
+          <td><Code>() => void</Code></td>
+          <td>Event emitted when the confirm button of the dialog is clicked.</td>
         </tr>
         </tbody>
       </DocTable>
