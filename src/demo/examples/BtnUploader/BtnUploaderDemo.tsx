@@ -15,6 +15,13 @@ const ChipUploaderDemo = () => {
         <Code>{`<ChipUploader/>`}</Code> provides a simple way to manage document upload.
         It behaves like <Code>{`<Button/>`}</Code>.
       </p>
+
+      <h2>Demo</h2>
+      <Demo
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./BtnUploaderDemoButton.tsx'), 'utf8')`}
+        component={BtnUploaderDemoButton}>
+      </Demo>
+
       <h2>Api</h2>
       <DocTable>
         <thead>
@@ -57,12 +64,6 @@ const ChipUploaderDemo = () => {
           </tr>
         </tbody>
       </DocTable>
-
-      <h2>Demo</h2>
-      <Demo
-        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./BtnUploaderDemoButton.tsx'), 'utf8')`}
-        component={BtnUploaderDemoButton}>
-      </Demo>
     </Page>
   )
 }

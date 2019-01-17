@@ -13,6 +13,23 @@ const AutocompleteDemo = () => {
     <Page>
       <PageTitle>Autocomplete</PageTitle>
 
+      <h2>Example</h2>
+      <h3>Simple Autocomplete</h3>
+      <Demo
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./AutocompleteDemoSimple.tsx'), 'utf8')`}
+        component={AutocompleteDemoSimple}/>
+
+      <h3>Multi-select Autocomplete</h3>
+      <p>
+        It behaves like an <Code>{`<Input/>`}</Code> component. Thus, it can be wrapped in
+        a <Code>{`<FormControl/>`}</Code>
+        and <Code>{`<Input/>`}</Code> props (as <Code>multiline</Code>) can be used.
+      </p>
+      <Demo
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./AutocompleteDemoMultiple.tsx'), 'utf8')`}
+        component={AutocompleteDemoMultiple}/>
+
+
       <h2>API</h2>
       <DocTable>
         <thead>
@@ -56,21 +73,6 @@ const AutocompleteDemo = () => {
         </tr>
         </tbody>
       </DocTable>
-
-      <h2>Example</h2>
-      <h3>Simple Autocomplete</h3>
-      <Demo
-        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./AutocompleteDemoSimple.tsx'), 'utf8')`}
-        component={AutocompleteDemoSimple}/>
-
-      <h3>Multi-select Autocomplete</h3>
-      <p>
-        It behaves like an <Code>{`<Input/>`}</Code> component. Thus, it can be wrapped in a <Code>{`<FormControl/>`}</Code>
-        and <Code>{`<Input/>`}</Code> props (as <Code>multiline</Code>) can be used.
-      </p>
-      <Demo
-        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./AutocompleteDemoMultiple.tsx'), 'utf8')`}
-        component={AutocompleteDemoMultiple}/>
     </Page>
   )
 }

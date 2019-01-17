@@ -14,10 +14,48 @@ const ExpensionStepperDemo = () => {
     <Page>
       <PageTitle>ExpensionStepper</PageTitle>
       <p>
-        <Code>ExpensionStepper</Code> is a container dividing content into logical <i>steps</i>. His advantages compared to
-        other solutions are that <i>steps</i> are contained in their dedicated component. Therefore they are easy to reuse or
+        <Code>ExpensionStepper</Code> is a container dividing content into logical <i>steps</i>. His advantages compared
+        to
+        other solutions are that <i>steps</i> are contained in their dedicated component. Therefore they are easy to
+        reuse or
         shift.
       </p>
+
+      <p>
+        Each <i>step</i> is injected with props granting all the needed informations and actions to interact with the
+        stepper.
+        Below the interface defining the injected props:
+      </p>
+      <Pre raw={
+        `interface ExpensionStepProps {
+  prev: () => void
+  next: (data?: any) => void
+  goTo: (i: number) => void
+  free?: boolean
+  index: number
+  disabled: boolean
+  done: boolean
+  isCurrent: boolean
+  isLast: boolean
+}`}>
+
+      </Pre>
+
+      <h2>Example</h2>
+      <h3>Tunnel</h3>
+      <Demo
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./ExpensionStepperDemoTunnel.tsx'), 'utf8')`}
+        component={ExpensionStepperDemoTunnel}>
+      </Demo>
+
+      <h3>Accordion</h3>
+      <p>
+        It can also be used as a simple accordion using the props <Code>free</Code>
+      </p>
+      <Demo
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./ExpensionStepperDemoAccordion.tsx'), 'utf8')`}
+        component={ExpensionStepperDemoAccordion}>
+      </Demo>
 
       <h2>API</h2>
 
@@ -67,41 +105,6 @@ const ExpensionStepperDemo = () => {
         </tr>
         </tbody>
       </DocTable>
-
-      <p>
-        Each <i>step</i> is injected with props granting all the needed informations and actions to interact with the stepper.
-        Below the interface defining the injected props:
-      </p>
-      <Pre raw={
-        `interface ExpensionStepProps {
-  prev: () => void
-  next: (data?: any) => void
-  goTo: (i: number) => void
-  free?: boolean
-  index: number
-  disabled: boolean
-  done: boolean
-  isCurrent: boolean
-  isLast: boolean
-}`}>
-
-      </Pre>
-
-      <h2>Example</h2>
-      <h3>Tunnel</h3>
-      <Demo
-        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./ExpensionStepperDemoTunnel.tsx'), 'utf8')`}
-        component={ExpensionStepperDemoTunnel}>
-      </Demo>
-
-      <h3>Accordion</h3>
-      <p>
-        It can also be used as a simple accordion using the props <Code>free</Code>
-      </p>
-      <Demo
-        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./ExpensionStepperDemoAccordion.tsx'), 'utf8')`}
-        component={ExpensionStepperDemoAccordion}>
-      </Demo>
     </Page>
   )
 }

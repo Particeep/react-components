@@ -17,6 +17,16 @@ const ConfirmDemo = () => {
         Wrap a component with <Code>{`<Confirm/>`}</Code> to pop a confirm dialog before to process a given action.
       </p>
 
+      <h2>Demo</h2>
+      <Demo
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./ConfirmDemoButton.tsx'), 'utf8')`}
+        component={ConfirmDemoButton}>
+      </Demo>
+      <Demo
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./ConfirmDemoMenu.tsx'), 'utf8')`}
+        component={ConfirmDemoMenu}>
+      </Demo>
+
       <h2>API</h2>
       <DocTable>
         <thead>
@@ -64,16 +74,6 @@ const ConfirmDemo = () => {
         </tr>
         </tbody>
       </DocTable>
-
-      <h2>Demo</h2>
-      <Demo
-        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./ConfirmDemoButton.tsx'), 'utf8')`}
-        component={ConfirmDemoButton}>
-      </Demo>
-      <Demo
-        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./ConfirmDemoMenu.tsx'), 'utf8')`}
-        component={ConfirmDemoMenu}>
-      </Demo>
     </Page>
   )
 }

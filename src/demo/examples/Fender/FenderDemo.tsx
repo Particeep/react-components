@@ -13,7 +13,7 @@ const FenderDemo = () => {
       <PageTitle>Fender</PageTitle>
       <Demo
         reloadable
-        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./FenderDemoCustom.tsx'), 'utf8')`}
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./FenderDemoLoading.tsx'), 'utf8')`}
         component={FenderDemoLoading}>
       </Demo>
       <Demo

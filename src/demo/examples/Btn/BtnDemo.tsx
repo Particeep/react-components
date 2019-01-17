@@ -17,7 +17,16 @@ const BtnDemo = () => {
         <Code>IconButton</Code> components of Material-UI adding the props <Code>loading</Code>.
       </p>
 
-      <h2>Api</h2>
+      <h2>Example</h2>
+      <h3>Btn</h3>
+      <Demo
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./BtnDemoButton.tsx'), 'utf8')`}
+        component={BtnDemoButton}/>
+      <h3>IconBtn</h3>
+      <Demo
+        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./BtnDemoIconButton.tsx'), 'utf8')`}
+        component={BtnDemoIconButton}/>
+ <h2>Api</h2>
       <h3>Btn</h3>
       <DocTable>
         <thead>
@@ -64,16 +73,7 @@ const BtnDemo = () => {
         </tbody>
       </DocTable>
 
-      <h2>Example</h2>
-      <h3>Btn</h3>
-      <Demo
-        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./BtnDemoButton.tsx'), 'utf8')`}
-        component={BtnDemoButton}/>
-      <h3>IconBtn</h3>
-      <Demo
-        raw={preval`module.exports = require('fs').readFileSync(require.resolve('./BtnDemoIconButton.tsx'), 'utf8')`}
-        component={BtnDemoIconButton}/>
-    </Page>
+   </Page>
   )
 }
 
