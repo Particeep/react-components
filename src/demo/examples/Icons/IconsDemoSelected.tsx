@@ -24,7 +24,7 @@ const useStyles = makeStyles((t: Theme) => ({
     margin: '0 !important',
   },
   icon: {
-    marginLeft: 'auto',
+    marginLeft: 'auto !important',
   }
 }))
 

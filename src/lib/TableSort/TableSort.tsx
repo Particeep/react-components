@@ -4,12 +4,12 @@ import {TableHead, TableRow} from '@material-ui/core'
 import {ITableSortCellProps} from './TableSortCell'
 import autobind from 'autobind-decorator'
 
-export type OrderByType = 'asc' | 'desc';
+export type OrderByType = 'asc' | 'desc'
 
 interface IProps {
-  sortBy: string;
-  orderBy: OrderByType;
-  onSort: (sortBy: string, orderBy: OrderByType) => void;
+  sortBy: string
+  orderBy: OrderByType
+  onSort: (sortBy: string, orderBy: OrderByType) => void
 }
 
 class TableSort extends React.Component<IProps, {}> {
