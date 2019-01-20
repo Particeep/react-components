@@ -14,7 +14,7 @@ const useStyles = makeStyles((t: Theme) => ({
       backgroundColor: t.palette.background.paper,
       borderTop: `1px solid ${t.palette.divider}`,
     },
-    '& $td': {
+    '& $td, $th': {
       border: `1px solid ${t.palette.divider}`,
       padding: t.spacing.unit * 1.5,
     },

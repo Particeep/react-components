@@ -6,7 +6,6 @@ import preval from 'babel-plugin-preval/macro'
 import {Code} from '../../shared/Code/Code'
 import {PageTitle} from '../../shared/PageTitle/PageTitle'
 import {DocTable} from '../../shared/DocTable/DocTable'
-import {OrderByType} from '../../../lib/TableSort/TableSort'
 
 const TableSortDemo = () => {
 
@@ -14,9 +13,8 @@ const TableSortDemo = () => {
     <Page>
       <PageTitle>TableSort</PageTitle>
       <p>
-        A convenient wrapper to drastically improve the sort API of the Material-UI
-        <Code>{`<Table/>`}</Code> visible
-        <a className="link" href="https://material-ui.com/demos/tables/#sorting-amp-selecting">here</a>.
+        <Code>TableSort</Code> provides a convenient API to handle sorting in a Material-UI&nbsp;
+        <a className="link" href="https://material-ui.com/demos/tables/#sorting-amp-selecting">Table</a>.
       </p>
 
       <h2>Demo</h2>
@@ -28,9 +26,9 @@ const TableSortDemo = () => {
       <DocTable>
         <thead>
         <tr>
-          <td>Props</td>
-          <td>Type</td>
-          <td>Description</td>
+          <th>Props</th>
+          <th>Type</th>
+          <th>Description</th>
         </tr>
         </thead>
         <tbody>

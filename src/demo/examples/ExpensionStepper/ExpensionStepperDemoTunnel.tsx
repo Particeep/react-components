@@ -12,7 +12,7 @@ export const ExpensionStepperDemoTunnel = () => {
       <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8}}>
         <div>
           <Typography variant="body2">Autoscroll</Typography>
-          <Typography variant="body1">Enable auto scroll on step change. Useful on really long steps.</Typography>
+          <Typography variant="body1">Enable auto scroll on step change. Useful for really long steps.</Typography>
         </div>
         <Switch checked={autoScroll} onChange={(e, c) => setAutoScroll(c)}/>
       </div>

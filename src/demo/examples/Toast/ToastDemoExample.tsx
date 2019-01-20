@@ -11,18 +11,13 @@ export const ToastDemoExample = () => {
 }
 
 const App = withToast(({toastError, toastWarning, toastSuccess, toastInfo, toastLoading}) => {
-  const popError = () => toastError('Error toast !')
-  const popWarning = () => toastWarning('Warning toast !')
-  const popSuccess = () => toastSuccess('Success toast !')
-  const popInfo = () => toastInfo('Info toast !')
-  const popLoading = () => toastLoading('Loading...')
   return (
     <div style={{display: 'flex', flexDirection: 'column'}}>
-      <Btn color="primary" onClick={popLoading}>Toast Loading</Btn>
-      <Btn color="primary" onClick={popError}>Toast error</Btn>
-      <Btn color="primary" onClick={popWarning}>Toast Warning</Btn>
-      <Btn color="primary" onClick={popSuccess}>Toast Success</Btn>
-      <Btn color="primary" onClick={popInfo}>Toast Info</Btn>
+      <Btn color="primary" onClick={() => toastError('Error toast !')}>Toast Loading</Btn>
+      <Btn color="primary" onClick={() => toastWarning('Warning toast !')}>Toast error</Btn>
+      <Btn color="primary" onClick={() => toastSuccess('Success toast !')}>Toast Warning</Btn>
+      <Btn color="primary" onClick={() => toastInfo('Info toast !')}>Toast Success</Btn>
+      <Btn color="primary" onClick={() => toastLoading('Loading...')}>Toast Info</Btn>
     </div>
   )
 })

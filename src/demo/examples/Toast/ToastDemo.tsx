@@ -11,8 +11,7 @@ const ToastDemo = () => {
     <Page>
       <PageTitle>Toast</PageTitle>
       <p>
-        Simple wrapper for <Code>{`<Snackbar/>`}</Code> handling the commun types: error, success, warning, info and
-        loading.
+        Provide a custom and simple API to handle commons snackbars.
       </p>
 
       <h2>Usage</h2>

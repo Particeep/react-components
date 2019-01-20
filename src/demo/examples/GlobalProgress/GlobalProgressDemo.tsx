@@ -30,8 +30,7 @@ const GlobalProgressDemo = () => {
         <tbody>
         <tr>
           <td><Code>progressStart</Code></td>
-          <td>Start the progressbar. Takes a <Code>steps</Code> arguments of type number as the number of steps.
-          </td>
+          <td>Start the progressbar. Takes a <Code>steps</Code> arguments of type number as the number of steps.</td>
         </tr>
         <tr>
           <td><Code>progressStop</Code></td>

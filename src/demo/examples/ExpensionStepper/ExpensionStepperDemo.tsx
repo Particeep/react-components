@@ -22,9 +22,8 @@ const ExpensionStepperDemo = () => {
       </p>
 
       <p>
-        Each <i>step</i> is injected with props granting all the needed informations and actions to interact with the
-        stepper.
-        Below the interface defining the injected props:
+        Each <i>step</i> is injected with props granting all the needed information and actions to interact with the
+        stepper. The interface is defined as follow:
       </p>
       <Pre raw={
         `interface ExpensionStepProps {
@@ -41,7 +40,7 @@ const ExpensionStepperDemo = () => {
 
       </Pre>
 
-      <h2>Example</h2>
+      <h2>Examples</h2>
       <h3>Tunnel</h3>
       <Demo
         raw={preval`module.exports = require('fs').readFileSync(require.resolve('./ExpensionStepperDemoTunnel.tsx'), 'utf8')`}
@@ -62,9 +61,9 @@ const ExpensionStepperDemo = () => {
       <DocTable>
         <thead>
         <tr>
-          <td>Props</td>
-          <td>Type</td>
-          <td>Description</td>
+          <th>Props</th>
+          <th>Type</th>
+          <th>Description</th>
         </tr>
         </thead>
         <tbody>

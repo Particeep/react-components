@@ -21,9 +21,8 @@ const AutocompleteDemo = () => {
 
       <h3>Multi-select Autocomplete</h3>
       <p>
-        It behaves like an <Code>{`<Input/>`}</Code> component. Thus, it can be wrapped in
-        a <Code>{`<FormControl/>`}</Code>
-        and <Code>{`<Input/>`}</Code> props (as <Code>multiline</Code>) can be used.
+        It behaves like an <Code>{`<Input/>`}</Code> component. Thus, it can be wrapped inside
+        a <Code>{`<FormControl/>`}</Code> and use props like <Code>multiline</Code>.
       </p>
       <Demo
         raw={preval`module.exports = require('fs').readFileSync(require.resolve('./AutocompleteDemoMultiple.tsx'), 'utf8')`}
@@ -34,9 +33,9 @@ const AutocompleteDemo = () => {
       <DocTable>
         <thead>
         <tr>
-          <td>Props</td>
-          <td>Type</td>
-          <td>Description</td>
+          <th>Props</th>
+          <th>Type</th>
+          <th>Description</th>
         </tr>
         </thead>
         <tbody>
@@ -69,7 +68,7 @@ const AutocompleteDemo = () => {
         <tr>
           <td>readonly</td>
           <td><Code>boolean</Code></td>
-          <td>Whether the user can change the value</td>
+          <td>Whether the user can change the value.</td>
         </tr>
         </tbody>
       </DocTable>

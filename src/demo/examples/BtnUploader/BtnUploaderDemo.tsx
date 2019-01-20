@@ -26,16 +26,16 @@ const ChipUploaderDemo = () => {
       <DocTable>
         <thead>
         <tr>
-          <td>Props</td>
-          <td>Type</td>
-          <td>Description</td>
+          <th>Props</th>
+          <th>Type</th>
+          <th>Description</th>
         </tr>
         </thead>
         <tbody>
           <tr>
             <td>document</td>
             <td><Code>{'{'}permalink: string, name: string{'}'}</Code></td>
-            <td>Initial uploaded document</td>
+            <td>Initial uploaded document.</td>
           </tr>
           <tr>
             <td>msg</td>
@@ -45,7 +45,7 @@ const ChipUploaderDemo = () => {
           <tr>
             <td>uploading</td>
             <td><Code>boolean</Code></td>
-            <td>When <Code>true</Code>, display a spinner</td>
+            <td>When <Code>true</Code>, display a spinner.</td>
           </tr>
           <tr>
             <td>maxUploadFileSize</td>

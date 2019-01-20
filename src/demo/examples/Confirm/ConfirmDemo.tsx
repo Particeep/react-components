@@ -31,9 +31,9 @@ const ConfirmDemo = () => {
       <DocTable>
         <thead>
         <tr>
-          <td>Props</td>
-          <td>Type</td>
-          <td>Description</td>
+          <th>Props</th>
+          <th>Type</th>
+          <th>Description</th>
         </tr>
         </thead>
         <tbody>
@@ -45,12 +45,12 @@ const ConfirmDemo = () => {
         <tr>
           <td>title</td>
           <td><Code>string | ReactChild</Code></td>
-          <td>Dialog title</td>
+          <td>Dialog title.</td>
         </tr>
         <tr>
           <td>content</td>
           <td><Code>string | ReactChild</Code></td>
-          <td>Dialog text</td>
+          <td>Dialog text.</td>
         </tr>
         <tr>
           <td>confirmLabel</td>

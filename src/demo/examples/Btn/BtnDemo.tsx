@@ -14,7 +14,7 @@ const BtnDemo = () => {
       <PageTitle>Btn</PageTitle>
       <p>
         <Code>Btn</Code> and <Code>BtnIcon</Code> are wrappers for the respectives <Code>Button</Code> and
-        <Code>IconButton</Code> components of Material-UI adding the props <Code>loading</Code>.
+        <Code>IconButton</Code> components of Material-UI adding a new props <Code>loading</Code>.
       </p>
 
       <h2>Example</h2>
@@ -26,14 +26,14 @@ const BtnDemo = () => {
       <Demo
         raw={preval`module.exports = require('fs').readFileSync(require.resolve('./BtnDemoIconButton.tsx'), 'utf8')`}
         component={BtnDemoIconButton}/>
- <h2>Api</h2>
+      <h2>Api</h2>
       <h3>Btn</h3>
       <DocTable>
         <thead>
         <tr>
-          <td>Props</td>
-          <td>Type</td>
-          <td>Description</td>
+          <th>Props</th>
+          <th>Type</th>
+          <th>Description</th>
         </tr>
         </thead>
         <tbody>
@@ -45,12 +45,12 @@ const BtnDemo = () => {
         <tr>
           <td>icon</td>
           <td><Code>string</Code></td>
-          <td>Material Icon name to display before the label</td>
+          <td>Material Icon name to display before the label.</td>
         </tr>
         <tr>
           <td>iconAfter</td>
           <td><Code>string</Code></td>
-          <td>Material Icon name to display after the label</td>
+          <td>Material Icon name to display after the label.</td>
         </tr>
         </tbody>
       </DocTable>
@@ -59,9 +59,9 @@ const BtnDemo = () => {
       <DocTable>
         <thead>
         <tr>
-          <td>Props</td>
-          <td>Type</td>
-          <td>Description</td>
+          <th>Props</th>
+          <th>Type</th>
+          <th>Description</th>
         </tr>
         </thead>
         <tbody>
@@ -73,7 +73,7 @@ const BtnDemo = () => {
         </tbody>
       </DocTable>
 
-   </Page>
+    </Page>
   )
 }
 

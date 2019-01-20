@@ -8,7 +8,7 @@ export const AlertDemoWithPanel = () => {
         Pouloulou
       </PanelHead>
       <Alert type="info">
-        Tout va bien
+        An info
       </Alert>
       <PanelBody>
         Material icons are delightful, beautifully crafted symbols for common actions and items. Download on desktop
@@ -20,7 +20,7 @@ export const AlertDemoWithPanel = () => {
         <br/>
 
         <Alert type="success" icon="battery_full" deletable>
-          Vous allez mieux
+          A successful alert
         </Alert>
       </PanelBody>
     </Panel>
