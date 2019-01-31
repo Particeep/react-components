@@ -4,6 +4,7 @@ import {useTheme, useToggleTheme} from '../../theme/ThemeContext'
 import {GitHubIcon} from 'mui-extension'
 import {Sidebar, SidebarBody, SidebarFooter, SidebarHeader, SidebarItem} from '../../../../lib/Layout'
 import {makeStyles} from '@material-ui/styles'
+import DownloadIcon from '../../../../lib/icon/DownloadIcon'
 
 const useStyles = makeStyles((t: Theme) => ({
   avatar: {
@@ -24,7 +25,6 @@ interface IProps {
 export const Menu = ({className, basePath = ''}: IProps) => {
   // @ts-ignore
   const classes = useStyles()
-
   const isDarkTheme = useTheme()
   const toggleDarkTheme = useToggleTheme()
   return (
@@ -33,15 +33,16 @@ export const Menu = ({className, basePath = ''}: IProps) => {
         <SidebarItem to={basePath + 'home'} icon="home" large>
           Home
         </SidebarItem>
+        <SidebarItem to={basePath + 'install'} icon={<DownloadIcon/>} large>
+          Installation
+        </SidebarItem>
         <SidebarItem
           href="https://github.com/alexandreannic/mui-extension"
-          before={<GitHubIcon/>}
+          icon={<GitHubIcon/>}
           target="_blank"
           large>
           GitHub
-          <Icon className={classes.itemI}>
-            open_in_new
-          </Icon>
+          <Icon className={classes.itemI}>open_in_new</Icon>
         </SidebarItem>
       </SidebarHeader>
       <SidebarBody>

@@ -1,12 +1,12 @@
 import * as React from 'react'
 import {HTMLProps, ReactChild, ReactElement} from 'react'
-import {createStyles, Icon, Theme, WithStyles, withStyles} from '@material-ui/core'
+import {Icon, Theme} from '@material-ui/core'
 import {NavLink} from 'react-router-dom'
 import classNames from 'classnames'
 import {fade} from '@material-ui/core/styles/colorManipulator'
 import {css} from '../../../demo/core/theme/style'
 import {useLayoutContext} from '../LayoutContext'
-import {makeStyles} from "@material-ui/styles"
+import {makeStyles} from '@material-ui/styles'
 
 const useStyles = makeStyles((t: Theme) => ({
   root: {
@@ -41,10 +41,6 @@ const useStyles = makeStyles((t: Theme) => ({
     textAlign: 'center',
     marginRight: t.spacing.unit * 2,
   },
-  before: {
-    display: 'flex',
-    alignItems: 'center'
-  },
   label: {
     ...css.noWrap,
     display: 'flex',
@@ -56,18 +52,16 @@ const useStyles = makeStyles((t: Theme) => ({
 }))
 
 interface IProps extends HTMLProps<any> {
-  icon?: string
-  before?: ReactChild
+  icon?: string | ReactChild
   to?: any
   href?: any
   className?: any
   large?: boolean
 }
 
-export const SidebarItem = ({href, to, children, icon, before, className, large, ...other}: IProps) => {
+export const SidebarItem = ({href, to, children, icon, className, large, ...other}: IProps) => {
   // @ts-ignore
   const classes = useStyles()
-
   const {closeMobileSidebar} = useLayoutContext()
 
   const getClassName = (clickable: boolean = true) => classNames(
@@ -103,8 +97,10 @@ export const SidebarItem = ({href, to, children, icon, before, className, large,
 
   const content = (
     <>
-      {icon && <Icon className={classes.i}>{icon}</Icon>}
-      {before && <div className={classNames(classes.i, classes.before)}>{before}</div>}
+      {icon && ((typeof icon === 'string')
+        ? <Icon className={classes.i}>{icon}</Icon>
+        : <div className={classNames(classes.i)}>{icon}</div>
+      )}
       <span className={classes.label}>{children}</span>
     </>
   )
