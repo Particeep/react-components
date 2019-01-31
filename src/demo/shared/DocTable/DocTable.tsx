@@ -4,6 +4,10 @@ import {makeStyles} from '@material-ui/styles'
 
 const useStyles = makeStyles((t: Theme) => ({
   root: {
+    width: '100%',
+    overflowX: 'auto'
+  },
+  table: {
     overflow: 'auto',
     width: '100%',
     borderCollapse: 'collapse',
@@ -33,6 +37,8 @@ export const DocTable = ({children}: any) => {
   // @ts-ignore
   const classes = useStyles()
   return (
-    <table className={classes.root}>{children}</table>
+    <div className={classes.root}>
+      <table className={classes.table}>{children}</table>
+    </div>
   )
 }

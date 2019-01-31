@@ -16,14 +16,6 @@ const styles = (t: Theme) => createStyles({
   rootDesktop: {
     marginLeft: sidebarWith,
   },
-  body: {
-    flex: 1,
-    display: 'flex',
-  },
-  content: {
-    flexGrow: 1,
-    backgroundColor: t.palette.background.paper,
-  },
 })
 
 interface IProps {
