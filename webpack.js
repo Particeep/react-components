@@ -1,6 +1,3 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const path = require('path')
-
 module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json']
@@ -28,10 +25,4 @@ module.exports = {
       },
     ]
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve('./src/demo/index.html'),
-      favicon: './src/demo/asset/favicon.ico',
-    })
-  ],
 }
