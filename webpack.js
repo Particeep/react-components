@@ -17,11 +17,21 @@ module.exports = {
         test: /\.css$/,
         loader: 'style-loader!css-loader?importLoaders=1'
       },
+      {
+        test: /\.(jpg|png)$/,
+        use: {
+          loader: "url-loader",
+          options: {
+            limit: 25000,
+          },
+        },
+      },
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve('./src/demo/index.html')
+      template: path.resolve('./src/demo/index.html'),
+      favicon: './src/demo/asset/favicon.ico',
     })
   ],
 }

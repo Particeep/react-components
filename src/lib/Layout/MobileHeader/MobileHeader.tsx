@@ -1,6 +1,6 @@
 import {createStyles, Slide, Theme, withStyles} from '@material-ui/core'
 import * as React from 'react'
-import {Header, heightHeight} from '../Header/Header'
+import {Header, headerHeight} from '../Header/Header'
 import {useLayoutContext} from '../LayoutContext'
 
 const styles = (t: Theme) => createStyles({
@@ -13,7 +13,7 @@ const styles = (t: Theme) => createStyles({
     boxShadow: t.shadows[3],
   },
   mock: {
-    height: heightHeight,
+    height: headerHeight,
   },
 })
 

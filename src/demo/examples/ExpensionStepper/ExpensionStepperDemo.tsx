@@ -49,7 +49,7 @@ const ExpensionStepperDemo = () => {
 
       <h3>Accordion</h3>
       <p>
-        It can also be used as a simple accordion using the props <Code>free</Code>
+        It can also be used as a simple accordion using the props <Code>free</Code>.
       </p>
       <Demo
         raw={preval`module.exports = require('fs').readFileSync(require.resolve('./ExpensionStepperDemoAccordion.tsx'), 'utf8')`}

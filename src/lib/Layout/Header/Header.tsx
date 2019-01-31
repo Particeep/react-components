@@ -4,17 +4,15 @@ import {useLayoutContext} from '../LayoutContext'
 import classNames from 'classnames'
 import IconBtn from '../../IconBtn/IconBtn'
 
-export const heightHeight = 42
+export const headerHeight = 52
 
 const styles = (t: Theme) => createStyles({
   root: {
-    height: heightHeight,
+    height: headerHeight,
     display: 'flex',
     alignItems: 'center',
     paddingRight: t.spacing.unit * 2,
     paddingLeft: t.spacing.unit + 2,
-    paddingTop: t.spacing.unit,
-    paddingBottom: t.spacing.unit,
     background: t.palette.background.paper,
   },
   hidden: {

@@ -12,7 +12,7 @@ export const ExpensionStepperDemoTunnel = () => {
       <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8}}>
         <div>
           <Typography variant="body2">Autoscroll</Typography>
-          <Typography variant="body1">Enable auto scroll on step change. Useful for really long steps.</Typography>
+          <Typography variant="body1">Enable auto scroll on step change. Particularly useful for long steps.</Typography>
         </div>
         <Switch checked={autoScroll} onChange={(e, c) => setAutoScroll(c)}/>
       </div>
@@ -64,6 +64,34 @@ const Step2 = (props) => {
   return (
     <>
       <FormControl style={{marginRight: 8}}>
+        <div>R</div>
+        <div>e</div>
+        <div>a</div>
+        <div>l</div>
+        <div>l</div>
+        <div>y</div>
+        <br/>
+        <br/>
+        <div>r</div>
+        <div>e</div>
+        <div>a</div>
+        <div>l</div>
+        <div>l</div>
+        <div>y</div>
+        <br/>
+        <br/>
+        <div>l</div>
+        <div>o</div>
+        <div>n</div>
+        <div>g</div>
+        <br/>
+        <br/>
+        <div>s</div>
+        <div>t</div>
+        <div>e</div>
+        <div>p</div>
+        <br/>
+        <br/>
         <TextField
           label="Birthday"
           value={birthDate}

@@ -13,11 +13,11 @@ export const ToastDemoExample = () => {
 const App = withToast(({toastError, toastWarning, toastSuccess, toastInfo, toastLoading}) => {
   return (
     <div style={{display: 'flex', flexDirection: 'column'}}>
-      <Btn color="primary" onClick={() => toastError('Error toast !')}>Toast Loading</Btn>
-      <Btn color="primary" onClick={() => toastWarning('Warning toast !')}>Toast error</Btn>
-      <Btn color="primary" onClick={() => toastSuccess('Success toast !')}>Toast Warning</Btn>
-      <Btn color="primary" onClick={() => toastInfo('Info toast !')}>Toast Success</Btn>
-      <Btn color="primary" onClick={() => toastLoading('Loading...')}>Toast Info</Btn>
+      <Btn color="primary" onClick={() => toastLoading('Loading...')}>Toast Loading</Btn>
+      <Btn color="primary" onClick={() => toastError('Error toast !')}>Toast error</Btn>
+      <Btn color="primary" onClick={() => toastWarning('Warning toast !')}>Toast Warning</Btn>
+      <Btn color="primary" onClick={() => toastSuccess('Success toast !')}>Toast Success</Btn>
+      <Btn color="primary" onClick={() => toastInfo('Info toast !')}>Toast Info</Btn>
     </div>
   )
 })

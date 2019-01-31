@@ -31,7 +31,7 @@
   "scripts": {
     "test": "jest",
     "compile": "webpack --config webpack.compile.js",
-    "start": "webpack-dev-server --mode development --open --hot",
+    "start": "webpack-dev-server --config webpack.start.js --mode development --open --hot",
     "build": "webpack --config webpack.build.js -p"
   },
   "author": {

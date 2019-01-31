@@ -21,6 +21,7 @@ import {Menu} from './core/component/Menu/Menu'
 import {Layout} from '../lib/Layout'
 import {css} from './core/theme/style'
 import {makeStyles} from '@material-ui/styles'
+import {Install} from './pages/Install/Install'
 
 const useStyles = makeStyles((t: Theme) => ({
   '@global': {
@@ -36,10 +37,8 @@ const useStyles = makeStyles((t: Theme) => ({
     h1: t.typography.h4,
     h2: {
       ...t.typography.h6,
-    },
-    h3: {
-      ...t.typography.subtitle2,
-      fontSize: css.fontBig(t),
+      marginBottom: t.spacing.unit * 2,
+      marginTop: t.spacing.unit * 3,
     },
     p: {
       ...t.typography.body1,
@@ -52,20 +51,20 @@ const useStyles = makeStyles((t: Theme) => ({
     ':focus': {
       outline: 0,
     },
-    '.link': {
-      color: t.palette.primary.main,
-      textDecoration: 'underline',
-    }
   },
+  title: {
+    whiteSpace: 'nowrap'
+  }
 }))
 
 const App = () => {
   // @ts-ignore
   useStyles()
   return (
-    <Layout sidebar={Menu} title="Mui-extension">
+    <Layout sidebar={Menu} title="Mui-eXtension">
       <Switch>
         <Route path="/home" component={Home}/>
+        <Route path="/install" component={Install}/>
         <Route path="/panel" component={PanelDemo}/>
         <Route path="/btn" component={BtnDemo}/>
         <Route path="/confirm" component={ConfirmDemo}/>

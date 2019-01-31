@@ -10,7 +10,7 @@ const styles = (t: Theme) => createStyles({
     borderRadius: 4,
     background: t.palette.background.default,
     overflow: 'auto',
-    marginTop: t.spacing.unit * 3,
+    marginTop: t.spacing.unit * 2,
     marginBottom: t.spacing.unit * 3,
   },
   head: {
@@ -32,8 +32,7 @@ interface IProps extends WithStyles<typeof styles> {
   reloadable?: boolean
 }
 
-const parseComponentCode = (code: string): string => code
-  .replace(/\/\/\s*@ts-ignore\s*?\n/, '')
+const parseComponentCode = (code: string): string => code.replace(/\n\s*\/\/\s*@ts-ignore\s*?\n/, '\n')
 
 export const Demo = withStyles(styles)(({component: Component, raw, classes, reloadable}: IProps) => {
   const [codeOpened, setCodeOponed] = useState<boolean>(false)
