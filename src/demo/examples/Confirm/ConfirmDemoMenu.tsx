@@ -24,6 +24,7 @@ export class ConfirmDemoMenu extends React.Component<{}, any> {
             onConfirm={this.handleClose}>
             <MenuItem>Reset</MenuItem>
           </Confirm>
+          <MenuItem disabled>Update</MenuItem>
         </Menu>
       </div>
     )
