@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "./lib",
     "allowJs": false,
     "moduleResolution": "node",
     "rootDir": "src",
@@ -21,9 +22,10 @@
     "./src/**/*"
   ],
   "exclude": [
+    "test",
+    "doc",
     "node_modules",
     "compile",
-    "build",
-    "./src/test/**"
+    "build"
   ]
 }
