@@ -1,1 +1,1 @@
-export {default as Fender} from './Fender'
+export {Fender} from './Fender'

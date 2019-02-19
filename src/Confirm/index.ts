@@ -1,1 +1,1 @@
-export {default as Confirm} from './Confirm'
+export {Confirm} from './Confirm'

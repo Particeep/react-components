@@ -1,8 +1,9 @@
 import * as React from 'react'
 import {ReactChild} from 'react'
-import {createStyles, Theme, Typography, WithStyles, withStyles} from '@material-ui/core'
+import {Theme, Typography} from '@material-ui/core'
+import {makeStyles} from '@material-ui/styles'
 
-const styles = (t: Theme) => createStyles({
+const useStyles = makeStyles((t: Theme) => ({
   root: {
     fontWeight: t.typography.fontWeightMedium,
     textTransform: 'uppercase',
@@ -10,14 +11,16 @@ const styles = (t: Theme) => createStyles({
     color: t.palette.text.disabled,
     marginBottom: t.spacing.unit * 2,
   },
-})
+}))
 
-interface IProps extends WithStyles<typeof styles> {
+interface IProps {
   children: ReactChild
 }
 
-export const SidebarTitle = withStyles(styles)(({classes, children}: IProps) => {
+export const SidebarTitle = ({children}: IProps) => {
+  // @ts-ignore
+  const classes = useStyles()
   return (
     <Typography variant="caption" noWrap className={classes.root}>{children}</Typography>
   )
-})
+}

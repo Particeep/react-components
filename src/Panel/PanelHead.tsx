@@ -1,8 +1,9 @@
 import * as React from 'react'
 import {ReactNode} from 'react'
-import {createStyles, Divider, Icon, Theme, withStyles, WithStyles} from '@material-ui/core'
+import {Divider, Icon, Theme} from '@material-ui/core'
+import {makeStyles} from '@material-ui/styles'
 
-const styles = (t: Theme) => createStyles({
+const useStyles = makeStyles((t: Theme) => ({
   root: t.mixins.gutters({
     display: 'flex',
     alignItems: 'center',
@@ -11,41 +12,37 @@ const styles = (t: Theme) => createStyles({
     paddingRight: t.spacing.unit + 'px !important',
     order: -1, // To be positioned before loader,
     height: 48,
-  }),
+  }) as any,
   icon: {
     marginRight: t.spacing.unit * 2,
   },
   content: {
     flex: 1,
   },
-})
+}))
 
-interface PanelHeadProps extends WithStyles<typeof styles> {
+interface PanelHeadProps {
   icon?: string;
   children?: ReactNode;
   action?: any;
   className?: string;
 }
 
-class PanelHead extends React.Component<PanelHeadProps, {}> {
-
-  render() {
-    const {className, icon, children, action, classes} = this.props
-    return (
-      <>
-        <div className={`${classes.root} ${className || ''}`}>
-          {icon &&
-          <Icon className={classes.icon}>{icon}</Icon>
-          }
-          <div className={classes.content}>{children}</div>
-          <div>
-            {action}
-          </div>
+export const PanelHead = ({className, icon, children, action}: PanelHeadProps) => {
+  // @ts-ignore
+  const classes = useStyles()
+  return (
+    <>
+      <div className={`${classes.root} ${className || ''}`}>
+        {icon &&
+        <Icon className={classes.icon}>{icon}</Icon>
+        }
+        <div className={classes.content}>{children}</div>
+        <div>
+          {action}
         </div>
-        <Divider/>
-      </>
-    )
-  }
+      </div>
+      <Divider/>
+    </>
+  )
 }
-
-export default withStyles(styles)(PanelHead)

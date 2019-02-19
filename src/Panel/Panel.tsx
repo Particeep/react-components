@@ -1,39 +1,33 @@
 import * as React from 'react'
 import {ReactNode} from 'react'
 import {LinearProgress} from '@material-ui/core/es/index'
-import {Card, createStyles, Theme, withStyles, WithStyles} from '@material-ui/core'
+import {Card, Theme} from '@material-ui/core'
+import {makeStyles} from '@material-ui/styles'
 
-
-const styles = (t: Theme) => createStyles({
+const useStyles = makeStyles((t: Theme) => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
     marginBottom: t.spacing.unit * 2,
   },
-
   loader: {
     marginBottom: -5,
   },
+}))
 
-})
-
-interface PanelProps extends WithStyles<typeof styles> {
+interface PanelProps {
   loading?: boolean;
   children?: ReactNode;
   className?: string;
 }
 
-class Panel extends React.Component<PanelProps, {}> {
-
-  render() {
-    const {classes} = this.props
-    return (
-      <Card className={`${classes.root} ${this.props.className || ''}`}>
-        {this.props.loading && <LinearProgress className={classes.loader}/>}
-        {this.props.children}
-      </Card>
-    )
-  }
+export const Panel = ({className, loading, children}: PanelProps) => {
+  // @ts-ignore
+  const classes = useStyles()
+  return (
+    <Card className={`${classes.root} ${className || ''}`}>
+      {loading && <LinearProgress className={classes.loader}/>}
+      {children}
+    </Card>
+  )
 }
-
-export default withStyles(styles)(Panel)

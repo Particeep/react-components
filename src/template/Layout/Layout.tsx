@@ -1,13 +1,13 @@
 import * as React from 'react'
 import {ReactChild, ReactNode} from 'react'
-import {createStyles, Theme, withStyles} from '@material-ui/core'
-import {LayoutProvider, useLayoutContext} from './LayoutContext'
+import {Theme} from '@material-ui/core'
 import {MobileHeader} from './MobileHeader/MobileHeader'
 import classNames from 'classnames'
+import {makeStyles} from '@material-ui/styles'
 
 export const sidebarWith = 220
 
-const styles = (t: Theme) => createStyles({
+const useStyles = makeStyles((t: Theme) => ({
   root: {
     overflow: 'hidden',
     position: 'relative',
@@ -16,7 +16,7 @@ const styles = (t: Theme) => createStyles({
   rootDesktop: {
     marginLeft: sidebarWith,
   },
-})
+}))
 
 interface IProps {
   title?: string
@@ -26,7 +26,6 @@ interface IProps {
 }
 
 export const Layout = ({title, mobileBreakpoint, children, sidebar}: IProps) => {
-  console.log('LAYOUT')
   return (
     <div>
       <LayoutUsingContext sidebar={sidebar}>
@@ -36,9 +35,10 @@ export const Layout = ({title, mobileBreakpoint, children, sidebar}: IProps) => 
   )
 }
 
-const LayoutUsingContext = withStyles(styles)(({children, classes, sidebar: Sidebar}: any) => {
+const LayoutUsingContext = ({children, sidebar: Sidebar}: any) => {
+  // @ts-ignore
+  const classes = useStyles()
   const isMobileWidth = false
-
   return (
     <>
       <MobileHeader/>
@@ -48,4 +48,4 @@ const LayoutUsingContext = withStyles(styles)(({children, classes, sidebar: Side
       </div>
     </>
   )
-})
+}

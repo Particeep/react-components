@@ -1,12 +1,13 @@
-import {createStyles, Icon, Theme, withStyles} from '@material-ui/core'
+import {Icon, Theme} from '@material-ui/core'
 import * as React from 'react'
 import {useLayoutContext} from '../LayoutContext'
 import classNames from 'classnames'
-import IconBtn from '../../../IconBtn/IconBtn'
+import {IconBtn} from '../../../IconBtn/IconBtn'
+import {makeStyles} from '@material-ui/styles'
 
 export const headerHeight = 52
 
-const styles = (t: Theme) => createStyles({
+const useStyles = makeStyles((t: Theme) => ({
   root: {
     height: headerHeight,
     display: 'flex',
@@ -22,9 +23,9 @@ const styles = (t: Theme) => createStyles({
     flex: 1,
     fontSize: t.typography.title.fontSize,
   }
-})
+}))
 
-export const Header = withStyles(styles)(({classes, className}: any) => {
+export const Header = ({classes, className}: any) => {
   const {title, isMobileWidth, isMobileSidebarOpened, toggleMobileSidebar} = useLayoutContext()
 
   return (
@@ -35,4 +36,4 @@ export const Header = withStyles(styles)(({classes, className}: any) => {
       <div className={classes.title}>{title}</div>
     </header>
   )
-})
+}

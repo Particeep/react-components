@@ -1,13 +1,15 @@
 import * as React from 'react'
-import {CircularProgress, createStyles, Icon, Theme, WithStyles, withStyles} from '@material-ui/core'
+import {CircularProgress, Icon, Theme} from '@material-ui/core'
 import classNames from 'classnames'
 import {colorError, colorSuccess, colorWarning} from '../style/color'
+import {ReactChild} from 'react'
+import {makeStyles} from '@material-ui/styles'
 
 type State = 'loading' | 'error' | 'empty' | 'success' | 'warning';
 
 const iconSize = 70
 
-const styles = (t: Theme) => createStyles({
+const useStyles = makeStyles((t: Theme) => ({
   root: {
     transition: t.transitions.create('all'),
     display: 'flex',
@@ -33,51 +35,44 @@ const styles = (t: Theme) => createStyles({
   p: {
     marginTop: t.spacing.unit,
   }
-})
+}))
 
-interface Props extends WithStyles<typeof styles> {
+interface Props {
+  children: ReactChild,
   type?: State
   icon?: string
   className?: string
   style?: object
 }
 
-class Fender extends React.Component<Props, {}> {
-
-  public static defaultProps: Partial<Props> = {
-    type: 'empty'
-  }
-
-  render() {
-    const {type, classes, className, style} = this.props
-    return (
-      <div className={classNames(classes.root, className)} style={style}>
-        <div className={classes[type]}>
-          <div>{this.getIcon()}</div>
-          <div className={classes.p}>{this.props.children}</div>
-        </div>
-      </div>
-    )
-  }
-
-  private getIcon() {
-    const {icon, type} = this.props
-    if (icon) return this.icon(icon)
+export const Fender = ({children, icon, type = 'empty', className, style}: Props) => {
+  // @ts-ignore
+  const classes = useStyles()
+  
+  const getIcon = () => {
+    if (icon) return renderIcon(icon)
     switch (type) {
       case 'empty':
-        return this.icon('do_not_disturb')
+        return renderIcon('do_not_disturb')
       case 'error':
-        return this.icon('error')
+        return renderIcon('error')
       case 'success':
-        return this.icon('check_circle')
+        return renderIcon('check_circle')
       case 'warning':
-        return this.icon('warning')
+        return renderIcon('warning')
       case 'loading':
         return <CircularProgress size={iconSize}/>
     }
   }
 
-  private icon = (name: string) => <Icon className={this.props.classes.i}>{name}</Icon>
-}
+  const renderIcon = (name: string) => <Icon className={classes.i}>{name}</Icon>
 
-export default withStyles(styles)(Fender)
+  return (
+    <div className={classNames(classes.root, className)} style={style}>
+      <div className={classes[type]}>
+        <div>{getIcon()}</div>
+        <div className={classes.p}>{children}</div>
+      </div>
+    </div>
+  )
+}

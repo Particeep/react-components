@@ -1,12 +1,13 @@
 import * as React from 'react'
 import {ReactNode} from 'react'
-import {createStyles, SwipeableDrawer, Theme, WithStyles, withStyles} from '@material-ui/core'
+import {SwipeableDrawer, Theme} from '@material-ui/core'
 import classNames from 'classnames'
 import {sidebarWith} from '../Layout'
 import {Header} from '../Header/Header'
 import {useLayoutContext} from '../LayoutContext'
+import makeStyles from '@material-ui/styles/makeStyles'
 
-const styles = (t: Theme) => createStyles({
+const useStyles = makeStyles((t: Theme) => ({
   root: {
     width: sidebarWith,
     height: '100vh',
@@ -14,14 +15,16 @@ const styles = (t: Theme) => createStyles({
     flexDirection: 'column',
     borderRadius: 0,
   },
-})
+}))
 
-interface IProps extends WithStyles<typeof styles> {
+interface IProps {
   className?: string
   children?: ReactNode
 }
 
-export const Sidebar = withStyles(styles)(({children, classes, className}: IProps) => {
+export const Sidebar = ({children, className}: IProps) => {
+  // @ts-ignore
+  const classes = useStyles()
   const {isMobileWidth, isMobileSidebarOpened, openMobileSidebar, closeMobileSidebar} = useLayoutContext()
   const opened = !isMobileWidth || isMobileSidebarOpened
 
@@ -39,4 +42,4 @@ export const Sidebar = withStyles(styles)(({children, classes, className}: IProp
       </>
     </SwipeableDrawer>
   )
-})
+}

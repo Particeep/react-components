@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {ReactNode} from 'react'
+import {ReactNode, useState} from 'react'
 import {
   Button,
   createStyles,
@@ -12,9 +12,7 @@ import {
   withStyles
 } from '@material-ui/core'
 
-const styles = (t: Theme) => createStyles({})
-
-interface Props extends WithStyles<typeof styles> {
+interface Props {
   disabled?: boolean
   title?: string
   confirmLabel?: string
@@ -24,39 +22,33 @@ interface Props extends WithStyles<typeof styles> {
   onConfirm?: () => void
 }
 
-class Confirm extends React.Component<Props, any> {
+export const Confirm = ({children, title, content, confirmLabel, cancelLabel}: Props) => {
 
-  state = {
-    open: false,
-  }
+  const [open, setOpen] = useState(false)
 
-  render() {
-    const {children, title, content, confirmLabel, cancelLabel} = this.props
-    return (
-      <>
-        {React.cloneElement(children as any, {
-          onClick: () => this.setState({open: true})
-        })}
-        <Dialog open={this.state.open}>
-          <DialogTitle>{title}</DialogTitle>
-          <DialogContent>{content}</DialogContent>
-          <DialogActions>
-            <Button color="primary" onClick={() => this.setState({open: false})}>
-              {cancelLabel || 'Cancel'}
-            </Button>
-            <Button color="primary" onClick={this.confirm}>
-              {confirmLabel || 'Confirm'}
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </>
-    )
-  }
-
-  private confirm = () => {
+  const confirm = () => {
     this.props.onConfirm()
     this.setState({open: false})
   }
-}
 
-export default withStyles(styles)(Confirm)
+  return (
+    <>
+      {React.cloneElement(children as any, {
+        onClick: () => this.setState({open: true})
+      })}
+      <Dialog open={this.state.open}>
+        <DialogTitle>{title}</DialogTitle>
+        <DialogContent>{content}</DialogContent>
+        <DialogActions>
+          <Button color="primary" onClick={() => this.setState({open: false})}>
+            {cancelLabel || 'Cancel'}
+          </Button>
+          <Button color="primary" onClick={this.confirm}>
+            {confirmLabel || 'Confirm'}
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </>
+  )
+
+}

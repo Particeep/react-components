@@ -1,4 +1,4 @@
-export {default as PanelHead} from './PanelHead'
-export {default as PanelBody} from './PanelBody'
-export {default as PanelFoot} from './PanelFoot'
-export {default as Panel} from './Panel'
+export * from './PanelHead'
+export * from './PanelBody'
+export * from './PanelFoot'
+export * from './Panel'

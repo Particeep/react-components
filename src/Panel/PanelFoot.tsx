@@ -4,7 +4,7 @@ import {CardActions, Theme, WithStyles, withStyles} from '@material-ui/core'
 
 const styles = (t: Theme) => ({})
 
-interface PanelFootProps extends WithStyles<typeof styles> {
+interface PanelFootProps {
   children?: ReactNode;
   className?: string;
 }
@@ -22,4 +22,4 @@ class PanelFoot extends React.Component<PanelFootProps, {}> {
 }
 
 
-export default withStyles(styles)(PanelFoot)
+export default PanelFoot)

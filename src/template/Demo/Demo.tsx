@@ -3,8 +3,9 @@ import * as React from 'react'
 import {useState} from 'react'
 import {Collapse, createStyles, Icon, IconButton, Theme, withStyles, WithStyles} from '@material-ui/core'
 import {Pre} from './Pre/Pre'
+import {makeStyles} from '@material-ui/styles'
 
-const styles = (t: Theme) => createStyles({
+const useStyles = makeStyles((t: Theme) => ({
   root: {
     boxShadow: t.shadows[1],
     borderRadius: 4,
@@ -24,9 +25,9 @@ const styles = (t: Theme) => createStyles({
     padding: t.spacing.unit * 2,
     background: t.palette.background.paper,
   }
-})
+}))
 
-interface IProps extends WithStyles<typeof styles> {
+interface IProps {
   component: any
   raw: string
   reloadable?: boolean
@@ -34,7 +35,9 @@ interface IProps extends WithStyles<typeof styles> {
 
 const parseComponentCode = (code: string): string => code.replace(/\n\s*\/\/\s*@ts-ignore\s*?\n/, '\n')
 
-export const Demo = withStyles(styles)(({component: Component, raw, classes, reloadable}: IProps) => {
+export const Demo = ({component: Component, raw, reloadable}: IProps) => {
+  // @ts-ignore
+  const classes = useStyles()
   const [codeOpened, setCodeOponed] = useState<boolean>(false)
   const [show, setShow] = useState<boolean>(true)
   const [containetHeight, setContainetHeight] = useState<number>(undefined)
@@ -68,4 +71,5 @@ export const Demo = withStyles(styles)(({component: Component, raw, classes, rel
       </div>
     </section>
   )
-})
+}
+
