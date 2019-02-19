@@ -1,14 +1,5 @@
 import * as React from 'react'
-import {
-  CircularProgress,
-  createStyles,
-  Icon,
-  IconButton,
-  Snackbar,
-  Theme,
-  WithStyles,
-  withStyles
-} from '@material-ui/core'
+import {CircularProgress, createStyles, Icon, IconButton, Snackbar, Theme, WithStyles} from '@material-ui/core'
 import {colorInfo, colorSuccess, colorWarning} from '../style/color'
 import autobind from 'autobind-decorator'
 

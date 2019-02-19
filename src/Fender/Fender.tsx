@@ -1,8 +1,8 @@
 import * as React from 'react'
+import {ReactChild} from 'react'
 import {CircularProgress, Icon, Theme} from '@material-ui/core'
 import classNames from 'classnames'
 import {colorError, colorSuccess, colorWarning} from '../style/color'
-import {ReactChild} from 'react'
 import {makeStyles} from '@material-ui/styles'
 
 type State = 'loading' | 'error' | 'empty' | 'success' | 'warning';

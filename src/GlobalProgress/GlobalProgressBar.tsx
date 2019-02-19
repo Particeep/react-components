@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core'
+import {Theme} from '@material-ui/core'
 import {IProgressState, progressbarAnimationDuration, withGlobalProgress} from './GlobalProgressContext'
 import classNames from 'classnames'
 import {makeStyles} from '@material-ui/styles'
