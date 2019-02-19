@@ -20,7 +20,7 @@
   },
   "scripts": {
     "test": "jest",
-    "compile": "tsc",
+    "compile": "tsc --declaration",
     "start": "webpack-dev-server --config webpack.start.js --mode development --open --hot",
     "build": "webpack --config webpack.build.js -p"
   },
