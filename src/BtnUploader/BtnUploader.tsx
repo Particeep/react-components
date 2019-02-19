@@ -57,7 +57,7 @@ interface Messages {
   invalidSize: string
 }
 
-interface Props extends WithStyles<typeof styles>, Pick<ButtonProps, Exclude<keyof ButtonProps, keyof { classes }>> {
+interface Props extends Pick<ButtonProps, Exclude<keyof ButtonProps, keyof {classes}>> {
   document?: Document
   msg?: Messages
   uploading?: boolean
@@ -67,7 +67,7 @@ interface Props extends WithStyles<typeof styles>, Pick<ButtonProps, Exclude<key
 }
 
 // TODO(Alex) Fix wierd typing issue (it works for <Btn>)
-class BtnUploader extends React.Component<Props, any> {
+class BtnUploader extends React.Component<Props & WithStyles<typeof styles>, any> {
 
   public static defaultProps: Partial<Props> = {
     msg: {

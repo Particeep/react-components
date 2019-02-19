@@ -57,13 +57,13 @@ export interface ExpensionStepProps {
   readonly autoScroll?: boolean
 }
 
-interface Props extends ExpensionStepProps, WithStyles<typeof styles> {
+interface Props extends ExpensionStepProps {
   readonly className?: string
   readonly label: string
   readonly component: ReactElement<any>
 }
 
-class ExpensionStep extends React.Component<Props, {}> {
+class ExpensionStep extends React.Component<Props & WithStyles<typeof styles>, {}> {
 
   private $root: HTMLElement
 

@@ -44,7 +44,7 @@ const styles = (t: Theme) => createStyles({
   }
 })
 
-interface Props extends WithStyles<typeof styles> {
+interface Props {
   multiple?: boolean
   value?: string[] | string
   onChange: (value: string[] | string) => void
@@ -57,7 +57,7 @@ interface State {
   filter: string;
 }
 
-class Autocomplete extends React.Component<Props, State> {
+class Autocomplete extends React.Component<Props & WithStyles<typeof styles>, State> {
 
   state: State = {
     anchorEl: null,

@@ -5,7 +5,7 @@ import {ExpensionStepProps} from './index'
 
 const styles = (t: Theme) => createStyles({})
 
-interface Props extends WithStyles<typeof styles> {
+interface Props {
   readonly position?: number
   readonly className?: string
   readonly free?: boolean
@@ -20,7 +20,7 @@ interface State {
   reached: number
 }
 
-class ExpensionStepper extends React.Component<Props, State> {
+class ExpensionStepper extends React.Component<Props & WithStyles<typeof styles>, State> {
 
   render() {
     const {className, autoScroll, free, onNext, onEnd, children, ...other} = this.props
