@@ -24,10 +24,7 @@
     "start": "webpack-dev-server --config webpack.start.js --mode development --open --hot",
     "build": "webpack --config webpack.build.js -p"
   },
-  "author": {
-    "name": "Alexandre Annic",
-    "email": "alexandre.annic1@gmail.com"
-  },
+  "author": "Alexandre Annic <alexandre.annic1@gmail.com>",
   "devDependencies": {
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.6",
@@ -76,5 +73,24 @@
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10",
     "webpack-merge": "^4.1.4"
-  }
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexandreannic/mui-extension.git"
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "material-design",
+    "material-ui",
+    "mui-extension"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexandreannic/mui-extension/issues"
+  },
+  "homepage": "https://mui-extension.firebaseapp.com"
 }
