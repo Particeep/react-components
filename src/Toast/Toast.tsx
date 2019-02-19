@@ -14,7 +14,7 @@ import autobind from 'autobind-decorator'
 
 const ToastContext = React.createContext({})
 
-const useStyles = makeStyles((t: Theme) => ({
+const styles = (t: Theme) => createStyles({
   iError: {
     color: t.palette.error.main,
   },
@@ -48,7 +48,7 @@ export interface WithToast {
   toastLoading: (m: string) => void;
 }
 
-interface IProps {
+interface IProps extends WithStyles<typeof styles> {
 }
 
 export interface IState extends IToastState,
@@ -147,7 +147,7 @@ class ToastProvider extends React.Component<IProps, IState> {
   }
 }
 
-export default ToastProvider)
+export default ToastProvider
 
 export const withToast = (Component: any) => (props: any) => (
   <ToastContext.Consumer>

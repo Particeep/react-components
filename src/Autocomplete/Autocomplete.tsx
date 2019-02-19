@@ -153,4 +153,4 @@ const mapProps = (Component: any) => (props: any) => <Component
   value={!Array.isArray(props.value) ? [props.value] : props.value}
 />
 
-export default withStyles(styles)(mapProps(Autocomplete))
+export default withStyles(styles)(mapProps(Autocomplete)) as React.ComponentType<Props>

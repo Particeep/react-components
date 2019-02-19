@@ -29,7 +29,7 @@ const useStyles = makeStyles((t: Theme) => ({
   },
 }))
 
-interface IProps extends IProgressState {
+interface Props extends IProgressState {
   className?: string
   style?: object
   styleProgress?: object
@@ -37,7 +37,7 @@ interface IProps extends IProgressState {
 
 const INITIAL_PERCENT = 10
 
-const GlobalProgressBar = ({currentStep, steps, started, className, style, styleProgress}: IProps) => {
+const GlobalProgressBar = ({currentStep, steps, started, className, style, styleProgress}: Props) => {
 
   // @ts-ignore
   const classes = useStyles()
@@ -52,4 +52,4 @@ const GlobalProgressBar = ({currentStep, steps, started, className, style, style
   )
 }
 
-export default withGlobalProgress(GlobalProgressBar)
+export default withGlobalProgress(GlobalProgressBar) as React.ComponentType<Props>

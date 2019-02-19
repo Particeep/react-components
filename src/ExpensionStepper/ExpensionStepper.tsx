@@ -77,4 +77,4 @@ class ExpensionStepper extends React.Component<Props, State> {
   }
 }
 
-export default withStyles(styles)(ExpensionStepper)
+export default withStyles(styles)(ExpensionStepper) as React.ComponentType<Props>

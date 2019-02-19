@@ -1,9 +1,10 @@
 import * as React from 'react'
 import {ReactNode, useEffect, useState} from 'react'
-import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core'
+import {Theme} from '@material-ui/core'
 import classNames from 'classnames'
+import {makeStyles} from '@material-ui/styles'
 
-const styles = (t: Theme) => createStyles({
+const useStyles = makeStyles((t: Theme) => ({
   root: {
     transition: t.transitions.create('all'),
     margin: 'auto',
@@ -16,9 +17,9 @@ const styles = (t: Theme) => createStyles({
     opacity: 1,
     transform: 'scale(1)',
   }
-})
+}))
 
-interface Props extends WithStyles<typeof styles> {
+interface Props {
   width?: number
   animated?: boolean
   className?: any
@@ -28,8 +29,9 @@ interface Props extends WithStyles<typeof styles> {
 
 let timeout
 
-const Page = ({classes, children, width, animated = true, className, style,}: Props) => {
-
+const Page = ({children, width, animated = true, className, style,}: Props) => {
+  // @ts-ignore
+  const classes = useStyles()
   const [appeared, setAppeared] = useState(false)
 
   useEffect(() => {
@@ -45,5 +47,5 @@ const Page = ({classes, children, width, animated = true, className, style,}: Pr
   )
 }
 
-export default withStyles(styles)(Page)
+export default Page
 

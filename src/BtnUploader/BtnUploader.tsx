@@ -154,4 +154,4 @@ class BtnUploader extends React.Component<Props, any> {
   }
 }
 
-export default withStyles(styles)(BtnUploader)
+export default withStyles(styles)(BtnUploader) as React.ComponentType<Props>

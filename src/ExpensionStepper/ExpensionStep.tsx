@@ -118,4 +118,4 @@ class ExpensionStep extends React.Component<Props, {}> {
   }
 }
 
-export default withStyles(styles)(ExpensionStep)
+export default withStyles(styles)(ExpensionStep) as React.ComponentType<Props>

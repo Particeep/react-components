@@ -1,18 +1,16 @@
 import * as React from 'react'
 import {ReactNode} from 'react'
-import {CardActions, Theme, WithStyles, withStyles} from '@material-ui/core'
-
-const styles = (t: Theme) => ({})
+import {CardActions} from '@material-ui/core'
 
 interface PanelFootProps {
   children?: ReactNode;
   className?: string;
 }
 
-class PanelFoot extends React.Component<PanelFootProps, {}> {
+export class PanelFoot extends React.Component<PanelFootProps, {}> {
 
   render() {
-    const {children, classes, className} = this.props
+    const {children, className} = this.props
     return (
       <CardActions className={`${className || ''}`}>
         {children}
@@ -20,6 +18,3 @@ class PanelFoot extends React.Component<PanelFootProps, {}> {
     )
   }
 }
-
-
-export default PanelFoot)
