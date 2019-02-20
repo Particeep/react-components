@@ -1,6 +1,6 @@
 const commonConfig = require('./webpack.js')
 const webpackMerge = require('webpack-merge')
-const webpack = require('doc/webpack')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
@@ -13,8 +13,8 @@ module.exports = webpackMerge(commonConfig, {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve('./src/demo/index.html'),
-      favicon: './src/demo/asset/favicon.ico',
+      template: path.resolve('./src/index.html'),
+      favicon: './src/asset/favicon.ico',
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
   ],
