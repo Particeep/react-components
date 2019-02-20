@@ -1,4 +1,4 @@
-# Mui-eXtension
+# Mui-extension
 
 Set of [React](https://reactjs.org/) components based on [Material-UI](https://material.io/icons/).
 
