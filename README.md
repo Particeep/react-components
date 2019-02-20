@@ -12,7 +12,6 @@ Set of [React](https://reactjs.org/) components based on [Material-UI](https://m
 
 [Click here](https://mui-extension.firebaseapp.com/)
 
-
 ### Usage
 
 ```
