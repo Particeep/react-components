@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {Page} from '../../shared/Page/Page'
-import {Demo} from '../../../../src/template/Demo/index'
+import {Demo} from 'mui-extension'
 import {ToastDemoExample} from './ToastDemoExample'
 import preval from 'babel-plugin-preval/macro'
 import {Code} from '../../shared/Code/Code'

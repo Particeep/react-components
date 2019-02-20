@@ -1,6 +1,6 @@
 const commonConfig = require('./webpack.js')
 const webpackMerge = require('webpack-merge')
-const webpack = require('webpack')
+const webpack = require('doc/webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
@@ -9,7 +9,7 @@ module.exports = webpackMerge(commonConfig, {
   devtool: 'source-map',
   target: 'web',
   entry: {
-    'app': ['babel-polyfill', './src/demo/index.tsx'],
+    'app': ['babel-polyfill', './src/index.tsx'],
   },
   plugins: [
     new HtmlWebpackPlugin({

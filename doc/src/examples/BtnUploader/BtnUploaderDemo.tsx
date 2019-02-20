@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {Page} from '../../shared/Page/Page'
-import {Demo} from '../../../../src/template/Demo/index'
+import {Demo} from 'mui-extension'
 import preval from 'babel-plugin-preval/macro'
 import {BtnUploaderDemoButton} from './BtnUploaderDemoButton'
 import {Code} from '../../shared/Code/Code'

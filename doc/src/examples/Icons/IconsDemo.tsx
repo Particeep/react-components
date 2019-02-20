@@ -8,7 +8,7 @@ import {IconsDemoSelected} from './IconsDemoSelected'
 import {PageTitle} from '../../shared/PageTitle/PageTitle'
 import {Page} from '../../shared/Page/Page'
 import {makeStyles, withTheme} from '@material-ui/styles'
-import DownloadIcon from '../../../../src/icon/DownloadIcon' // TODO Import from mui-extension once updated
+import {DownloadIcon} from 'mui-extension'
 
 const useStyles = makeStyles((t: Theme) => ({
   head: {

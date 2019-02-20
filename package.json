@@ -1,6 +1,6 @@
 {
   "name": "mui-extension",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": false,
   "description": "Set of UI components based on Material-UI",
   "main": "lib/index.js",
@@ -20,9 +20,7 @@
   },
   "scripts": {
     "test": "jest",
-    "compile": "tsc --declaration",
-    "start": "webpack-dev-server --config webpack.start.js --mode development --open --hot",
-    "build": "webpack --config webpack.build.js -p"
+    "build": "tsc --declaration"
   },
   "author": "Alexandre Annic <alexandre.annic1@gmail.com>",
   "devDependencies": {

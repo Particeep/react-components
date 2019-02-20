@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {Icon, Slide, Theme} from '@material-ui/core'
-import {Pre} from '../../../../src/template/Demo/Pre/Pre'
+import {Pre} from 'mui-extension'
 import {IconBtn} from 'mui-extension'
 import {makeStyles} from '@material-ui/styles'
 

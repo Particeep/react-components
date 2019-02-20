@@ -2,7 +2,7 @@ import * as React from 'react'
 import {Page} from '../../shared/Page/Page'
 import {NavLink} from 'react-router-dom'
 // @ts-ignore
-import {Pre} from '../../../../src/template/Demo/Pre/Pre'
+import {Pre} from 'mui-extension'
 import {A} from '../../shared/A'
 
 // const useStyles = makeStyles((t: Theme) => ({

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Demo} from '../../../../src/template/Demo/index'
+import {Demo} from 'mui-extension'
 import {GlobalProgressDemoManual} from './GlobalProgressDemoManual'
 import preval from 'babel-plugin-preval/macro'
 import {GlobalProgressDemoRealLife} from './GlobalProgressDemoRealLife'
