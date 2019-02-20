@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "outDir": "./lib",
     "allowJs": false,
     "moduleResolution": "node",
     "rootDir": "src",
@@ -11,10 +10,6 @@
     "experimentalDecorators": true,
     "module": "commonjs",
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
     "lib": [
       "es2015",
       "es2017",
@@ -27,8 +22,6 @@
     "./src/**/*"
   ],
   "exclude": [
-    "test",
-    "doc",
     "node_modules",
     "compile",
     "build"
