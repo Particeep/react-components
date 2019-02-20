@@ -15,7 +15,7 @@ export const Install = () => {
     <Page>
       <h1>Installation</h1>
       <p>Install Mui-extension source files via npm.</p>
-      <Pre raw={'npm i -s git+https://github.com/alexandreannic/mui-extension.git'}/>
+      <Pre raw={'npm i -s mui-extension'}/>
 
       <p>
         Material-UI was designed with the
