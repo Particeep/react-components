@@ -14,5 +14,4 @@ export * from './Fender'
 export * from './Animate'
 export * from './TableSort'
 export * from './icon'
-// Should be exported separately. Only used in my own app
 export * from './template'
