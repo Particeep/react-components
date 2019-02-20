@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {ReactElement} from 'react'
+import {ReactChild, ReactElement} from 'react'
 import {createStyles, Theme, withStyles, WithStyles} from '@material-ui/core'
 import {ExpensionStepProps} from './index'
 
@@ -26,21 +26,22 @@ class ExpensionStepper extends React.Component<Props & WithStyles<typeof styles>
     const {className, autoScroll, free, onNext, onEnd, children, ...other} = this.props
     return (
       <div className={className} {...other}>
-        {React.Children.map(this.props.children, (step: ReactElement<ExpensionStepProps>, i: number) => {
-            return React.cloneElement(step, {
-              prev: this.prev,
-              next: this.next,
-              goTo: this.goTo,
-              free: free,
-              index: i,
-              disabled: step.props.disabled || i > this.state.reached,
-              done: step.props.done || i < this.state.reached,
-              autoScroll,
-              isCurrent: i == this.state.current,
-              isLast: i == React.Children.count(children) - 1
-            })
-          }
-        )}
+        {React.Children.map(this.props.children, (step: ReactChild, i: number) => {
+          // Cannot properly define step as ReactElement<ExpensionStepProps> in strict mode
+          const castedStep = step as ReactElement<ExpensionStepProps>
+          return React.cloneElement(castedStep, {
+            prev: this.prev,
+            next: this.next,
+            goTo: this.goTo,
+            free: free,
+            index: i,
+            disabled: castedStep.props.disabled || i > this.state.reached,
+            done: castedStep.props.done || i < this.state.reached,
+            autoScroll,
+            isCurrent: i == this.state.current,
+            isLast: i == React.Children.count(children) - 1
+          })
+        })}
       </div>
     )
   }

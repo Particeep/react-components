@@ -23,11 +23,12 @@ export interface WithProgress {
 }
 
 export interface IState extends IProgressState,
-  WithProgress {}
+  WithProgress {
+}
 
 class GlobalProgressProvider extends React.Component<IProps, IState> {
 
-  private timeouts = []
+  private timeouts: number[] = []
 
   state = {
     currentStep: 0,
@@ -123,6 +124,6 @@ export default GlobalProgressProvider
 
 export const withGlobalProgress = (Component: any) => (props: any) => (
   <GlobalProgressContext.Consumer>
-    {(other: WithProgress) => <Component {...props} {...other}/>}
+    {(other: any /*WithProgress*/) => <Component {...props} {...other}/>}
   </GlobalProgressContext.Consumer>
 )

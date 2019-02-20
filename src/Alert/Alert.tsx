@@ -70,7 +70,7 @@ export const Alert = ({type, children, icon, action, deletable, className}: Aler
   const [isVisible, setIsVisible] = useState<boolean>(true)
 
   const getIconFromType = () => {
-    switch (this.props.type) {
+    switch (type) {
       case 'info':
         return 'info'
       case 'error':

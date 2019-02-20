@@ -16,7 +16,7 @@ class AutocompleteItem extends React.Component<AutocompleteItemProps, {}> {
   render() {
     const {checked, disabled, multiple, value, children, onClick} = this.props
     return (
-      <MenuItem onClick={() => onClick(value)} style={{paddingLeft: 0}} disabled={disabled}>
+      <MenuItem onClick={() => onClick!(value)} style={{paddingLeft: 0}} disabled={disabled}>
         {multiple
           ? <Checkbox disabled={disabled} checked={checked}/>
           : <Radio disabled={disabled} checked={checked}/>

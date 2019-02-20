@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {ReactNode, useState} from 'react'
+import {ReactElement, useState} from 'react'
 import {Button, Dialog, DialogActions, DialogContent, DialogTitle} from '@material-ui/core'
 
 interface Props {
@@ -8,37 +8,36 @@ interface Props {
   confirmLabel?: string
   cancelLabel?: string
   content?: any
-  children?: ReactNode
+  children: ReactElement<any>
   onConfirm?: () => void
 }
 
-export const Confirm = ({children, title, content, confirmLabel, cancelLabel}: Props) => {
+export const Confirm = ({children, title, content, confirmLabel, cancelLabel, onConfirm}: Props) => {
 
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState<boolean>(false)
 
   const confirm = () => {
-    this.props.onConfirm()
-    this.setState({open: false})
+    if (onConfirm) onConfirm()
+    setOpen(false)
   }
 
   return (
     <>
-      {React.cloneElement(children as any, {
-        onClick: () => this.setState({open: true})
+      {React.cloneElement(children, {
+        onClick: () => setOpen(true)
       })}
-      <Dialog open={this.state.open}>
+      <Dialog open={open}>
         <DialogTitle>{title}</DialogTitle>
         <DialogContent>{content}</DialogContent>
         <DialogActions>
-          <Button color="primary" onClick={() => this.setState({open: false})}>
+          <Button color="primary" onClick={() => setOpen(false)}>
             {cancelLabel || 'Cancel'}
           </Button>
-          <Button color="primary" onClick={this.confirm}>
+          <Button color="primary" onClick={confirm}>
             {confirmLabel || 'Confirm'}
           </Button>
         </DialogActions>
       </Dialog>
     </>
   )
-
 }

@@ -1,11 +1,13 @@
 import * as React from 'react'
 import {Avatar, Chip, CircularProgress, createStyles, Icon, Theme, WithStyles, withStyles} from '@material-ui/core'
-import {Btn} from '../Btn/index'
+import {Btn} from '../Btn'
 import {colorError} from '../style/color'
 import classNames from 'classnames'
 import {ButtonProps} from '@material-ui/core/Button'
+import {makeStyles} from '@material-ui/styles'
+import {useRef, useState} from 'react'
 
-const styles = (t: Theme) => createStyles({
+const useStyles = makeStyles((t: Theme) => ({
   root: {
     minHeight: 40,
     display: 'flex',
@@ -33,18 +35,15 @@ const styles = (t: Theme) => createStyles({
     color: colorError,
     padding: `${t.spacing.unit} ${t.spacing.unit * 2}`,
     borderRadius: 2,
-
-
   },
   error_i: {
     marginRight: t.spacing.unit
   },
-
   error_reset: {
     marginLeft: t.spacing.unit,
     cursor: 'pointer',
   }
-})
+}))
 
 interface Document {
   permalink: string
@@ -66,42 +65,41 @@ interface Props extends Pick<ButtonProps, Exclude<keyof ButtonProps, keyof {clas
   onUpload: (f: File) => void
 }
 
+const defaultMsg = {
+  loading: 'Loading...',
+  upload: 'Upload',
+  invalidSize: 'File is too big',
+}
+
 // TODO(Alex) Fix wierd typing issue (it works for <Btn>)
-class BtnUploader extends React.Component<Props & WithStyles<typeof styles>, any> {
+export const BtnUploader = ({document, uploading, msg = defaultMsg, onUpload, onDelete, maxUploadFileSize, ...other}: Props) => {
+  // @ts-ignore
+  const classes = useStyles()
+  const [errorMessage, setErrorMessage] = useState<string | undefined>(undefined)
+  const fileInputEl = useRef<HTMLInputElement>(null)
 
-  public static defaultProps: Partial<Props> = {
-    msg: {
-      loading: 'Loading...',
-      upload: 'Upload',
-      invalidSize: 'File is too big',
-    },
+  const openFileSelection = () => {
+    fileInputEl.current!.click()
   }
 
-  state = {
-    errorMessage: null
+  const handleChange = (files: FileList | null) => {
+    if (!files) {
+      return
+    }
+    const file = files[0]
+    // const {maxUploadFileSize, onUpload, msg} = props
+    if (maxUploadFileSize && file.size > maxUploadFileSize * 1024 * 1024) {
+      setErrorMessage(msg.invalidSize)
+      return
+    }
+    onUpload(file)
   }
 
-  private fileInput: any
-
-  render() {
-    const {classes} = this.props
-    return (
-      <div className={classes.root}>
-        {this.renderBody()}
-        {this.state.errorMessage &&
-        <div className={classes.error}>
-          <Icon className={classes.error_i}>warning</Icon>
-          {this.state.errorMessage}
-          <Icon className={classes.error_reset}
-                onClick={() => this.setState({errorMessage: ''})}>clear</Icon>
-        </div>
-        }
-      </div>
-    )
+  const clear = () => {
+    onDelete()
   }
 
-  renderBody() {
-    const {document, uploading, classes, msg, onUpload, onDelete, ...other} = this.props
+  const renderBody = () => {
     if (uploading) {
       return (
         <Chip className={classNames(classes.doc, classes.docUploading)} label={msg.loading} avatar={
@@ -116,7 +114,7 @@ class BtnUploader extends React.Component<Props & WithStyles<typeof styles>, any
         return (
           <Chip
             className={classes.doc} label={document.name}
-            onDelete={this.clear} onClick={() => window.open(document.permalink, '_blank')}
+            onDelete={clear} onClick={() => window.open(document.permalink, '_blank')}
             avatar={
               <Avatar>
                 <Icon className={classes.doc_i}>insert_drive_file</Icon>
@@ -126,32 +124,27 @@ class BtnUploader extends React.Component<Props & WithStyles<typeof styles>, any
         )
       } else {
         return (
-          <Btn color="primary" onClick={this.openFileSelection} icon="file_upload" {...other}>
+          <Btn color="primary" onClick={openFileSelection} icon="file_upload" {...other}>
             {msg.upload}
-            <input style={{display: 'none'}} type="file" ref={file => this.fileInput = file}
-                   onChange={e => this.handleChange(e.target.files[0])}/>
+            <input style={{display: 'none'}} type="file" ref={fileInputEl}
+                   onChange={e => handleChange(e.target.files)}/>
           </Btn>
         )
       }
     }
   }
 
-  private openFileSelection = () => {
-    this.fileInput.click()
-  }
-
-  private handleChange = (file) => {
-    const {maxUploadFileSize, onUpload, msg} = this.props
-    if (maxUploadFileSize && file.size > maxUploadFileSize * 1024 * 1024) {
-      this.setState({errorMessage: msg.invalidSize})
-      return
-    }
-    onUpload(file)
-  }
-
-  private clear = () => {
-    this.props.onDelete()
-  }
+  return (
+    <div className={classes.root}>
+      {renderBody()}
+      {errorMessage &&
+      <div className={classes.error}>
+        <Icon className={classes.error_i}>warning</Icon>
+        {errorMessage}
+        <Icon className={classes.error_reset}
+              onClick={() => setErrorMessage('')}>clear</Icon>
+      </div>
+      }
+    </div>
+  )
 }
-
-export default withStyles(styles)(BtnUploader) as React.ComponentType<Props>

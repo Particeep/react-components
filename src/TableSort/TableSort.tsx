@@ -19,7 +19,7 @@ class TableSort extends React.Component<IProps, {}> {
     return (
       <TableHead>
         <TableRow>
-          {React.Children.toArray(children).map((step: ReactElement<ITableSortCellProps>) =>
+          {(React.Children.toArray(children) as ReactElement<ITableSortCellProps>[]).map((step: ReactElement<ITableSortCellProps>) =>
             React.cloneElement(step, {
               active: step.props.name === sortBy,
               orderBy,

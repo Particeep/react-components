@@ -25,9 +25,10 @@ const useStyles = makeStyles((t: Theme) => ({
   }
 }))
 
-export const Header = ({classes, className}: any) => {
+export const Header = ({className}: any) => {
+  // @ts-ignore
+  const classes = useStyles()
   const {title, isMobileWidth, isMobileSidebarOpened, toggleMobileSidebar} = useLayoutContext()
-
   return (
     <header className={classNames(classes.root, className)}>
       <IconBtn onClick={toggleMobileSidebar} className={isMobileWidth ? '' : classes.hidden}>

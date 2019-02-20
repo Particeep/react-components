@@ -15,7 +15,7 @@ class AnimateList extends React.Component<IProps, any> {
   private timeout: any
 
   render() {
-    const {children, delay, initialDelay} = this.props
+    const {children, delay = 0, initialDelay = 0} = this.props
     return (
       <>
         {React.Children.map(children, (child, index) =>

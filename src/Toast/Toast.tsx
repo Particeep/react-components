@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {CircularProgress, createStyles, Icon, IconButton, Snackbar, Theme, WithStyles} from '@material-ui/core'
+import {CircularProgress, createStyles, Icon, IconButton, Snackbar, Theme, WithStyles, withStyles} from '@material-ui/core'
 import {colorInfo, colorSuccess, colorWarning} from '../style/color'
 import autobind from 'autobind-decorator'
 
@@ -39,13 +39,14 @@ export interface WithToast {
   toastLoading: (m: string) => void;
 }
 
-interface IProps extends WithStyles<typeof styles> {
+interface Props {
 }
 
 export interface IState extends IToastState,
-  WithToast {}
+  WithToast {
+}
 
-class ToastProvider extends React.Component<IProps, IState> {
+class ToastProvider extends React.Component<Props & WithStyles<typeof styles>, IState> {
 
   state = {
     type: undefined,
@@ -138,10 +139,10 @@ class ToastProvider extends React.Component<IProps, IState> {
   }
 }
 
-export default ToastProvider
+export default withStyles(styles)(ToastProvider) as React.ComponentType<Props>
 
 export const withToast = (Component: any) => (props: any) => (
   <ToastContext.Consumer>
-    {(other: WithToast) => <Component {...props} {...other}/>}
+    {(other: any /*WithToast*/) => <Component {...props} {...other}/>}
   </ToastContext.Consumer>
 )

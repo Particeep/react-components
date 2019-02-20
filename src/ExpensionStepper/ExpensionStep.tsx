@@ -65,7 +65,7 @@ interface Props extends ExpensionStepProps {
 
 class ExpensionStep extends React.Component<Props & WithStyles<typeof styles>, {}> {
 
-  private $root: HTMLElement
+  private $root: HTMLElement | null = null
 
   render() {
     const {
@@ -89,9 +89,9 @@ class ExpensionStep extends React.Component<Props & WithStyles<typeof styles>, {
       <div className={classNames(classes.root, className)} ref={node => this.$root = node} {...other}>
         <header
           className={classNames(classes.header, isCurrent && classes.headerCurrent, this.isClickable() && classes.headerClickable)}
-          onClick={() => goTo(index)}>
+          onClick={() => goTo!(index!)}>
           {!free && done && !isCurrent && <Icon className={classes.i}>check</Icon>}
-          {!free && <>{index + 1}. </>}{label}
+          {!free && <>{index! + 1}. </>}{label}
         </header>
         <Collapse in={isCurrent} timeout={animationDuration} className={classes.body}>
           <div className={classes.content}>
@@ -114,7 +114,8 @@ class ExpensionStep extends React.Component<Props & WithStyles<typeof styles>, {
   }
 
   private scrollTop = () => {
-    this.$root.scrollIntoView({behavior: 'smooth', block: 'start'})
+    if (this.$root)
+      this.$root.scrollIntoView({behavior: 'smooth', block: 'start'})
   }
 }
 

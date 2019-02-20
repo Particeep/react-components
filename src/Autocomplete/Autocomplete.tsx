@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {ReactElement} from 'react'
+import {ReactChild, ReactElement} from 'react'
 import classNames from 'classnames'
 import {
   Checkbox,
@@ -12,6 +12,7 @@ import {
   WithStyles,
   withStyles
 } from '@material-ui/core'
+import {AutocompleteItemProps} from './AutocompleteItem'
 
 const styles = (t: Theme) => createStyles({
   menu_head: {
@@ -50,18 +51,19 @@ interface Props {
   onChange: (value: string[] | string) => void
   searchLabel?: string
   readonly?: boolean
+  children: ReactElement<AutocompleteItemProps>
 }
 
 interface State {
-  anchorEl: any;
-  filter: string;
+  anchorEl: any
+  filter?: string
 }
 
 class Autocomplete extends React.Component<Props & WithStyles<typeof styles>, State> {
 
   state: State = {
     anchorEl: null,
-    filter: null
+    filter: undefined
   }
 
   private $input: any
@@ -86,9 +88,9 @@ class Autocomplete extends React.Component<Props & WithStyles<typeof styles>, St
           <header className={classNames(classes.menu_head, multiple && classes.menu_headWithCb)}>
             {multiple &&
             <Checkbox
-              checked={value.length === optionsCount}
+              checked={value && value.length === optionsCount}
               onChange={this.selectAll}
-              indeterminate={value.length > 0 && value.length < optionsCount}
+              indeterminate={!!value && (value.length > 0 && value.length < optionsCount)}
               disabled={readonly}/>
             }
             <input autoFocus className={classes.menu_input} placeholder={searchLabel}
@@ -100,7 +102,7 @@ class Autocomplete extends React.Component<Props & WithStyles<typeof styles>, St
               React.cloneElement(x, {
                 ...x.props,
                 multiple: multiple,
-                checked: value.indexOf(x.props.value) !== -1,
+                checked: !!value && value.indexOf(x.props.value) !== -1,
                 onClick: this.handleChange,
               })
             )}
@@ -121,7 +123,7 @@ class Autocomplete extends React.Component<Props & WithStyles<typeof styles>, St
   private handleChange = (value: string) => {
     let newValue
     if (this.props.multiple) {
-      if (this.props.value.indexOf(value) === -1) newValue = (this.props.value as string[]).concat(value)
+      if (this.props.value && this.props.value.indexOf(value) === -1) newValue = (this.props.value as string[]).concat(value)
       else newValue = (this.props.value as string[]).filter(v => v !== value)
     } else {
       this.close()
@@ -131,19 +133,19 @@ class Autocomplete extends React.Component<Props & WithStyles<typeof styles>, St
     this.props.onChange(newValue)
   }
 
-  private getFilteredChildren(): ReactElement<any>[] {
+  private getFilteredChildren(): ReactElement<AutocompleteItemProps>[] {
     const {filter} = this.state
-    const items = React.Children.map(this.props.children, (x: React.ReactElement<any>) => x)
+    // @ts-ignore
+    const items = React.Children.map(this.props.children, (x: ReactElement<AutocompleteItemProps>) => x)
     if (filter && filter !== '')
       return items.filter(x => x.props.value.toLowerCase().indexOf(filter.toLowerCase()) !== -1)
     return items
   }
 
   private selectAll = (event: any, checked: boolean) => {
-    const values: string[] = checked ? React.Children.map(
-      this.props.children,
-      (x: React.ReactElement<any>) => x.props.value
-    ) : []
+    const {children} = this.props
+    // @ts-ignore
+    const values: string[] = checked ? React.Children.map(children, (x: ReactElement<AutocompleteItemProps>) => x.props.value) : []
     this.props.onChange(values)
   }
 }

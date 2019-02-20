@@ -4,6 +4,7 @@ import {Theme} from '@material-ui/core'
 import {MobileHeader} from './MobileHeader/MobileHeader'
 import classNames from 'classnames'
 import {makeStyles} from '@material-ui/styles'
+import {LayoutProvider, useLayoutContext} from './LayoutContext'
 
 export const sidebarWith = 220
 
@@ -27,18 +28,18 @@ interface IProps {
 
 export const Layout = ({title, mobileBreakpoint, children, sidebar}: IProps) => {
   return (
-    <div>
+    <LayoutProvider title={title} mobileBreakpoint={mobileBreakpoint}>
       <LayoutUsingContext sidebar={sidebar}>
         {children}
       </LayoutUsingContext>
-    </div>
+    </LayoutProvider>
   )
 }
 
 const LayoutUsingContext = ({children, sidebar: Sidebar}: any) => {
   // @ts-ignore
   const classes = useStyles()
-  const isMobileWidth = false
+  const {isMobileWidth} = useLayoutContext()
   return (
     <>
       <MobileHeader/>

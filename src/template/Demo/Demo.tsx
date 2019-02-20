@@ -40,7 +40,7 @@ export const Demo = ({component: Component, raw, reloadable}: IProps) => {
   const classes = useStyles()
   const [codeOpened, setCodeOponed] = useState<boolean>(false)
   const [show, setShow] = useState<boolean>(true)
-  const [containetHeight, setContainetHeight] = useState<number>(undefined)
+  const [containetHeight, setContainetHeight] = useState<number | undefined>(undefined)
   const componentContainer = React.createRef()
 
   const reload = () => {
