@@ -17,9 +17,9 @@ const useStyles = makeStyles((t: Theme) => ({
     alignItems: 'center',
   },
   icon: {
-    height: 16,
-    lineHeight: '16px',
-    fontSize: 22,
+    height: '16px !important',
+    lineHeight: '16px !important',
+    fontSize: '22px !important',
     marginRight: t.spacing.unit
   },
   iconAfter: {

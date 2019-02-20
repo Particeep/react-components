@@ -30,7 +30,7 @@ const useStyles = makeStyles((t: Theme) => ({
     color: colorSuccess
   },
   i: {
-    fontSize: iconSize,
+    fontSize: `${iconSize}px !important`,
   },
   p: {
     marginTop: t.spacing.unit,

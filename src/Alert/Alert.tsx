@@ -17,7 +17,7 @@ const useStyles = makeStyles((t: Theme) => ({
   }) as any,
   i: {
     paddingRight: t.spacing.unit * 2,
-    height: height,
+    height: `${height}px !important`,
     display: 'flex',
     alignItems: 'center',
     alignSelf: 'flex-start',

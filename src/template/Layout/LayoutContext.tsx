@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {createContext, ReactChild, useContext, useEffect, useState} from 'react'
-import debounce from 'lodash.debounce'
+// import debounce from 'lodash.debounce'
 
 const LayoutContext = createContext<LayoutContextProps>({} as LayoutContextProps)
 
@@ -28,7 +28,8 @@ export const LayoutProvider = ({title, mobileBreakpoint = 700, children}: IProps
   const toggleMobileSidebar = () => setIsMobileSidebarOpened(!isMobileSidebarOpened)
 
   useEffect(() => {
-    window.addEventListener('resize', debounce(() => setMobileWidth(getWidth()), 600))
+    window.addEventListener('resize', () => setMobileWidth(getWidth()))
+    // window.addEventListener('resize', debounce(() => setMobileWidth(getWidth()), 600))
   }, [])
 
   return (

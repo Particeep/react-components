@@ -1,1 +1,1 @@
-export {default as BtnUploader} from './BtnUploader'
+export {BtnUploader} from './BtnUploader'
