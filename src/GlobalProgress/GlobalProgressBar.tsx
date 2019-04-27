@@ -1,6 +1,11 @@
 import * as React from 'react'
 import {Theme} from '@material-ui/core'
-import {IProgressState, progressbarAnimationDuration, withGlobalProgress} from './GlobalProgressContext'
+import {
+  IProgressState,
+  progressbarAnimationDuration,
+  useGlobalProgressState,
+  withGlobalProgress
+} from './GlobalProgressContext'
 import classNames from 'classnames'
 import {makeStyles} from '@material-ui/styles'
 
@@ -29,7 +34,7 @@ const useStyles = makeStyles((t: Theme) => ({
   },
 }))
 
-interface Props extends IProgressState {
+interface Props {
   className?: string
   style?: object
   styleProgress?: object
@@ -37,10 +42,9 @@ interface Props extends IProgressState {
 
 const INITIAL_PERCENT = 10
 
-const GlobalProgressBar = ({currentStep, steps, started, className, style, styleProgress}: Props) => {
-
-  // @ts-ignore
+const GlobalProgressBar = ({className, style, styleProgress}: Props) => {
   const classes = useStyles()
+  const {currentStep, steps, started} = useGlobalProgressState()
 
   const getPercent = () => INITIAL_PERCENT + (100 - INITIAL_PERCENT) / steps * currentStep
 
@@ -52,4 +56,4 @@ const GlobalProgressBar = ({currentStep, steps, started, className, style, style
   )
 }
 
-export default withGlobalProgress(GlobalProgressBar) as React.ComponentType<Props>
+export default GlobalProgressBar
