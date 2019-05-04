@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {ReactChild, ReactElement} from 'react'
+import {ReactElement} from 'react'
 import classNames from 'classnames'
 import {
   Checkbox,
@@ -155,4 +155,4 @@ const mapProps = (Component: any) => (props: any) => <Component
   value={!Array.isArray(props.value) ? [props.value] : props.value}
 />
 
-export default withStyles(styles)(mapProps(Autocomplete)) as React.ComponentType<Props>
+export default withStyles(styles)(mapProps(Autocomplete))
