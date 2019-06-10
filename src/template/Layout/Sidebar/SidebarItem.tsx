@@ -1,26 +1,26 @@
 import * as React from 'react'
 import {HTMLProps, ReactChild, ReactElement} from 'react'
-import {Icon, Theme} from '@material-ui/core'
+import {createStyles, Icon, Theme} from '@material-ui/core'
 import {NavLink} from 'react-router-dom'
 import classNames from 'classnames'
 import {fade} from '@material-ui/core/styles/colorManipulator'
 import {useLayoutContext} from '../LayoutContext'
 import {makeStyles} from '@material-ui/styles'
 
-const useStyles = makeStyles((t: Theme) => ({
+const useStyles = makeStyles((t: Theme) => createStyles({
   root: {
     transition: t.transitions.create('all'),
     display: 'flex',
     alignItems: 'center',
     textDecoration: 'inherit',
-    paddingRight: t.spacing.unit,
-    paddingLeft: t.spacing.unit * 2,
+    paddingRight: t.spacing(1),
+    paddingLeft: t.spacing(2),
     color: t.palette.text.primary,
     minHeight: 32,
-    marginTop: t.spacing.unit / 8,
-    marginBottom: t.spacing.unit / 8,
-    marginRight: t.spacing.unit,
-    marginLeft: t.spacing.unit,
+    marginTop: t.spacing(1 / 8),
+    marginBottom: t.spacing(1 / 8),
+    marginRight: t.spacing(1),
+    marginLeft: t.spacing(1),
     borderRadius: 42,
   },
   rootLarge: {
@@ -38,7 +38,7 @@ const useStyles = makeStyles((t: Theme) => ({
   },
   i: {
     textAlign: 'center',
-    marginRight: t.spacing.unit * 2,
+    marginRight: t.spacing(2),
   },
   label: {
     whiteSpace: 'nowrap',

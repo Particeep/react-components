@@ -1,8 +1,8 @@
 import * as React from 'react'
-import {Theme} from '@material-ui/core'
+import {createStyles, Theme} from '@material-ui/core'
 import {makeStyles} from '@material-ui/styles'
 
-const useStyles = makeStyles((t: Theme) => ({
+const useStyles = makeStyles((t: Theme) => createStyles({
   root: {
     width: '100%',
     overflowX: 'auto'
@@ -20,11 +20,11 @@ const useStyles = makeStyles((t: Theme) => ({
     },
     '& $td, $th': {
       border: `1px solid ${t.palette.divider}`,
-      padding: t.spacing.unit * 1.5,
+      padding: t.spacing(1.5),
     },
     '& $thead': {
       border: `1px solid ${t.palette.divider}`,
-      padding: t.spacing.unit * 1.5,
+      padding: t.spacing(1.5),
       fontWeight: t.typography.fontWeightMedium,
     },
     '& $tr:nth-child(2n)': {

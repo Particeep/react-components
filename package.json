@@ -5,13 +5,12 @@
   "description": "Set of UI components based on Material-UI",
   "main": "lib/index.js",
   "peerDependencies": {
-    "react": "^16.8.2",
-    "react-dom": "^16.8.2",
-    "@material-ui/core": "^3.9.2"
+    "react": "16.8.2",
+    "react-dom": "16.8.2",
+    "@material-ui/styles": "4.0.2",
+    "@material-ui/core": "4.0.2"
   },
   "dependencies": {
-    "@material-ui/core": "^3.9.2",
-    "@material-ui/styles": "v3.0.0-alpha.10",
     "autobind-decorator": "^2.1.0",
     "classnames": "^2.2.6",
     "lodash.debounce": "^4.0.8",
@@ -29,6 +28,7 @@
     "@types/react": "^16.7.6",
     "@types/react-dom": "^16.0.9",
     "chai": "^4.2.0",
+    "@material-ui/core": "4.0.2",
     "chai-enzyme": "^0.8.0",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",

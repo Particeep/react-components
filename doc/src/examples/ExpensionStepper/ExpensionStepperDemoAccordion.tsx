@@ -1,9 +1,9 @@
 import * as React from 'react'
-import {Icon, Theme} from '@material-ui/core'
+import {createStyles, Icon, Theme} from '@material-ui/core'
 import {Btn, ExpensionStep, ExpensionStepper} from 'mui-extension'
 import {makeStyles} from '@material-ui/styles'
 
-const useStyles = makeStyles((t: Theme) => ({
+const useStyles = makeStyles((t: Theme) => createStyles({
   root: {
     border: '1px solid ' + t.palette.divider,
     borderRadius: 4
@@ -45,15 +45,15 @@ const StepAccess = () => {
   )
 }
 
-const useRowStyles = makeStyles((t: Theme) => ({
+const useRowStyles = makeStyles((t: Theme) => createStyles({
   root: {
     display: 'flex',
     alignItems: 'center',
     flexWrap: 'wrap',
-    marginTop: t.spacing.unit * 2,
-    paddingBottom: t.spacing.unit * 2,
+    marginTop: t.spacing(2),
+    paddingBottom: t.spacing(2),
     '&:not(:last-of-type)': {
-      marginBottom: t.spacing.unit * 2,
+      marginBottom: t.spacing(2),
       borderBottom: `1px solid ${t.palette.divider}`
     }
   },
@@ -62,8 +62,8 @@ const useRowStyles = makeStyles((t: Theme) => ({
   },
   content: {
     flex: 1,
-    marginLeft: t.spacing.unit * 2,
-    marginRight: t.spacing.unit * 2,
+    marginLeft: t.spacing(2),
+    marginRight: t.spacing(2),
   },
   label: {
     fontWeight: 'bold'

@@ -1,13 +1,13 @@
 import * as React from 'react'
-import {Avatar, Chip, CircularProgress, createStyles, Icon, Theme, WithStyles, withStyles} from '@material-ui/core'
+import {useRef, useState} from 'react'
+import {Avatar, Chip, CircularProgress, createStyles, Icon, Theme} from '@material-ui/core'
 import {Btn} from '../Btn'
 import {colorError} from '../style/color'
 import classNames from 'classnames'
 import {ButtonProps} from '@material-ui/core/Button'
 import {makeStyles} from '@material-ui/styles'
-import {useRef, useState} from 'react'
 
-const useStyles = makeStyles((t: Theme) => ({
+const useStyles = makeStyles((t: Theme) => createStyles({
   root: {
     minHeight: 40,
     display: 'flex',
@@ -16,7 +16,7 @@ const useStyles = makeStyles((t: Theme) => ({
   doc: {},
   doc_i: {
     color: t.palette.text.secondary,
-    fontSize: t.typography.subheading.fontSize,
+    fontSize: t.typography.subtitle1.fontSize,
   },
   doc_progress: {
     position: 'absolute',
@@ -31,16 +31,16 @@ const useStyles = makeStyles((t: Theme) => ({
   error: {
     display: 'flex',
     alignItems: 'center',
-    marginLeft: t.spacing.unit,
+    marginLeft: t.spacing(1),
     color: colorError,
-    padding: `${t.spacing.unit} ${t.spacing.unit * 2}`,
+    padding: `${t.spacing(1)} ${t.spacing(2)}`,
     borderRadius: 2,
   },
   error_i: {
-    marginRight: t.spacing.unit
+    marginRight: t.spacing(1)
   },
   error_reset: {
-    marginLeft: t.spacing.unit,
+    marginLeft: t.spacing(1),
     cursor: 'pointer',
   }
 }))

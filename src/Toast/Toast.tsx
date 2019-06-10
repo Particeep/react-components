@@ -19,7 +19,7 @@ const styles = (t: Theme) => createStyles({
     color: colorInfo,
   },
   label: {
-    marginLeft: t.spacing.unit * 2,
+    marginLeft: t.spacing(2),
   }
 })
 

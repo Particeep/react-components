@@ -1,10 +1,10 @@
 import * as React from 'react'
-import {Icon, Slide, Theme} from '@material-ui/core'
+import {createStyles, Icon, Slide, Theme} from '@material-ui/core'
 import {Pre} from 'mui-extension'
 import {IconBtn} from 'mui-extension'
 import {makeStyles} from '@material-ui/styles'
 
-const useStyles = makeStyles((t: Theme) => ({
+const useStyles = makeStyles((t: Theme) => createStyles({
   root: {
     position: 'fixed',
     top: 0,
@@ -14,8 +14,8 @@ const useStyles = makeStyles((t: Theme) => ({
   },
   head: {
     background: t.palette.background.default,
-    paddingRight: t.spacing.unit * 2,
-    paddingLeft: t.spacing.unit * 2,
+    paddingRight: t.spacing(2),
+    paddingLeft: t.spacing(2),
     display: 'flex',
     alignItems: 'center',
   },

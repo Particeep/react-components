@@ -1,11 +1,11 @@
 import * as React from 'react'
-import {Icon, Switch, Theme} from '@material-ui/core'
+import {createStyles, Icon, Switch, Theme} from '@material-ui/core'
 import {useTheme, useToggleTheme} from '../../theme/ThemeContext'
 import {GitHubIcon} from 'mui-extension'
 import {Sidebar, SidebarBody, SidebarFooter, SidebarHeader, SidebarItem, DownloadIcon} from 'mui-extension'
 import {makeStyles} from '@material-ui/styles'
 
-const useStyles = makeStyles((t: Theme) => ({
+const useStyles = makeStyles((t: Theme) => createStyles({
   avatar: {
     background: t.palette.divider,
     margin: 'auto',

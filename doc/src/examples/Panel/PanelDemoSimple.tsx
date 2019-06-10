@@ -59,12 +59,12 @@ const useStyles = makeStyles(t => ({
     display: 'flex',
     alignItems: 'center',
     flexWrap: 'wrap',
-    paddingBottom: t.spacing.unit * 2,
+    paddingBottom: t.spacing(2),
     '&:not(:first-of-type)': {
-      marginTop: t.spacing.unit * 2,
+      marginTop: t.spacing(2),
     },
     '&:not(:last-of-type)': {
-      marginBottom: t.spacing.unit * 2,
+      marginBottom: t.spacing(2),
       borderBottom: `1px solid ${t.palette.divider}`
     }
   },
@@ -73,8 +73,8 @@ const useStyles = makeStyles(t => ({
   },
   content: {
     flex: 1,
-    marginLeft: t.spacing.unit * 2,
-    marginRight: t.spacing.unit * 2,
+    marginLeft: t.spacing(2),
+    marginRight: t.spacing(2),
   },
   label: {
     fontWeight: 'bold'

@@ -1,10 +1,10 @@
-import {Slide, Theme} from '@material-ui/core'
+import {createStyles, Slide, Theme} from '@material-ui/core'
 import * as React from 'react'
 import {Header, headerHeight} from '../Header/Header'
 import {useLayoutContext} from '../LayoutContext'
 import {makeStyles} from '@material-ui/styles'
 
-const useStyles = makeStyles((t: Theme) => ({
+const useStyles = makeStyles((t: Theme) => createStyles({
   header: {
     position: 'fixed',
     top: 0,

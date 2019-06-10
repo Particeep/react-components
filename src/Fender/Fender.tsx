@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {ReactChild} from 'react'
-import {CircularProgress, Icon, Theme} from '@material-ui/core'
+import {CircularProgress, createStyles, Icon, Theme} from '@material-ui/core'
 import classNames from 'classnames'
 import {colorError, colorSuccess, colorWarning} from '../style/color'
 import {makeStyles} from '@material-ui/styles'
@@ -9,7 +9,7 @@ type State = 'loading' | 'error' | 'empty' | 'success' | 'warning';
 
 const iconSize = 70
 
-const useStyles = makeStyles((t: Theme) => ({
+const useStyles = makeStyles((t: Theme) => createStyles({
   root: {
     transition: t.transitions.create('all'),
     display: 'flex',
@@ -33,7 +33,7 @@ const useStyles = makeStyles((t: Theme) => ({
     fontSize: `${iconSize}px !important`,
   },
   p: {
-    marginTop: t.spacing.unit,
+    marginTop: t.spacing(1),
   }
 }))
 

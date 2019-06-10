@@ -1,17 +1,17 @@
 import * as React from 'react'
 import {ReactChild} from 'react'
-import {Theme, Typography} from '@material-ui/core'
+import {createStyles, Theme, Typography} from '@material-ui/core'
 import {makeStyles} from '@material-ui/styles'
 
-const useStyles = makeStyles((t: Theme) => ({
+const useStyles = makeStyles((t: Theme) => createStyles({
   root: {
     fontWeight: t.typography.fontWeightMedium,
     textTransform: 'uppercase',
     letterSpacing: 1,
     color: t.palette.text.disabled,
-    marginBottom: t.spacing.unit * 2,
-  },
-}))
+    marginBottom: t.spacing(2),
+  }
+}));
 
 interface IProps {
   children: ReactChild

@@ -16,7 +16,7 @@ import {AutocompleteItemProps} from './AutocompleteItem'
 
 const styles = (t: Theme) => createStyles({
   menu_head: {
-    marginTop: -t.spacing.unit,
+    marginTop: -t.spacing(1),
     borderBottom: `1px solid ${t.palette.divider}`,
     display: 'flex',
     alignItems: 'center',
@@ -88,7 +88,7 @@ class Autocomplete extends React.Component<Props & WithStyles<typeof styles>, St
           <header className={classNames(classes.menu_head, multiple && classes.menu_headWithCb)}>
             {multiple &&
             <Checkbox
-              checked={value && value.length === optionsCount}
+              checked={!!value && value.length === optionsCount}
               onChange={this.selectAll}
               indeterminate={!!value && (value.length > 0 && value.length < optionsCount)}
               disabled={readonly}/>

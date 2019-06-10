@@ -6,13 +6,17 @@ import {IconButtonProps} from '@material-ui/core/IconButton'
 
 interface Props extends IconButtonProps {
   loading?: boolean
+  icon?: string
   children: ReactChild
 }
 
-export const IconBtn = ({loading, children, disabled, ...props}: Props) => {
+export const IconBtn = ({icon, loading, children, disabled, ...props}: Props) => {
   return (
     <IconButton {...props} disabled={disabled || loading}>
-      {loading ? <CircularProgress size={24}/> : children}
+      {loading
+        ? <CircularProgress size={24}/>
+        : <>{icon}{children}</>
+      }
     </IconButton>
   )
 }

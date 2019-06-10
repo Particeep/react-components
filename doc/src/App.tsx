@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Theme} from '@material-ui/core'
+import {createStyles, Theme} from '@material-ui/core'
 import PanelDemo from './examples/Panel/PanelDemo'
 import BtnDemo from './examples/Btn/BtnDemo'
 import AlertDemo from './examples/Alert/AlertDemo'
@@ -22,7 +22,7 @@ import {Layout} from 'mui-extension'
 import {makeStyles} from '@material-ui/styles'
 import {Install} from './pages/Install/Install'
 
-const useStyles = makeStyles((t: Theme) => ({
+const useStyles = makeStyles((t: Theme) => createStyles({
   '@global': {
     body: {
       fontFamily: t.typography.fontFamily,
@@ -36,8 +36,8 @@ const useStyles = makeStyles((t: Theme) => ({
     h1: t.typography.h4,
     h2: {
       ...t.typography.h6,
-      marginBottom: t.spacing.unit * 2,
-      marginTop: t.spacing.unit * 3,
+      marginBottom: t.spacing(2),
+      marginTop: t.spacing(3),
     },
     p: {
       ...t.typography.body1,

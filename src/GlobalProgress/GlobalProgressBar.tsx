@@ -1,12 +1,15 @@
 import * as React from 'react'
-import {Theme} from '@material-ui/core'
+import {createStyles, Theme} from '@material-ui/core'
 import {progressbarAnimationDuration, useGlobalProgressState} from './GlobalProgressContext'
 import classNames from 'classnames'
 import {makeStyles} from '@material-ui/styles'
 
-const progressbarColor = (t: Theme) => t.palette.primary.main
+const progressbarColor = (t: Theme) => {
+  console.log(t)
+  return t.palette.primary.main
+}
 
-const useStyles = makeStyles((t: Theme) => ({
+const useStyles = makeStyles((t: Theme) => createStyles({
   root: {
     position: 'absolute',
     top: 0,

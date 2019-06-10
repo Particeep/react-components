@@ -2,13 +2,13 @@ import * as React from 'react'
 import {Page} from '../../shared/Page/Page'
 import {NavLink} from 'react-router-dom'
 import {PageTitle} from '../../shared/PageTitle/PageTitle'
-import {Theme} from '@material-ui/core'
+import {createStyles, Theme} from '@material-ui/core'
 import {makeStyles, useTheme} from '@material-ui/styles'
 import classNames from 'classnames'
 // @ts-ignore
 import Logo from '../../asset/logo.png'
 
-const useStyles = makeStyles((t: Theme) => ({
+const useStyles = makeStyles((t: Theme) => createStyles({
   root: {
     height: '100vh',
     marginTop: '-52px !important', // TODO Hack to fix 100vh when mobile header appear
@@ -16,7 +16,7 @@ const useStyles = makeStyles((t: Theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'center',
-    padding: `0 ${t.spacing.unit * 2}px !important`,
+    padding: `0 ${t.spacing(2)}px !important`,
     flexDirection: 'column',
   },
   logo: {

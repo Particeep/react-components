@@ -1,20 +1,19 @@
 import * as React from 'react'
 import {useState} from 'react'
-import {FacebookIcon, GitHubIcon, IconSkype, LinkedinIcon, TwitterIcon} from 'mui-extension'
-import {MenuItem, TextField, Theme} from '@material-ui/core'
+import {DownloadIcon, FacebookIcon, GitHubIcon, IconSkype, LinkedinIcon, TwitterIcon} from 'mui-extension'
+import {createStyles, MenuItem, TextField, Theme} from '@material-ui/core'
 import {fade} from '@material-ui/core/styles/colorManipulator'
 import classNames from 'classnames'
 import {IconsDemoSelected} from './IconsDemoSelected'
 import {PageTitle} from '../../shared/PageTitle/PageTitle'
 import {Page} from '../../shared/Page/Page'
-import {makeStyles, withTheme} from '@material-ui/styles'
-import {DownloadIcon} from 'mui-extension'
+import {makeStyles} from '@material-ui/styles'
 
-const useStyles = makeStyles((t: Theme) => ({
+const useStyles = makeStyles((t: Theme) => createStyles({
   head: {
-    marginBottom: t.spacing.unit * 3,
+    marginBottom: t.spacing(3),
     '& > *': {
-      marginRight: `${t.spacing.unit * 2}px !important`
+      marginRight: `${t.spacing(2)}px !important`
     }
   },
   icons: {
@@ -22,11 +21,11 @@ const useStyles = makeStyles((t: Theme) => ({
   },
   icon: {
     display: 'inline-block',
-    marginRight: t.spacing.unit * 2,
-    marginBottom: t.spacing.unit * 2,
+    marginRight: t.spacing(2),
+    marginBottom: t.spacing(2),
     textAlign: 'center',
     transition: t.transitions.create('all'),
-    padding: t.spacing.unit * 2 + 'px ' + t.spacing.unit + 'px',
+    padding: t.spacing(2) + 'px ' + t.spacing(1) + 'px',
     borderRadius: 4,
     border: '1px solid transparent',
     cursor: 'pointer',
@@ -42,7 +41,7 @@ const useStyles = makeStyles((t: Theme) => ({
   },
   label: {
     fontSize: t.typography.caption.fontSize,
-    marginTop: t.spacing.unit / 2,
+    marginTop: t.spacing(1 / 2),
   }
 }))
 
@@ -119,4 +118,4 @@ const IconsDemo = ({theme}) => {
   )
 }
 
-export default withTheme()(IconsDemo)
+export default IconsDemo
