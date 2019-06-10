@@ -1,9 +1,9 @@
 import * as React from 'react'
 import {ReactNode} from 'react'
-import {Theme} from '@material-ui/core'
+import {createStyles, Theme} from '@material-ui/core'
 import {makeStyles} from '@material-ui/styles'
 
-const useStyles = makeStyles((t: Theme) => ({
+const useStyles = makeStyles((t: Theme) => createStyles({
   root: {
     background: t.palette.background.default,
     color: t.palette.text.secondary,

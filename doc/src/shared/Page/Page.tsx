@@ -1,15 +1,15 @@
 import * as React from 'react'
 import {Page as MuiePage} from 'mui-extension'
-import {Theme} from '@material-ui/core'
+import {createStyles, Theme} from '@material-ui/core'
 import classNames from 'classnames'
 import {makeStyles} from '@material-ui/styles'
 
-const useStyles = makeStyles((t: Theme) => ({
+const useStyles = makeStyles((t: Theme) => createStyles({
   root: {
-    paddingLeft: t.spacing.unit,
-    paddingRight: t.spacing.unit,
+    paddingLeft: t.spacing(1),
+    paddingRight: t.spacing(1),
     minWidth: 0,
-    marginBottom: t.spacing.unit * 2,
+    marginBottom: t.spacing(2),
   }
 }))
 

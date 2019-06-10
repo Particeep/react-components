@@ -1,7 +1,8 @@
 import * as React from 'react'
 import autobind from 'autobind-decorator'
+import {useContext} from 'react'
 
-export const GlobalProgressContext = React.createContext({})
+export const GlobalProgressContext = React.createContext({} as IState)
 
 export const progressbarAnimationDuration = 400
 
@@ -121,6 +122,36 @@ class GlobalProgressProvider extends React.Component<IProps, IState> {
 }
 
 export default GlobalProgressProvider
+
+export const useGlobalProgress = (): WithProgress => {
+  const {
+    progressStart,
+    progressStop,
+    progressComplete,
+    progressNext,
+    promisesWithProgress,
+  } = useContext(GlobalProgressContext) as IState
+  return {
+    progressStart,
+    progressStop,
+    progressComplete,
+    progressNext,
+    promisesWithProgress,
+  }
+}
+
+export const useGlobalProgressState = (): IProgressState => {
+  const {
+    currentStep,
+    steps,
+    started,
+  } = useContext(GlobalProgressContext) as IState
+  return {
+    currentStep,
+    steps,
+    started,
+  }
+}
 
 export const withGlobalProgress = (Component: any) => (props: any) => (
   <GlobalProgressContext.Consumer>

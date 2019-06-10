@@ -14,14 +14,14 @@ const styles = (t: Theme) => createStyles({
   },
   header: {
     transition: t.transitions.create('all'),
-    padding: `0 ${t.spacing.unit * 3}px`,
+    padding: `0 ${t.spacing(3)}px`,
     height: 68,
     display: 'flex',
     alignItems: 'center',
-    fontSize: t.typography.subheading.fontSize,
+    fontSize: t.typography.subtitle1.fontSize,
   },
   headerCurrent: {
-    fontSize: t.typography.title.fontSize,
+    fontSize: t.typography.h6.fontSize,
   },
   headerClickable: {
     cursor: 'pointer',
@@ -33,14 +33,14 @@ const styles = (t: Theme) => createStyles({
     fontWeight: t.typography.fontWeightMedium,
     borderRadius: '50%',
     color: colorSuccess,
-    marginRight: t.spacing.unit,
+    marginRight: t.spacing(1),
   },
   body: {
     transition: t.transitions.create('all'),
     overflow: 'hidden',
   },
   content: {
-    padding: `0 ${t.spacing.unit * 3}px ${t.spacing.unit * 3}px ${t.spacing.unit * 3}px`
+    padding: `0 ${t.spacing(3)}px ${t.spacing(3)}px ${t.spacing(3)}px`
   }
 })
 

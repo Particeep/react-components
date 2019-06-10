@@ -5,7 +5,7 @@ import {NavLink} from 'react-router-dom'
 import {Pre} from 'mui-extension'
 import {A} from '../../shared/A'
 
-// const useStyles = makeStyles((t: Theme) => ({
+// const useStyles = makeStyles((t: Theme) => createStyles({
 // }))
 
 export const Install = () => {

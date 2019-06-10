@@ -26,7 +26,7 @@ class ExpensionStepper extends React.Component<Props & WithStyles<typeof styles>
     const {className, autoScroll, free, onNext, onEnd, children, ...other} = this.props
     return (
       <div className={className} {...other}>
-        {React.Children.map(this.props.children, (step: ReactChild, i: number) => {
+        {React.Children.map(this.props.children, (step: any, i: number) => {
           // Cannot properly define step as ReactElement<ExpensionStepProps> in strict mode
           const castedStep = step as ReactElement<ExpensionStepProps>
           return React.cloneElement(castedStep, {

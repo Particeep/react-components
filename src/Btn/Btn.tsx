@@ -2,9 +2,9 @@ import * as React from 'react'
 import {Button, CircularProgress, Icon, Theme} from '@material-ui/core'
 import classNames from 'classnames'
 import {ButtonProps} from '@material-ui/core/Button'
-import {makeStyles} from '@material-ui/styles'
+import {createStyles, makeStyles} from '@material-ui/styles'
 
-const useStyles = makeStyles((t: Theme) => ({
+const useStyles = makeStyles((t: Theme) => createStyles({
   progress: {
     position: 'absolute',
     top: '50%',
@@ -20,11 +20,11 @@ const useStyles = makeStyles((t: Theme) => ({
     height: '16px !important',
     lineHeight: '16px !important',
     fontSize: '22px !important',
-    marginRight: t.spacing.unit
+    marginRight: t.spacing(1)
   },
   iconAfter: {
     marginRight: 0,
-    marginLeft: t.spacing.unit,
+    marginLeft: t.spacing(1),
   },
   labelHidden: {
     visibility: 'hidden',
@@ -38,8 +38,7 @@ interface Props extends ButtonProps {
 }
 
 export const Btn = ({loading, children, disabled, icon, iconAfter, ...props}: Props) => {
-  // @ts-ignore
-  const classes = useStyles()
+  const classes = useStyles({})
   return (
     <Button {...props} disabled={disabled || loading}>
       <div className={classNames(classes.label, loading && classes.labelHidden)}>

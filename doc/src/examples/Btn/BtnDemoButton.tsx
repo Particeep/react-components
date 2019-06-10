@@ -31,9 +31,9 @@ export const BtnDemoButton = () => {
            iconAfter="keyboard_arrow_right">
         Contacts
       </Btn>
-      <Btn variant="fab" color="primary" loading={isLoading[3]} onClick={upload(3)}>
-        <Icon>add</Icon>
-      </Btn>
+      {/*<Btn variant="fab" color="primary" loading={isLoading[3]} onClick={upload(3)}>*/}
+        {/*<Icon>add</Icon>*/}
+      {/*</Btn>*/}
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import {Icon, Theme} from '@material-ui/core'
+import {createStyles, Icon, Theme} from '@material-ui/core'
 import * as React from 'react'
 import {useLayoutContext} from '../LayoutContext'
 import classNames from 'classnames'
@@ -7,21 +7,21 @@ import {makeStyles} from '@material-ui/styles'
 
 export const headerHeight = 52
 
-const useStyles = makeStyles((t: Theme) => ({
+const useStyles = makeStyles((t: Theme) => createStyles({
   root: {
     height: headerHeight,
     display: 'flex',
     alignItems: 'center',
-    paddingRight: t.spacing.unit * 2,
-    paddingLeft: t.spacing.unit + 2,
+    paddingRight: t.spacing(2),
+    paddingLeft: t.spacing(1) + 2,
     background: t.palette.background.paper,
   },
   hidden: {
-    visibility: 'hidden',
+    visibility: 'hidden' as any,
   },
   title: {
     flex: 1,
-    fontSize: t.typography.title.fontSize,
+    fontSize: t.typography.h6.fontSize,
   }
 }))
 

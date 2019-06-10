@@ -1,13 +1,13 @@
 import * as React from 'react'
 import {ReactNode} from 'react'
-import {SwipeableDrawer, Theme} from '@material-ui/core'
+import {createStyles, SwipeableDrawer, Theme} from '@material-ui/core'
 import classNames from 'classnames'
 import {sidebarWith} from '../Layout'
 import {Header} from '../Header/Header'
 import {useLayoutContext} from '../LayoutContext'
 import makeStyles from '@material-ui/styles/makeStyles'
 
-const useStyles = makeStyles((t: Theme) => ({
+const useStyles = makeStyles((t: Theme) => createStyles({
   root: {
     width: sidebarWith,
     height: '100vh',

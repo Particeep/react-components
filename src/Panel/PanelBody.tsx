@@ -1,14 +1,14 @@
 import * as React from 'react'
 import {ReactNode} from 'react'
-import {Theme} from '@material-ui/core'
+import {createStyles, Theme} from '@material-ui/core'
 import {makeStyles} from '@material-ui/styles'
 
-const useStyles = makeStyles((t: Theme) => ({
+const useStyles = makeStyles((t: Theme) => createStyles({
   root: t.mixins.gutters({
-    paddingTop: t.spacing.unit * 2,
-    paddingBottom: t.spacing.unit * 2,
+    paddingTop: t.spacing(2),
+    paddingBottom: t.spacing(2),
     '&:last-child': {
-      paddingBottom: t.spacing.unit * 3,
+      paddingBottom: t.spacing(3),
     },
   }) as any,
 }))

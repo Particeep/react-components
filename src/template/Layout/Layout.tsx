@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {ReactChild, ReactNode} from 'react'
-import {Theme} from '@material-ui/core'
+import {createStyles, Theme} from '@material-ui/core'
 import {MobileHeader} from './MobileHeader/MobileHeader'
 import classNames from 'classnames'
 import {makeStyles} from '@material-ui/styles'
@@ -8,7 +8,7 @@ import {LayoutProvider, useLayoutContext} from './LayoutContext'
 
 export const sidebarWith = 220
 
-const useStyles = makeStyles((t: Theme) => ({
+const useStyles = makeStyles((t: Theme) => createStyles({
   root: {
     overflow: 'hidden',
     position: 'relative',

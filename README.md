@@ -10,7 +10,7 @@ Set of [React](https://reactjs.org/) components based on [Material-UI](https://m
 
 ### Demo
 
-[Click here](https://mui-extension.firebaseapp.com/)
+[https://mui-extension.firebaseapp.com](https://mui-extension.firebaseapp.com/)
 
 ### Usage
 

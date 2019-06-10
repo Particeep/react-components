@@ -1,28 +1,28 @@
 // @ts-ignore
 import * as React from 'react'
 import {useState} from 'react'
-import {Collapse, Icon, IconButton, Theme} from '@material-ui/core'
+import {Collapse, createStyles, Icon, IconButton, Theme} from '@material-ui/core'
 import {Pre} from './Pre/Pre'
 import {makeStyles} from '@material-ui/styles'
 
-const useStyles = makeStyles((t: Theme) => ({
+const useStyles = makeStyles((t: Theme) => createStyles({
   root: {
     boxShadow: t.shadows[1],
     borderRadius: 4,
     background: t.palette.background.default,
     overflow: 'auto',
-    marginTop: t.spacing.unit * 2,
-    marginBottom: t.spacing.unit * 3,
+    marginTop: t.spacing(2),
+    marginBottom: t.spacing(3),
   },
   head: {
-    margin: `${t.spacing.unit}px ${t.spacing.unit * 2}px ${t.spacing.unit / 2}px ${t.spacing.unit * 2}px`,
+    margin: `${t.spacing(1)}px ${t.spacing(2)}px ${t.spacing(1 / 2)}px ${t.spacing(2)}px`,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-end'
   },
   wrapper: {
-    margin: t.spacing.unit,
-    padding: t.spacing.unit * 2,
+    margin: t.spacing(1),
+    padding: t.spacing(2),
     background: t.palette.background.paper,
   }
 }))

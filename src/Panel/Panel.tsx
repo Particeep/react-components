@@ -1,14 +1,14 @@
 import * as React from 'react'
 import {ReactNode} from 'react'
 import {LinearProgress} from '@material-ui/core/es/index'
-import {Card, Theme} from '@material-ui/core'
+import {Card, createStyles, Theme} from '@material-ui/core'
 import {makeStyles} from '@material-ui/styles'
 
-const useStyles = makeStyles((t: Theme) => ({
+const useStyles = makeStyles((t: Theme) => createStyles({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    marginBottom: t.spacing.unit * 2,
+    marginBottom: t.spacing(2),
   },
   loader: {
     marginBottom: -5,

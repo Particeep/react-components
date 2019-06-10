@@ -16,6 +16,8 @@ export const BtnDemoIconButton = () => {
       <IconBtn loading={isLoading} onClick={upload}>
         <Icon>send</Icon>
       </IconBtn>
+      {/*<IconBtn loading={isLoading} onClick={upload} icon="send">*/}
+      {/*</IconBtn>*/}
       <IconBtn loading={isLoading} onClick={upload} color="primary">
         <Icon>delete</Icon>
       </IconBtn>
