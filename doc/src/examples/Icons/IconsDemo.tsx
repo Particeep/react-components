@@ -7,7 +7,7 @@ import classNames from 'classnames'
 import {IconsDemoSelected} from './IconsDemoSelected'
 import {PageTitle} from '../../shared/PageTitle/PageTitle'
 import {Page} from '../../shared/Page/Page'
-import {makeStyles} from '@material-ui/styles'
+import {makeStyles, useTheme} from '@material-ui/styles'
 
 const useStyles = makeStyles((t: Theme) => createStyles({
   head: {
@@ -55,7 +55,8 @@ const icons = {
 }
 
 
-const IconsDemo = ({theme}) => {
+const IconsDemo = () => {
+  const theme = useTheme()
   // @ts-ignore
   const classes = useStyles()
 

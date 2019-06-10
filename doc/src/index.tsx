@@ -5,8 +5,8 @@ import {HashRouter} from 'react-router-dom'
 import {ThemeContextProvider, useTheme} from './core/theme/ThemeContext'
 import {ThemeProvider} from '@material-ui/styles'
 import {muiTheme} from './core/theme/mui-theme'
-// import './core/theme/boostrap'
 import {createMuiTheme} from '@material-ui/core'
+// import './core/theme/boostrap'
 
 const Root = () => {
   const isDarkTheme = useTheme()
