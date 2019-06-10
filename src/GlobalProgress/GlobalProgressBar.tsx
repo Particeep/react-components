@@ -4,10 +4,7 @@ import {progressbarAnimationDuration, useGlobalProgressState} from './GlobalProg
 import classNames from 'classnames'
 import {makeStyles} from '@material-ui/styles'
 
-const progressbarColor = (t: Theme) => {
-  console.log(t)
-  return t.palette.primary.main
-}
+const progressbarColor = (t: Theme) => t.palette.primary.main;
 
 const useStyles = makeStyles((t: Theme) => createStyles({
   root: {
