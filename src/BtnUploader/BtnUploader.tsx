@@ -56,7 +56,7 @@ interface Messages {
   invalidSize: string
 }
 
-interface Props extends Pick<ButtonProps, Exclude<keyof ButtonProps, keyof {classes}>> {
+export interface BtnUploaderProps extends Pick<ButtonProps, Exclude<keyof ButtonProps, keyof {classes}>> {
   document?: Document
   msg?: Messages
   uploading?: boolean
@@ -72,7 +72,7 @@ const defaultMsg = {
 }
 
 // TODO(Alex) Fix wierd typing issue (it works for <Btn>)
-export const BtnUploader = ({document, uploading, msg = defaultMsg, onUpload, onDelete, maxUploadFileSize, ...other}: Props) => {
+export const BtnUploader = ({document, uploading, msg = defaultMsg, onUpload, onDelete, maxUploadFileSize, ...other}: BtnUploaderProps) => {
   // @ts-ignore
   const classes = useStyles()
   const [errorMessage, setErrorMessage] = useState<string | undefined>(undefined)

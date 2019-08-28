@@ -1,12 +1,12 @@
 import * as React from 'react'
 import {Animate} from './index'
 
-interface IProps {
+export interface AnimateListProps {
   delay?: number,
   initialDelay?: number,
 }
 
-class AnimateList extends React.Component<IProps, any> {
+class AnimateList extends React.Component<AnimateListProps, any> {
 
   state = {
     appeared: false,

@@ -14,7 +14,7 @@ const useStyles = makeStyles((t: Theme) => createStyles({
 }))
 
 
-interface PanelBodyProps {
+export interface PanelBodyProps {
   children?: ReactNode;
   className?: string;
 }

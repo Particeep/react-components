@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {HTMLProps, ReactChild, ReactElement} from 'react'
+import {HTMLProps, ReactElement, ReactNode} from 'react'
 import {createStyles, Icon, Theme} from '@material-ui/core'
 import {NavLink} from 'react-router-dom'
 import classNames from 'classnames'
@@ -52,15 +52,15 @@ const useStyles = makeStyles((t: Theme) => createStyles({
   },
 }))
 
-interface IProps extends HTMLProps<any> {
-  icon?: string | ReactChild
+export interface SidebarItemProps extends HTMLProps<any> {
+  icon?: string | ReactNode
   to?: any
   href?: any
   className?: any
   large?: boolean
 }
 
-export const SidebarItem = ({href, to, children, icon, className, large, ...other}: IProps) => {
+export const SidebarItem = ({href, to, children, icon, className, large, ...other}: SidebarItemProps) => {
   // @ts-ignore
   const classes = useStyles()
   const {closeMobileSidebar} = useLayoutContext()

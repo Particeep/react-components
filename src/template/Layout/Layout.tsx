@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {ReactChild, ReactNode} from 'react'
+import {ReactNode} from 'react'
 import {createStyles, Theme} from '@material-ui/core'
 import {MobileHeader} from './MobileHeader/MobileHeader'
 import classNames from 'classnames'
@@ -19,14 +19,14 @@ const useStyles = makeStyles((t: Theme) => createStyles({
   },
 }))
 
-interface IProps {
+export interface LayoutProps {
   title?: string
-  children?: ReactChild
+  children?: ReactNode
   mobileBreakpoint?: number
   sidebar?: ReactNode
 }
 
-export const Layout = ({title, mobileBreakpoint, children, sidebar}: IProps) => {
+export const Layout = ({title, mobileBreakpoint, children, sidebar}: LayoutProps) => {
   return (
     <LayoutProvider title={title} mobileBreakpoint={mobileBreakpoint}>
       <LayoutUsingContext sidebar={sidebar}>

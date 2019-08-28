@@ -17,12 +17,12 @@ const useStyles = makeStyles((t: Theme) => createStyles({
   },
 }))
 
-interface IProps {
+export interface SidebarProps {
   className?: string
   children?: ReactNode
 }
 
-export const Sidebar = ({children, className}: IProps) => {
+export const Sidebar = ({children, className}: SidebarProps) => {
   // @ts-ignore
   const classes = useStyles()
   const {isMobileWidth, isMobileSidebarOpened, openMobileSidebar, closeMobileSidebar} = useLayoutContext()

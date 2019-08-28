@@ -1,16 +1,16 @@
 import * as React from 'react'
-import {createContext, ReactChild, useContext, useEffect, useState} from 'react'
+import {createContext, ReactNode, useContext, useEffect, useState} from 'react'
 // import debounce from 'lodash.debounce'
 
 const LayoutContext = createContext<LayoutContextProps>({} as LayoutContextProps)
 
-interface IProps {
-  children: ReactChild
+export interface LayoutProviderProps {
+  children: ReactNode
   mobileBreakpoint?: number
   title?: string
 }
 
-interface LayoutContextProps {
+export interface LayoutContextProps {
   title?: string
   isMobileWidth: boolean
   isMobileSidebarOpened: boolean
@@ -19,7 +19,7 @@ interface LayoutContextProps {
   toggleMobileSidebar: () => void
 }
 
-export const LayoutProvider = ({title, mobileBreakpoint = 700, children}: IProps) => {
+export const LayoutProvider = ({title, mobileBreakpoint = 700, children}: LayoutProviderProps) => {
   const [isMobileSidebarOpened, setIsMobileSidebarOpened] = useState(false)
   const [mobileWidth, setMobileWidth] = useState(getWidth())
 

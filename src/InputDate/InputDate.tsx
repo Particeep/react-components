@@ -3,11 +3,11 @@ import Mask from './Mask'
 import {Input} from '@material-ui/core'
 import {InputProps} from '@material-ui/core/Input'
 
-interface Props extends InputProps {
+export interface InputDateProps extends InputProps {
   format: string;
 }
 
-class InputDate extends React.Component<Props, {}> {
+class InputDate extends React.Component<InputDateProps, {}> {
 
   render() {
     return (

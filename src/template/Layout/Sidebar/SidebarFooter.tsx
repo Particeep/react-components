@@ -12,12 +12,12 @@ const useStyles = makeStyles((t: Theme) => createStyles({
   },
 }))
 
-interface IProps {
+export interface SidebarFooterProps {
   children?: ReactNode
   className?: string
 }
 
-export const SidebarFooter = ({children, className}: IProps) => {
+export const SidebarFooter = ({children, className}: SidebarFooterProps) => {
   // @ts-ignore
   const classes = useStyles()
   return (

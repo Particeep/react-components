@@ -27,7 +27,7 @@ const useStyles = makeStyles((t: Theme) => createStyles({
   }
 }))
 
-interface IProps {
+export interface DemoProps {
   component: any
   raw: string
   reloadable?: boolean
@@ -35,7 +35,7 @@ interface IProps {
 
 const parseComponentCode = (code: string): string => code.replace(/\n\s*\/\/\s*@ts-ignore\s*?\n/, '\n')
 
-export const Demo = ({component: Component, raw, reloadable}: IProps) => {
+export const Demo = ({component: Component, raw, reloadable}: DemoProps) => {
   // @ts-ignore
   const classes = useStyles()
   const [codeOpened, setCodeOponed] = useState<boolean>(false)

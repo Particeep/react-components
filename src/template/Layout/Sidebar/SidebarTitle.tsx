@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {ReactChild} from 'react'
+import {ReactNode} from 'react'
 import {createStyles, Theme, Typography} from '@material-ui/core'
 import {makeStyles} from '@material-ui/styles'
 
@@ -13,11 +13,11 @@ const useStyles = makeStyles((t: Theme) => createStyles({
   }
 }));
 
-interface IProps {
-  children: ReactChild
+export interface SidebarTitleProps {
+  children: ReactNode
 }
 
-export const SidebarTitle = ({children}: IProps) => {
+export const SidebarTitle = ({children}: SidebarTitleProps) => {
   // @ts-ignore
   const classes = useStyles()
   return (

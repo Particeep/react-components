@@ -6,13 +6,13 @@ import autobind from 'autobind-decorator'
 
 export type OrderByType = 'asc' | 'desc'
 
-interface IProps {
+export interface TableSortProps {
   sortBy: string
   orderBy: OrderByType
   onSort: (sortBy: string, orderBy: OrderByType) => void
 }
 
-class TableSort extends React.Component<IProps, {}> {
+class TableSort extends React.Component<TableSortProps, {}> {
 
   render() {
     const {orderBy, sortBy, children} = this.props

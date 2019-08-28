@@ -13,12 +13,12 @@ const useStyles = makeStyles((t: Theme) => createStyles({
   },
 }))
 
-interface IProps {
+export interface SidebarBodyProps {
   children?: ReactNode
   className?: string
 }
 
-export const SidebarBody = ({children, className}: IProps) => {
+export const SidebarBody = ({children, className}: SidebarBodyProps) => {
   // @ts-ignore
   const classes = useStyles()
   return (

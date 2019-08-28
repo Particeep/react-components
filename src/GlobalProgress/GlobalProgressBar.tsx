@@ -4,7 +4,9 @@ import {progressbarAnimationDuration, useGlobalProgressState} from './GlobalProg
 import classNames from 'classnames'
 import {makeStyles} from '@material-ui/styles'
 
-const progressbarColor = (t: Theme) => t.palette.primary.main;
+const progressbarColor = (t: Theme) => {
+  return t.palette.primary.main;
+}
 
 const useStyles = makeStyles((t: Theme) => createStyles({
   root: {
@@ -29,7 +31,7 @@ const useStyles = makeStyles((t: Theme) => createStyles({
   },
 }))
 
-interface Props {
+export interface GlobalProgressBarProps {
   className?: string
   style?: object
   styleProgress?: object
@@ -37,8 +39,8 @@ interface Props {
 
 const INITIAL_PERCENT = 10
 
-const GlobalProgressBar = ({className, style, styleProgress}: Props) => {
-  const classes = useStyles('')
+const GlobalProgressBar = ({className, style, styleProgress}: GlobalProgressBarProps) => {
+  const classes = useStyles({})
   const {currentStep, steps, started} = useGlobalProgressState()
 
   const getPercent = () => INITIAL_PERCENT + (100 - INITIAL_PERCENT) / steps * currentStep

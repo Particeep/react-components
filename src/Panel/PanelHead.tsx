@@ -21,7 +21,7 @@ const useStyles = makeStyles((t: Theme) => createStyles({
   },
 }))
 
-interface PanelHeadProps {
+export interface PanelHeadProps {
   icon?: string;
   children?: ReactNode;
   action?: any;

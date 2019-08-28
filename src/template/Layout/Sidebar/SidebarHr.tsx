@@ -14,12 +14,12 @@ const useStyles = makeStyles((t: Theme) => createStyles({
   }
 }))
 
-interface IProps {
+export interface SidebarHrProps {
   className?: any;
   margin?: boolean;
 }
 
-export const SidebarHr = ({className, margin}: IProps) => {
+export const SidebarHr = ({className, margin}: SidebarHrProps) => {
   // @ts-ignore
   const classes = useStyles()
   return (

@@ -1,33 +1,45 @@
 import * as React from 'react'
 import {ReactNode} from 'react'
 import {LinearProgress} from '@material-ui/core/es/index'
-import {Card, createStyles, Theme} from '@material-ui/core'
+import {createStyles, Theme} from '@material-ui/core'
 import {makeStyles} from '@material-ui/styles'
+import classNames from 'classnames'
 
 const useStyles = makeStyles((t: Theme) => createStyles({
   root: {
+    borderRadius: 4,
     display: 'flex',
     flexDirection: 'column',
     marginBottom: t.spacing(2),
+    border: `1px solid ${t.palette.divider}`
   },
   loader: {
     marginBottom: -5,
   },
+  hover: {
+    cursor: 'pointer',
+    transition: t.transitions.create('all'),
+    '&:hover': {
+      transform: 'scale(1.01)',
+      boxShadow: t.shadows[4],
+    }
+  }
 }))
 
-interface PanelProps {
-  loading?: boolean;
-  children?: ReactNode;
-  className?: string;
+export interface PanelProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  loading?: boolean
+  hoverable?: boolean
+  children?: ReactNode
+  className?: string
 }
 
-export const Panel = ({className, loading, children}: PanelProps) => {
+export const Panel = ({className, hoverable, loading, children, ...other}: PanelProps) => {
   // @ts-ignore
   const classes = useStyles()
   return (
-    <Card className={`${classes.root} ${className || ''}`}>
+    <div className={classNames(classes.root, hoverable && classes.hover, className)} {...other}>
       {loading && <LinearProgress className={classes.loader}/>}
       {children}
-    </Card>
+    </div>
   )
 }

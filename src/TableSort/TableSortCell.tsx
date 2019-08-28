@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {ReactChild} from 'react'
+import {ReactNode} from 'react'
 import {TableCell, TableSortLabel} from '@material-ui/core'
 import {OrderByType} from './TableSort'
 
@@ -8,7 +8,7 @@ export interface ITableSortCellProps {
   active?: boolean;
   orderBy?: OrderByType;
   onSort?: () => void;
-  children: ReactChild;
+  children: ReactNode;
 }
 
 class TableSortCell extends React.Component<ITableSortCellProps, {}> {
