@@ -26,22 +26,24 @@ const App = withGlobalProgress(({promisesWithProgress}) => {
   useEffect(() => fetch(), [])
 
   const fetch = () => {
-    promisesWithProgress(
+    Promise.all(promisesWithProgress(
       fetchSomething(800).then(() => console.info('Something fetched')),
       fetchSomething(1200).then(() => console.info('Something else fetched')),
       fetchSomething(1500).then(() => console.info('Something else else fetched')),
-    )
+    )).then(() => console.log('All done !'))
   }
 
   const fetchWithError = () => {
-    promisesWithProgress(
+    Promise.all(promisesWithProgress(
       fetchSomething(800).then(() => console.info('Something fetched')),
       fetchSomething(1200).then(() => console.info('Something else fetched')),
       fetchSomethingRejected(2400).catch(e => {
         console.info('Something fetched but rejected', e)
         return Promise.reject(e)
       }),
-    )
+    ))
+      .then(() => console.log('All done !'))
+      .catch(() => console.log('At least one promise has been rejected !'))
   }
 
   return (

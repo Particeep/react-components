@@ -65,19 +65,18 @@ class GlobalProgressProvider extends React.Component<IProps, IState> {
   }
 
   @autobind
-  private promisesWithProgress(...promises: Promise<any>[]) {
+  private promisesWithProgress(...promises: Promise<any>[]): Promise<any>[] {
     this.start(promises.length)
-    promises.forEach(p => {
-      p
-        .then(x => {
-          this.next()
-          return x
-        })
-        .catch(x => {
-          this.stop()
-          return x
-        })
-    })
+    return promises.map(p => p
+      .then(_ => {
+        this.next()
+        return _
+      })
+      .catch(_ => {
+        this.stop()
+        return Promise.reject(_)
+      })
+    )
   }
 
   @autobind
