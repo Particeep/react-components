@@ -12,7 +12,7 @@ export interface IProgressState {
   started: boolean,
 }
 
-interface IProps {
+export interface GlobalProgressProviderProps {
 }
 
 export interface WithProgress {
@@ -27,7 +27,7 @@ export interface IState extends IProgressState,
   WithProgress {
 }
 
-class GlobalProgressProvider extends React.Component<IProps, IState> {
+class GlobalProgressProvider extends React.Component<GlobalProgressProviderProps, IState> {
 
   private timeouts: number[] = []
 

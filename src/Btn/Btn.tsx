@@ -31,13 +31,13 @@ const useStyles = makeStyles((t: Theme) => createStyles({
   }
 }))
 
-interface Props extends ButtonProps {
+export interface BtnProps extends ButtonProps {
   loading?: boolean
   icon?: string
   iconAfter?: string
 }
 
-export const Btn = ({loading, children, disabled, icon, iconAfter, ...props}: Props) => {
+export const Btn = ({loading, children, disabled, icon, iconAfter, ...props}: BtnProps) => {
   const classes = useStyles({})
   return (
     <Button {...props} disabled={disabled || loading}>

@@ -2,7 +2,7 @@ import * as React from 'react'
 import {ReactNode} from 'react'
 import {CardActions} from '@material-ui/core'
 
-interface PanelFootProps {
+export interface PanelFootProps {
   children?: ReactNode;
   className?: string;
 }

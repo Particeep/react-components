@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {ReactChild} from 'react'
+import {ReactNode} from 'react'
 import {CircularProgress, createStyles, Icon, Theme} from '@material-ui/core'
 import classNames from 'classnames'
 import {colorError, colorSuccess, colorWarning} from '../style/color'
@@ -37,15 +37,15 @@ const useStyles = makeStyles((t: Theme) => createStyles({
   }
 }))
 
-interface Props {
-  children: ReactChild,
+export interface FenderProps {
+  children: ReactNode,
   type?: State
   icon?: string
   className?: string
   style?: object
 }
 
-export const Fender = ({children, icon, type = 'empty', className, style}: Props) => {
+export const Fender = ({children, icon, type = 'empty', className, style}: FenderProps) => {
   // @ts-ignore
   const classes = useStyles()
   

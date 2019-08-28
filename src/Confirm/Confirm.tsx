@@ -2,7 +2,7 @@ import * as React from 'react'
 import {ReactElement, useState} from 'react'
 import {Button, Dialog, DialogActions, DialogContent, DialogTitle} from '@material-ui/core'
 
-interface Props {
+export interface ConfirmProps {
   disabled?: boolean
   title?: string
   confirmLabel?: string
@@ -10,9 +10,10 @@ interface Props {
   content?: any
   children: ReactElement<any>
   onConfirm?: () => void
+  onClick?: (event: any) => void
 }
 
-export const Confirm = ({children, title, content, confirmLabel, cancelLabel, onConfirm}: Props) => {
+export const Confirm = ({children, title, content, confirmLabel, cancelLabel, onConfirm, onClick}: ConfirmProps) => {
 
   const [open, setOpen] = useState<boolean>(false)
 
@@ -24,7 +25,10 @@ export const Confirm = ({children, title, content, confirmLabel, cancelLabel, on
   return (
     <>
       {React.cloneElement(children, {
-        onClick: () => setOpen(true)
+        onClick: (event: any) => {
+          if (onClick) onClick(event)
+          setOpen(true)
+        }
       })}
       <Dialog open={open}>
         <DialogTitle>{title}</DialogTitle>

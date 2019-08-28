@@ -15,12 +15,12 @@ const styles = (t: Theme) => createStyles({
   },
 })
 
-interface Props {
+export interface AnimateProps {
   delay?: number,
   children: any,
 }
 
-class Animate extends React.Component<Props & WithStyles<typeof styles>, any> {
+class Animate extends React.Component<AnimateProps & WithStyles<typeof styles>, any> {
 
   state = {
     appeared: false,
@@ -44,4 +44,4 @@ class Animate extends React.Component<Props & WithStyles<typeof styles>, any> {
   }
 }
 
-export default withStyles(styles)(Animate) as React.ComponentType<Props>
+export default withStyles(styles)(Animate) as React.ComponentType<AnimateProps>

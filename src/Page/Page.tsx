@@ -19,7 +19,7 @@ const useStyles = makeStyles((t: Theme) => createStyles({
   }
 }))
 
-interface Props {
+export interface PageProps {
   width?: number
   animated?: boolean
   className?: any
@@ -29,7 +29,7 @@ interface Props {
 
 let timeout
 
-const Page = ({children, width, animated = true, className, style,}: Props) => {
+const Page = ({children, width, animated = true, className, style,}: PageProps) => {
   // @ts-ignore
   const classes = useStyles()
   const [appeared, setAppeared] = useState(false)

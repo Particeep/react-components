@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {ReactChild, useState} from 'react'
+import {ReactChild, ReactNode, useState} from 'react'
 import {createStyles, Icon, IconButton, Theme} from '@material-ui/core'
 import {colorError, colorInfo, colorSuccess, colorWarning} from '../style/color'
 import classNames from 'classnames'
@@ -61,7 +61,7 @@ interface AlertProps {
   deletable?: boolean;
   action?: any;
   className?: string;
-  children: ReactChild
+  children: ReactNode
 }
 
 export const Alert = ({type, children, icon, action, deletable, className}: AlertProps) => {

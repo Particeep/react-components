@@ -4,7 +4,7 @@ import {AnimateList} from 'mui-extension'
 
 export const AnimateDemoList = () => {
   return (
-    <Grid container spacing={16} style={{overflowY: 'hidden'}}>
+    <Grid container spacing={10} style={{overflowY: 'hidden'}}>
       <AnimateList initialDelay={300} delay={40}>
         <Grid item md={3}>
           <Card>

@@ -1,7 +1,17 @@
 import * as React from 'react'
-import {CircularProgress, createStyles, Icon, IconButton, Snackbar, Theme, WithStyles, withStyles} from '@material-ui/core'
+import {
+  CircularProgress,
+  createStyles,
+  Icon,
+  IconButton,
+  Snackbar,
+  Theme,
+  WithStyles,
+  withStyles
+} from '@material-ui/core'
 import {colorInfo, colorSuccess, colorWarning} from '../style/color'
 import autobind from 'autobind-decorator'
+import {useContext} from 'react'
 
 const ToastContext = React.createContext({})
 
@@ -25,7 +35,7 @@ const styles = (t: Theme) => createStyles({
 
 type ToastType = 'error' | 'loading' | 'warning' | 'success' | 'info' | undefined;
 
-export interface IToastState {
+export interface ToastState {
   type?: ToastType;
   message?: string;
   open: boolean;
@@ -39,14 +49,14 @@ export interface WithToast {
   toastLoading: (m: string) => void;
 }
 
-interface Props {
+export interface ToastProviderProps {
 }
 
-export interface IState extends IToastState,
+export interface IState extends ToastState,
   WithToast {
 }
 
-class ToastProvider extends React.Component<Props & WithStyles<typeof styles>, IState> {
+class ToastProvider extends React.Component<ToastProviderProps & WithStyles<typeof styles>, IState> {
 
   state = {
     type: undefined,
@@ -139,7 +149,25 @@ class ToastProvider extends React.Component<Props & WithStyles<typeof styles>, I
   }
 }
 
-export default withStyles(styles)(ToastProvider) as React.ComponentType<Props>
+export const useToast = (): WithToast => {
+  const {
+    toastError,
+    toastSuccess,
+    toastWarning,
+    toastInfo,
+    toastLoading,
+  } = useContext(ToastContext) as WithToast
+  return {
+    toastError,
+    toastSuccess,
+    toastWarning,
+    toastInfo,
+    toastLoading,
+  }
+}
+
+
+export default withStyles(styles)(ToastProvider) as React.ComponentType<ToastProviderProps>
 
 export const withToast = (Component: any) => (props: any) => (
   <ToastContext.Consumer>
