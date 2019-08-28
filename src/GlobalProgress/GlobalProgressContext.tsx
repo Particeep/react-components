@@ -20,7 +20,7 @@ export interface WithProgress {
   readonly progressStop: () => void;
   readonly progressComplete: () => void;
   readonly progressNext: () => void;
-  readonly promisesWithProgress: (...promises: Promise<any>[]) => void;
+  readonly promisesWithProgress: (...promises: Promise<any>[]) => Promise<any>[];
 }
 
 export interface IState extends IProgressState,
