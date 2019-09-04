@@ -17,7 +17,7 @@ export const GlobalProgressDemoManual = () => {
 const App = withGlobalProgress(({progressStart, progressNext}) => {
 
   const [stepsCount, setStepsCount] = useState(3)
-  const [delay, setDelay] = useState(600)
+  const [delay, setDelay] = useState(1000)
   const timeouts = []
 
   useEffect(() => () => timeouts.map(clearTimeout), [])

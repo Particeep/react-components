@@ -2,7 +2,7 @@ import * as React from 'react'
 import {ReactNode} from 'react'
 import {CircularProgress, createStyles, Icon, Theme} from '@material-ui/core'
 import classNames from 'classnames'
-import {colorError, colorSuccess, colorWarning} from '../style/color'
+import {colorError, colorSuccess, colorWarning} from '../core/style/color'
 import {makeStyles} from '@material-ui/styles'
 
 type State = 'loading' | 'error' | 'empty' | 'success' | 'warning';
@@ -48,7 +48,7 @@ export interface FenderProps {
 export const Fender = ({children, icon, type = 'empty', className, style}: FenderProps) => {
   // @ts-ignore
   const classes = useStyles()
-  
+
   const getIcon = () => {
     if (icon) return renderIcon(icon)
     switch (type) {

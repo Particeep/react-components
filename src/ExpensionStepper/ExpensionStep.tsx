@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {ReactElement} from 'react'
 import {Collapse, createStyles, Icon, Theme, WithStyles, withStyles} from '@material-ui/core'
-import {colorSuccess} from '../style/color'
+import {colorSuccess} from '../core/style/color'
 import classNames from 'classnames'
 
 const animationDuration = 300

@@ -3,6 +3,8 @@ import {createStyles, Theme} from '@material-ui/core'
 import {progressbarAnimationDuration, useGlobalProgressState} from './GlobalProgressContext'
 import classNames from 'classnames'
 import {makeStyles} from '@material-ui/styles'
+import {useInterval} from '../core/utils/useInterval';
+import {useEffect, useState} from 'react';
 
 const progressbarColor = (t: Theme) => {
   return t.palette.primary.main;
@@ -42,13 +44,23 @@ const INITIAL_PERCENT = 10
 const GlobalProgressBar = ({className, style, styleProgress}: GlobalProgressBarProps) => {
   const classes = useStyles({})
   const {currentStep, steps, started} = useGlobalProgressState()
+  const [autoIncrement, setAutoIncrement] = useState(0)
 
-  const getPercent = () => INITIAL_PERCENT + (100 - INITIAL_PERCENT) / steps * currentStep
+  useInterval(() => {
+    setAutoIncrement(autoIncrement + 1)
+  }, 500)
+
+  useEffect(() => {
+    setAutoIncrement(0)
+  }, [steps, currentStep])
+
+  const stepProgress = (100 - INITIAL_PERCENT) / steps
+  const percent = Math.min(INITIAL_PERCENT + stepProgress * currentStep + Math.min(autoIncrement, stepProgress), 100)
 
   return (
     <div className={classes.root} style={style}>
       <div className={classNames(classes.progress, !started && classes.progressHide)}
-           style={{...styleProgress, width: getPercent() + '%'}}/>
+           style={{...styleProgress, width: percent + '%'}}/>
     </div>
   )
 }
