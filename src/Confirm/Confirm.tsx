@@ -37,9 +37,11 @@ export const Confirm = ({children, title, content, confirmLabel, cancelLabel, on
           <Button color="primary" onClick={() => setOpen(false)}>
             {cancelLabel || 'Cancel'}
           </Button>
-          <Button color="primary" onClick={confirm}>
-            {confirmLabel || 'Confirm'}
-          </Button>
+          {onConfirm && (
+            <Button color="primary" onClick={confirm}>
+              {confirmLabel || 'Confirm'}
+            </Button>
+          )}
         </DialogActions>
       </Dialog>
     </>

@@ -4,6 +4,7 @@ import {useTheme, useToggleTheme} from '../../theme/ThemeContext'
 import {GitHubIcon} from 'mui-extension'
 import {Sidebar, SidebarBody, SidebarFooter, SidebarHeader, SidebarItem, DownloadIcon} from 'mui-extension'
 import {makeStyles} from '@material-ui/styles'
+import packageJson from '../../../../package.json';
 
 const useStyles = makeStyles((t: Theme) => createStyles({
   avatar: {
@@ -13,6 +14,12 @@ const useStyles = makeStyles((t: Theme) => createStyles({
   itemI: {
     marginLeft: 'auto',
     color: t.palette.text.disabled,
+  },
+  version: {
+    textAlign: 'center',
+    color: t.palette.text.disabled,
+    fontSize: t.typography.caption.fontSize,
+    letterSpacing: 1
   }
 }))
 
@@ -71,6 +78,9 @@ export const Menu = ({className, basePath = ''}: IProps) => {
             onChange={toggleDarkTheme}
             style={{marginTop: -4, marginBottom: -4}}/>
         </SidebarItem>
+      </SidebarFooter>
+      <SidebarFooter>
+        <div className={classes.version}>v{packageJson.dependencies['mui-extension']}</div>
       </SidebarFooter>
     </Sidebar>
   )
