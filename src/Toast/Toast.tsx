@@ -9,7 +9,7 @@ import {
   WithStyles,
   withStyles
 } from '@material-ui/core'
-import {colorInfo, colorSuccess, colorWarning} from '../style/color'
+import {colorInfo, colorSuccess, colorWarning} from '../core/style/color'
 import autobind from 'autobind-decorator'
 import {useContext} from 'react'
 

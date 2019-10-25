@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {ReactChild, ReactNode, useState} from 'react'
 import {createStyles, Icon, IconButton, Theme} from '@material-ui/core'
-import {colorError, colorInfo, colorSuccess, colorWarning} from '../style/color'
+import {colorError, colorInfo, colorSuccess, colorWarning} from '../core/style/color'
 import classNames from 'classnames'
 import {makeStyles} from '@material-ui/styles'
 
