@@ -13,8 +13,8 @@ const BtnDemo = () => {
     <Page>
       <PageTitle>Btn</PageTitle>
       <p>
-        <Code>Btn</Code> and <Code>BtnIcon</Code> are wrappers for the respectives <Code>Button</Code> and
-        <Code>IconButton</Code> components of Material-UI adding a new props <Code>loading</Code>.
+        <Code>Btn</Code> and <Code>BtnIcon</Code> are wrappers enhancing the respectives <Code>Button</Code> and
+        <Code>IconButton</Code> components of Material-UI by adding few convenient props.
       </p>
 
       <h2>Example</h2>

@@ -29,7 +29,9 @@ export const AutocompleteDemoSimple = () => {
       <Autocomplete onChange={setValue} value={value} searchLabel="Search...">
           {cities.map(c => <AutocompleteItem key={c} value={c}>{c}</AutocompleteItem>)}
       </Autocomplete>
-      <div>JS Value: {value}</div>
+      <br/>
+      <br/>
+      <div>JS Value: <b>{value}</b></div>
     </div>
   )
 }

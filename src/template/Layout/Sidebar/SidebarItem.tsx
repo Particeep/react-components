@@ -37,6 +37,7 @@ const useStyles = makeStyles((t: Theme) => createStyles({
     background: fade(t.palette.primary.main, .16),
   },
   i: {
+    // color: t.palette.text.secondary,
     textAlign: 'center',
     marginRight: t.spacing(2),
   },

@@ -10,6 +10,7 @@
     "experimentalDecorators": true,
     "module": "commonjs",
     "esModuleInterop": true,
+    "resolveJsonModule": true,
     "lib": [
       "es2015",
       "es2017",

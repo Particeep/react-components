@@ -3,7 +3,6 @@
     "outDir": "./lib",
     "allowJs": false,
     "moduleResolution": "node",
-    "rootDir": "src",
     "suppressImplicitAnyIndexErrors": true,
     "sourceMap": true,
     "noImplicitAny": false,

@@ -16,16 +16,20 @@ const Tab = {
   }
 }
 
-export const muiTheme = (isDarkTheme: boolean): any => ({
+export const muiTheme = (isDark: boolean): any => ({
   palette: {
     primary: blue,
     secondary: orange,
     error: red,
-    type: isDarkTheme ? 'dark' : 'light'
+    type: isDark ? 'dark' : 'light'
   },
   typography: {
     fontFamily: '"Open Sans", sans-serif',
     fontWeightMedium: 600,
+  },
+  text: {
+    // primary: '#202124',
+    secondary: isDark ? '#d4d8de' : '#5f6368',
   },
   overrides: {
     ...Tab,

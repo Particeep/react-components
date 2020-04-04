@@ -14,6 +14,7 @@ const ConfirmDemo = () => {
       <PageTitle>Confirm</PageTitle>
       <p>
         Wrap a component with <Code>{`<Confirm/>`}</Code> to pop a confirm dialog before to process a given action.
+        It can wrap any element.
       </p>
 
       <h2>Demo</h2>
