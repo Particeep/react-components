@@ -37,10 +37,10 @@ export const Menu = ({className, basePath = ''}: IProps) => {
   return (
     <Sidebar>
       <SidebarHeader>
-        <SidebarItem to={path('home')} icon="home" large>
+        <SidebarItem to={path('/home')} icon="home" large>
           Home
         </SidebarItem>
-        <SidebarItem to={path('install')} icon={<DownloadIcon/>} large>
+        <SidebarItem to={path('/install')} icon={<DownloadIcon/>} large>
           Installation
         </SidebarItem>
         <SidebarItem
@@ -75,8 +75,7 @@ export const Menu = ({className, basePath = ''}: IProps) => {
             color="primary"
             className={classes.itemI}
             checked={isDarkTheme}
-            onChange={toggleDarkTheme}
-            style={{marginTop: -4, marginBottom: -4}}/>
+            onChange={toggleDarkTheme}/>
         </SidebarItem>
       </SidebarFooter>
       <SidebarFooter>

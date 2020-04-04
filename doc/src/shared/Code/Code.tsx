@@ -5,10 +5,10 @@ import {makeStyles} from '@material-ui/styles'
 
 const useStyles = makeStyles((t: Theme) => createStyles({
   root: {
-    background: t.palette.background.default,
-    color: t.palette.text.secondary,
-    borderRadius: 3,
-    padding: '.2em .4em',
+    // background: t.palette.background.default,
+    color: t.palette.text.disabled,
+    // borderRadius: 3,
+    // padding: '.2em .4em',
   }
 }))
 

@@ -19,8 +19,12 @@ const useStyles = makeStyles((t: Theme) => createStyles({
       borderTop: `1px solid ${t.palette.divider}`,
     },
     '& $td, $th': {
+      textAlign: 'left',
       border: `1px solid ${t.palette.divider}`,
-      padding: t.spacing(1.5),
+      paddingTop: t.spacing(1),
+      paddingBottom: t.spacing(1),
+      paddingLeft: t.spacing(1.5),
+      paddingRight: t.spacing(1.5),
     },
     '& $thead': {
       border: `1px solid ${t.palette.divider}`,

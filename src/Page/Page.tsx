@@ -6,10 +6,10 @@ import {makeStyles} from '@material-ui/styles'
 
 const useStyles = makeStyles((t: Theme) => createStyles({
   root: {
-    transition: t.transitions.create('all'),
+    transition: t.transitions.create('all', {easing: 'ease', duration: 160}),
     margin: 'auto',
     opacity: 0,
-    transform: 'scale(.94)',
+    transform: 'scale(.90)',
     maxWidth: 932,
     width: '100%',
   },

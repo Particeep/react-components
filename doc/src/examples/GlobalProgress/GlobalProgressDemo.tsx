@@ -6,10 +6,11 @@ import {GlobalProgressDemoRealLife} from './GlobalProgressDemoRealLife'
 import {DocTable} from '../../shared/DocTable/DocTable'
 import {Code} from '../../shared/Code/Code'
 import {PageTitle} from '../../shared/PageTitle/PageTitle'
+import {Page} from '../../shared/Page/Page'
 
 const GlobalProgressDemo = () => {
   return (
-    <div style={{margin: 'auto', maxWidth: 900}}>
+    <Page style={{margin: 'auto', maxWidth: 900}}>
       <PageTitle>GlobalProgress</PageTitle>
       <p>
         Provides a convenient API to handle a progress bar GitHub like.
@@ -64,7 +65,7 @@ const GlobalProgressDemo = () => {
       <Demo
         raw={preval`module.exports = require('fs').readFileSync(require.resolve('./GlobalProgressDemoRealLife.tsx'), 'utf8')`}
         component={GlobalProgressDemoRealLife}/>
-    </div>
+    </Page>
   )
 }
 
