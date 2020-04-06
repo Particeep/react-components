@@ -1,20 +1,20 @@
-import * as React from 'react'
-import {ReactChild, ReactNode, useState} from 'react'
-import {createStyles, Icon, IconButton, Theme} from '@material-ui/core'
-import {colorError, colorInfo, colorSuccess, colorWarning} from '../core/style/color'
-import classNames from 'classnames'
-import {makeStyles} from '@material-ui/styles'
+import * as React from 'react';
+import {ReactNode, useState} from 'react';
+import {createStyles, Icon, IconButton, Theme} from '@material-ui/core';
+import {colorError, colorInfo, colorSuccess, colorWarning} from '../core/style/color';
+import classNames from 'classnames';
+import {makeStyles} from '@material-ui/styles';
 
-const height = 52
+const height = 52;
 
 const useStyles = makeStyles((t: Theme) => createStyles({
   root: t.mixins.gutters({
-    // transition: t.transitions.create('all'),
+    transition: t.transitions.create('all'),
     minHeight: height,
     display: 'flex',
     alignItems: 'center',
     overflow: 'hidden',
-  }) as any,
+  }),
   i: {
     paddingRight: t.spacing(2),
     height: `${height}px !important`,
@@ -28,25 +28,25 @@ const useStyles = makeStyles((t: Theme) => createStyles({
     paddingBottom: t.spacing(2),
   },
   _success: {
-    background: '#e1ffe1',
+    background: 'rgba(50, 255, 150, .16)',//'#e1ffe1',
     color: colorSuccess,
   },
   _info: {
-    background: '#e1f5fe',
+    background: 'rgba(50, 200, 255, .16)', //'#e1f5fe',
     color: colorInfo,
   },
   _error: {
-    background: '#ffdede',
+    background: 'rgba(255, 0, 0, .16)',//'#ffdede',
     color: colorError,
+  },
+  _warning: {
+    background: 'rgba(255, 128, 0, .16)',
+    color: colorWarning,
   },
   _hidden: {
     height: 0,
     minHeight: 0,
     opacity: 0,
-  },
-  _warning: {
-    background: 'rgba(255, 128, 0, 0.13)',
-    color: colorWarning,
   },
   action: {
     textAlign: 'right',
@@ -56,11 +56,11 @@ const useStyles = makeStyles((t: Theme) => createStyles({
 }))
 
 interface AlertProps {
-  type: 'info' | 'error' | 'warning' | 'success';
-  icon?: string;
-  deletable?: boolean;
-  action?: any;
-  className?: string;
+  type: 'info' | 'error' | 'warning' | 'success'
+  icon?: string
+  deletable?: boolean
+  action?: ReactNode
+  className?: string
   children: ReactNode
 }
 

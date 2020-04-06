@@ -40,15 +40,18 @@ export const Demo = ({component: Component, raw, reloadable}: DemoProps) => {
   const classes = useStyles()
   const [codeOpened, setCodeOponed] = useState<boolean>(false)
   const [show, setShow] = useState<boolean>(true)
-  const [containetHeight, setContainetHeight] = useState<number | undefined>(undefined)
+  const [containerHeight, setContainerHeight] = useState<number | undefined>(undefined)
   const componentContainer = React.createRef()
 
   const reload = () => {
-    if (!containetHeight) {
-      setContainetHeight((componentContainer.current as any).offsetHeight - 32)
+    // Manually handle container height is relevant when to prevent the
+    // container to blink when the content is animated.
+    if (!containerHeight) {
+      setContainerHeight((componentContainer.current as any).offsetHeight - 32)
     }
     setShow(false)
     setTimeout(() => setShow(true))
+    setTimeout(() => setContainerHeight(undefined))
   }
 
   return (
@@ -66,7 +69,7 @@ export const Demo = ({component: Component, raw, reloadable}: DemoProps) => {
       <Collapse in={codeOpened} unmountOnExit>
         <Pre raw={parseComponentCode(raw)} style={{margin: 0, borderRadius: 0}}/>
       </Collapse>
-      <div className={classes.wrapper} ref={componentContainer as any} style={{height: containetHeight}}>
+      <div className={classes.wrapper} ref={componentContainer as any} style={{height: containerHeight}}>
         {show && <Component/>}
       </div>
     </section>

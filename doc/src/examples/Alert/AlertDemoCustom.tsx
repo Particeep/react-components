@@ -1,12 +1,11 @@
-import * as React from 'react'
-import {Alert, Panel} from 'mui-extension'
-import {Button} from '@material-ui/core'
+import * as React from 'react';
+import {Btn, Alert, Panel} from 'mui-extension';
 
 export const AlertDemoCustom = () => {
   return (
     <Panel>
       <Alert type="error" icon="cloud_off" action={
-        <Button>Dismiss</Button>
+        <Btn>Retry</Btn>
       }>
         <div style={{fontSize: '1.4em', lineHeight: 1, marginBottom: 8}}>No internet</div>
         Try
