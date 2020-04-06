@@ -19,7 +19,6 @@ const useStyles = makeStyles((t: Theme) => createStyles({
 }))
 
 export const MobileHeader = () => {
-  // @ts-ignore
   const classes = useStyles()
   const {isMobileWidth} = useLayoutContext()
   return (

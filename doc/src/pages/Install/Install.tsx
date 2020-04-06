@@ -9,8 +9,6 @@ import {A} from '../../shared/A'
 // }))
 
 export const Install = () => {
-  // @ts-ignore
-  // const classes = useStyles()
   return (
     <Page>
       <h1>Installation</h1>

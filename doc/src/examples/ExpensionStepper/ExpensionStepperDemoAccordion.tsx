@@ -11,7 +11,6 @@ const useStyles = makeStyles((t: Theme) => createStyles({
 }))
 
 export const ExpensionStepperDemoAccordion = () => {
-  // @ts-ignore
   const classes = useStyles()
   return (
     <ExpensionStepper position={1} free className={classes.root}>
@@ -75,7 +74,6 @@ const useRowStyles = makeStyles((t: Theme) => createStyles({
 }))
 
 const Row = (({icon, label, date}: any) => {
-  // @ts-ignore
   const classes = useRowStyles()
   return (
     <div className={classes.root}>

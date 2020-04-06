@@ -73,7 +73,6 @@ const defaultMsg = {
 
 // TODO(Alex) Fix wierd typing issue (it works for <Btn>)
 export const BtnUploader = ({document, uploading, msg = defaultMsg, onUpload, onDelete, maxUploadFileSize, ...other}: BtnUploaderProps) => {
-  // @ts-ignore
   const classes = useStyles()
   const [errorMessage, setErrorMessage] = useState<string | undefined>(undefined)
   const fileInputEl = useRef<HTMLInputElement>(null)

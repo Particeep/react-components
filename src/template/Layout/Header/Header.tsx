@@ -26,7 +26,6 @@ const useStyles = makeStyles((t: Theme) => createStyles({
 }))
 
 export const Header = ({className}: any) => {
-  // @ts-ignore
   const classes = useStyles()
   const {title, isMobileWidth, isMobileSidebarOpened, toggleMobileSidebar} = useLayoutContext()
   return (

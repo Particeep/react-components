@@ -36,7 +36,6 @@ export interface DemoProps {
 const parseComponentCode = (code: string): string => code.replace(/\n\s*\/\/\s*@ts-ignore\s*?\n/, '\n')
 
 export const Demo = ({component: Component, raw, reloadable}: DemoProps) => {
-  // @ts-ignore
   const classes = useStyles()
   const [codeOpened, setCodeOponed] = useState<boolean>(false)
   const [show, setShow] = useState<boolean>(true)

@@ -4,8 +4,8 @@
   "description": "Bunch of components",
   "main": "lib/index.js",
   "dependencies": {
-    "@material-ui/core": "4.0.2",
-    "@material-ui/styles": "4.0.2",
+    "@material-ui/core": "4.9.9",
+    "@material-ui/styles": "4.9.6",
     "autobind-decorator": "^2.1.0",
     "classnames": "^2.2.6",
     "lodash.debounce": "^4.0.8",

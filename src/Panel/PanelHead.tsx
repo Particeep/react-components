@@ -29,7 +29,6 @@ export interface PanelHeadProps {
 }
 
 export const PanelHead = ({className, icon, children, action}: PanelHeadProps) => {
-  // @ts-ignore
   const classes = useStyles()
   return (
     <>

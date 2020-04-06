@@ -20,7 +20,6 @@ export interface SidebarHrProps {
 }
 
 export const SidebarHr = ({className, margin}: SidebarHrProps) => {
-  // @ts-ignore
   const classes = useStyles()
   return (
     <div className={classNames(classes.root, className, margin && classes.rootMargin)}/>

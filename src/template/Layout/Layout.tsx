@@ -37,7 +37,6 @@ export const Layout = ({title, mobileBreakpoint, children, sidebar}: LayoutProps
 }
 
 const LayoutUsingContext = ({children, sidebar: Sidebar}: any) => {
-  // @ts-ignore
   const classes = useStyles()
   const {isMobileWidth} = useLayoutContext()
   return (

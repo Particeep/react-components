@@ -18,7 +18,6 @@ export interface SidebarFooterProps {
 }
 
 export const SidebarFooter = ({children, className}: SidebarFooterProps) => {
-  // @ts-ignore
   const classes = useStyles()
   return (
     <footer className={classNames(classes.root, className)}>

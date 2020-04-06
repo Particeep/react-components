@@ -57,7 +57,6 @@ const icons = {
 
 const IconsDemo = () => {
   const theme = useTheme()
-  // @ts-ignore
   const classes = useStyles()
 
   const colors = {

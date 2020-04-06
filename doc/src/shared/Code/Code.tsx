@@ -17,7 +17,6 @@ interface IProps {
 }
 
 export const Code = ({children}: IProps) => {
-  // @ts-ignore
   const classes = useStyles()
   return (
     <>

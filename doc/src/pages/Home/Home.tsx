@@ -28,7 +28,6 @@ const useStyles = makeStyles((t: Theme) => createStyles({
 }))
 
 export const Home = () => {
-  // @ts-ignore
   const classes = useStyles()
   const theme = useTheme() as Theme
   return (

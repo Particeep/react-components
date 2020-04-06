@@ -34,7 +34,6 @@ export interface PanelProps extends React.DetailedHTMLProps<React.HTMLAttributes
 }
 
 export const Panel = ({className, hoverable, loading, children, ...other}: PanelProps) => {
-  // @ts-ignore
   const classes = useStyles()
   return (
     <div className={classNames(classes.root, hoverable && classes.hover, className)} {...other}>

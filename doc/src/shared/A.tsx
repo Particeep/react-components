@@ -11,7 +11,6 @@ const useStyles = makeStyles((t: Theme) => createStyles({
 }))
 
 export const A = ({children, className, ...props}: any) => {
-  // @ts-ignore
   const css = useStyles()
   return (
     <>

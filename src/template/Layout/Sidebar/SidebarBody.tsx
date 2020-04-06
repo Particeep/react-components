@@ -19,7 +19,6 @@ export interface SidebarBodyProps {
 }
 
 export const SidebarBody = ({children, className}: SidebarBodyProps) => {
-  // @ts-ignore
   const classes = useStyles()
   return (
     <main className={classNames(classes.root, className)}>

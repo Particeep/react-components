@@ -15,7 +15,6 @@ const useStyles = makeStyles((t: Theme) => createStyles({
 }))
 
 export const Page = ({className, children, style}: any) => {
-  // @ts-ignore
   const classes = useStyles()
   return (
     <MxPage className={classNames(className, classes.root)} style={style}>{children}</MxPage>

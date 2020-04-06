@@ -30,7 +30,6 @@ export interface PageProps {
 let timeout
 
 const Page = ({children, width, animated = true, className, style,}: PageProps) => {
-  // @ts-ignore
   const classes = useStyles()
   const [appeared, setAppeared] = useState(false)
 

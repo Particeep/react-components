@@ -56,7 +56,6 @@ export const Fender = ({children, icon, iconSize = 100, type = 'empty', classNam
     description: {},
   }));
 
-  // @ts-ignore
   const classes = useStyles();
 
   const getIcon = () => {

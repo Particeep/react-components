@@ -65,7 +65,6 @@ interface AlertProps {
 }
 
 export const Alert = ({type, children, icon, action, deletable, className}: AlertProps) => {
-  // @ts-ignore
   const classes = useStyles()
   const [isVisible, setIsVisible] = useState<boolean>(true)
 

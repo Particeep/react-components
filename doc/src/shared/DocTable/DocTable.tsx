@@ -38,7 +38,6 @@ const useStyles = makeStyles((t: Theme) => createStyles({
 }))
 
 export const DocTable = ({children}: any) => {
-  // @ts-ignore
   const classes = useStyles()
   return (
     <div className={classes.root}>

@@ -65,7 +65,6 @@ const useStyles = makeStyles((t: Theme) => createStyles({
 }))
 
 const App = () => {
-  // @ts-ignore
   useStyles()
   return (
     <Layout sidebar={Menu} title="Mui-eXtension">

@@ -18,7 +18,6 @@ export interface SidebarTitleProps {
 }
 
 export const SidebarTitle = ({children}: SidebarTitleProps) => {
-  // @ts-ignore
   const classes = useStyles()
   return (
     <Typography variant="caption" noWrap className={classes.root}>{children}</Typography>

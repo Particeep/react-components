@@ -19,7 +19,6 @@ export interface SidebarHeaderProps {
 }
 
 export const SidebarHeader = ({className, children}: SidebarHeaderProps) => {
-  // @ts-ignore
   const classes = useStyles()
   return (
     <header className={classNames(classes.root, className)}>

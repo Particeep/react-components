@@ -36,7 +36,6 @@ interface IProps {
 }
 
 export const IconsDemoSelected = ({name, size, color, onClear}: IProps) => {
-  // @ts-ignore
   const classes = useStyles()
   return (
     <Slide direction="down" in={!!name} mountOnEnter unmountOnExit>

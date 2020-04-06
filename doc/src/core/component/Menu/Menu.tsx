@@ -29,7 +29,6 @@ interface IProps {
 }
 
 export const Menu = ({className, basePath = ''}: IProps) => {
-  // @ts-ignore
   const classes = useStyles()
   const isDarkTheme = useTheme()
   const toggleDarkTheme = useToggleTheme()

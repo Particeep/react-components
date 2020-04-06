@@ -23,7 +23,6 @@ export interface SidebarProps {
 }
 
 export const Sidebar = ({children, className}: SidebarProps) => {
-  // @ts-ignore
   const classes = useStyles()
   const {isMobileWidth, isMobileSidebarOpened, openMobileSidebar, closeMobileSidebar} = useLayoutContext()
   const opened = !isMobileWidth || isMobileSidebarOpened

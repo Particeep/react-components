@@ -86,7 +86,6 @@ const useStyles = makeStyles(t => ({
 }))
 
 const Row = (({icon, label, date}) => {
-  // @ts-ignore
   const classes = useStyles()
   return (
     <div className={classes.root}>

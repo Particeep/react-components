@@ -21,7 +21,6 @@ export interface PanelBodyProps {
 
 
 export const PanelBody = ({children, className}: PanelBodyProps) => {
-  // @ts-ignore
   const classes = useStyles()
   return (
     <div className={`${classes.root} ${className || ''}`}>
