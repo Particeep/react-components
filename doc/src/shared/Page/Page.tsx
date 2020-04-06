@@ -11,14 +11,13 @@ const useStyles = makeStyles((t: Theme) => createStyles({
     minWidth: 0,
     marginBottom: t.spacing(2),
     maxWidth: 800,
-    transform: 'none',
   }
 }))
 
-export const Page = ({className, children}: any) => {
+export const Page = ({className, children, style}: any) => {
   // @ts-ignore
   const classes = useStyles()
   return (
-    <MxPage className={classNames(className, classes.root)}>{children}</MxPage>
+    <MxPage className={classNames(className, classes.root)} style={style}>{children}</MxPage>
   )
 }
