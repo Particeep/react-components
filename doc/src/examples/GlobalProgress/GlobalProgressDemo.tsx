@@ -10,7 +10,7 @@ import {Page} from '../../shared/Page/Page'
 
 const GlobalProgressDemo = () => {
   return (
-    <Page style={{transform: 'none', margin: 'auto', maxWidth: 900}}>
+    <Page>
       <PageTitle>GlobalProgress</PageTitle>
       <p>
         Provides a convenient API to handle a progress bar GitHub like.

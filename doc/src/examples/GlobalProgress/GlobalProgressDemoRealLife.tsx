@@ -1,21 +1,28 @@
 import * as React from 'react'
 import {useEffect} from 'react'
-import {Btn, withGlobalProgress, GlobalProgressBar, GlobalProgressProvider} from 'mui-extension'
+import * as ReactDOM from 'react-dom'
+import {Btn, GlobalProgressBar, GlobalProgressProvider, withGlobalProgress} from 'mui-extension'
 
-const fetchSomething = delay => new Promise(resolve => setTimeout(resolve, delay, {}))
-const fetchSomethingRejected = delay => new Promise((resolve, reject) => setTimeout(() => reject('oops'), delay, {}))
+const fetchSomething = (delay: number) => new Promise(resolve => setTimeout(resolve, delay))
+const fetchSomethingRejected = (delay: number) => new Promise((resolve, reject) => setTimeout(() => reject('oops'), delay))
+
+const progressbarContainer = document.createElement('div');
+document.querySelector('body').appendChild(progressbarContainer);
 
 export const GlobalProgressDemoRealLife = () => {
 
   return (
     <GlobalProgressProvider>
-      <GlobalProgressBar
-        style={{position: 'fixed'}}
-        styleProgress={{
-          height: 3,
-          background: 'orange',
-          boxShadow: `0 0 10px orange, 0 0 5px orange`
-        }}/>
+      {ReactDOM.createPortal(
+        <GlobalProgressBar
+          style={{position: 'fixed'}}
+          styleProgress={{
+            height: 3,
+            background: 'orange',
+            boxShadow: `0 0 10px orange, 0 0 5px orange`
+          }}/>,
+        progressbarContainer
+      )}
       <App/>
     </GlobalProgressProvider>
   )
