@@ -56,6 +56,7 @@ export const Menu = ({className, basePath = ''}: IProps) => {
         <SidebarItem to={path('/autocomplete')}>Autocomplete</SidebarItem>
         <SidebarItem to={path('/btn')}>Btn</SidebarItem>
         <SidebarItem to={path('/btn-uploader')}>BtnUploader</SidebarItem>
+        <SidebarItem to={path('/txt')}>Txt</SidebarItem>
         <SidebarItem to={path('/confirm')}>Confirm</SidebarItem>
         <SidebarItem to={path('/panel')}>Panel</SidebarItem>
         <SidebarItem to={path('/alert')}>Alert</SidebarItem>

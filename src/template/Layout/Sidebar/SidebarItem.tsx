@@ -63,6 +63,7 @@ export interface SidebarItemProps extends HTMLProps<any> {
 
 export const SidebarItem = ({href, to, children, icon, className, large, ...other}: SidebarItemProps) => {
   const {closeMobileSidebar} = useLayoutContext()
+  const classes = useStyles();
 
   const getClassName = (clickable: boolean = true) => classNames(
     className,
