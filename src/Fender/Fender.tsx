@@ -57,33 +57,33 @@ const useStyles = (iconSize: number) => makeStyles((t: Theme) => createStyles({
 
 export const Fender = ({children, icon, iconSize = 100, type = 'empty', className, style, title, description}: FenderProps) => {
 
-  const classes = usestyles(iconsize)()
+  const classes = useStyles(iconSize)()
 
-  const geticon = () => {
-    if (icon) return rendericon(icon)
+  const getIcon = () => {
+    if (icon) return renderIcon(icon)
     switch (type) {
       case 'empty':
-        return rendericon('do_not_disturb')
+        return renderIcon('do_not_disturb')
       case 'error':
-        return rendericon('error_outline');
+        return renderIcon('error_outline');
       case 'success':
-        return rendericon('check_circle_outline');
+        return renderIcon('check_circle_outline');
       case 'warning':
-        return rendericon('warning')
+        return renderIcon('warning')
       case 'loading':
-        return <circularprogress size={iconsize - 10}/>;
+        return <CircularProgress size={iconSize - 10}/>;
     }
   }
 
-  const rendericon = (name: string) => <icon classname={classes.i}>{name}</icon>
+  const renderIcon = (name: string) => <Icon className={classes.i}>{name}</Icon>
 
   return (
-    <div classname={classnames(classes.root, classname)} style={style}>
+    <div className={classNames(classes.root, className)} style={style}>
       <div>
-        <div classname={classnames(classes.icontainer, classes[type])}>{geticon()}</div>
-        <div classname={classes.p}>
-          {title && <div classname={classes.title}>{title}</div>}
-          {description && <div classname={classes.description}>{description}</div>}
+        <div className={classNames(classes.iContainer, classes[type])}>{getIcon()}</div>
+        <div className={classes.p}>
+          {title && <div className={classes.title}>{title}</div>}
+          {description && <div className={classes.description}>{description}</div>}
           {children}
         </div>
       </div>

@@ -21,6 +21,7 @@ import {Menu} from './core/component/Menu/Menu';
 import {Layout} from 'mui-extension';
 import {makeStyles} from '@material-ui/styles';
 import {Install} from './pages/Install/Install';
+import {TxtDemo} from './examples/Txt/TxtDemo';
 
 const useStyles = makeStyles((t: Theme) => createStyles({
   '@global': {
@@ -84,6 +85,7 @@ const App = () => {
         <Route path="/input-date" component={InputDateDemo}/>
         <Route path="/autocomplete" component={AutocompleteDemo}/>
         <Route path="/table-sort" component={TableSortDemo}/>
+        <Route path="/txt" component={TxtDemo}/>
         <Route path="/animate" component={AnimateDemo}/>
         <Redirect exact from="/" to="/home"/>
       </Switch>
