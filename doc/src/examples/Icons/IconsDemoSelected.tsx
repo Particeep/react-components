@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {createStyles, Icon, Slide, Theme} from '@material-ui/core'
 import {IconBtn, Pre} from 'mui-extension'
-import {makeStyles} from '@material-ui/styles'
+import {makeStyles} from '@material-ui/core'
 
 const useStyles = makeStyles((t: Theme) => createStyles({
   root: {

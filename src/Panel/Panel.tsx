@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {ReactNode} from 'react'
 import {createStyles, LinearProgress, Theme} from '@material-ui/core'
-import {makeStyles} from '@material-ui/styles'
+import {makeStyles} from '@material-ui/core'
 import classNames from 'classnames'
 
 const useStyles = makeStyles((t: Theme) => createStyles({

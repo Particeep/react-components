@@ -5,7 +5,7 @@ import {Btn} from '../Btn'
 import {colorError} from '../core/style/color'
 import classNames from 'classnames'
 import {ButtonProps} from '@material-ui/core/Button'
-import {makeStyles} from '@material-ui/styles'
+import {makeStyles} from '@material-ui/core'
 
 const useStyles = makeStyles((t: Theme) => createStyles({
   root: {

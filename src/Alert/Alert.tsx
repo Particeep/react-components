@@ -3,7 +3,7 @@ import {ReactNode, useState} from 'react'
 import {createStyles, Icon, IconButton, Theme} from '@material-ui/core'
 import {colorError, colorInfo, colorSuccess, colorWarning} from '../core/style/color'
 import classNames from 'classnames'
-import {makeStyles} from '@material-ui/styles'
+import {makeStyles} from '@material-ui/core'
 
 const height = 52
 

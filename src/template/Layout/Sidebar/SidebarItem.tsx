@@ -4,7 +4,7 @@ import {createStyles, Icon, Theme} from '@material-ui/core'
 import classNames from 'classnames'
 import {fade} from '@material-ui/core/styles/colorManipulator'
 import {useLayoutContext} from '../LayoutContext'
-import {makeStyles} from '@material-ui/styles'
+import {makeStyles} from '@material-ui/core'
 
 const useStyles = makeStyles((t: Theme) => createStyles({
   root: {

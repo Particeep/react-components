@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "4.11.3",
-    "@material-ui/styles": "4.11.3",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
@@ -29,6 +28,7 @@
     "web-vitals": "^1.1.1"
   },
   "scripts": {
+    "dev": "npm link mui-extension && npm link ../node_modules/react && npm run start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

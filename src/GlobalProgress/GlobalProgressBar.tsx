@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react'
 import {createStyles, Theme} from '@material-ui/core'
 import {progressbarAnimationDuration, useGlobalProgressState} from './GlobalProgressContext'
 import classNames from 'classnames'
-import {makeStyles} from '@material-ui/styles'
+import {makeStyles} from '@material-ui/core'
 import {useInterval} from '../core/utils/useInterval'
 
 const progressbarColor = (t: Theme) => {

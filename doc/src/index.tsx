@@ -3,22 +3,18 @@ import * as ReactDOM from 'react-dom'
 import App from './App'
 import {HashRouter} from 'react-router-dom'
 import {ThemeContextProvider, useTheme} from './core/theme/ThemeContext'
-import {ThemeProvider} from '@material-ui/styles'
 import {muiTheme} from './core/theme/mui-theme'
-import {createMuiTheme, MuiThemeProvider} from '@material-ui/core'
 import reportWebVitals from './reportWebVitals'
+import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles'
 
 const Root = () => {
   const isDarkTheme = useTheme()
-  // TODO MuiThemeProvider from package core is needed for the lib. Refacto lib using new API.
   const theme = createMuiTheme(muiTheme(isDarkTheme))
   return (
     <React.StrictMode>
-      <MuiThemeProvider theme={theme}>
-        <ThemeProvider theme={theme}>
-          <App/>
-        </ThemeProvider>
-      </MuiThemeProvider>
+      <ThemeProvider theme={theme}>
+        <App/>
+      </ThemeProvider>
     </React.StrictMode>
   )
 }

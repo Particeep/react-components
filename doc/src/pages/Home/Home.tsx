@@ -2,7 +2,7 @@ import * as React from 'react'
 import {Page} from '../../shared/Page/Page'
 import {PageTitle} from '../../shared/PageTitle/PageTitle'
 import {createStyles, Theme} from '@material-ui/core'
-import {makeStyles, useTheme} from '@material-ui/styles'
+import {makeStyles, useTheme} from '@material-ui/core'
 import classNames from 'classnames'
 // @ts-ignore
 import Logo from '../../asset/logo.png'

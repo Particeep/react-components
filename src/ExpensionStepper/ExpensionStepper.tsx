@@ -1,9 +1,6 @@
 import * as React from 'react'
 import {ReactElement} from 'react'
-import {createStyles, Theme, withStyles, WithStyles} from '@material-ui/core'
 import {ExpensionStepProps} from './index'
-
-const styles = (t: Theme) => createStyles({})
 
 export interface ExpensionProps {
   readonly position?: number
@@ -20,7 +17,7 @@ interface State {
   reached: number
 }
 
-class ExpensionStepper extends React.Component<ExpensionProps & WithStyles<typeof styles>, State> {
+export class ExpensionStepper extends React.Component<ExpensionProps, State> {
 
   constructor(props) {
     super(props)
@@ -77,5 +74,3 @@ class ExpensionStepper extends React.Component<ExpensionProps & WithStyles<typeo
     }
   }
 }
-
-export default withStyles(styles)(ExpensionStepper) as React.ComponentType<ExpensionProps>

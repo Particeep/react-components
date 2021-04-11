@@ -2,7 +2,7 @@ import * as React from 'react'
 import {createStyles, Switch, Theme} from '@material-ui/core'
 import {useTheme, useToggleTheme} from '../../theme/ThemeContext'
 import {DownloadIcon, Sidebar, SidebarBody, SidebarFooter, SidebarHeader, SidebarItem} from 'mui-extension'
-import {makeStyles} from '@material-ui/styles'
+import {makeStyles} from '@material-ui/core'
 import packageJson from '../../../../package.json'
 import {Link} from 'react-router-dom'
 
