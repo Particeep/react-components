@@ -10,12 +10,17 @@ import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles'
 const Root = () => {
   const isDarkTheme = useTheme()
   const theme = createMuiTheme(muiTheme(isDarkTheme))
+  /*
+  Trigger an error when opening Autocomplete panel.
+  It will be fixed at Material-UI 5
+  https://stackoverflow.com/questions/61220424/material-ui-drawer-finddomnode-is-deprecated-in-strictmode
+
+  <React.StrictMode>
+  */
   return (
-    <React.StrictMode>
-      <ThemeProvider theme={theme}>
-        <App/>
-      </ThemeProvider>
-    </React.StrictMode>
+    <ThemeProvider theme={theme}>
+      <App/>
+    </ThemeProvider>
   )
 }
 

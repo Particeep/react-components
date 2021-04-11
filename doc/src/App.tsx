@@ -50,7 +50,7 @@ const useStyles = makeStyles((t: Theme) => createStyles({
       textAlign: 'justify',
     },
     code: {
-      fontFamily: '"Source Code Pro", monospace',
+      fontFamily: 'Consolas, "Liberation Mono", Menlo, Courier, monospace',
     },
     a: {
       color: 'inherit',

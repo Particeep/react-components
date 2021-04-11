@@ -10,9 +10,9 @@ import {DocTable} from '../../shared/DocTable/DocTable'
 const ChipUploaderDemo = () => {
   return (
     <Page>
-      <PageTitle>ChipUploader</PageTitle>
+      <PageTitle>BtnUploader</PageTitle>
       <p>
-        <Code>{`<ChipUploader/>`}</Code> provides a simple way to manage document upload.
+        <Code>{`<BtnUploader/>`}</Code> provides a simple way to manage document upload.
         It behaves like <Code>{`<Button/>`}</Code>.
       </p>
 

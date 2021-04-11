@@ -1,10 +1,9 @@
 import * as React from 'react'
-import {HTMLProps, ReactElement, ReactNode} from 'react'
-import {createStyles, Icon, Theme} from '@material-ui/core'
+import {HTMLProps, ReactNode} from 'react'
+import {createStyles, Icon, makeStyles, Theme} from '@material-ui/core'
 import classNames from 'classnames'
 import {fade} from '@material-ui/core/styles/colorManipulator'
 import {useLayoutContext} from '../LayoutContext'
-import {makeStyles} from '@material-ui/core'
 
 const useStyles = makeStyles((t: Theme) => createStyles({
   root: {
@@ -54,13 +53,12 @@ const useStyles = makeStyles((t: Theme) => createStyles({
 
 export interface SidebarItemProps extends HTMLProps<any> {
   icon?: string | ReactNode
-  href?: any
   className?: any
   large?: boolean
   active?: boolean
 }
 
-export const SidebarItem = ({href, children, icon, className, active, large, ...other}: SidebarItemProps) => {
+export const SidebarItem = ({children, icon, className, active, large, ...other}: SidebarItemProps) => {
   const {closeMobileSidebar} = useLayoutContext()
   const classes = useStyles()
 
@@ -72,36 +70,17 @@ export const SidebarItem = ({href, children, icon, className, active, large, ...
     large && classes.rootLarge,
   )
 
-  const renderRoot = (element: ReactElement<any>) => {
-    return (
-      <div {...other as any} className={getClassName(!!other.onClick)}>
-        {element}
-      </div>
-    )
-  }
-
-  const renderRootHref = (element: ReactElement<any>, href: any) => {
-    return (
-      <a {...other as any} href={href} className={getClassName()}>
-        {element}
-      </a>
-    )
-  }
-
-  const content = (
-    <>
-      {icon && ((typeof icon === 'string')
-          ? <Icon className={classes.i}>{icon}</Icon>
-          : <div className={classNames(classes.i)}>{icon}</div>
-      )}
-      <span className={classes.label}>{children}</span>
-    </>
-  )
-  const wrapper = href ? renderRootHref(content, href) : renderRoot(content)
-
   return (
     <div onClick={closeMobileSidebar}>
-      {wrapper}
+      <div {...other as any} className={getClassName(true)}>
+        <>
+          {icon && ((typeof icon === 'string')
+              ? <Icon className={classes.i}>{icon}</Icon>
+              : <div className={classNames(classes.i)}>{icon}</div>
+          )}
+          <span className={classes.label}>{children}</span>
+        </>
+      </div>
     </div>
   )
 }

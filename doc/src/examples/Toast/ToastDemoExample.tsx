@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Btn, ToastProvider, withToast} from 'mui-extension'
+import {Btn, ToastProvider, useToast, withToast} from 'mui-extension'
 
 export const ToastDemoExample = () => {
   return (
@@ -17,11 +17,12 @@ interface AppProps {
   toastLoading: (_: string) => void,
 }
 
-const App = withToast(({toastError, toastWarning, toastSuccess, toastInfo, toastLoading}: AppProps) => {
+const App = withToast(({toastWarning, toastSuccess, toastInfo, toastLoading}: AppProps) => {
+  const {toastError: toastErrorUsingHook} = useToast()
   return (
     <div style={{display: 'flex', flexDirection: 'column'}}>
       <Btn color="primary" onClick={() => toastLoading('Loading...')}>Toast Loading</Btn>
-      <Btn color="primary" onClick={() => toastError('Error toast !')}>Toast error</Btn>
+      <Btn color="primary" onClick={() => toastErrorUsingHook('Error toast !')}>Toast error</Btn>
       <Btn color="primary" onClick={() => toastWarning('Warning toast !')}>Toast Warning</Btn>
       <Btn color="primary" onClick={() => toastSuccess('Success toast !')}>Toast Success</Btn>
       <Btn color="primary" onClick={() => toastInfo('Info toast !')}>Toast Info</Btn>

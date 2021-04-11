@@ -26,16 +26,16 @@ const ExpensionStepperDemo = () => {
       </p>
       <Pre raw={
         `interface ExpensionStepProps {
-        prev: () => void
-        next: (data?: any) => void
-        goTo: (i: number) => void
-        free?: boolean
-        index: number
-        disabled: boolean
-        done: boolean
-        isCurrent: boolean
-        isLast: boolean
-      }`}/>
+  prev: () => void
+  next: (data?: any) => void
+  goTo: (i: number) => void
+  free?: boolean
+  index: number
+  disabled: boolean
+  done: boolean
+  isCurrent: boolean
+  isLast: boolean
+}`}/>
 
       <h2>Examples</h2>
       <h3>Tunnel</h3>

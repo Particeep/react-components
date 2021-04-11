@@ -1,4 +1,3 @@
-// @ts-ignore
 import * as React from 'react'
 import {useState} from 'react'
 import {Collapse, createStyles, Icon, IconButton, Theme} from '@material-ui/core'

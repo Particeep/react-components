@@ -1,10 +1,9 @@
 import * as React from 'react'
-import {createStyles, Switch, Theme} from '@material-ui/core'
+import {createStyles, Icon, makeStyles, Switch, Theme} from '@material-ui/core'
 import {useTheme, useToggleTheme} from '../../theme/ThemeContext'
-import {DownloadIcon, Sidebar, SidebarBody, SidebarFooter, SidebarHeader, SidebarItem} from 'mui-extension'
-import {makeStyles} from '@material-ui/core'
+import {DownloadIcon, GitHubIcon, Sidebar, SidebarBody, SidebarFooter, SidebarHeader, SidebarItem} from 'mui-extension'
 import packageJson from '../../../../package.json'
-import {Link} from 'react-router-dom'
+import {NavLink as Link} from 'react-router-dom'
 
 const useStyles = makeStyles((t: Theme) => createStyles({
   avatar: {
@@ -34,42 +33,70 @@ export const Menu = ({className, basePath = ''}: IProps) => {
   const toggleDarkTheme = useToggleTheme()
   const path = (page: string) => basePath + page
   return (
-    <Sidebar>
+    <Sidebar className={className}>
       <SidebarHeader>
-        <Link to={path('/home')} component={(prop, ref) => <SidebarItem ref={ref} icon="home" large>Home</SidebarItem>}/>
-        <Link to={path('/install')} component={(prop, ref) => <SidebarItem ref={ref} icon={<DownloadIcon/>} large>Installation</SidebarItem>}/>
-        {/*<SidebarItem to={path('/home')} icon="home" large>Home</SidebarItem>*/}
-        {/*<SidebarItem to={path('/install')} icon={<DownloadIcon/>} large>
-          Installation
-        </SidebarItem>
-        */}
-        {/*
-        <SidebarItem
-          href="https://github.com/alexandreannic/mui-extension"
-          icon={<GitHubIcon/>}
-          target="_blank"
-          large>
-          GitHub
-          <Icon className={classes.itemI}>open_in_new</Icon>
-        </SidebarItem>
-        */}
+        <Link to={path('/stepper')}>
+          <SidebarItem icon="home" large>Home</SidebarItem>
+        </Link>
+        <Link to={path('/install')}>
+          <SidebarItem icon={<DownloadIcon/>} large>Installation</SidebarItem>
+        </Link>
+        <a href="https://github.com/alexandreannic/mui-extension">
+          <SidebarItem
+            icon={<GitHubIcon/>}
+            target="_blank"
+            large>
+            GitHub
+            <Icon className={classes.itemI}>open_in_new</Icon>
+          </SidebarItem>
+        </a>
       </SidebarHeader>
       <SidebarBody>
-        {/*<SidebarItem to={path('/stepper')}>ExpensionStepper</SidebarItem>*/}
-        {/*<SidebarItem to={path('/autocomplete')}>Autocomplete</SidebarItem>*/}
-        {/*<SidebarItem to={path('/btn')}>Btn</SidebarItem>*/}
-        {/*<SidebarItem to={path('/btn-uploader')}>BtnUploader</SidebarItem>*/}
-        {/*<SidebarItem to={path('/txt')}>Txt</SidebarItem>*/}
-        {/*<SidebarItem to={path('/confirm')}>Confirm</SidebarItem>*/}
-        {/*<SidebarItem to={path('/panel')}>Panel</SidebarItem>*/}
-        {/*<SidebarItem to={path('/alert')}>Alert</SidebarItem>*/}
-        {/*<SidebarItem to={path('/icons')}>Icons</SidebarItem>*/}
-        {/*<SidebarItem to={path('/fender')}>Fender</SidebarItem>*/}
-        {/*<SidebarItem to={path('/toast')}>Toast</SidebarItem>*/}
-        {/*<SidebarItem to={path('/global-progress')}>GlobalProgress</SidebarItem>*/}
-        {/*<SidebarItem to={path('/animate')}>Animate</SidebarItem>*/}
-        {/*<SidebarItem to={path('/table-sort')}>TableSort</SidebarItem>*/}
-        {/*<SidebarItem to={path('/input-date')}>InputDate</SidebarItem>*/}
+        <Link to={path('/stepper')}>
+          <SidebarItem>ExpensionStepper</SidebarItem>
+        </Link>
+        <Link to={path('/autocomplete')}>
+          <SidebarItem>Autocomplete</SidebarItem>
+        </Link>
+        <Link to={path('/btn')}>
+          <SidebarItem>Btn</SidebarItem>
+        </Link>
+        <Link to={path('/btn-uploader')}>
+          <SidebarItem>BtnUploader</SidebarItem>
+        </Link>
+        <Link to={path('/txt')}>
+          <SidebarItem>Txt</SidebarItem>
+        </Link>
+        <Link to={path('/confirm')}>
+          <SidebarItem>Confirm</SidebarItem>
+        </Link>
+        <Link to={path('/panel')}>
+          <SidebarItem>Panel</SidebarItem>
+        </Link>
+        <Link to={path('/alert')}>
+          <SidebarItem>Alert</SidebarItem>
+        </Link>
+        <Link to={path('/icons')}>
+          <SidebarItem>Icons</SidebarItem>
+        </Link>
+        <Link to={path('/fender')}>
+          <SidebarItem>Fender</SidebarItem>
+        </Link>
+        <Link to={path('/toast')}>
+          <SidebarItem>Toast</SidebarItem>
+        </Link>
+        <Link to={path('/global-progress')}>
+          <SidebarItem>GlobalProgress</SidebarItem>
+        </Link>
+        <Link to={path('/animate')}>
+          <SidebarItem>Animate</SidebarItem>
+        </Link>
+        <Link to={path('/table-sort')}>
+          <SidebarItem>TableSort</SidebarItem>
+        </Link>
+        <Link to={path('/input-date')}>
+          <SidebarItem>InputDate</SidebarItem>
+        </Link>
       </SidebarBody>
       <SidebarFooter>
         <SidebarItem icon="brightness_3">

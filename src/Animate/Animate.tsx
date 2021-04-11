@@ -32,29 +32,3 @@ export const Animate = ({children, delay}: AnimateProps) => {
     className: classNames(classes.root, appeared && classes.root_appeared)
   })
 }
-
-// class Animate extends React.Component<AnimateProps & WithStyles<typeof styles>, any> {
-//
-//   state = {
-//     appeared: false,
-//   }
-//
-//   private timeout: any
-//
-//   render() {
-//     const {children, classes} = this.props
-//     return React.cloneElement(children, {
-//       className: classNames(classes.root, this.state.appeared && classes.root_appeared)
-//     })
-//   }
-//
-//   componentDidMount() {
-//     this.timeout = setTimeout(() => this.setState({appeared: true}), this.props.delay || 0)
-//   }
-//
-//   componentWillUnmount() {
-//     clearTimeout(this.timeout)
-//   }
-// }
-//
-// export default withStyles(styles)(Animate) as React.ComponentType<AnimateProps>
