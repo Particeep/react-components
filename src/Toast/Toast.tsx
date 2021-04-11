@@ -1,17 +1,8 @@
 import * as React from 'react'
-import {
-  CircularProgress,
-  createStyles,
-  Icon,
-  IconButton,
-  Snackbar,
-  Theme,
-  WithStyles,
-  withStyles
-} from '@material-ui/core'
+import {useContext} from 'react'
+import {CircularProgress, createStyles, Icon, IconButton, Snackbar, Theme, WithStyles, withStyles} from '@material-ui/core'
 import {colorInfo, colorSuccess, colorWarning} from '../core/style/color'
 import autobind from 'autobind-decorator'
-import {useContext} from 'react'
 
 const ToastContext = React.createContext({})
 

@@ -1,17 +1,7 @@
 import * as React from 'react'
 import {ReactElement} from 'react'
 import classNames from 'classnames'
-import {
-  Checkbox,
-  createStyles,
-  Icon,
-  Input,
-  InputAdornment,
-  Menu,
-  Theme,
-  WithStyles,
-  withStyles
-} from '@material-ui/core'
+import {Checkbox, createStyles, Icon, Input, InputAdornment, Menu, Theme, WithStyles, withStyles} from '@material-ui/core'
 import {AutocompleteItemProps} from './AutocompleteItem'
 
 const styles = (t: Theme) => createStyles({

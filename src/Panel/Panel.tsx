@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {ReactNode} from 'react'
-import {createStyles, LinearProgress, Theme} from '@material-ui/core';
+import {createStyles, LinearProgress, Theme} from '@material-ui/core'
 import {makeStyles} from '@material-ui/styles'
 import classNames from 'classnames'
 

@@ -16,8 +16,8 @@
     "classnames": "^2.2.6",
     "lodash.debounce": "^4.0.8",
     "prismjs": "^1.15.0",
-    "react-router-dom": "^4.3.1",
-    "react-text-mask": "^5.1.0"
+    "react-router-dom": "^5.2.0",
+    "react-text-mask": "^5.4.3"
   },
   "scripts": {
     "test": "jest",

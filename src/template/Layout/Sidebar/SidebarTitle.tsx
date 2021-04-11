@@ -11,7 +11,7 @@ const useStyles = makeStyles((t: Theme) => createStyles({
     color: t.palette.text.disabled,
     marginBottom: t.spacing(2),
   }
-}));
+}))
 
 export interface SidebarTitleProps {
   children: ReactNode
