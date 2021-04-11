@@ -27,7 +27,7 @@ export const BtnUploaderDemoButton = () => {
   return (
     <div style={{display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap'}}>
       <BtnUploader
-        uploading={true}
+        uploading={isLoading}
         document={document}
         onUpload={onUpload}
         onDelete={onDelete}/>
